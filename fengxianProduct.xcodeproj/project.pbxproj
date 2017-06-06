@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		226143081EE6E2A500193487 /* launch_Image1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 226143041EE6E2A500193487 /* launch_Image1.gif */; };
+		226143091EE6E2A500193487 /* launch_Image2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 226143051EE6E2A500193487 /* launch_Image2.gif */; };
+		2261430A1EE6E2A500193487 /* launch_Image3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 226143061EE6E2A500193487 /* launch_Image3.gif */; };
+		2261430B1EE6E2A500193487 /* launch_Image4.gif in Resources */ = {isa = PBXBuildFile; fileRef = 226143071EE6E2A500193487 /* launch_Image4.gif */; };
+		226143131EE6E35100193487 /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226143111EE6E35100193487 /* LaunchViewController.m */; };
+		226143141EE6E35100193487 /* LaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 226143121EE6E35100193487 /* LaunchViewController.xib */; };
+		226143181EE6EDC400193487 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226143161EE6EDC300193487 /* RegisterViewController.m */; };
+		226143191EE6EDC400193487 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 226143171EE6EDC300193487 /* RegisterViewController.xib */; };
+		2261431D1EE6EF8300193487 /* YX_TextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2261431C1EE6EF8300193487 /* YX_TextField.m */; };
 		226BDF831EE6859D009D2A3F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BDF821EE6859D009D2A3F /* main.m */; };
 		226BDF861EE6859D009D2A3F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BDF851EE6859D009D2A3F /* AppDelegate.m */; };
 		226BDF891EE6859D009D2A3F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BDF881EE6859D009D2A3F /* ViewController.m */; };
@@ -214,6 +223,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		226143041EE6E2A500193487 /* launch_Image1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = launch_Image1.gif; sourceTree = "<group>"; };
+		226143051EE6E2A500193487 /* launch_Image2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = launch_Image2.gif; sourceTree = "<group>"; };
+		226143061EE6E2A500193487 /* launch_Image3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = launch_Image3.gif; sourceTree = "<group>"; };
+		226143071EE6E2A500193487 /* launch_Image4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = launch_Image4.gif; sourceTree = "<group>"; };
+		226143101EE6E35100193487 /* LaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
+		226143111EE6E35100193487 /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
+		226143121EE6E35100193487 /* LaunchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchViewController.xib; sourceTree = "<group>"; };
+		226143151EE6EDC300193487 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		226143161EE6EDC300193487 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		226143171EE6EDC300193487 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		2261431B1EE6EF8300193487 /* YX_TextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YX_TextField.h; sourceTree = "<group>"; };
+		2261431C1EE6EF8300193487 /* YX_TextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YX_TextField.m; sourceTree = "<group>"; };
 		226BDF7E1EE6859D009D2A3F /* fengxianProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fengxianProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		226BDF821EE6859D009D2A3F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		226BDF841EE6859D009D2A3F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -630,6 +651,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		226143031EE6E23400193487 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				226143041EE6E2A500193487 /* launch_Image1.gif */,
+				226143051EE6E2A500193487 /* launch_Image2.gif */,
+				226143061EE6E2A500193487 /* launch_Image3.gif */,
+				226143071EE6E2A500193487 /* launch_Image4.gif */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		2261430C1EE6E2B800193487 /* launch */ = {
+			isa = PBXGroup;
+			children = (
+				226143101EE6E35100193487 /* LaunchViewController.h */,
+				226143111EE6E35100193487 /* LaunchViewController.m */,
+				226143121EE6E35100193487 /* LaunchViewController.xib */,
+			);
+			path = launch;
+			sourceTree = "<group>";
+		};
+		2261431A1EE6EF4100193487 /* textField */ = {
+			isa = PBXGroup;
+			children = (
+				2261431B1EE6EF8300193487 /* YX_TextField.h */,
+				2261431C1EE6EF8300193487 /* YX_TextField.m */,
+			);
+			name = textField;
+			sourceTree = "<group>";
+		};
 		226BDF751EE6859D009D2A3F = {
 			isa = PBXGroup;
 			children = (
@@ -655,6 +706,7 @@
 		226BDF801EE6859D009D2A3F /* fengxianProduct */ = {
 			isa = PBXGroup;
 			children = (
+				226143031EE6E23400193487 /* source */,
 				84AABC5E1EE69F76001AA7C0 /* Third */,
 				845862651EE68A8600AF52B3 /* Network */,
 				845862091EE68A7100AF52B3 /* Common */,
@@ -710,6 +762,7 @@
 		845862081EE68A5300AF52B3 /* viewController */ = {
 			isa = PBXGroup;
 			children = (
+				2261430C1EE6E2B800193487 /* launch */,
 				84AABEF71EE6B415001AA7C0 /* Register */,
 				84AABEF61EE6B3FB001AA7C0 /* Login */,
 				84AABEE81EE6B02C001AA7C0 /* My */,
@@ -724,6 +777,7 @@
 		845862091EE68A7100AF52B3 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2261431A1EE6EF4100193487 /* textField */,
 				8458620A1EE68A7100AF52B3 /* AES */,
 				8458620F1EE68A7100AF52B3 /* Contact */,
 				845862151EE68A7100AF52B3 /* CostumView */,
@@ -1503,6 +1557,9 @@
 		84AABEF71EE6B415001AA7C0 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				226143151EE6EDC300193487 /* RegisterViewController.h */,
+				226143161EE6EDC300193487 /* RegisterViewController.m */,
+				226143171EE6EDC300193487 /* RegisterViewController.xib */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -1664,9 +1721,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				226143191EE6EDC400193487 /* RegisterViewController.xib in Resources */,
 				84AABEFC1EE6B44E001AA7C0 /* LoginViewController.xib in Resources */,
 				226BDF911EE6859D009D2A3F /* LaunchScreen.storyboard in Resources */,
 				226BDF8E1EE6859D009D2A3F /* Assets.xcassets in Resources */,
+				2261430B1EE6E2A500193487 /* launch_Image4.gif in Resources */,
+				226143091EE6E2A500193487 /* launch_Image2.gif in Resources */,
+				226143081EE6E2A500193487 /* launch_Image1.gif in Resources */,
+				2261430A1EE6E2A500193487 /* launch_Image3.gif in Resources */,
+				226143141EE6E35100193487 /* LaunchViewController.xib in Resources */,
 				226BDF8C1EE6859D009D2A3F /* Main.storyboard in Resources */,
 				84AABDD11EE69F76001AA7C0 /* HMScanner.bundle in Resources */,
 			);
@@ -1716,7 +1779,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -1767,6 +1830,7 @@
 				84AABEC41EE6A035001AA7C0 /* CALayer+Compat.m in Sources */,
 				84AABED31EE6A035001AA7C0 /* LOTAnimationTransitionController.m in Sources */,
 				84AABEB21EE6A035001AA7C0 /* LOTEllipseShapeLayer.m in Sources */,
+				226143181EE6EDC400193487 /* RegisterViewController.m in Sources */,
 				84AABEBB1EE6A035001AA7C0 /* LOTAnimatableNumberValue.m in Sources */,
 				84AABDE71EE69F76001AA7C0 /* YYTextContainerView.m in Sources */,
 				84AABDF41EE69F76001AA7C0 /* YYTextRunDelegate.m in Sources */,
@@ -1794,6 +1858,7 @@
 				84AABE551EE6A003001AA7C0 /* UITableViewCell+Extend.m in Sources */,
 				84AABE561EE6A003001AA7C0 /* UIView+Extend.m in Sources */,
 				84AABDED1EE69F76001AA7C0 /* YYTextLine.m in Sources */,
+				226143131EE6E35100193487 /* LaunchViewController.m in Sources */,
 				84AABDE81EE69F76001AA7C0 /* YYTextDebugOption.m in Sources */,
 				84AABDF91EE69F76001AA7C0 /* YYTextAsyncLayer.m in Sources */,
 				84AABE491EE6A003001AA7C0 /* NSString+Extend.m in Sources */,
@@ -1885,6 +1950,7 @@
 				84AABEC21EE6A035001AA7C0 /* UIColor+Expanded.m in Sources */,
 				84AABDFC1EE69F76001AA7C0 /* YYTextWeakProxy.m in Sources */,
 				84AABDCC1EE69F76001AA7C0 /* LewPopupViewAnimationFade.m in Sources */,
+				2261431D1EE6EF8300193487 /* YX_TextField.m in Sources */,
 				84AABE521EE6A003001AA7C0 /* UIImage+FixOrientation.m in Sources */,
 				845862561EE68A7100AF52B3 /* NSString+MD5Encrypt.m in Sources */,
 				8458624C1EE68A7100AF52B3 /* AddressClass.m in Sources */,

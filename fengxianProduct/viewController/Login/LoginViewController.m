@@ -7,8 +7,8 @@
 //
 
 #import "LoginViewController.h"
-
-@interface LoginViewController ()
+#import "RegisterViewController.h"
+@interface LoginViewController ()<UITextFieldDelegate>
 
 @end
 
@@ -17,7 +17,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.userNameTextField.delegate = self;
+    self.password.delegate = self;
+
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [self.userNameTextField becomeFirstResponder];
+    
+}
+#pragma  mrak - 点击事件
+- (IBAction)loginBtnClick:(id)sender {
+    
+
+    
+    
+}
+- (IBAction)goRegisterBtnClick:(id)sender {
+    
+    
+    RegisterViewController * registerVC = [[RegisterViewController alloc]init];
+    [self.navigationController pushViewController:registerVC animated:YES];
+    
+}
+- (IBAction)goForgetPasswordClick:(id)sender {
+    
+    
+}
+- (IBAction)visitorModelCilck:(id)sender {
+    
+    
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

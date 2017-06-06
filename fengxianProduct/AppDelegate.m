@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "LaunchViewController.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +20,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [application setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+//    LaunchViewController * launchVC = [[LaunchViewController alloc]init];
+//    self.window.rootViewController = launchVC;
+    [self.window makeKeyAndVisible];
+    [self monitorNetworkState];
+//    [self performSelector:@selector(enter) withObject:self afterDelay:4];
+    [self enter];
+    
     return YES;
 }
 
@@ -25,9 +38,15 @@
     
     self.btb = [[BaseTabBarViewController alloc]init];
     self.window.rootViewController = self.btb;
+
+    LoginViewController * loginVc = [[LoginViewController alloc]init];
+    BaseNavigationViewController *nav = [[BaseNavigationViewController alloc]initWithRootViewController:loginVc];
+//    nav.transitioningDelegate = self;
+//    [self presentViewController:nav animated:YES completion:nil];
+
+    self.window.rootViewController = nav;
+
     
-    
-    //    [self.window.layer transitionWithAnimType:TransitionAnimTypeRamdom subType:TransitionSubtypesFromRamdom curve:TransitionCurveRamdom duration:2.0f];
 }
 - (void)monitorNetworkState
 {
@@ -53,6 +72,7 @@
     // 3.开始监控
     [mgr startMonitoring];
 }
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

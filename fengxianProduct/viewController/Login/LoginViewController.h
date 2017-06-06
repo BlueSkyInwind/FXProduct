@@ -7,7 +7,23 @@
 //
 
 #import "ViewController.h"
+#import "YX_TextField.h"
+@interface LoginViewController : BaseViewController
 
-@interface LoginViewController : ViewController
+@property (weak, nonatomic) IBOutlet YX_TextField *userNameTextField;
+
+@property (weak, nonatomic) IBOutlet YX_TextField *password;
+
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *goRegisterBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *goForgetPassword;
+
+@property (weak, nonatomic) IBOutlet UIButton *visitorBtn;
+
+
+
+
 
 @end

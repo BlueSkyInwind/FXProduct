@@ -23,7 +23,7 @@ PODS:
   - Masonry (1.0.2)
   - MBProgressHUD (0.9.2)
   - MJRefresh (3.1.12)
-  - MOBFoundation (2.2.19)
+  - MOBFoundation (2.2.17)
   - OpenUDID (1.0.0)
   - pop (1.0.9)
   - ReactiveObjC (3.0.0)
@@ -59,7 +59,7 @@ SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  MOBFoundation: e962b2aee79e2b8f626e2d30c2f23e9f13e5331e
+  MOBFoundation: fa12570bb16a7655dca3b3472ce6cd962e7ff5e3
   OpenUDID: e7cb6984c7304906ad20f3a36bf087b025896b6b
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   ReactiveObjC: ce79989e8684b9086b5f8d0c74bc7b81a8729c9e
@@ -69,4 +69,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 481ab1f44160540bb3efa799fd82ac691ea22282
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.2.0
