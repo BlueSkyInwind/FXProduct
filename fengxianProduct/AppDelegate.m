@@ -10,6 +10,7 @@
 
 @interface AppDelegate ()
 
+
 @end
 
 @implementation AppDelegate
@@ -20,7 +21,38 @@
     return YES;
 }
 
-
+-(void)enter{
+    
+    self.btb = [[BaseTabBarViewController alloc]init];
+    self.window.rootViewController = self.btb;
+    
+    
+    //    [self.window.layer transitionWithAnimType:TransitionAnimTypeRamdom subType:TransitionSubtypesFromRamdom curve:TransitionCurveRamdom duration:2.0f];
+}
+- (void)monitorNetworkState
+{
+    AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
+    
+    // 2.设置网络状态改变后的处理
+    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        // 当网络状态改变了, 就会调用这个block
+        switch (status) {
+            case AFNetworkReachabilityStatusUnknown: // 未知网络
+            case AFNetworkReachabilityStatusNotReachable: // 没有网络(断网)
+                DLog(@"未知网络 || 没有网络(断网)");
+                [Utility sharedUtility].networkState = NO;
+                break;
+                
+            case AFNetworkReachabilityStatusReachableViaWWAN: // 手机自带网络
+            case AFNetworkReachabilityStatusReachableViaWiFi: // WIFI
+                DLog(@"手机自带网络 || WIFI");
+                [Utility sharedUtility].networkState = YES;
+                break;
+        }
+    }];
+    // 3.开始监控
+    [mgr startMonitoring];
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
