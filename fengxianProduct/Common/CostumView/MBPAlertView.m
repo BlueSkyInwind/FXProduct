@@ -20,23 +20,23 @@
     return sharedMBPInstance;
 }
 
-//- (void) showTextOnly:(UIView *)view message: (NSString *)message
-//{
-//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-//    // Configure for text only and offset down
-//    hud.mode = MBProgressHUDModeText;
-//    
-//    if (message.length < 20) {
-//        hud.labelText = message;
-//        hud.labelFont = [UIFont systemFontOfSize:12];
-//    } else {
-//        hud.detailsLabelText = message;
-//        hud.detailsLabelFont = [UIFont systemFontOfSize:12];
-//    }
-//    hud.margin = 13.f;
-//    hud.removeFromSuperViewOnHide = YES;
-//    [hud hide:YES afterDelay:2];
-//}
+- (void) showTextOnly:(UIView *)view message: (NSString *)message
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    // Configure for text only and offset down
+    hud.mode = MBProgressHUDModeText;
+    
+    if (message.length < 20) {
+        hud.labelText = message;
+        hud.labelFont = [UIFont systemFontOfSize:12];
+    } else {
+        hud.detailsLabelText = message;
+        hud.detailsLabelFont = [UIFont systemFontOfSize:12];
+    }
+    hud.margin = 13.f;
+    hud.removeFromSuperViewOnHide = YES;
+    [hud hide:YES afterDelay:2];
+}
 
 
 @end

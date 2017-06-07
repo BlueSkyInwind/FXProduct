@@ -39,14 +39,12 @@
     self.btb = [[BaseTabBarViewController alloc]init];
     self.window.rootViewController = self.btb;
 
-//    LoginViewController * loginVc = [[LoginViewController alloc]init];
-//    BaseNavigationViewController *nav = [[BaseNavigationViewController alloc]initWithRootViewController:loginVc];
-////    nav.transitioningDelegate = self;
-////    [self presentViewController:nav animated:YES completion:nil];
-//
-//    self.window.rootViewController = nav;
+    LoginViewController * loginVc = [[LoginViewController alloc]init];
+    BaseNavigationViewController *nav = [[BaseNavigationViewController alloc]initWithRootViewController:loginVc];
+//    nav.transitioningDelegate = self;
+//    [self presentViewController:nav animated:YES completion:nil];
 
-    
+    self.window.rootViewController = nav;
 }
 - (void)monitorNetworkState
 {

@@ -14,7 +14,6 @@
 @property (nonatomic,strong) UserInfoObj *userInfo;
 @property (nonatomic,assign) BOOL loginFlage;
 @property (nonatomic,assign) BOOL networkState;
-@property (nonatomic,retain) NSMutableDictionary *getMoneyParam;
 
 + (Utility *)sharedUtility;
 
