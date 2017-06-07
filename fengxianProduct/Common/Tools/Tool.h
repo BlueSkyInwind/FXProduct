@@ -54,7 +54,7 @@
 
 //设置沙盒
 + (void)saveUserDefaul:(NSString *)content Key:(NSString *)key;
-+ (NSString *)getContentWithKey:(NSString *)key;
++ (id)getContentWithKey:(NSString *)key;
 
 
 

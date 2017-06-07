@@ -32,6 +32,7 @@
     [webView loadData:gif MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
     [self.view addSubview:webView];
     
+    
 }
 
 - (void)didReceiveMemoryWarning {

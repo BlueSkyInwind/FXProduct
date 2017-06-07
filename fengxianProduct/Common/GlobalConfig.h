@@ -41,12 +41,13 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define UI_IS_IPHONE6P            (UI_IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 736.0)
 #define UI_IS_IPHONE4           (UI_IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 480.0)
 
-//#define UI_MAIN_COLOR [UIColor colorWithRed:0/255.0 green:170/255.0 blue:238/255.0 alpha:1]
+#define UI_MAIN_COLOR [UIColor colorWithRed:66/255.0 green:167/255.0 blue:189/255.0 alpha:1]
 
-#define UI_MAIN_COLOR [UIColor blueColor]
 
-#define KCharacterNumber @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+#define KCharacterNumber @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@"
 
+
+UIKIT_EXTERN NSString * const _main_url;
 
 
 UIKIT_EXTERN NSString * const PLATFORM;                 //平台
@@ -68,9 +69,7 @@ UIKIT_EXTERN NSString * const kUserID;
 UIKIT_EXTERN NSString * const kUserPass;
 
 //juid
-UIKIT_EXTERN NSString * const Fxd_JUID;
-//token
-UIKIT_EXTERN NSString * const Fxd_Token;
+UIKIT_EXTERN NSString * const FX_AccountID;
 
 //登陆标识
 UIKIT_EXTERN NSString * const kLoginFlag;

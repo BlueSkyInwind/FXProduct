@@ -265,9 +265,8 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-+ (NSString *)getContentWithKey:(NSString *)key;
++ (id)getContentWithKey:(NSString *)key;
 {
-    
     return [[NSUserDefaults standardUserDefaults] objectForKey:key];
 }
 

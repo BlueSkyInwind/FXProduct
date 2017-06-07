@@ -6,7 +6,7 @@
 //  Copyright © 2017年 Wangyongxin. All rights reserved.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 
 @interface ActivityViewController : BaseViewController
 

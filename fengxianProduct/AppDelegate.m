@@ -45,8 +45,6 @@
 //    [self presentViewController:nav animated:YES completion:nil];
 
     self.window.rootViewController = nav;
-
-    
 }
 - (void)monitorNetworkState
 {

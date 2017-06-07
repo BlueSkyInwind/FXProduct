@@ -2,6 +2,11 @@
 
 
 
+
+
+NSString * const _main_url  =   @"http://infx2.echaokj.cn/ajax/";
+
+
 NSString * const PLATFORM = @"1";                   //平台
 
 NSString * const Devcode = @"5LIK5RW35LIT6LW";     //开发码
@@ -32,10 +37,8 @@ NSString * const UmengKey      =   @"58d9b5a299f0c72cc5001347";
 NSString * const kUserID       =   @"userName";
 NSString * const kUserPass     =   @"userPass";
 
-//juid
-NSString * const Fxd_JUID     =    @"juid";
-//token
-NSString * const Fxd_Token     =   @"token";
+//ju
+NSString * const FX_AccountID     =    @"accountID";
 
 //登陆标识
 NSString * const kLoginFlag    =   @"loginFlag";
@@ -50,17 +53,12 @@ NSString * const UserName    =    @"userName";
 
 NSString * const  kAddMaterailNotification  =   @"zbctongzhi";
 
-
 NSString * const isLoginFlag  =   @"loginState";
-
-NSString * const SERVERNAME   =   @"com.hfsj.fxd";
 
 NSString * const UserInfomation = @"UserInfomation";
 
 NSString * const FirstLunch = @"FirstLunch";
 
-NSString * const theMoxieApiKey = @"54adcefe02314a44b82dca9b470c4bad";  //生产
-//NSString * const theMoxieApiKey = @"8190142167af4b30b898827623d57b4d";
 
 
 

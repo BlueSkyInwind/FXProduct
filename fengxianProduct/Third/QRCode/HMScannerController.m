@@ -37,6 +37,8 @@
 - (void)setTitleColor:(UIColor *)titleColor tintColor:(UIColor *)tintColor {
     [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: titleColor}];
     self.navigationBar.tintColor = tintColor;
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.barTintColor = UI_MAIN_COLOR;
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
