@@ -24,12 +24,12 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [application setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
-//    LaunchViewController * launchVC = [[LaunchViewController alloc]init];
-//    self.window.rootViewController = launchVC;
+    LaunchViewController * launchVC = [[LaunchViewController alloc]init];
+    self.window.rootViewController = launchVC;
     [self.window makeKeyAndVisible];
     [self monitorNetworkState];
-//    [self performSelector:@selector(enter) withObject:self afterDelay:4];
-    [self enter];
+    [self performSelector:@selector(enter) withObject:self afterDelay:4];
+//    [self enter];
     
     return YES;
 }
@@ -39,12 +39,12 @@
     self.btb = [[BaseTabBarViewController alloc]init];
     self.window.rootViewController = self.btb;
 
-    LoginViewController * loginVc = [[LoginViewController alloc]init];
-    BaseNavigationViewController *nav = [[BaseNavigationViewController alloc]initWithRootViewController:loginVc];
-//    nav.transitioningDelegate = self;
-//    [self presentViewController:nav animated:YES completion:nil];
-
-    self.window.rootViewController = nav;
+//    LoginViewController * loginVc = [[LoginViewController alloc]init];
+//    BaseNavigationViewController *nav = [[BaseNavigationViewController alloc]initWithRootViewController:loginVc];
+////    nav.transitioningDelegate = self;
+////    [self presentViewController:nav animated:YES completion:nil];
+//
+//    self.window.rootViewController = nav;
 
     
 }
