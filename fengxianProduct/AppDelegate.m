@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "LaunchViewController.h"
 #import "LoginViewController.h"
-#import "InitialSetting.h"
+//#import "InitialSetting.h"
 @interface AppDelegate ()
 
 
@@ -28,7 +28,6 @@
     self.window.rootViewController = launchVC;
     [self.window makeKeyAndVisible];
     [self monitorNetworkState];
-    [InitialSetting load];
     [self performSelector:@selector(enter) withObject:self afterDelay:4];
 //    [self enter];
     
@@ -91,6 +90,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [[ShareConfig share]updateUserData];
 }
 
 

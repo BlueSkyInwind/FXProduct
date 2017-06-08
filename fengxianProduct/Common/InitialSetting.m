@@ -40,20 +40,14 @@
     });
     //获取用户信息
     [Utility sharedUtility].loginFlage = [[Tool getContentWithKey:kLoginFlag] integerValue];
-    if ( [Tool getContentWithKey:FX_AccountID] && [Utility sharedUtility].loginFlage) {
+    if ([Tool getContentWithKey:FX_AccountID] && [Utility sharedUtility].loginFlage) {
         
         [Utility sharedUtility].userInfo = [[UserInfoObj alloc]initWithDictionary:[Tool getContentWithKey:FX_AccountID] error:nil];
-        
-        //更新用户数据
-        MoreViewModel * moreVM = [[MoreViewModel alloc]init];
-        [moreVM setBlockWithReturnBlock:^(id returnValue) {
-            
-        } WithFaileBlock:^{
-            
-        }];
-        [moreVM obtainAccountInfo];
     }
 }
+
+
+
 
 
 @end

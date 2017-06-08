@@ -19,7 +19,7 @@
     
     NSString * baseUrl = [NSString stringWithFormat:@"%@inter/UserQuery.ashx?AccountId=%@",_main_url,[Utility sharedUtility].userInfo.ID];
     
-    [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+    [[FXNetworkManager sharedNetWorkManager]POSTHideIndicatorWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
         if ([returnMsg.returnCode intValue] == 1) {
             DLog(@"获取成功");

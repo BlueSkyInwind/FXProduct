@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="UserInfoTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserInfoTableViewCell" id="KGk-i7-Jjw" customClass="UserInfoTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Viu-9j-JER">
+                        <rect key="frame" x="11" y="12.5" width="146" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="146" id="ZMy-AK-ROZ"/>
+                            <constraint firstAttribute="height" constant="18" id="ZPg-BY-WI4"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="more_Left_gray_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="eIM-VH-uTK">
+                        <rect key="frame" x="297" y="12" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="ND4-kQ-pak"/>
+                            <constraint firstAttribute="width" constant="20" id="iA3-jP-rxF"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PUT-bT-2XL">
+                        <rect key="frame" x="267" y="9.5" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="E4U-47-txb"/>
+                            <constraint firstAttribute="height" constant="25" id="K6a-Da-cdQ"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BtM-Y4-JGM">
+                        <rect key="frame" x="162" y="13" width="130" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="130" id="8f1-6C-xda"/>
+                            <constraint firstAttribute="height" constant="18" id="hxG-dV-d5b"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="eIM-VH-uTK" firstAttribute="leading" secondItem="BtM-Y4-JGM" secondAttribute="trailing" constant="5" id="DEm-5s-hbm"/>
+                    <constraint firstItem="Viu-9j-JER" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="3" id="ETa-Zg-adv"/>
+                    <constraint firstItem="BtM-Y4-JGM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="RB7-kv-6f9"/>
+                    <constraint firstItem="PUT-bT-2XL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="beP-bp-0TP"/>
+                    <constraint firstItem="eIM-VH-uTK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="iAN-22-2B9"/>
+                    <constraint firstAttribute="trailing" secondItem="eIM-VH-uTK" secondAttribute="trailing" constant="3" id="nZK-vp-utq"/>
+                    <constraint firstItem="eIM-VH-uTK" firstAttribute="leading" secondItem="PUT-bT-2XL" secondAttribute="trailing" constant="5" id="viq-sp-uup"/>
+                    <constraint firstItem="Viu-9j-JER" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="wyV-SX-xxD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentImageView" destination="PUT-bT-2XL" id="OMo-04-5bK"/>
+                <outlet property="contentLabel" destination="BtM-Y4-JGM" id="iAD-sb-sgQ"/>
+                <outlet property="titleLabel" destination="Viu-9j-JER" id="y5M-aT-GAA"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="more_Left_gray_Icon" width="21" height="21"/>
+    </resources>
+</document>

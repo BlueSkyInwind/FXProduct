@@ -29,7 +29,8 @@
     self.passwordTextField.delegate = self;
     self.confirmPasswordTextField.delegate = self;
     self.verifyCodeTextField.delegate = self;
-    
+    [self addBackItem];
+
 }
 - (void)viewWillAppear:(BOOL)animated
 {

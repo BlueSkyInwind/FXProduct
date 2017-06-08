@@ -49,7 +49,7 @@
 #import "ViewModelClass.h"
 #import "FXNetworkManager.h"
 #import "ReturnMsgBaseClass.h"
-
+#import "ShareConfig.h"
 
 #endif
 

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		221A51141EE99A8C00A543C0 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221A51131EE99A8C00A543C0 /* UserInfoViewController.m */; };
+		221A51181EE99BCD00A543C0 /* UserInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 221A51161EE99BCD00A543C0 /* UserInfoTableViewCell.m */; };
+		221A51191EE99BCD00A543C0 /* UserInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 221A51171EE99BCD00A543C0 /* UserInfoTableViewCell.xib */; };
 		226143081EE6E2A500193487 /* launch_Image1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 226143041EE6E2A500193487 /* launch_Image1.gif */; };
 		226143091EE6E2A500193487 /* launch_Image2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 226143051EE6E2A500193487 /* launch_Image2.gif */; };
 		2261430A1EE6E2A500193487 /* launch_Image3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 226143061EE6E2A500193487 /* launch_Image3.gif */; };
@@ -248,6 +251,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		221A51121EE99A8C00A543C0 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		221A51131EE99A8C00A543C0 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
+		221A51151EE99BCD00A543C0 /* UserInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoTableViewCell.h; sourceTree = "<group>"; };
+		221A51161EE99BCD00A543C0 /* UserInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoTableViewCell.m; sourceTree = "<group>"; };
+		221A51171EE99BCD00A543C0 /* UserInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoTableViewCell.xib; sourceTree = "<group>"; };
 		226143041EE6E2A500193487 /* launch_Image1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = launch_Image1.gif; sourceTree = "<group>"; };
 		226143051EE6E2A500193487 /* launch_Image2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = launch_Image2.gif; sourceTree = "<group>"; };
 		226143061EE6E2A500193487 /* launch_Image3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = launch_Image3.gif; sourceTree = "<group>"; };
@@ -863,6 +871,9 @@
 				8431F3461EE917DF00295A18 /* MoreTableViewCell.h */,
 				8431F3471EE917DF00295A18 /* MoreTableViewCell.m */,
 				8431F3481EE917DF00295A18 /* MoreTableViewCell.xib */,
+				221A51151EE99BCD00A543C0 /* UserInfoTableViewCell.h */,
+				221A51161EE99BCD00A543C0 /* UserInfoTableViewCell.m */,
+				221A51171EE99BCD00A543C0 /* UserInfoTableViewCell.xib */,
 			);
 			path = moreView;
 			sourceTree = "<group>";
@@ -1681,6 +1692,8 @@
 			children = (
 				84AABEF21EE6B281001AA7C0 /* MyViewController.h */,
 				84AABEF31EE6B281001AA7C0 /* MyViewController.m */,
+				221A51121EE99A8C00A543C0 /* UserInfoViewController.h */,
+				221A51131EE99A8C00A543C0 /* UserInfoViewController.m */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -1883,6 +1896,7 @@
 				8431F3401EE8E40900295A18 /* MoreHeaderView.xib in Resources */,
 				847744FE1EE7958D00043F25 /* ForgetPasswordViewController.xib in Resources */,
 				8431F3451EE8FD9C00295A18 /* MoreNavView.xib in Resources */,
+				221A51191EE99BCD00A543C0 /* UserInfoTableViewCell.xib in Resources */,
 				2261430B1EE6E2A500193487 /* launch_Image4.gif in Resources */,
 				8431F34A1EE917DF00295A18 /* MoreTableViewCell.xib in Resources */,
 				226143091EE6E2A500193487 /* launch_Image2.gif in Resources */,
@@ -1943,7 +1957,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -1973,6 +1987,7 @@
 				84AABEFB1EE6B44E001AA7C0 /* LoginViewController.m in Sources */,
 				84AABEC31EE6A035001AA7C0 /* CADisplayLink.m in Sources */,
 				84AABEB71EE6A035001AA7C0 /* LOTShapeLayerView.m in Sources */,
+				221A51141EE99A8C00A543C0 /* UserInfoViewController.m in Sources */,
 				84AABDD51EE69F76001AA7C0 /* HMScannerMaskView.m in Sources */,
 				84AABEBD1EE6A035001AA7C0 /* LOTAnimatableScaleValue.m in Sources */,
 				84AABED21EE6A035001AA7C0 /* LOTShapeTrimPath.m in Sources */,
@@ -2113,6 +2128,7 @@
 				84AABEEB1EE6B251001AA7C0 /* NewsViewController.m in Sources */,
 				84AABDEC1EE69F76001AA7C0 /* YYTextLayout.m in Sources */,
 				8458625E1EE68A7100AF52B3 /* NSNumber+YYAdd.m in Sources */,
+				221A51181EE99BCD00A543C0 /* UserInfoTableViewCell.m in Sources */,
 				84AABDC61EE69F76001AA7C0 /* MLBlackTransition.m in Sources */,
 				84AABDF51EE69F76001AA7C0 /* NSAttributedString+YYText.m in Sources */,
 				84AABEEE1EE6B264001AA7C0 /* LivesViewController.m in Sources */,

@@ -16,7 +16,7 @@
 
 - (void)setNavCallRightBar;
 
-- (void)setNavSignLeftBar;
+- (void)setNavLeftBar;
 
 - (void)addBackItem;
 

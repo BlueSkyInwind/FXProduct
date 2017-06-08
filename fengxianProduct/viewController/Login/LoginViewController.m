@@ -22,10 +22,10 @@
     self.navigationItem.title = @"登录";
     self.userNameTextField.delegate = self;
     self.password.delegate = self;
-
+    [self addBackItem];
 }
 -(void)viewWillAppear:(BOOL)animated{
-    [self.userNameTextField becomeFirstResponder];
+    
 }
 
 #pragma  mrak - 点击事件
@@ -40,7 +40,7 @@
         ReturnMsgBaseClass * returnMsg = returnValue;
         if ([returnMsg.returnCode intValue] == 1) {
             
-            dispatch_sync(dispatch_get_main_queue(), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
                 [self dismissViewControllerAnimated:YES completion:^{
                 }];
             });

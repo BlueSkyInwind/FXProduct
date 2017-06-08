@@ -10,6 +10,12 @@
 
 @interface ShareConfig : NSObject
 
+
++(ShareConfig *)share;
+-(BOOL)isPresentLoginVC:(UIViewController *)vc;
+
+-(void)updateUserData;
+
 + (void)configDefaultShare;
 
 @end

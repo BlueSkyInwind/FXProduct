@@ -56,19 +56,48 @@
                 NSData *data = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
                 NSString *jsonStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                 DLog(@"response json --- %@",jsonStr);
-                
-                finished(Enum_SUCCESS,responseObject);
                 [_waitView removeFromSuperview];
                 [AFNetworkActivityIndicatorManager sharedManager].enabled = NO;
-                
+                finished(Enum_SUCCESS,responseObject);
+
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                [_waitView removeFromSuperview];
+                [AFNetworkActivityIndicatorManager sharedManager].enabled = NO;
                 failure(Enum_FAIL,error);
                 [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"服务器请求失败,请重试!"];
                 DLog(@"error---%@",error.description);
-                [_waitView removeFromSuperview];
-                [AFNetworkActivityIndicatorManager sharedManager].enabled = NO;
+
             }];
         }
+}
+
+- (void)POSTHideIndicatorWithURL:(NSString *)strURL parameters:(id)parameters finished:(FinishedBlock)finished failure:(FailureBlock)failure
+{
+    
+        NSDictionary *paramDic = [NSDictionary dictionary];
+        DLog(@"请求url:---%@\n加密前参数:----%@",strURL,parameters);
+        
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/json",@"text/html",@"application/x-www-form-urlencoded",@"application/json",@"charset=UTF-8",@"text/plain", nil];
+        manager.requestSerializer.timeoutInterval = 30.0;
+        DLog(@"%@",parameters);
+        [manager POST:strURL parameters:paramDic progress:^(NSProgress * _Nonnull uploadProgress) {
+            
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+            NSDictionary *dic = [NSDictionary dictionaryWithDictionary:responseObject];
+            NSData *data = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
+            NSString *jsonStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            DLog(@"response json --- %@",jsonStr);
+            finished(Enum_SUCCESS,responseObject);
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            failure(Enum_FAIL,error);
+            [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"服务器请求失败,请重试!"];
+            DLog(@"error---%@",error.description);
+        }];
 }
 
 - (UIViewController *)getCurrentVC{

@@ -29,6 +29,7 @@
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"注册";
     _countdown = 60;
+    [self addBackItem];
     [self configureView];
 }
 - (void)viewWillAppear:(BOOL)animated

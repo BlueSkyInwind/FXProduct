@@ -33,22 +33,25 @@
     self.navigationItem.rightBarButtonItem = aBarbi;
 }
 
-- (void)setNavSignLeftBar
+- (void)setNavLeftBar:(NSString *)title
 {
-    UIBarButtonItem *barBtn = [[UIBarButtonItem alloc]initWithTitle:@"签到" style:UIBarButtonItemStylePlain target:self action:@selector(singin)];
+    UIBarButtonItem *barBtn = [[UIBarButtonItem alloc]initWithTitle:title style:UIBarButtonItemStylePlain target:self action:@selector(singin)];
     barBtn.tintColor = [UIColor whiteColor];
     self.navigationItem.leftBarButtonItem = barBtn;
+    
 }
-
 - (void)singin
 {
+    
+    
 }
-
 - (void)click {
 
+    
 }
 
 - (void)setNavCallRightBar {
+    
     
 }
 
@@ -56,7 +59,7 @@
 {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
     
-    UIImage *img = [[UIImage imageNamed:@"return"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *img = [[UIImage imageNamed:@"backArrows_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     [btn setImage:img forState:UIControlStateNormal];
     btn.frame = CGRectMake(0, 0, 45, 44);
     [btn addTarget:self action:@selector(popBack) forControlEvents:UIControlEventTouchUpInside];

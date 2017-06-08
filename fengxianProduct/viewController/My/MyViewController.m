@@ -12,6 +12,8 @@
 #import "MoreTableViewCell.h"
 #import "MoreViewModel.h"
 #import "LoginViewController.h"
+#import "UserInfoViewController.h"
+
 @interface MyViewController ()<UITableViewDelegate,UITableViewDataSource,MoreNavViewDelegate>{
     
     NSArray * imageArr;
@@ -38,11 +40,21 @@
     [self configureView];
 }
 -(void)viewWillAppear:(BOOL)animated{
-    self.navigationController.navigationBarHidden = YES;
+//    self.navigationController.navigationBarHidden = YES;
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [super viewWillAppear:animated];
+    
+    [self.moreHeaderView configureViewImage:[Utility sharedUtility].userInfo.Images AccountID:[Utility sharedUtility].userInfo.Code];
+//    [self.tableView reloadData];
     
 }
 -(void)viewWillDisappear:(BOOL)animated{
-    self.navigationController.navigationBarHidden = NO;
+    [super viewWillDisappear:animated];
+    
+
+}
+-(void)viewDidDisappear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
 
 }
 -(void)configureView{
@@ -130,13 +142,17 @@
     UIView * view = [[UIView alloc]init];
     self.moreHeaderView = [[NSBundle mainBundle]loadNibNamed:@"MoreHeaderView" owner:self options:nil].lastObject;
     
+    __weak typeof (self) weakSelf = self;
     self.moreHeaderView.goUserInfoBtnClick = ^(UITapGestureRecognizer *tap) {
-        
-        
+        if ([[ShareConfig share] isPresentLoginVC:weakSelf]) {
+            UserInfoViewController * userInfoVC = [[UserInfoViewController alloc]init];
+            [weakSelf.navigationController pushViewController:userInfoVC animated:YES];
+         }
     };
     self.moreHeaderView.qRCodeBtnClick = ^(UIButton *button) {
-        
-        
+        if ([[ShareConfig share] isPresentLoginVC:weakSelf]) {
+            
+        }
     };
     [view addSubview:self.moreHeaderView];
     [self.moreHeaderView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -160,10 +176,13 @@
 }
 #pragma mark - MoreNavViewDelegate
 -(void)CollectViewCilck{
-    
-    
+    if ([[ShareConfig share] isPresentLoginVC:self]) {
+        
+    }
+
 }
 -(void)DiscloseViewCilck{
+    
     
     
 }
@@ -177,29 +196,18 @@
     
     
 }
-- (void)presentLogin:(UIViewController *)vc
-{
-    if ([Utility sharedUtility].loginFlage) {
-        
-    } else {
-        
-        LoginViewController *loginView = [LoginViewController new];
-        BaseNavigationViewController *nav = [[BaseNavigationViewController alloc]initWithRootViewController:loginView];
-        [vc presentViewController:nav animated:YES completion:nil];
-        
-    }
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
-}
 - (BOOL)prefersStatusBarHidden{
     return YES;
 }
+- (UIStatusBarAnimation)preferredStatusBarUpdateAnimation{
+    return UIStatusBarAnimationSlide;
+}
+
 /*
 #pragma mark - Navigation
 
