@@ -41,6 +41,7 @@
     //获取用户信息
     [Utility sharedUtility].loginFlage = [[Tool getContentWithKey:kLoginFlag] integerValue];
     if ( [Tool getContentWithKey:FX_AccountID] && [Utility sharedUtility].loginFlage) {
+        
         [Utility sharedUtility].userInfo = [[UserInfoObj alloc]initWithDictionary:[Tool getContentWithKey:FX_AccountID] error:nil];
         
         //更新用户数据

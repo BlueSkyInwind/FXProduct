@@ -11,7 +11,7 @@
 #import "MoreHeaderView.h"
 #import "MoreTableViewCell.h"
 #import "MoreViewModel.h"
-
+#import "LoginViewController.h"
 @interface MyViewController ()<UITableViewDelegate,UITableViewDataSource,MoreNavViewDelegate>{
     
     NSArray * imageArr;
@@ -177,7 +177,18 @@
     
     
 }
-
+- (void)presentLogin:(UIViewController *)vc
+{
+    if ([Utility sharedUtility].loginFlage) {
+        
+    } else {
+        
+        LoginViewController *loginView = [LoginViewController new];
+        BaseNavigationViewController *nav = [[BaseNavigationViewController alloc]initWithRootViewController:loginView];
+        [vc presentViewController:nav animated:YES completion:nil];
+        
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
