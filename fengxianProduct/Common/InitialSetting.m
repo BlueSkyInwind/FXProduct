@@ -7,6 +7,7 @@
 //
 
 #import "InitialSetting.h"
+#import "MoreViewModel.h"
 
 @implementation InitialSetting
 
@@ -37,12 +38,19 @@
         // 3.开始监控
         [mgr startMonitoring];
     });
-    
+    //获取用户信息
     [Utility sharedUtility].loginFlage = [[Tool getContentWithKey:kLoginFlag] integerValue];
-    
     if ( [Tool getContentWithKey:FX_AccountID] && [Utility sharedUtility].loginFlage) {
         [Utility sharedUtility].userInfo = [[UserInfoObj alloc]initWithDictionary:[Tool getContentWithKey:FX_AccountID] error:nil];
         
+        //更新用户数据
+        MoreViewModel * moreVM = [[MoreViewModel alloc]init];
+        [moreVM setBlockWithReturnBlock:^(id returnValue) {
+            
+        } WithFaileBlock:^{
+            
+        }];
+        [moreVM obtainAccountInfo];
     }
 }
 

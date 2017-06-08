@@ -22,13 +22,16 @@
     
     //http://infx2.echaokj.cn/ajax/inter/PassUpdate.ashx?Account=997530315@qq.com&Pass=111111&Code=2134
     
-    NSString * baseUrl = [NSString stringWithFormat:@"%@inter/PassUpdate.ashx?Account=%@Pass=%@&Code=%@",_main_url,number,password,verifyCode];
+    NSString * baseUrl = [NSString stringWithFormat:@"%@inter/PassUpdate.ashx?Account=%@&Pass=%@&Code=%@",_main_url,number,password,verifyCode];
     
     [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
-        self.returnBlock(returnMsg);
+        if ([returnMsg.returnCode intValue] == 1) {
+            [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"密码修改成功"];
+        }
         
+        self.returnBlock(returnMsg);
     } failure:^(EnumServerStatus status, id object) {
         
         [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:object];

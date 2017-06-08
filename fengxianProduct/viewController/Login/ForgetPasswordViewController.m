@@ -15,6 +15,7 @@
 
 }
 
+
 @end
 
 @implementation ForgetPasswordViewController
@@ -40,8 +41,8 @@
 {
     [super viewWillDisappear:animated];
     [_countdownTimer invalidate];
-    
 }
+
 #pragma mark - 点击事件
 - (IBAction)verifyCodeBtnClick:(id)sender {
     [self.view endEditing:YES];
@@ -72,7 +73,6 @@
         ReturnMsgBaseClass * returnMsg = returnValue;
         if ([returnMsg.returnCode intValue] == 1) {
             
-            [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"密码修改成功"];
             [self.navigationController popViewControllerAnimated:YES
              ];
             
