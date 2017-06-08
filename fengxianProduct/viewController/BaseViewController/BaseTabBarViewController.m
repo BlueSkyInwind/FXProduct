@@ -87,11 +87,11 @@
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
     if (tabBarController.selectedIndex == 1) {
-//        if ([Utility sharedUtility].loginFlage) {
-//            
-//        } else {
-//            [self presentLogin:self];
-//        }
+        if ([Utility sharedUtility].loginFlage) {
+            
+        } else {
+            [self presentLogin:self];
+        }
     }
 }
 

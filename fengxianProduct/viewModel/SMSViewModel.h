@@ -17,6 +17,11 @@
  */
 - (void)fatchRegisterVerifyCodeMoblieNumber:(NSString *)number;
 
-
+/**
+ 忘记密码验证码
+ 
+ @param number 手机号
+ */
+- (void)fatchForgetPasswordVerifyCodeMoblieNumber:(NSString *)number;
 
 @end

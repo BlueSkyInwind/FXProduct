@@ -10,6 +10,9 @@
 #import "SMSViewModel.h"
 #import "RegisterViewModel.h"
 #import "HMScannerController.h"
+#import "FXWebViewController.h"
+#import "AgreementViewModel.h"
+#import "lhScanQCodeViewController.h"
 
 @interface RegisterViewController ()<UITextFieldDelegate>{
     
@@ -38,6 +41,7 @@
 {
     [super viewWillDisappear:animated];
     [_countdownTimer invalidate];
+    
 }
 -(void)configureView{
     
@@ -52,11 +56,33 @@
     [attributedString1 addAttribute:NSForegroundColorAttributeName value:UI_MAIN_COLOR range:NSMakeRange(range.location, str1.length - range.location)];
     self.AgreementLabel.attributedText = attributedString1;
     
+    UITapGestureRecognizer * agreementTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(registerAgreementTap)];
+    [self.AgreementLabel addGestureRecognizer:agreementTap];
+    
     self.passwordTextField.delegate = self;
     self.confirmPasswordTextField.delegate = self;
-    
+    self.verificode.delegate = self;
 }
 #pragma mark - 点击事件
+-(void)registerAgreementTap{
+    
+    AgreementViewModel * agreementVM = [[AgreementViewModel alloc]init];
+    [agreementVM setBlockWithReturnBlock:^(id returnValue) {
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        if ([returnMsg.returnCode intValue] == 1) {
+            FXWebViewController * webVC = [[FXWebViewController alloc]init];
+            webVC.title = returnMsg.result[@"Title"];
+            webVC.Content = returnMsg.result[@"Information"];
+            [self.navigationController pushViewController:webVC animated:YES];
+        }
+    } WithFaileBlock:^{
+        
+    }];
+    [agreementVM fatchRegisterAgreement:3];
+    
+}
+
+
 - (IBAction)getVerifyCodeClick:(id)sender {
     [self.view endEditing:YES];
     
@@ -76,25 +102,27 @@
     } WithFaileBlock:^{
         
     }];
-    [smsVM fatchRegisterVerifyCodeMoblieNumber:self.passwordTextField.text];
+    [smsVM fatchRegisterVerifyCodeMoblieNumber:self.moblieNumber.text];
 }
 - (IBAction)scanInvationCodeClick:(id)sender {
-    
-    HMScannerController *scanner = [HMScannerController scannerWithCardName:nil avatar:nil completion:^(NSString *stringValue) {
-        
-        self.invationCode.text = stringValue;
-    }];
-    // 设置导航标题样式
-    [scanner setTitleColor:[UIColor whiteColor] tintColor:UI_MAIN_COLOR];
-    // 展现扫描控制器
-    [self showDetailViewController:scanner sender:nil];
+   
+    __weak typeof(self) weakSelf = self;
+    lhScanQCodeViewController * lhScanQCodeVC = [[lhScanQCodeViewController alloc]init];
+    lhScanQCodeVC.scanQRCodeResult = ^(NSString *resultStr) {
+        weakSelf.invationCode.text = resultStr;
+    };
+    [self.navigationController pushViewController:lhScanQCodeVC animated:YES];
 }
 - (IBAction)registerCilck:(id)sender {
     RegisterViewModel * registerVM  = [[RegisterViewModel alloc]init];
     [registerVM setBlockWithReturnBlock:^(id returnValue) {
         ReturnMsgBaseClass * returnMsg = returnValue;
         if ([returnMsg.returnCode intValue] == 1) {
+            //注册成功处理
             
+        }else{
+            
+            [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:(NSString *)returnMsg.msg];
         }
     } WithFaileBlock:^{
         
@@ -109,7 +137,7 @@
         [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"手机号码格式错误"];
         return NO;
     }
-    if(![self.verificode.text isEqualToString:@""] || self.verificode.text !=nil ){
+    if([self.verificode.text isEqualToString:@""] || self.verificode.text ==nil ){
         [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"请输入验证码"];
         return NO;
     }

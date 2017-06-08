@@ -21,6 +21,10 @@
 - (void)fatchRegisterMoblieNumber:(NSString *)number verifyCode:(NSString *)verifyCode password:(NSString *)password inviteCode:(NSString *)inviteCode{
 
     //http://infx2.echaokj.cn/ajax/inter/Registered.ashx?Account=997530315@qq.com&Pass=111111&Code=2134&InviteCode=
+    
+    if (inviteCode == nil) {
+        inviteCode = @"";
+    }
     NSString * baseUrl = [NSString stringWithFormat:@"%@inter/Registered.ashx?Account=%@&Pass=%@&Code=%@&InviteCode=%@",_main_url,number,password,verifyCode,inviteCode];
     
     [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
@@ -35,6 +39,9 @@
         
     }];
 }
+
+
+
 
 
 

@@ -16,6 +16,17 @@
 		226143181EE6EDC400193487 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226143161EE6EDC300193487 /* RegisterViewController.m */; };
 		226143191EE6EDC400193487 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 226143171EE6EDC300193487 /* RegisterViewController.xib */; };
 		2261431D1EE6EF8300193487 /* YX_TextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2261431C1EE6EF8300193487 /* YX_TextField.m */; };
+		226143211EE8336E00193487 /* FXWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226143201EE8336E00193487 /* FXWebViewController.m */; };
+		226143241EE8370700193487 /* AgreementViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 226143231EE8370700193487 /* AgreementViewModel.m */; };
+		2261432F1EE83E9400193487 /* lightNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 226143271EE83E9400193487 /* lightNormal.png */; };
+		226143301EE83E9400193487 /* lightSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 226143281EE83E9400193487 /* lightSelect.png */; };
+		226143311EE83E9400193487 /* noticeMusic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 226143291EE83E9400193487 /* noticeMusic.wav */; };
+		226143321EE83E9400193487 /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2261432B1EE83E9400193487 /* QRCodeReaderView.m */; };
+		226143331EE83E9400193487 /* scanLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2261432C1EE83E9400193487 /* scanLine@2x.png */; };
+		226143341EE83E9400193487 /* scanLine@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2261432D1EE83E9400193487 /* scanLine@3x.png */; };
+		226143351EE83E9400193487 /* scanscanBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2261432E1EE83E9400193487 /* scanscanBg.png */; };
+		226143381EE83EA800193487 /* lhScanQCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 226143371EE83EA800193487 /* lhScanQCodeViewController.m */; };
+		2261433B1EE84B6E00193487 /* ForgetPasswordViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2261433A1EE84B6E00193487 /* ForgetPasswordViewModel.m */; };
 		226BDF831EE6859D009D2A3F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BDF821EE6859D009D2A3F /* main.m */; };
 		226BDF861EE6859D009D2A3F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BDF851EE6859D009D2A3F /* AppDelegate.m */; };
 		226BDF8C1EE6859D009D2A3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 226BDF8A1EE6859D009D2A3F /* Main.storyboard */; };
@@ -242,6 +253,22 @@
 		226143171EE6EDC300193487 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		2261431B1EE6EF8300193487 /* YX_TextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YX_TextField.h; sourceTree = "<group>"; };
 		2261431C1EE6EF8300193487 /* YX_TextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YX_TextField.m; sourceTree = "<group>"; };
+		2261431F1EE8336E00193487 /* FXWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXWebViewController.h; sourceTree = "<group>"; };
+		226143201EE8336E00193487 /* FXWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXWebViewController.m; sourceTree = "<group>"; };
+		226143221EE8370700193487 /* AgreementViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgreementViewModel.h; sourceTree = "<group>"; };
+		226143231EE8370700193487 /* AgreementViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgreementViewModel.m; sourceTree = "<group>"; };
+		226143271EE83E9400193487 /* lightNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightNormal.png; sourceTree = "<group>"; };
+		226143281EE83E9400193487 /* lightSelect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightSelect.png; sourceTree = "<group>"; };
+		226143291EE83E9400193487 /* noticeMusic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = noticeMusic.wav; sourceTree = "<group>"; };
+		2261432A1EE83E9400193487 /* QRCodeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderView.h; sourceTree = "<group>"; };
+		2261432B1EE83E9400193487 /* QRCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderView.m; sourceTree = "<group>"; };
+		2261432C1EE83E9400193487 /* scanLine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scanLine@2x.png"; sourceTree = "<group>"; };
+		2261432D1EE83E9400193487 /* scanLine@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scanLine@3x.png"; sourceTree = "<group>"; };
+		2261432E1EE83E9400193487 /* scanscanBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scanscanBg.png; sourceTree = "<group>"; };
+		226143361EE83EA800193487 /* lhScanQCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lhScanQCodeViewController.h; sourceTree = "<group>"; };
+		226143371EE83EA800193487 /* lhScanQCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lhScanQCodeViewController.m; sourceTree = "<group>"; };
+		226143391EE84B6E00193487 /* ForgetPasswordViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewModel.h; sourceTree = "<group>"; };
+		2261433A1EE84B6E00193487 /* ForgetPasswordViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewModel.m; sourceTree = "<group>"; };
 		226BDF7E1EE6859D009D2A3F /* fengxianProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fengxianProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		226BDF821EE6859D009D2A3F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		226BDF841EE6859D009D2A3F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -701,6 +728,40 @@
 			name = textField;
 			sourceTree = "<group>";
 		};
+		2261431E1EE8331800193487 /* FXWebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2261431F1EE8336E00193487 /* FXWebViewController.h */,
+				226143201EE8336E00193487 /* FXWebViewController.m */,
+			);
+			path = FXWebViewController;
+			sourceTree = "<group>";
+		};
+		226143251EE83E5D00193487 /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				226143261EE83E9400193487 /* 二维码扫描 */,
+				226143361EE83EA800193487 /* lhScanQCodeViewController.h */,
+				226143371EE83EA800193487 /* lhScanQCodeViewController.m */,
+			);
+			path = QRCode;
+			sourceTree = "<group>";
+		};
+		226143261EE83E9400193487 /* 二维码扫描 */ = {
+			isa = PBXGroup;
+			children = (
+				226143271EE83E9400193487 /* lightNormal.png */,
+				226143281EE83E9400193487 /* lightSelect.png */,
+				226143291EE83E9400193487 /* noticeMusic.wav */,
+				2261432A1EE83E9400193487 /* QRCodeReaderView.h */,
+				2261432B1EE83E9400193487 /* QRCodeReaderView.m */,
+				2261432C1EE83E9400193487 /* scanLine@2x.png */,
+				2261432D1EE83E9400193487 /* scanLine@3x.png */,
+				2261432E1EE83E9400193487 /* scanscanBg.png */,
+			);
+			path = "二维码扫描";
+			sourceTree = "<group>";
+		};
 		226BDF751EE6859D009D2A3F = {
 			isa = PBXGroup;
 			children = (
@@ -775,7 +836,6 @@
 		845862071EE68A2600AF52B3 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				84AABED51EE6AF41001AA7C0 /* BaseViewController */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -783,6 +843,8 @@
 		845862081EE68A5300AF52B3 /* viewController */ = {
 			isa = PBXGroup;
 			children = (
+				84AABED51EE6AF41001AA7C0 /* BaseViewController */,
+				2261431E1EE8331800193487 /* FXWebViewController */,
 				2261430C1EE6E2B800193487 /* launch */,
 				84AABEF71EE6B415001AA7C0 /* Register */,
 				84AABEF61EE6B3FB001AA7C0 /* Login */,
@@ -933,12 +995,16 @@
 			children = (
 				847745031EE7B07B00043F25 /* ViewModelClass.h */,
 				847745041EE7B07B00043F25 /* ViewModelClass.m */,
+				226143221EE8370700193487 /* AgreementViewModel.h */,
+				226143231EE8370700193487 /* AgreementViewModel.m */,
 				847745061EE7B0AC00043F25 /* loginViewMdoel.h */,
 				847745071EE7B0AC00043F25 /* loginViewMdoel.m */,
 				84D2483B1EE7FB7700937D28 /* SMSViewModel.h */,
 				84D2483C1EE7FB7700937D28 /* SMSViewModel.m */,
 				84D2483E1EE8014900937D28 /* RegisterViewModel.h */,
 				84D2483F1EE8014900937D28 /* RegisterViewModel.m */,
+				226143391EE84B6E00193487 /* ForgetPasswordViewModel.h */,
+				2261433A1EE84B6E00193487 /* ForgetPasswordViewModel.m */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -1598,6 +1664,7 @@
 		84AABEF71EE6B415001AA7C0 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				226143251EE83E5D00193487 /* QRCode */,
 				226143151EE6EDC300193487 /* RegisterViewController.h */,
 				226143161EE6EDC300193487 /* RegisterViewController.m */,
 				226143171EE6EDC300193487 /* RegisterViewController.xib */,
@@ -1773,15 +1840,21 @@
 			files = (
 				226143191EE6EDC400193487 /* RegisterViewController.xib in Resources */,
 				84AABEFC1EE6B44E001AA7C0 /* LoginViewController.xib in Resources */,
+				226143311EE83E9400193487 /* noticeMusic.wav in Resources */,
 				226BDF911EE6859D009D2A3F /* LaunchScreen.storyboard in Resources */,
 				226BDF8E1EE6859D009D2A3F /* Assets.xcassets in Resources */,
 				847744FE1EE7958D00043F25 /* ForgetPasswordViewController.xib in Resources */,
 				2261430B1EE6E2A500193487 /* launch_Image4.gif in Resources */,
 				226143091EE6E2A500193487 /* launch_Image2.gif in Resources */,
 				226143081EE6E2A500193487 /* launch_Image1.gif in Resources */,
+				226143331EE83E9400193487 /* scanLine@2x.png in Resources */,
+				226143351EE83E9400193487 /* scanscanBg.png in Resources */,
 				2261430A1EE6E2A500193487 /* launch_Image3.gif in Resources */,
 				226143141EE6E35100193487 /* LaunchViewController.xib in Resources */,
 				226BDF8C1EE6859D009D2A3F /* Main.storyboard in Resources */,
+				226143341EE83E9400193487 /* scanLine@3x.png in Resources */,
+				2261432F1EE83E9400193487 /* lightNormal.png in Resources */,
+				226143301EE83E9400193487 /* lightSelect.png in Resources */,
 				84AABDD11EE69F76001AA7C0 /* HMScanner.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1830,7 +1903,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -1855,6 +1928,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				226143211EE8336E00193487 /* FXWebViewController.m in Sources */,
+				226143321EE83E9400193487 /* QRCodeReaderView.m in Sources */,
 				84AABEFB1EE6B44E001AA7C0 /* LoginViewController.m in Sources */,
 				84AABEC31EE6A035001AA7C0 /* CADisplayLink.m in Sources */,
 				84AABEB71EE6A035001AA7C0 /* LOTShapeLayerView.m in Sources */,
@@ -1905,6 +1980,7 @@
 				84AABE4F1EE6A003001AA7C0 /* UIImage+Color.m in Sources */,
 				84AABE531EE6A003001AA7C0 /* UIImage+Water.m in Sources */,
 				84AABDFD1EE69F76001AA7C0 /* YYLabel.m in Sources */,
+				226143241EE8370700193487 /* AgreementViewModel.m in Sources */,
 				84AABDE51EE69F76001AA7C0 /* YYKVStorage.m in Sources */,
 				84AABECF1EE6A035001AA7C0 /* LOTShapeRectangle.m in Sources */,
 				84AABEB61EE6A035001AA7C0 /* LOTRectShapeLayer.m in Sources */,
@@ -1968,6 +2044,7 @@
 				84AABE441EE6A003001AA7C0 /* CALayer+Anim.m in Sources */,
 				84AABEBA1EE6A035001AA7C0 /* LOTAnimatableColorValue.m in Sources */,
 				84AABDCD1EE69F76001AA7C0 /* LewPopupViewAnimationSlide.m in Sources */,
+				226143381EE83EA800193487 /* lhScanQCodeViewController.m in Sources */,
 				84AABDDE1EE69F76001AA7C0 /* SDCycleScrollView.m in Sources */,
 				84AABDCB1EE69F76001AA7C0 /* LewPopupViewAnimationDrop.m in Sources */,
 				8458624E1EE68A7100AF52B3 /* HHAlertViewCust.m in Sources */,
@@ -2003,6 +2080,7 @@
 				84AABEB31EE6A035001AA7C0 /* LOTGroupLayerView.m in Sources */,
 				8458625A1EE68A7100AF52B3 /* DataWriteAndRead.m in Sources */,
 				845862611EE68A7100AF52B3 /* Tool.m in Sources */,
+				2261433B1EE84B6E00193487 /* ForgetPasswordViewModel.m in Sources */,
 				847744FD1EE7958D00043F25 /* ForgetPasswordViewController.m in Sources */,
 				84AABEC21EE6A035001AA7C0 /* UIColor+Expanded.m in Sources */,
 				84AABDFC1EE69F76001AA7C0 /* YYTextWeakProxy.m in Sources */,

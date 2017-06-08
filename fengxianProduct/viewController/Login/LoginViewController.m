@@ -39,8 +39,15 @@
     [loginVM setBlockWithReturnBlock:^(id returnValue) {
         ReturnMsgBaseClass * returnMsg = returnValue;
         if ([returnMsg.returnCode intValue] == 1) {
-               
-            }
+            
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [self dismissViewControllerAnimated:YES completion:^{
+                }];
+            });
+
+        }else{
+            [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:(NSString *)returnMsg.msg];
+        }
     } WithFaileBlock:^{
         
     }];
@@ -62,8 +69,10 @@
 }
 - (IBAction)visitorModelCilck:(id)sender {
     
-    
-    
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
