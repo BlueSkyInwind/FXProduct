@@ -86,6 +86,7 @@
     return imageArr.count;
     
 }
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     MoreTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MoreTableViewCell"];
@@ -174,12 +175,12 @@
     
     return 200;
 }
+
 #pragma mark - MoreNavViewDelegate
 -(void)CollectViewCilck{
     if ([[ShareConfig share] isPresentLoginVC:self]) {
         
     }
-
 }
 -(void)DiscloseViewCilck{
     

@@ -218,6 +218,10 @@
 //判断手机号是否有效
 + (BOOL)isMobileNumber:(NSString *)mobileNum
 {
+    if (mobileNum.length != 11) {
+        return NO;
+    }
+    
     /**
      * 手机号码
      * 移动：134[0-8],135,136,137,138,139,150,151,157,158,159,182,187,188,147,183

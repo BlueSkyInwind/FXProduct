@@ -7,7 +7,16 @@
 //
 
 #import "LaunchViewController.h"
-@interface LaunchViewController ()
+#import <WebKit/WebKit.h>
+
+
+@interface LaunchViewController (){
+    
+    WKWebView *webViewOne;
+
+    UIWebView * webViewTwo;
+
+}
 
 @end
 
@@ -16,7 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
     // 设定位置和大小
     CGRect frame = CGRectMake(0,0,[UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height);
     CGSize launchSize = [UIImage imageNamed:@"launch_Image3.gif"].size;
@@ -25,16 +33,27 @@
     frame.size.height = launchSize.height / 2;
     NSData *gif = [NSData dataWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"launch_Image3" ofType:@"gif"]];
     // view生成
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:frame];
-    webView.scalesPageToFit = YES;
-    webView.userInteractionEnabled = NO;//用户不可交互
-    [webView loadData:gif MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
-    [self.view addSubview:webView];
-    
-
-    
+    if ([UIDevice  systemVersion] > 9.0) {
+        
+        webViewOne = [[WKWebView alloc] initWithFrame:frame];
+        webViewOne.userInteractionEnabled = NO;//用户不可交互
+        [webViewOne loadData:gif MIMEType:@"image/gif"  characterEncodingName:nil baseURL:nil];
+        [self.view addSubview:webViewOne];
+    }else{
+        
+        webViewTwo = [[UIWebView alloc] initWithFrame:frame];
+        webViewTwo.scalesPageToFit = YES;
+        webViewTwo.userInteractionEnabled = NO;//用户不可交互
+        [webViewTwo loadData:gif MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
+        [self.view addSubview:webViewTwo];
+        
+    }
 }
-
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    webViewTwo = nil;
+    webViewOne = nil;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

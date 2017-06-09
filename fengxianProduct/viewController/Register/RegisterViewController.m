@@ -122,7 +122,6 @@
             //注册成功处理
             
         }else{
-            
             [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:(NSString *)returnMsg.msg];
         }
     } WithFaileBlock:^{

@@ -69,6 +69,8 @@
 		845862621EE68A7100AF52B3 /* UIDevice+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 845862441EE68A7100AF52B3 /* UIDevice+YYAdd.m */; };
 		845862631EE68A7100AF52B3 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 845862461EE68A7100AF52B3 /* Utility.m */; };
 		845862641EE68A7100AF52B3 /* UserInfoObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 845862491EE68A7100AF52B3 /* UserInfoObj.m */; };
+		846053B11EEAA40E00E1002E /* UserQrcodeShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846053B01EEAA40E00E1002E /* UserQrcodeShareView.m */; };
+		846053B31EEAA41900E1002E /* UserQrcodeShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846053B21EEAA41900E1002E /* UserQrcodeShareView.xib */; };
 		847744FD1EE7958D00043F25 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847744FB1EE7958D00043F25 /* ForgetPasswordViewController.m */; };
 		847744FE1EE7958D00043F25 /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847744FC1EE7958D00043F25 /* ForgetPasswordViewController.xib */; };
 		847745011EE7AAF900043F25 /* FXNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847745001EE7AAF900043F25 /* FXNetworkManager.m */; };
@@ -363,6 +365,9 @@
 		845862481EE68A7100AF52B3 /* UserInfoObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoObj.h; sourceTree = "<group>"; };
 		845862491EE68A7100AF52B3 /* UserInfoObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoObj.m; sourceTree = "<group>"; };
 		845866051EE68B2400AF52B3 /* fxProduct.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fxProduct.pch; sourceTree = "<group>"; };
+		846053AF1EEAA40E00E1002E /* UserQrcodeShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserQrcodeShareView.h; sourceTree = "<group>"; };
+		846053B01EEAA40E00E1002E /* UserQrcodeShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserQrcodeShareView.m; sourceTree = "<group>"; };
+		846053B21EEAA41900E1002E /* UserQrcodeShareView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserQrcodeShareView.xib; sourceTree = "<group>"; };
 		847744FA1EE7958D00043F25 /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
 		847744FB1EE7958D00043F25 /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
 		847744FC1EE7958D00043F25 /* ForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPasswordViewController.xib; sourceTree = "<group>"; };
@@ -874,6 +879,9 @@
 				221A51151EE99BCD00A543C0 /* UserInfoTableViewCell.h */,
 				221A51161EE99BCD00A543C0 /* UserInfoTableViewCell.m */,
 				221A51171EE99BCD00A543C0 /* UserInfoTableViewCell.xib */,
+				846053AF1EEAA40E00E1002E /* UserQrcodeShareView.h */,
+				846053B01EEAA40E00E1002E /* UserQrcodeShareView.m */,
+				846053B21EEAA41900E1002E /* UserQrcodeShareView.xib */,
 			);
 			path = moreView;
 			sourceTree = "<group>";
@@ -1889,6 +1897,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				226143191EE6EDC400193487 /* RegisterViewController.xib in Resources */,
+				846053B31EEAA41900E1002E /* UserQrcodeShareView.xib in Resources */,
 				84AABEFC1EE6B44E001AA7C0 /* LoginViewController.xib in Resources */,
 				226143311EE83E9400193487 /* noticeMusic.wav in Resources */,
 				226BDF911EE6859D009D2A3F /* LaunchScreen.storyboard in Resources */,
@@ -1957,7 +1966,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -2117,6 +2126,7 @@
 				8458625F1EE68A7100AF52B3 /* NSString+Validate.m in Sources */,
 				84AABDFB1EE69F76001AA7C0 /* YYTextUtilities.m in Sources */,
 				84AABDDA1EE69F76001AA7C0 /* TAAnimatedDotView.m in Sources */,
+				846053B11EEAA40E00E1002E /* UserQrcodeShareView.m in Sources */,
 				84AABECB1EE6A035001AA7C0 /* LOTShapeCircle.m in Sources */,
 				84AABEE11EE6AF41001AA7C0 /* BaseNavigationViewController.m in Sources */,
 				84AABECD1EE6A035001AA7C0 /* LOTShapeGroup.m in Sources */,

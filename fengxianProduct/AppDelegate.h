@@ -12,8 +12,9 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-
 @property (nonatomic,strong)BaseTabBarViewController *btb;
+
+extern AppDelegate *app;
 
 @end
 

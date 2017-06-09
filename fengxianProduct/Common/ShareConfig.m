@@ -34,7 +34,7 @@ static ShareConfig * shareConfig = nil;
             
 //            [alertVC dismissViewControllerAnimated:YES completion:^{
 //            }];
-
+            
             LoginViewController *loginView = [LoginViewController new];
             BaseNavigationViewController *nav = [[BaseNavigationViewController alloc]initWithRootViewController:loginView];
             [vc presentViewController:nav animated:YES completion:nil];
@@ -45,6 +45,38 @@ static ShareConfig * shareConfig = nil;
         
         return NO;
     }
+}
+
+/**
+ 输入框弹出
+
+ @param vc vc
+ @param placeHolder 默认提示语
+ @param userInputContent 用户输入
+ */
+-(void)presentAlertTextfield:(UIViewController *)vc placeHolder:(NSString *)placeHolder userInputContent:(void(^)(NSString * resultStr))userInputContent{
+    
+    UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"请输入昵称" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction * sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UITextField * textField = alertVC.textFields.firstObject;
+        userInputContent(textField.text);
+    }];
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alertVC addAction:cancelAction];
+    [alertVC addAction:sureAction];
+    
+    [alertVC addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = placeHolder;
+        textField.textAlignment = NSTextAlignmentCenter;
+        textField.layer.borderWidth = 1;
+        textField.layer.borderColor = (__bridge CGColorRef _Nullable)([UIColor yellowColor]);
+    }];
+    [vc presentViewController:alertVC animated:YES completion:nil];
+    
 }
 
 -(void)updateUserData{

@@ -10,6 +10,10 @@
 #import "LaunchViewController.h"
 #import "LoginViewController.h"
 //#import "InitialSetting.h"
+
+
+AppDelegate *app = nil;
+
 @interface AppDelegate ()
 
 
@@ -30,7 +34,8 @@
     [self monitorNetworkState];
     [self performSelector:@selector(enter) withObject:self afterDelay:4];
 //    [self enter];
-    
+    app = self;
+
     return YES;
 }
 

@@ -7,6 +7,7 @@
 //
 #import <UIKit/UIKit.h>
 #import "YX_TextField.h"
+@class UserInfoViewController;
 
 @interface LoginViewController : BaseViewController
 

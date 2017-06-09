@@ -13,8 +13,17 @@
 
 +(ShareConfig *)share;
 -(BOOL)isPresentLoginVC:(UIViewController *)vc;
-
 -(void)updateUserData;
+/**
+ 输入框弹出
+ 
+ @param vc vc
+ @param placeHolder 默认提示语
+ @param userInputContent 用户输入
+ */
+-(void)presentAlertTextfield:(UIViewController *)vc placeHolder:(NSString *)placeHolder userInputContent:(void(^)(NSString * resultStr))userInputContent;
+
+
 
 + (void)configDefaultShare;
 

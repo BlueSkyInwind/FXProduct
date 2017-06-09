@@ -34,8 +34,8 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(CollectViewCilck)]) {
         [self.delegate CollectViewCilck];
     }
-    
 }
+
 -(void)goDiscloseViewCilck{
     if (self.delegate && [self.delegate respondsToSelector:@selector(DiscloseViewCilck)]) {
         [self.delegate DiscloseViewCilck];

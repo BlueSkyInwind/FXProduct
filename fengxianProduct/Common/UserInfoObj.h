@@ -16,13 +16,13 @@
 @property (nonatomic,strong)NSString *Name;
 @property (nonatomic,strong)NSString *Email;
 @property (nonatomic,strong)NSString *Mobile;
-@property (nonatomic,strong)NSString *Gender;
+@property (nonatomic,strong)NSNumber *Gender;
 @property (nonatomic,strong)NSString *Address;
 @property (nonatomic,strong)NSString *Date;
 @property (nonatomic,strong)NSString *Code;
-@property (nonatomic,strong)NSString *ColumnNew;
-@property (nonatomic,strong)NSString *ColumnLife;
-@property (nonatomic,strong)NSString *ColumnAct;
+@property (nonatomic,strong)NSString *ColumnNew;     //新闻角标数量
+@property (nonatomic,strong)NSString *ColumnLife;      //生活角标数量
+@property (nonatomic,strong)NSString *ColumnAct;       //活动角标数量
 @property (nonatomic,strong)NSString *Day;
 
 

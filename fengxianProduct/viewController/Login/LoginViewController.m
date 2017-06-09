@@ -10,6 +10,8 @@
 #import "RegisterViewController.h"
 #import "ForgetPasswordViewController.h"
 #import "loginViewMdoel.h"
+#import "AppDelegate.h"
+#import "UserInfoViewController.h"
 @interface LoginViewController ()<UITextFieldDelegate>
 
 @end
@@ -42,9 +44,9 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self dismissViewControllerAnimated:YES completion:^{
+                    ((AppDelegate *)[UIApplication sharedApplication].delegate).btb.selectedIndex = 0;
                 }];
             });
-
         }else{
             [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:(NSString *)returnMsg.msg];
         }
@@ -55,7 +57,6 @@
     
 }
 - (IBAction)goRegisterBtnClick:(id)sender {
-    
     
     RegisterViewController * registerVC = [[RegisterViewController alloc]init];
     [self.navigationController pushViewController:registerVC animated:YES];
@@ -69,10 +70,13 @@
 }
 - (IBAction)visitorModelCilck:(id)sender {
     
+//    app.btb = [[BaseTabBarViewController alloc]init];
+//    app.btb.selectedIndex = 0;
+//    app.window.rootViewController = app.btb;
+    
     [self dismissViewControllerAnimated:YES completion:^{
-        
+        ((AppDelegate *)[UIApplication sharedApplication].delegate).btb.selectedIndex = 0;
     }];
-
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
