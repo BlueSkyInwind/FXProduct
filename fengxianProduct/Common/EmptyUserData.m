@@ -16,9 +16,12 @@
     
     [Utility sharedUtility].userInfo = nil;
     [Utility sharedUtility].loginFlage = NO;
+    [Utility sharedUtility].isSign = NO;
+    [Utility sharedUtility].isLoadImage = NO;
+    [Tool saveUserDefaul:@"0" Key:kLoginFlag];
     [Tool saveUserDefaul:@"0" Key:kLoginFlag];
     [Tool saveUserDefaul:nil Key:FX_AccountID];
-
+    
 }
 
 @end

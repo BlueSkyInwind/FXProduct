@@ -10,6 +10,9 @@
 		221A51141EE99A8C00A543C0 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221A51131EE99A8C00A543C0 /* UserInfoViewController.m */; };
 		221A51181EE99BCD00A543C0 /* UserInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 221A51161EE99BCD00A543C0 /* UserInfoTableViewCell.m */; };
 		221A51191EE99BCD00A543C0 /* UserInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 221A51171EE99BCD00A543C0 /* UserInfoTableViewCell.xib */; };
+		221A51221EEADCF800A543C0 /* PickerSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 221A51201EEADCF800A543C0 /* PickerSelectView.m */; };
+		221A51231EEADCF800A543C0 /* PickerSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 221A51211EEADCF800A543C0 /* PickerSelectView.xib */; };
+		221A51261EEAE90000A543C0 /* CameraHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 221A51251EEAE90000A543C0 /* CameraHelper.m */; };
 		226143081EE6E2A500193487 /* launch_Image1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 226143041EE6E2A500193487 /* launch_Image1.gif */; };
 		226143091EE6E2A500193487 /* launch_Image2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 226143051EE6E2A500193487 /* launch_Image2.gif */; };
 		2261430A1EE6E2A500193487 /* launch_Image3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 226143061EE6E2A500193487 /* launch_Image3.gif */; };
@@ -37,6 +40,28 @@
 		226BDF911EE6859D009D2A3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 226BDF8F1EE6859D009D2A3F /* LaunchScreen.storyboard */; };
 		226BDF9C1EE6859D009D2A3F /* fengxianProductTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BDF9B1EE6859D009D2A3F /* fengxianProductTests.m */; };
 		226BDFA71EE6859D009D2A3F /* fengxianProductUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BDFA61EE6859D009D2A3F /* fengxianProductUITests.m */; };
+		22B9050A1EEBD03C00ED8B71 /* InvationRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905091EEBD03C00ED8B71 /* InvationRegisterView.m */; };
+		22B9050D1EEBEA3100ED8B71 /* SignAndCollectMdoel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9050C1EEBEA3100ED8B71 /* SignAndCollectMdoel.m */; };
+		22B905101EEC1DB800ED8B71 /* MySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9050F1EEC1DB800ED8B71 /* MySettingViewController.m */; };
+		22B905141EEC1E4500ED8B71 /* MySettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905121EEC1E4500ED8B71 /* MySettingTableViewCell.m */; };
+		22B905151EEC1E4500ED8B71 /* MySettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B905131EEC1E4500ED8B71 /* MySettingTableViewCell.xib */; };
+		22B905181EEC282000ED8B71 /* ClearCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905171EEC282000ED8B71 /* ClearCacheTool.m */; };
+		22B905341EEC4B5400ED8B71 /* TGCarouselImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9051C1EEC4B5400ED8B71 /* TGCarouselImageManager.m */; };
+		22B905351EEC4B5400ED8B71 /* TGCarouselImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9051E1EEC4B5400ED8B71 /* TGCarouselImageView.m */; };
+		22B905361EEC4B5400ED8B71 /* TGLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905211EEC4B5400ED8B71 /* TGLayout.m */; };
+		22B905371EEC4B5400ED8B71 /* TGMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905241EEC4B5400ED8B71 /* TGMoreCell.m */; };
+		22B905381EEC4B5400ED8B71 /* TGMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B905251EEC4B5400ED8B71 /* TGMoreCell.xib */; };
+		22B905391EEC4B5400ED8B71 /* TGMoreLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905271EEC4B5400ED8B71 /* TGMoreLayout.m */; };
+		22B9053A1EEC4B5400ED8B71 /* TGSegmentBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905291EEC4B5400ED8B71 /* TGSegmentBar.m */; };
+		22B9053B1EEC4B5400ED8B71 /* TGSegmentConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9052B1EEC4B5400ED8B71 /* TGSegmentConfig.m */; };
+		22B9053C1EEC4B5400ED8B71 /* TGSegmentMoreBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9052D1EEC4B5400ED8B71 /* TGSegmentMoreBtn.m */; };
+		22B9053D1EEC4B5400ED8B71 /* TGSementBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9052F1EEC4B5400ED8B71 /* TGSementBarVC.m */; };
+		22B9053E1EEC4B5400ED8B71 /* TGShowMoreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905311EEC4B5400ED8B71 /* TGShowMoreVC.m */; };
+		22B9053F1EEC4B5400ED8B71 /* UIView+TGSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905331EEC4B5400ED8B71 /* UIView+TGSegment.m */; };
+		22B905491EEC4F3C00ED8B71 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905481EEC4F3C00ED8B71 /* HomePageViewController.m */; };
+		22B9054C1EEC4F4B00ED8B71 /* SubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9054B1EEC4F4B00ED8B71 /* SubViewController.m */; };
+		22B905501EEC520F00ED8B71 /* MyColumnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9054F1EEC520F00ED8B71 /* MyColumnViewController.m */; };
+		22B905541EEC5A1300ED8B71 /* DateAndWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905531EEC5A1300ED8B71 /* DateAndWeatherView.m */; };
 		504A8DF353C2A20D8FC06A21 /* Pods_fengxianProduct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23ECD749F784B81055FF8EC8 /* Pods_fengxianProduct.framework */; };
 		8431F33E1EE8E3EE00295A18 /* MoreHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8431F33D1EE8E3EE00295A18 /* MoreHeaderView.m */; };
 		8431F3401EE8E40900295A18 /* MoreHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8431F33F1EE8E40900295A18 /* MoreHeaderView.xib */; };
@@ -258,6 +283,11 @@
 		221A51151EE99BCD00A543C0 /* UserInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoTableViewCell.h; sourceTree = "<group>"; };
 		221A51161EE99BCD00A543C0 /* UserInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoTableViewCell.m; sourceTree = "<group>"; };
 		221A51171EE99BCD00A543C0 /* UserInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoTableViewCell.xib; sourceTree = "<group>"; };
+		221A511F1EEADCF800A543C0 /* PickerSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerSelectView.h; sourceTree = "<group>"; };
+		221A51201EEADCF800A543C0 /* PickerSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerSelectView.m; sourceTree = "<group>"; };
+		221A51211EEADCF800A543C0 /* PickerSelectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerSelectView.xib; sourceTree = "<group>"; };
+		221A51241EEAE90000A543C0 /* CameraHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraHelper.h; sourceTree = "<group>"; };
+		221A51251EEAE90000A543C0 /* CameraHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraHelper.m; sourceTree = "<group>"; };
 		226143041EE6E2A500193487 /* launch_Image1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = launch_Image1.gif; sourceTree = "<group>"; };
 		226143051EE6E2A500193487 /* launch_Image2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = launch_Image2.gif; sourceTree = "<group>"; };
 		226143061EE6E2A500193487 /* launch_Image3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = launch_Image3.gif; sourceTree = "<group>"; };
@@ -300,6 +330,48 @@
 		226BDFA21EE6859D009D2A3F /* fengxianProductUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fengxianProductUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		226BDFA61EE6859D009D2A3F /* fengxianProductUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fengxianProductUITests.m; sourceTree = "<group>"; };
 		226BDFA81EE6859D009D2A3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22B905081EEBD03C00ED8B71 /* InvationRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvationRegisterView.h; sourceTree = "<group>"; };
+		22B905091EEBD03C00ED8B71 /* InvationRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvationRegisterView.m; sourceTree = "<group>"; };
+		22B9050B1EEBEA3100ED8B71 /* SignAndCollectMdoel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignAndCollectMdoel.h; sourceTree = "<group>"; };
+		22B9050C1EEBEA3100ED8B71 /* SignAndCollectMdoel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignAndCollectMdoel.m; sourceTree = "<group>"; };
+		22B9050E1EEC1DB800ED8B71 /* MySettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingViewController.h; sourceTree = "<group>"; };
+		22B9050F1EEC1DB800ED8B71 /* MySettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingViewController.m; sourceTree = "<group>"; };
+		22B905111EEC1E4500ED8B71 /* MySettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingTableViewCell.h; sourceTree = "<group>"; };
+		22B905121EEC1E4500ED8B71 /* MySettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingTableViewCell.m; sourceTree = "<group>"; };
+		22B905131EEC1E4500ED8B71 /* MySettingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MySettingTableViewCell.xib; sourceTree = "<group>"; };
+		22B905161EEC282000ED8B71 /* ClearCacheTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClearCacheTool.h; sourceTree = "<group>"; };
+		22B905171EEC282000ED8B71 /* ClearCacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClearCacheTool.m; sourceTree = "<group>"; };
+		22B9051B1EEC4B5400ED8B71 /* TGCarouselImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGCarouselImageManager.h; sourceTree = "<group>"; };
+		22B9051C1EEC4B5400ED8B71 /* TGCarouselImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGCarouselImageManager.m; sourceTree = "<group>"; };
+		22B9051D1EEC4B5400ED8B71 /* TGCarouselImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGCarouselImageView.h; sourceTree = "<group>"; };
+		22B9051E1EEC4B5400ED8B71 /* TGCarouselImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGCarouselImageView.m; sourceTree = "<group>"; };
+		22B905201EEC4B5400ED8B71 /* TGLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGLayout.h; sourceTree = "<group>"; };
+		22B905211EEC4B5400ED8B71 /* TGLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGLayout.m; sourceTree = "<group>"; };
+		22B905231EEC4B5400ED8B71 /* TGMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGMoreCell.h; sourceTree = "<group>"; };
+		22B905241EEC4B5400ED8B71 /* TGMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGMoreCell.m; sourceTree = "<group>"; };
+		22B905251EEC4B5400ED8B71 /* TGMoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TGMoreCell.xib; sourceTree = "<group>"; };
+		22B905261EEC4B5400ED8B71 /* TGMoreLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGMoreLayout.h; sourceTree = "<group>"; };
+		22B905271EEC4B5400ED8B71 /* TGMoreLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGMoreLayout.m; sourceTree = "<group>"; };
+		22B905281EEC4B5400ED8B71 /* TGSegmentBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGSegmentBar.h; sourceTree = "<group>"; };
+		22B905291EEC4B5400ED8B71 /* TGSegmentBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGSegmentBar.m; sourceTree = "<group>"; };
+		22B9052A1EEC4B5400ED8B71 /* TGSegmentConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGSegmentConfig.h; sourceTree = "<group>"; };
+		22B9052B1EEC4B5400ED8B71 /* TGSegmentConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGSegmentConfig.m; sourceTree = "<group>"; };
+		22B9052C1EEC4B5400ED8B71 /* TGSegmentMoreBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGSegmentMoreBtn.h; sourceTree = "<group>"; };
+		22B9052D1EEC4B5400ED8B71 /* TGSegmentMoreBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGSegmentMoreBtn.m; sourceTree = "<group>"; };
+		22B9052E1EEC4B5400ED8B71 /* TGSementBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGSementBarVC.h; sourceTree = "<group>"; };
+		22B9052F1EEC4B5400ED8B71 /* TGSementBarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGSementBarVC.m; sourceTree = "<group>"; };
+		22B905301EEC4B5400ED8B71 /* TGShowMoreVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGShowMoreVC.h; sourceTree = "<group>"; };
+		22B905311EEC4B5400ED8B71 /* TGShowMoreVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGShowMoreVC.m; sourceTree = "<group>"; };
+		22B905321EEC4B5400ED8B71 /* UIView+TGSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TGSegment.h"; sourceTree = "<group>"; };
+		22B905331EEC4B5400ED8B71 /* UIView+TGSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TGSegment.m"; sourceTree = "<group>"; };
+		22B905471EEC4F3C00ED8B71 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
+		22B905481EEC4F3C00ED8B71 /* HomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageViewController.m; sourceTree = "<group>"; };
+		22B9054A1EEC4F4B00ED8B71 /* SubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubViewController.h; sourceTree = "<group>"; };
+		22B9054B1EEC4F4B00ED8B71 /* SubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubViewController.m; sourceTree = "<group>"; };
+		22B9054E1EEC520F00ED8B71 /* MyColumnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyColumnViewController.h; sourceTree = "<group>"; };
+		22B9054F1EEC520F00ED8B71 /* MyColumnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyColumnViewController.m; sourceTree = "<group>"; };
+		22B905521EEC5A1300ED8B71 /* DateAndWeatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateAndWeatherView.h; sourceTree = "<group>"; };
+		22B905531EEC5A1300ED8B71 /* DateAndWeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateAndWeatherView.m; sourceTree = "<group>"; };
 		23ECD749F784B81055FF8EC8 /* Pods_fengxianProduct.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fengxianProduct.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B86EC1B2254EC782DD0D6E /* Pods-fengxianProduct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fengxianProduct.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fengxianProduct/Pods-fengxianProduct.debug.xcconfig"; sourceTree = "<group>"; };
 		8431F33C1EE8E3EE00295A18 /* MoreHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreHeaderView.h; sourceTree = "<group>"; };
@@ -864,6 +936,89 @@
 			path = fengxianProductUITests;
 			sourceTree = "<group>";
 		};
+		22B905191EEC4B5400ED8B71 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				22B9051A1EEC4B5400ED8B71 /* TGCarouselImageView */,
+				22B9051F1EEC4B5400ED8B71 /* TGLayout */,
+				22B905221EEC4B5400ED8B71 /* TGSegment */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		22B9051A1EEC4B5400ED8B71 /* TGCarouselImageView */ = {
+			isa = PBXGroup;
+			children = (
+				22B9051B1EEC4B5400ED8B71 /* TGCarouselImageManager.h */,
+				22B9051C1EEC4B5400ED8B71 /* TGCarouselImageManager.m */,
+				22B9051D1EEC4B5400ED8B71 /* TGCarouselImageView.h */,
+				22B9051E1EEC4B5400ED8B71 /* TGCarouselImageView.m */,
+			);
+			path = TGCarouselImageView;
+			sourceTree = "<group>";
+		};
+		22B9051F1EEC4B5400ED8B71 /* TGLayout */ = {
+			isa = PBXGroup;
+			children = (
+				22B905201EEC4B5400ED8B71 /* TGLayout.h */,
+				22B905211EEC4B5400ED8B71 /* TGLayout.m */,
+			);
+			path = TGLayout;
+			sourceTree = "<group>";
+		};
+		22B905221EEC4B5400ED8B71 /* TGSegment */ = {
+			isa = PBXGroup;
+			children = (
+				22B905231EEC4B5400ED8B71 /* TGMoreCell.h */,
+				22B905241EEC4B5400ED8B71 /* TGMoreCell.m */,
+				22B905251EEC4B5400ED8B71 /* TGMoreCell.xib */,
+				22B905261EEC4B5400ED8B71 /* TGMoreLayout.h */,
+				22B905271EEC4B5400ED8B71 /* TGMoreLayout.m */,
+				22B905281EEC4B5400ED8B71 /* TGSegmentBar.h */,
+				22B905291EEC4B5400ED8B71 /* TGSegmentBar.m */,
+				22B9052A1EEC4B5400ED8B71 /* TGSegmentConfig.h */,
+				22B9052B1EEC4B5400ED8B71 /* TGSegmentConfig.m */,
+				22B9052C1EEC4B5400ED8B71 /* TGSegmentMoreBtn.h */,
+				22B9052D1EEC4B5400ED8B71 /* TGSegmentMoreBtn.m */,
+				22B9052E1EEC4B5400ED8B71 /* TGSementBarVC.h */,
+				22B9052F1EEC4B5400ED8B71 /* TGSementBarVC.m */,
+				22B905301EEC4B5400ED8B71 /* TGShowMoreVC.h */,
+				22B905311EEC4B5400ED8B71 /* TGShowMoreVC.m */,
+				22B905321EEC4B5400ED8B71 /* UIView+TGSegment.h */,
+				22B905331EEC4B5400ED8B71 /* UIView+TGSegment.m */,
+			);
+			path = TGSegment;
+			sourceTree = "<group>";
+		};
+		22B905401EEC4C7B00ED8B71 /* ChildVC */ = {
+			isa = PBXGroup;
+			children = (
+				22B905471EEC4F3C00ED8B71 /* HomePageViewController.h */,
+				22B905481EEC4F3C00ED8B71 /* HomePageViewController.m */,
+				22B9054A1EEC4F4B00ED8B71 /* SubViewController.h */,
+				22B9054B1EEC4F4B00ED8B71 /* SubViewController.m */,
+			);
+			path = ChildVC;
+			sourceTree = "<group>";
+		};
+		22B9054D1EEC51CA00ED8B71 /* CommonVC */ = {
+			isa = PBXGroup;
+			children = (
+				22B9054E1EEC520F00ED8B71 /* MyColumnViewController.h */,
+				22B9054F1EEC520F00ED8B71 /* MyColumnViewController.m */,
+			);
+			path = CommonVC;
+			sourceTree = "<group>";
+		};
+		22B905511EEC59E200ED8B71 /* NewsView */ = {
+			isa = PBXGroup;
+			children = (
+				22B905521EEC5A1300ED8B71 /* DateAndWeatherView.h */,
+				22B905531EEC5A1300ED8B71 /* DateAndWeatherView.m */,
+			);
+			path = NewsView;
+			sourceTree = "<group>";
+		};
 		8431F33B1EE8E38C00295A18 /* moreView */ = {
 			isa = PBXGroup;
 			children = (
@@ -879,9 +1034,17 @@
 				221A51151EE99BCD00A543C0 /* UserInfoTableViewCell.h */,
 				221A51161EE99BCD00A543C0 /* UserInfoTableViewCell.m */,
 				221A51171EE99BCD00A543C0 /* UserInfoTableViewCell.xib */,
+				22B905081EEBD03C00ED8B71 /* InvationRegisterView.h */,
+				22B905091EEBD03C00ED8B71 /* InvationRegisterView.m */,
 				846053AF1EEAA40E00E1002E /* UserQrcodeShareView.h */,
 				846053B01EEAA40E00E1002E /* UserQrcodeShareView.m */,
 				846053B21EEAA41900E1002E /* UserQrcodeShareView.xib */,
+				221A511F1EEADCF800A543C0 /* PickerSelectView.h */,
+				221A51201EEADCF800A543C0 /* PickerSelectView.m */,
+				221A51211EEADCF800A543C0 /* PickerSelectView.xib */,
+				22B905111EEC1E4500ED8B71 /* MySettingTableViewCell.h */,
+				22B905121EEC1E4500ED8B71 /* MySettingTableViewCell.m */,
+				22B905131EEC1E4500ED8B71 /* MySettingTableViewCell.xib */,
 			);
 			path = moreView;
 			sourceTree = "<group>";
@@ -889,6 +1052,7 @@
 		845862071EE68A2600AF52B3 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				22B905511EEC59E200ED8B71 /* NewsView */,
 				8431F33B1EE8E38C00295A18 /* moreView */,
 			);
 			path = view;
@@ -897,6 +1061,7 @@
 		845862081EE68A5300AF52B3 /* viewController */ = {
 			isa = PBXGroup;
 			children = (
+				22B9054D1EEC51CA00ED8B71 /* CommonVC */,
 				84AABED51EE6AF41001AA7C0 /* BaseViewController */,
 				2261431E1EE8331800193487 /* FXWebViewController */,
 				2261430C1EE6E2B800193487 /* launch */,
@@ -1000,6 +1165,8 @@
 		845862301EE68A7100AF52B3 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				221A51241EEAE90000A543C0 /* CameraHelper.h */,
+				221A51251EEAE90000A543C0 /* CameraHelper.m */,
 				845862311EE68A7100AF52B3 /* CheckUtils.h */,
 				845862321EE68A7100AF52B3 /* CheckUtils.m */,
 				845862331EE68A7100AF52B3 /* DataWriteAndRead.h */,
@@ -1023,6 +1190,8 @@
 				845862451EE68A7100AF52B3 /* Utility.h */,
 				845862461EE68A7100AF52B3 /* Utility.m */,
 				845862471EE68A7100AF52B3 /* YYCategoriesMacro.h */,
+				22B905161EEC282000ED8B71 /* ClearCacheTool.h */,
+				22B905171EEC282000ED8B71 /* ClearCacheTool.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1068,6 +1237,7 @@
 		84AABC5E1EE69F76001AA7C0 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				22B905191EEC4B5400ED8B71 /* Lib */,
 				84AABE581EE6A035001AA7C0 /* lottie-ios */,
 				84AABE031EE6A003001AA7C0 /* CoreArchive */,
 				84AABE091EE6A003001AA7C0 /* CoreCategory */,
@@ -1671,6 +1841,7 @@
 		84AABEE51EE6AF80001AA7C0 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				22B905401EEC4C7B00ED8B71 /* ChildVC */,
 				84AABEE91EE6B251001AA7C0 /* NewsViewController.h */,
 				84AABEEA1EE6B251001AA7C0 /* NewsViewController.m */,
 			);
@@ -1702,6 +1873,8 @@
 				84AABEF31EE6B281001AA7C0 /* MyViewController.m */,
 				221A51121EE99A8C00A543C0 /* UserInfoViewController.h */,
 				221A51131EE99A8C00A543C0 /* UserInfoViewController.m */,
+				22B9050E1EEC1DB800ED8B71 /* MySettingViewController.h */,
+				22B9050F1EEC1DB800ED8B71 /* MySettingViewController.m */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -1735,6 +1908,8 @@
 			children = (
 				84D248381EE7D44A00937D28 /* ReturnMsgBaseClass.h */,
 				84D248391EE7D44A00937D28 /* ReturnMsgBaseClass.m */,
+				22B9050B1EEBEA3100ED8B71 /* SignAndCollectMdoel.h */,
+				22B9050C1EEBEA3100ED8B71 /* SignAndCollectMdoel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1897,6 +2072,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				226143191EE6EDC400193487 /* RegisterViewController.xib in Resources */,
+				22B905381EEC4B5400ED8B71 /* TGMoreCell.xib in Resources */,
 				846053B31EEAA41900E1002E /* UserQrcodeShareView.xib in Resources */,
 				84AABEFC1EE6B44E001AA7C0 /* LoginViewController.xib in Resources */,
 				226143311EE83E9400193487 /* noticeMusic.wav in Resources */,
@@ -1906,6 +2082,7 @@
 				847744FE1EE7958D00043F25 /* ForgetPasswordViewController.xib in Resources */,
 				8431F3451EE8FD9C00295A18 /* MoreNavView.xib in Resources */,
 				221A51191EE99BCD00A543C0 /* UserInfoTableViewCell.xib in Resources */,
+				22B905151EEC1E4500ED8B71 /* MySettingTableViewCell.xib in Resources */,
 				2261430B1EE6E2A500193487 /* launch_Image4.gif in Resources */,
 				8431F34A1EE917DF00295A18 /* MoreTableViewCell.xib in Resources */,
 				226143091EE6E2A500193487 /* launch_Image2.gif in Resources */,
@@ -1918,6 +2095,7 @@
 				226143341EE83E9400193487 /* scanLine@3x.png in Resources */,
 				2261432F1EE83E9400193487 /* lightNormal.png in Resources */,
 				226143301EE83E9400193487 /* lightSelect.png in Resources */,
+				221A51231EEADCF800A543C0 /* PickerSelectView.xib in Resources */,
 				84AABDD11EE69F76001AA7C0 /* HMScanner.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1966,7 +2144,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -1991,6 +2169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22B905501EEC520F00ED8B71 /* MyColumnViewController.m in Sources */,
 				226143211EE8336E00193487 /* FXWebViewController.m in Sources */,
 				226143321EE83E9400193487 /* QRCodeReaderView.m in Sources */,
 				84AABEFB1EE6B44E001AA7C0 /* LoginViewController.m in Sources */,
@@ -2002,6 +2181,7 @@
 				84AABED21EE6A035001AA7C0 /* LOTShapeTrimPath.m in Sources */,
 				226BDF861EE6859D009D2A3F /* AppDelegate.m in Sources */,
 				84AABEC11EE6A035001AA7C0 /* CGGeometryAdditions.m in Sources */,
+				22B905491EEC4F3C00ED8B71 /* HomePageViewController.m in Sources */,
 				84AABE451EE6A003001AA7C0 /* CALayer+Transition.m in Sources */,
 				84AABE021EE69FEF001AA7C0 /* Aspects.m in Sources */,
 				84AABEFF1EE6BD81001AA7C0 /* InitialSetting.m in Sources */,
@@ -2015,26 +2195,33 @@
 				84AABDD61EE69F76001AA7C0 /* HMScannerViewController.m in Sources */,
 				84AABEBC1EE6A035001AA7C0 /* LOTAnimatablePointValue.m in Sources */,
 				84AABDE41EE69F76001AA7C0 /* YYDiskCache.m in Sources */,
+				22B9054C1EEC4F4B00ED8B71 /* SubViewController.m in Sources */,
 				84AABEC91EE6A035001AA7C0 /* LOTLayer.m in Sources */,
 				84AABED11EE6A035001AA7C0 /* LOTShapeTransform.m in Sources */,
 				84AABED41EE6A035001AA7C0 /* LOTAnimationView.m in Sources */,
 				84AABEC41EE6A035001AA7C0 /* CALayer+Compat.m in Sources */,
 				84AABED31EE6A035001AA7C0 /* LOTAnimationTransitionController.m in Sources */,
+				22B905101EEC1DB800ED8B71 /* MySettingViewController.m in Sources */,
 				84AABEB21EE6A035001AA7C0 /* LOTEllipseShapeLayer.m in Sources */,
 				226143181EE6EDC400193487 /* RegisterViewController.m in Sources */,
 				84AABEBB1EE6A035001AA7C0 /* LOTAnimatableNumberValue.m in Sources */,
+				22B9053A1EEC4B5400ED8B71 /* TGSegmentBar.m in Sources */,
 				847745011EE7AAF900043F25 /* FXNetworkManager.m in Sources */,
 				84AABDE71EE69F76001AA7C0 /* YYTextContainerView.m in Sources */,
 				84AABDF41EE69F76001AA7C0 /* YYTextRunDelegate.m in Sources */,
 				84AABEF41EE6B281001AA7C0 /* MyViewController.m in Sources */,
 				84AABED01EE6A035001AA7C0 /* LOTShapeStroke.m in Sources */,
+				22B9053F1EEC4B5400ED8B71 /* UIView+TGSegment.m in Sources */,
 				84AABDF21EE69F76001AA7C0 /* YYTextParser.m in Sources */,
+				22B9053B1EEC4B5400ED8B71 /* TGSegmentConfig.m in Sources */,
 				84AABECA1EE6A035001AA7C0 /* LOTMask.m in Sources */,
 				84AABDF81EE69F76001AA7C0 /* UIView+YYText.m in Sources */,
 				84AABEBF1EE6A035001AA7C0 /* LOTAnimationCache.m in Sources */,
+				22B9053E1EEC4B5400ED8B71 /* TGShowMoreVC.m in Sources */,
 				8458624B1EE68A7100AF52B3 /* NSString+AES.m in Sources */,
 				84AABECC1EE6A035001AA7C0 /* LOTShapeFill.m in Sources */,
 				84AABDF11EE69F76001AA7C0 /* YYTextAttribute.m in Sources */,
+				22B905391EEC4B5400ED8B71 /* TGMoreLayout.m in Sources */,
 				84AABEE31EE6AF41001AA7C0 /* BaseViewController.m in Sources */,
 				84AABE541EE6A003001AA7C0 /* UILabel+FlickerNumber.m in Sources */,
 				84AABDFA1EE69F76001AA7C0 /* YYTextTransaction.m in Sources */,
@@ -2044,6 +2231,7 @@
 				845862631EE68A7100AF52B3 /* Utility.m in Sources */,
 				84AABE4F1EE6A003001AA7C0 /* UIImage+Color.m in Sources */,
 				84AABE531EE6A003001AA7C0 /* UIImage+Water.m in Sources */,
+				22B9050D1EEBEA3100ED8B71 /* SignAndCollectMdoel.m in Sources */,
 				84AABDFD1EE69F76001AA7C0 /* YYLabel.m in Sources */,
 				226143241EE8370700193487 /* AgreementViewModel.m in Sources */,
 				84AABDE51EE69F76001AA7C0 /* YYKVStorage.m in Sources */,
@@ -2054,9 +2242,11 @@
 				84AABE561EE6A003001AA7C0 /* UIView+Extend.m in Sources */,
 				84AABDED1EE69F76001AA7C0 /* YYTextLine.m in Sources */,
 				226143131EE6E35100193487 /* LaunchViewController.m in Sources */,
+				22B9053C1EEC4B5400ED8B71 /* TGSegmentMoreBtn.m in Sources */,
 				84AABDE81EE69F76001AA7C0 /* YYTextDebugOption.m in Sources */,
 				84AABDF91EE69F76001AA7C0 /* YYTextAsyncLayer.m in Sources */,
 				84AABE491EE6A003001AA7C0 /* NSString+Extend.m in Sources */,
+				221A51261EEAE90000A543C0 /* CameraHelper.m in Sources */,
 				84AABDFE1EE69F76001AA7C0 /* YYTextView.m in Sources */,
 				84AABECE1EE6A035001AA7C0 /* LOTShapePath.m in Sources */,
 				84AABDD31EE69F76001AA7C0 /* HMScannerBorder.m in Sources */,
@@ -2065,6 +2255,7 @@
 				84AABEC71EE6A035001AA7C0 /* UIColor.m in Sources */,
 				84AABDE31EE69F76001AA7C0 /* YYCache.m in Sources */,
 				84AABE461EE6A003001AA7C0 /* NSArray+Extend.m in Sources */,
+				22B9050A1EEBD03C00ED8B71 /* InvationRegisterView.m in Sources */,
 				84AABE511EE6A003001AA7C0 /* UIImage+Extend.m in Sources */,
 				84AABDA11EE69F76001AA7C0 /* UIScrollView+EmptyDataSet.m in Sources */,
 				84AABDDD1EE69F76001AA7C0 /* SDCollectionViewCell.m in Sources */,
@@ -2083,10 +2274,12 @@
 				84AABEB81EE6A035001AA7C0 /* LOTStrokeShapeLayer.m in Sources */,
 				84AABDF01EE69F76001AA7C0 /* YYTextArchiver.m in Sources */,
 				845862621EE68A7100AF52B3 /* UIDevice+YYAdd.m in Sources */,
+				22B905341EEC4B5400ED8B71 /* TGCarouselImageManager.m in Sources */,
 				84D2483A1EE7D44A00937D28 /* ReturnMsgBaseClass.m in Sources */,
 				847745081EE7B0AC00043F25 /* loginViewMdoel.m in Sources */,
 				84AABDD21EE69F76001AA7C0 /* HMScanner.m in Sources */,
 				84AABDCF1EE69F76001AA7C0 /* UIViewController+LewPopupViewController.m in Sources */,
+				22B9053D1EEC4B5400ED8B71 /* TGSementBarVC.m in Sources */,
 				226BDF831EE6859D009D2A3F /* main.m in Sources */,
 				84AABEE01EE6AF41001AA7C0 /* BaseIndexViewController.m in Sources */,
 				845862641EE68A7100AF52B3 /* UserInfoObj.m in Sources */,
@@ -2095,6 +2288,7 @@
 				84AABDC71EE69F76001AA7C0 /* Model.m in Sources */,
 				84AABE4A1EE6A003001AA7C0 /* NSString+Password.m in Sources */,
 				84AABEB51EE6A035001AA7C0 /* LOTMaskLayer.m in Sources */,
+				22B905351EEC4B5400ED8B71 /* TGCarouselImageView.m in Sources */,
 				84AABE4B1EE6A003001AA7C0 /* UIBarButtonItem+Extend.m in Sources */,
 				84AABEC81EE6A035001AA7C0 /* LOTComposition.m in Sources */,
 				8458625D1EE68A7100AF52B3 /* NSDictionary+NilSafe.m in Sources */,
@@ -2116,6 +2310,7 @@
 				84AABDDE1EE69F76001AA7C0 /* SDCycleScrollView.m in Sources */,
 				84AABDCB1EE69F76001AA7C0 /* LewPopupViewAnimationDrop.m in Sources */,
 				8458624E1EE68A7100AF52B3 /* HHAlertViewCust.m in Sources */,
+				22B905371EEC4B5400ED8B71 /* TGMoreCell.m in Sources */,
 				84AABDEE1EE69F76001AA7C0 /* YYTextMagnifier.m in Sources */,
 				84AABDE01EE69F76001AA7C0 /* UIViewController+KNSemiModal.m in Sources */,
 				84AABE431EE6A003001AA7C0 /* CoreArchive.m in Sources */,
@@ -2140,9 +2335,12 @@
 				8458625E1EE68A7100AF52B3 /* NSNumber+YYAdd.m in Sources */,
 				221A51181EE99BCD00A543C0 /* UserInfoTableViewCell.m in Sources */,
 				84AABDC61EE69F76001AA7C0 /* MLBlackTransition.m in Sources */,
+				221A51221EEADCF800A543C0 /* PickerSelectView.m in Sources */,
 				84AABDF51EE69F76001AA7C0 /* NSAttributedString+YYText.m in Sources */,
 				84AABEEE1EE6B264001AA7C0 /* LivesViewController.m in Sources */,
+				22B905181EEC282000ED8B71 /* ClearCacheTool.m in Sources */,
 				84AABDD81EE69F76001AA7C0 /* UIViewController+RTRootNavigationController.m in Sources */,
+				22B905541EEC5A1300ED8B71 /* DateAndWeatherView.m in Sources */,
 				845862601EE68A7100AF52B3 /* NSString+YYAdd.m in Sources */,
 				845862581EE68A7100AF52B3 /* ShareConfig.m in Sources */,
 				84AABEB41EE6A035001AA7C0 /* LOTLayerView.m in Sources */,
@@ -2153,9 +2351,11 @@
 				2261433B1EE84B6E00193487 /* ForgetPasswordViewModel.m in Sources */,
 				847744FD1EE7958D00043F25 /* ForgetPasswordViewController.m in Sources */,
 				84AABEC21EE6A035001AA7C0 /* UIColor+Expanded.m in Sources */,
+				22B905361EEC4B5400ED8B71 /* TGLayout.m in Sources */,
 				84AABDFC1EE69F76001AA7C0 /* YYTextWeakProxy.m in Sources */,
 				84AABDCC1EE69F76001AA7C0 /* LewPopupViewAnimationFade.m in Sources */,
 				2261431D1EE6EF8300193487 /* YX_TextField.m in Sources */,
+				22B905141EEC1E4500ED8B71 /* MySettingTableViewCell.m in Sources */,
 				84AABE521EE6A003001AA7C0 /* UIImage+FixOrientation.m in Sources */,
 				845862561EE68A7100AF52B3 /* NSString+MD5Encrypt.m in Sources */,
 				8458624C1EE68A7100AF52B3 /* AddressClass.m in Sources */,

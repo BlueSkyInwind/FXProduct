@@ -14,6 +14,9 @@
     [super awakeFromNib];
     // Initialization code
     self.contentImageView.hidden = YES;
+    self.contentImageView.layer.cornerRadius = self.contentImageView.frame.size. height / 2;
+    self.contentImageView.clipsToBounds = YES;
+
 }
 
 

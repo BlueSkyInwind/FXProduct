@@ -7,7 +7,7 @@
 //
 
 #import "MoreNavView.h"
-
+#import "MoreViewModel.h"
 @implementation MoreNavView
 
 -(void)awakeFromNib{
@@ -27,6 +27,13 @@
     UITapGestureRecognizer * tap4 = [[UITapGestureRecognizer alloc]initWithTarget:self
                                                                           action:@selector(goSignInViewCilck)];
     [self.signInView addGestureRecognizer:tap4];
+    if ([Utility sharedUtility].isSign) {
+        
+        self.signLabel.text = @"已签到";
+    }else{
+        self.signLabel.text = @"签到";
+
+    }
     
 }
 -(void)goCollectViewCilck{
@@ -47,9 +54,27 @@
     }
 }
 -(void)goSignInViewCilck{
+    if ([Utility sharedUtility].isSign) {
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"今天已签到！"];
+    }else{
+        [self userSign];
+    }
     if (self.delegate && [self.delegate respondsToSelector:@selector(SignInViewCilck)]) {
         [self.delegate SignInViewCilck];
     }
+}
+-(void)userSign{
+    
+    MoreViewModel * moreVM = [[MoreViewModel alloc]init];
+    [moreVM setBlockWithReturnBlock:^(id returnValue) {
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        if ([returnMsg.returnCode intValue] == 1) {
+            self.signLabel.text = @"已签到";
+        }
+    } WithFaileBlock:^{
+        
+    }];
+    [moreVM requestSign];
 }
 
 

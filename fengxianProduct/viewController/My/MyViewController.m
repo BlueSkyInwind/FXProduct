@@ -13,6 +13,8 @@
 #import "MoreViewModel.h"
 #import "LoginViewController.h"
 #import "UserInfoViewController.h"
+#import "InvationRegisterView.h"
+#import "MySettingViewController.h"
 
 @interface MyViewController ()<UITableViewDelegate,UITableViewDataSource,MoreNavViewDelegate>{
     
@@ -36,7 +38,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     imageArr = @[@"More_jifenduihuan",@"More_feedBack",@"More_setting"];
     titleArr = @[@"积分兑换",@"我的反馈",@"我的设置"];
-    
+    [self obtainSignStatus];
     [self configureView];
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -130,7 +132,8 @@
         }
             break;
         case 2:{
-
+            MySettingViewController * mySettingVC  = [[MySettingViewController alloc]init];
+            [self.navigationController pushViewController:mySettingVC animated:YES];
         }
             break;
         default:
@@ -142,7 +145,7 @@
     
     UIView * view = [[UIView alloc]init];
     self.moreHeaderView = [[NSBundle mainBundle]loadNibNamed:@"MoreHeaderView" owner:self options:nil].lastObject;
-    
+    [self.moreHeaderView configureViewImage:[Utility sharedUtility].userInfo.Images AccountID:[Utility sharedUtility].userInfo.Code];
     __weak typeof (self) weakSelf = self;
     self.moreHeaderView.goUserInfoBtnClick = ^(UITapGestureRecognizer *tap) {
         if ([[ShareConfig share] isPresentLoginVC:weakSelf]) {
@@ -152,7 +155,7 @@
     };
     self.moreHeaderView.qRCodeBtnClick = ^(UIButton *button) {
         if ([[ShareConfig share] isPresentLoginVC:weakSelf]) {
-            
+            [weakSelf popInavationView];
         }
     };
     [view addSubview:self.moreHeaderView];
@@ -176,6 +179,12 @@
     return 200;
 }
 
+-(void)popInavationView{
+    
+    [InvationRegisterView showInvationView:self];
+
+}
+
 #pragma mark - MoreNavViewDelegate
 -(void)CollectViewCilck{
     if ([[ShareConfig share] isPresentLoginVC:self]) {
@@ -196,6 +205,20 @@
     
     
     
+}
+
+-(void)obtainSignStatus{
+    
+    MoreViewModel * moreVM = [[MoreViewModel alloc]init];
+    [moreVM setBlockWithReturnBlock:^(id returnValue) {
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        if ([returnMsg.returnCode intValue] == 1) {
+            [self.tableView reloadData];
+        }
+    } WithFaileBlock:^{
+        
+    }];
+    [moreVM fatchIsSignAndCollect];
 }
 
 - (void)didReceiveMemoryWarning {

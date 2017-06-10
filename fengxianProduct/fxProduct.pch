@@ -50,7 +50,7 @@
 #import "FXNetworkManager.h"
 #import "ReturnMsgBaseClass.h"
 #import "ShareConfig.h"
-
+#import "CameraHelper.h"
 #endif
 
 #endif

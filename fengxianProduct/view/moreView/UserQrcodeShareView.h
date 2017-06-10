@@ -8,6 +8,34 @@
 
 #import <UIKit/UIKit.h>
 
+
+
+@protocol UserQrcodeShareViewDelegate  <NSObject>
+
+-(void)closeViewClick;
+-(void)invationCodeClick;
+
+@end
+
+
 @interface UserQrcodeShareView : UIView
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *userAvatarImage;
+
+@property (weak, nonatomic) IBOutlet UILabel *invationCodeLabel;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *closeBtn;
+
+@property (weak, nonatomic) IBOutlet UIImageView *qrCodeImage;
+
+@property (weak, nonatomic) IBOutlet UIButton *invationBtn;
+
+@property (weak, nonatomic) IBOutlet UILabel *explainLabel;
+
+@property (nonatomic,assign)id<UserQrcodeShareViewDelegate> delegate;
+
+-(void)configureView;
 
 @end

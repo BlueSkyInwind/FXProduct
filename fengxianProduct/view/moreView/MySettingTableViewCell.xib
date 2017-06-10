@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="MySettingTableViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="MySettingTableViewCell" id="KGk-i7-Jjw" customClass="MySettingTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWt-hu-LfE">
+                        <rect key="frame" x="11" y="12" width="178" height="19.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="4nz-jG-TY4"/>
+                            <constraint firstAttribute="width" constant="178" id="Ydg-3O-enh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="more_Left_gray_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="icf-XN-vc5">
+                        <rect key="frame" x="295" y="11.5" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="1xp-1T-4DS"/>
+                            <constraint firstAttribute="width" constant="20" id="H4o-xP-zBn"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RLw-iN-njh">
+                        <rect key="frame" x="0.0" y="43" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="ucp-za-GlI"/>
+                        </constraints>
+                    </view>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fng-Ze-tKv">
+                        <rect key="frame" x="270" y="9.5" width="47" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="1xP-Mz-H89"/>
+                            <constraint firstAttribute="width" constant="45" id="g9c-Q7-6hq"/>
+                        </constraints>
+                        <color key="onTintColor" red="0.25882352941176467" green="0.69803921568627447" blue="0.77647058823529413" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <action selector="wifiSwitchClick:" destination="KGk-i7-Jjw" eventType="valueChanged" id="CjI-WN-3Q5"/>
+                        </connections>
+                    </switch>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="icf-XN-vc5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2gJ-lq-TA5"/>
+                    <constraint firstAttribute="trailing" secondItem="fng-Ze-tKv" secondAttribute="trailing" constant="5" id="FWE-1t-6Z4"/>
+                    <constraint firstAttribute="bottom" secondItem="RLw-iN-njh" secondAttribute="bottom" id="OkX-a4-lrO"/>
+                    <constraint firstAttribute="trailing" secondItem="RLw-iN-njh" secondAttribute="trailing" id="YJl-Gx-Fwg"/>
+                    <constraint firstItem="fng-Ze-tKv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bX3-6f-Qrc"/>
+                    <constraint firstItem="RLw-iN-njh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="d8X-IC-TAt"/>
+                    <constraint firstItem="iWt-hu-LfE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dB7-Pr-iuB"/>
+                    <constraint firstItem="iWt-hu-LfE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="3" id="muG-7P-Vo7"/>
+                    <constraint firstItem="icf-XN-vc5" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="3" id="t5e-8c-5ak"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="rightIconImage" destination="icf-XN-vc5" id="zVJ-Or-yVa"/>
+                <outlet property="titileLabel" destination="iWt-hu-LfE" id="19C-oP-ywG"/>
+                <outlet property="wifiSwitch" destination="fng-Ze-tKv" id="CyY-Av-cQ8"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="more_Left_gray_Icon" width="21" height="21"/>
+    </resources>
+</document>

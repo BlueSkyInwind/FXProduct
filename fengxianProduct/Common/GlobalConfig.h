@@ -29,6 +29,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 // 设置三原色
 #define RGBColor(R,G,B,A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
 
+#define CachePath [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
 
 #define _view_width    self.view.frame.size.width
 #define _view_height   self.view.frame.size.height
@@ -45,6 +46,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
 #define KCharacterNumber @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@"
+
+#define CSM ((CameraHelper *)[CameraHelper shareManager])
 
 
 UIKIT_EXTERN NSString * const _main_url;

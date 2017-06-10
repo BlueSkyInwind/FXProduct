@@ -12,6 +12,10 @@
 
 -(void)awakeFromNib{
     [super awakeFromNib];
+    
+    self.userHeaderImageBtn.layer.cornerRadius = self.userHeaderImageBtn.frame.size. height / 2;
+    self.userHeaderImageBtn.clipsToBounds = YES;
+    
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self
                                                                           action:@selector(goUserInfo:)];
     [self.contentView addGestureRecognizer:tap];
@@ -19,7 +23,7 @@
 }
 -(void)configureViewImage:(NSString *)imageUrl AccountID:(NSString *)accountID {
     
-    [self.userHeaderImageBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:imageUrl] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"user_Icon"] options:SDWebImageCacheMemoryOnly];
+    [self.userHeaderImageBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:imageUrl] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"user_Icon"] options:SDWebImageRefreshCached];
     
     self.IDLabel.text = [NSString stringWithFormat:@"ID:%@",accountID];
     

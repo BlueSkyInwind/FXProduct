@@ -14,6 +14,8 @@
 @property (nonatomic,strong) UserInfoObj *userInfo;
 @property (nonatomic,assign) BOOL loginFlage;
 @property (nonatomic,assign) BOOL networkState;
+@property (nonatomic,assign) BOOL isSign;
+@property (nonatomic,assign) BOOL isLoadImage;
 
 + (Utility *)sharedUtility;
 

@@ -7,21 +7,91 @@
 //
 
 #import "NewsViewController.h"
-
+#import "TGSementBarVC.h"
+#import "HomePageViewController.h"
+#import "SubViewController.h"
+#import "MyColumnViewController.h"
 @interface NewsViewController ()
+
+@property (nonatomic, strong) TGSementBarVC *segmentBarVC;
 
 @end
 
 @implementation NewsViewController
 
+- (TGSementBarVC *)segmentBarVC {
+    if (!_segmentBarVC) {
+        TGSementBarVC *vc = [[TGSementBarVC alloc] init];
+        [self addChildViewController:vc];//成链
+        _segmentBarVC = vc;
+    }
+    return _segmentBarVC;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.title = @"新闻";
+    UIBarButtonItem *barBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"search_Icon"] style:UIBarButtonItemStylePlain target:self action:@selector(GosearchViewContrller)];
+    barBtn.tintColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem = barBtn;
+    [self configureView];
     
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(moreColumnClick) name:@"NewsMoreBtnClick" object:nil];
+    
+}
+-(void)configureView{
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.segmentBarVC.segmentBar.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 35);
+    //设置segmentBarVC大小
+    self.segmentBarVC.view.frame = CGRectMake(0, 25, _k_w, _k_h - 30);
+    //使用segmentBarVC
+    [self.view addSubview:self.segmentBarVC.view];
+    NSArray *items = @[@"推荐",@"随听", @"视频", @"图片", @"段子"];
+    NSMutableArray* childVCs = [NSMutableArray array];
+    [childVCs addObject:[[HomePageViewController alloc] init]];
+    [childVCs addObject:[[SubViewController alloc] init]];
+    [childVCs addObject:[[SubViewController alloc] init]];
+    [childVCs addObject:[[SubViewController alloc] init]];
+    [childVCs addObject:[[SubViewController alloc] init]];
+    [self.segmentBarVC setupWithItems:items childVCs:childVCs];
+    [self.segmentBarVC.segmentBar updateViewWithConfig:^(TGSegmentConfig *config) {
+        config.selectedColor(UI_MAIN_COLOR)
+        .normalColor([UIColor blackColor])
+        .selectedFont([UIFont systemFontOfSize:14])//选中字体大于其他正常标签的字体的情况下，根据情况稍微调大margin（默认8），以免选中的字体变大后挡住其他正常标签的内容
+        .normalFont([UIFont systemFontOfSize:13])
+        .indicateExtraW(8)
+        .indicateH(2)
+        .indicateColor(UI_MAIN_COLOR)
+        .showMore(YES)//是否显示更多面板
+        .circleScroll(YES)//是否循环滚动，第0个再向前，那么到最后一个;最后一个向后，那么到第0个
+        .moreCellBGColor([[UIColor grayColor] colorWithAlphaComponent:0.3])
+        .moreBGColor([UIColor clearColor])
+        .moreCellFont([UIFont systemFontOfSize:13])
+        .moreCellTextColor(UI_MAIN_COLOR)
+        .moreCellMinH(30)
+        .showMoreBtnlineView(YES)
+        .moreBtnlineViewColor([UIColor grayColor])
+        .moreBtnTitleFont([UIFont systemFontOfSize:13])
+        .moreBtnTitleColor([UIColor blackColor])
+        .margin(18)
+        .barBGColor([UIColor whiteColor])
+        ;
+    }];
 
 }
-
+#pragma mark - 点击事件
+-(void)moreColumnClick{
+    
+    MyColumnViewController * myColumnVC = [[MyColumnViewController alloc]init];
+    [self.navigationController pushViewController:myColumnVC animated:YES];
+    
+}
+-(void)GosearchViewContrller{
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

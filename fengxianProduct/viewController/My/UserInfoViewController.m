@@ -9,7 +9,10 @@
 #import "UserInfoViewController.h"
 #import "UserInfoTableViewCell.h"
 #import "LoginViewController.h"
-@interface UserInfoViewController ()<UITableViewDelegate,UITableViewDataSource>{
+#import "PickerSelectView.h"
+#import "MoreViewModel.h"
+#import "InvationRegisterView.h"
+@interface UserInfoViewController ()<UITableViewDelegate,UITableViewDataSource,PickerselectViewDelegate>{
     
     NSArray * titleArr;
     NSMutableArray * contentArr;
@@ -25,10 +28,15 @@
     NSString * birthday;
     NSString * userLocation;
     
+    PickerViewType PVType;
+    UIView * maskView;
+
+    NSData * seletedImageData;
 
 }
 @property (nonatomic,strong)UITableView * tableView;
 @property (nonatomic,strong)UserInfoTableViewCell * userInfoTableViewCell;
+@property (nonatomic,strong)PickerSelectView * picSV;
 
 @end
 
@@ -61,7 +69,11 @@
     birthday = [Utility sharedUtility].userInfo.Date == nil ? @"" : [Utility sharedUtility].userInfo.Date;
     userLocation = [Utility sharedUtility].userInfo.Address == nil ? @"" : [Utility sharedUtility].userInfo.Address;
     
-    contentArr = [NSMutableArray arrayWithObjects:@[userImageUrl,userAccount,nickname,userID,userQrcode],@[mohliePhone,emailStr],@[gender,birthday,userLocation], nil];
+    NSMutableArray * arr1 = [NSMutableArray arrayWithArray:@[userImageUrl,userAccount,nickname,userID,userQrcode]];
+    NSMutableArray * arr2 = [NSMutableArray arrayWithArray:@[mohliePhone,emailStr]];
+    NSMutableArray * arr3 = [NSMutableArray arrayWithArray:@[gender,birthday,userLocation]];
+
+    contentArr = [NSMutableArray arrayWithObjects:arr1,arr2,arr3, nil];
     
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -84,8 +96,38 @@
 #pragma  mrak - 点击事件
 -(void)saveUserInfo{
     
+    MoreViewModel * moreVM = [[MoreViewModel alloc]init];
+    [moreVM setBlockWithReturnBlock:^(id returnValue) {
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        if ([returnMsg.returnCode intValue] == 1) {
+            [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"保存成功"];
+            [[ShareConfig share]updateUserData];
+        }
+    } WithFaileBlock:^{
+        
+    }];
+    gender = contentArr[2][0];
+    NSString * num = @"";
+    if ([gender isEqualToString:@"男"]) {
+        num = @"1";
+    }else if([gender isEqualToString:@"女"]){
+        num = @"0";
+    }
+    [moreVM updateAccountInfo:contentArr[0][1] gender:num email:contentArr[1][1] moblie:contentArr[1][0]  date:contentArr[2][1]  address:contentArr[2][2] image:@{CSM.imageName:seletedImageData}];
+}
+-(void)uploadAvatar:(NSString *)data  finsh:(void(^)(bool isSuccess))finsh{
     
-    
+    MoreViewModel * moreVM = [[MoreViewModel alloc]init];
+    [moreVM setBlockWithReturnBlock:^(id returnValue) {
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        if ([returnMsg.returnCode intValue] == 1) {
+            [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"头像上传成功"];
+            finsh(YES);
+        }
+    } WithFaileBlock:^{
+        
+    }];
+    [moreVM uploadAvatarImage:@{CSM.imageName:data}];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -139,7 +181,7 @@
         case 0:{
             if (indexPath.row == 0) {
                 cell.contentImageView.hidden = NO;
-                [cell.contentImageView sd_setImageWithURL:[NSURL URLWithString:contentArr[indexPath.section][indexPath.row]] placeholderImage:[UIImage imageNamed:@"user_Icon"] options:SDWebImageCacheMemoryOnly];
+                [cell.contentImageView sd_setImageWithURL:[NSURL URLWithString:contentArr[indexPath.section][indexPath.row]] placeholderImage:[UIImage imageNamed:@"user_Icon"] options:SDWebImageRefreshCached];
             }else if (indexPath.row == 4){
                 cell.contentImageView.hidden = NO;
                 cell.contentImageView.image = [UIImage imageNamed:contentArr[indexPath.section][indexPath.row]];
@@ -167,19 +209,27 @@
         case 0:{
             switch (indexPath.row) {
                 case 0:{
-                    
+                    [[CameraHelper shareManager]obtainController:self userSeletedImage:^(UIImage *userImage, NSData *userImageData) {
+                        
+                        [self uploadAvatar:[userImageData base64EncodedStringWithOptions:0] finsh:^(bool isSuccess) {
+                            
+                            
+                        }];
+                    }];
                 }
                     break;
                 case 2:{
                     [[ShareConfig share]presentAlertTextfield:self placeHolder:@"请输入昵称" userInputContent:^(NSString *resultStr) {
                         if (resultStr != nil && ![resultStr isEqualToString:@""]) {
                             [contentArr[indexPath.section] replaceObjectAtIndex:indexPath.row withObject:resultStr];
+                            [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
                         }
+                        
                     }];
                 }
                     break;
                 case 4:{
-                    
+                    [self popInavationView];
                 }
                     break;
                 default:
@@ -192,7 +242,8 @@
                 
                 [[ShareConfig share]presentAlertTextfield:self placeHolder:@"请输入手机号" userInputContent:^(NSString *resultStr) {
                     if ([Tool isMobileNumber:resultStr]) {
-                        [contentArr[indexPath.section] replaceObjectAtIndex:indexPath.row withObject:resultStr];
+                         [contentArr[indexPath.section] replaceObjectAtIndex:indexPath.row withObject:resultStr];
+                        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
                     }else{
                         [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"手机号码格式不正确"];
                     }
@@ -201,14 +252,30 @@
                 [[ShareConfig share]presentAlertTextfield:self placeHolder:@"请输入邮箱" userInputContent:^(NSString *resultStr) {
                     if (resultStr != nil && ![resultStr isEqualToString:@""]) {
                         [contentArr[indexPath.section] replaceObjectAtIndex:indexPath.row withObject:resultStr];
+                        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
                     }
                 }];
             }
+            
         }
             break;
         case 2:{
-            
-            
+            if (indexPath.row == 0) {
+                [self showPickerViewType:genderPickerView];
+                PVType = genderPickerView;
+                
+            }else if (indexPath.row == 1){
+                [self showPickerViewType:birPickerView];
+                PVType = birPickerView;
+
+            }else{
+                [[ShareConfig share]presentAlertTextfield:self placeHolder:@"请输入地址" userInputContent:^(NSString *resultStr) {
+                    if (resultStr != nil && ![resultStr isEqualToString:@""]) {
+                        [contentArr[indexPath.section] replaceObjectAtIndex:indexPath.row withObject:resultStr];
+                        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
+                    }
+                }];
+            }
         }
             break;
         default:
@@ -237,6 +304,76 @@
     [self presentViewController:nav animated:YES completion:^{
         [EmptyUserData EmptyData];
     }];
+}
+-(void)popInavationView{
+    
+    [InvationRegisterView showInvationView:self];
+    
+}
+
+#pragma mark ------ PickerselectViewDelegate------
+-(void)clickCancelButton{
+    
+    [self removePickerView];
+    
+}
+-(void)clicksureButton:(NSString *)context{
+    switch (PVType) {
+        case 0:{
+            [contentArr[2] replaceObjectAtIndex:0 withObject:context];
+        }
+            break;
+        case 1:{
+            [contentArr[2] replaceObjectAtIndex:1 withObject:context];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    [self removePickerView];
+    [self.tableView reloadData];
+}
+#pragma mark ----------PickerSelectView弹出动画-----------
+-(void)showPickerViewType:(PickerViewType)pickerViewType{
+    
+    if (self.picSV != nil) {
+        return;
+    }
+    maskView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_h)];
+    maskView.backgroundColor = [UIColor blackColor];
+    maskView.alpha = 0.5;
+    self.picSV = [[[NSBundle mainBundle]loadNibNamed:@"PickerSelectView" owner:nil options:nil]firstObject];
+    self.picSV.frame = CGRectMake(0, _k_h + 200, _k_w, 202);
+    [self.picSV configureView:self.view pickerViewType:pickerViewType delegate:self];
+    
+    [[UIApplication sharedApplication].keyWindow addSubview:maskView];
+    [[UIApplication sharedApplication].keyWindow addSubview:self.picSV];
+    self.tableView.scrollEnabled = YES;
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        
+        self.picSV.frame = CGRectMake(0, _k_h - 202, _k_w, 202);
+        
+    } completion:^(BOOL finished) {
+        
+        
+    }];
+}
+-(void)removePickerView{
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        
+        self.picSV.frame = CGRectMake(0, _k_h + 200, _k_w, 202);
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+    self.tableView.scrollEnabled = YES;
+    [maskView removeFromSuperview];
+    [ self.picSV removeFromSuperview];
+    self.picSV = nil;
+    
 }
 
 - (void)didReceiveMemoryWarning {

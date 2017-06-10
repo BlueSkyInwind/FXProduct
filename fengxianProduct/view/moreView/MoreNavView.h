@@ -26,6 +26,9 @@
 
 @property (weak, nonatomic) IBOutlet UIView *signInView;
 
+@property (weak, nonatomic) IBOutlet UILabel *signLabel;
+
+
 @property (assign , nonatomic)id<MoreNavViewDelegate>delegate;
 
 @end

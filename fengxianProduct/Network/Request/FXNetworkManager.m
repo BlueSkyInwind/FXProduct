@@ -70,7 +70,6 @@
             }];
         }
 }
-
 - (void)POSTHideIndicatorWithURL:(NSString *)strURL parameters:(id)parameters finished:(FinishedBlock)finished failure:(FailureBlock)failure
 {
     
@@ -98,6 +97,129 @@
             [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"服务器请求失败,请重试!"];
             DLog(@"error---%@",error.description);
         }];
+}
+- (void)POSTUpLoadImage:(NSString *)strURL FilePath:(NSDictionary *)images  parameters:(id)parameters finished:(FinishedBlock)finshed failure:(FailureBlock)failure
+{
+    if (![Utility sharedUtility].networkState) {
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"请确认您的手机是否连接到网络!"];
+        return;
+    } else {
+        MBProgressHUD *_waitView = [self loadingHUD];
+        [_waitView show:YES];
+        [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+        DLog(@"请求url:---%@\n 参数:----%@",strURL,parameters);
+        
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        manager.requestSerializer.timeoutInterval = 30.0;
+//        [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+//        NSString * str = [images allValues].firstObject;
+//        [manager.requestSerializer setValue:[NSString stringWithFormat:@"%lu",(unsigned long)str.length]  forHTTPHeaderField:@"Content-Length"];
+        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer]; 
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html"@"charset=utf-8",@"application/json", nil];
+        
+        [manager POST:strURL parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+            if (images) {
+                NSArray *allKeys = [images allKeys];
+                [allKeys enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    NSString *imageKey = obj;
+                    NSString * imageStr = [images valueForKey:imageKey];
+                    NSString * str = [self encodeURL:imageStr];
+                    NSData * data = [str dataUsingEncoding:NSUTF8StringEncoding];
+                    
+//                   NSData * data =  [GTMBase64 encodeData: [images valueForKey:imageKey]];
+                    [formData appendPartWithFileData:data name:@"avatar" fileName:@"avatar.png" mimeType:@"image/png"];
+
+//                    NSInputStream* inputStream = [[NSInputStream alloc]initWithData:data];
+//                    [formData appendPartWithInputStream:inputStream name:imageKey fileName:imageKey length:data.length mimeType:@"image/png"];
+                    
+                }];
+            }
+            //添加准备上传的图片
+            //将UIimage 转换成NSData
+            //            NSData *data=UIImageJPEGRepresentation(image,0.2);
+            //            [formData appendPartWithFileData:data name:@"image" fileName:@"image" mimeType:@"image/png"];
+        } progress:^(NSProgress * _Nonnull uploadProgress) {
+            
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            [AFNetworkActivityIndicatorManager sharedManager].enabled = NO;
+            NSDictionary *dic = [NSDictionary dictionaryWithDictionary:responseObject];
+            NSData *data = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
+            NSString *jsonStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            DLog(@"response json --- %@",jsonStr);
+            finshed(Enum_SUCCESS,responseObject);
+            [_waitView removeFromSuperview];
+            [AFNetworkActivityIndicatorManager sharedManager].enabled = NO;
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            failure(Enum_FAIL,error);
+            DLog(@"error---%@",error.localizedDescription);
+            [_waitView removeFromSuperview];
+            [AFNetworkActivityIndicatorManager sharedManager].enabled = NO;
+        }];
+    }
+}
+
+//- (void)POSTUpLoadImage:(NSString *)strURL FilePath:(NSDictionary *)images  parameters:(id)parameters finished:(FinishedBlock)finshed failure:(FailureBlock)failure
+//{
+//    if (![Utility sharedUtility].networkState) {
+//        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"请确认您的手机是否连接到网络!"];
+//        return;
+//    } else {
+//        MBProgressHUD *_waitView = [self loadingHUD];
+//        [_waitView show:YES];
+//        [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+//        DLog(@"请求url:---%@\n 参数:----%@",strURL,parameters);
+//        
+//        
+//        NSURLSessionConfiguration * sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+//        NSURLSession * session = [NSURLSession sessionWithConfiguration:sessionConfig];
+//        NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:strURL] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30];
+//        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+//        NSData * data =  [GTMBase64 encodeData:[images allValues].firstObject];
+////        NSString * str = [images allValues].firstObject;
+//        [request setValue:[NSString stringWithFormat:@"%lu",(unsigned long)data.length]  forHTTPHeaderField:@"Content-Length"];
+//        [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+//        [request addValue:@"text/html" forHTTPHeaderField:@"Accept"];
+//
+//        [request setHTTPMethod:@"POST"];
+//        [request setHTTPBody:data];
+//        
+//        //    NSDictionary * dic = [request allHTTPHeaderFields];
+//        
+//        NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//            if (response) {
+//                NSError * responeError;
+//                NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data
+//                                                                    options:NSJSONReadingMutableContainers
+//                                                                      error:&responeError];
+//                if (responeError) {
+//                    //解析失败；
+//                    failure(Enum_FAIL,responeError);
+//                    return ;
+//                }
+//                finshed(Enum_SUCCESS,dic);
+//            }
+//            
+//            if (error) {
+//                
+//                failure(Enum_FAIL,error);
+//                
+//            }
+//        }];
+//        [postDataTask resume];
+//
+//    }
+//}
+
+
+#pragma mark --- 图片base64编码
+- (NSString*)encodeURL:(NSString *)string
+{
+    NSString *newString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes( kCFAllocatorDefault, (CFStringRef)string, NULL, CFSTR(":/?#[]@!$ &'()*+,;=\"<>%{}|\\^~`"),kCFStringEncodingUTF8));
+    if (newString) {
+        return newString;
+    }
+    return @"";
 }
 
 - (UIViewController *)getCurrentVC{
