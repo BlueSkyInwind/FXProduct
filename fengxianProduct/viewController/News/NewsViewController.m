@@ -11,7 +11,11 @@
 #import "HomePageViewController.h"
 #import "SubViewController.h"
 #import "MyColumnViewController.h"
-@interface NewsViewController ()
+@interface NewsViewController (){
+    
+    NSMutableArray * items;
+    
+}
 
 @property (nonatomic, strong) TGSementBarVC *segmentBarVC;
 
@@ -49,13 +53,23 @@
     self.segmentBarVC.view.frame = CGRectMake(0, 25, _k_w, _k_h - 30);
     //使用segmentBarVC
     [self.view addSubview:self.segmentBarVC.view];
-    NSArray *items = @[@"推荐",@"随听", @"视频", @"图片", @"段子"];
+    items = [NSMutableArray array];
+    if ([Utility sharedUtility].columnModel) {
+        [[Utility sharedUtility].columnModel.rows enumerateObjectsUsingBlock:^(ColumnInfoModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            ColumnInfoModel * infoModel = (ColumnInfoModel *)obj;
+            NSString * title = infoModel.Title;
+            [items addObject:title];
+
+        }];
+    }
+    
     NSMutableArray* childVCs = [NSMutableArray array];
     [childVCs addObject:[[HomePageViewController alloc] init]];
-    [childVCs addObject:[[SubViewController alloc] init]];
-    [childVCs addObject:[[SubViewController alloc] init]];
-    [childVCs addObject:[[SubViewController alloc] init]];
-    [childVCs addObject:[[SubViewController alloc] init]];
+    for (int  i = 0; i < items.count - 1; i++) {
+        SubViewController * subVc = [[SubViewController alloc] init];
+        subVc.columnID = i + 1;
+        [childVCs addObject:subVc];
+    }
     [self.segmentBarVC setupWithItems:items childVCs:childVCs];
     [self.segmentBarVC.segmentBar updateViewWithConfig:^(TGSegmentConfig *config) {
         config.selectedColor(UI_MAIN_COLOR)

@@ -62,6 +62,15 @@
 		22B9054C1EEC4F4B00ED8B71 /* SubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9054B1EEC4F4B00ED8B71 /* SubViewController.m */; };
 		22B905501EEC520F00ED8B71 /* MyColumnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9054F1EEC520F00ED8B71 /* MyColumnViewController.m */; };
 		22B905541EEC5A1300ED8B71 /* DateAndWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905531EEC5A1300ED8B71 /* DateAndWeatherView.m */; };
+		22B905581EECF86600ED8B71 /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905561EECF86600ED8B71 /* NewsTableViewCell.m */; };
+		22B905591EECF86600ED8B71 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B905571EECF86600ED8B71 /* NewsTableViewCell.xib */; };
+		22B9055C1EECF98800ED8B71 /* BannerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9055B1EECF98800ED8B71 /* BannerViewModel.m */; };
+		22B9055F1EECFAB600ED8B71 /* BannerInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9055E1EECFAB600ED8B71 /* BannerInfoModel.m */; };
+		22B905621EECFE1C00ED8B71 /* NewsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905611EECFE1C00ED8B71 /* NewsViewModel.m */; };
+		22B905651EECFF7900ED8B71 /* NewsListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905641EECFF7900ED8B71 /* NewsListModel.m */; };
+		22B905681EED070300ED8B71 /* ColumnModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905671EED070300ED8B71 /* ColumnModel.m */; };
+		22B9056E1EED95E300ED8B71 /* JZLCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9056B1EED95E300ED8B71 /* JZLCollectionViewCell.m */; };
+		22B9056F1EED95E300ED8B71 /* JZLCycleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9056D1EED95E300ED8B71 /* JZLCycleView.m */; };
 		504A8DF353C2A20D8FC06A21 /* Pods_fengxianProduct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23ECD749F784B81055FF8EC8 /* Pods_fengxianProduct.framework */; };
 		8431F33E1EE8E3EE00295A18 /* MoreHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8431F33D1EE8E3EE00295A18 /* MoreHeaderView.m */; };
 		8431F3401EE8E40900295A18 /* MoreHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8431F33F1EE8E40900295A18 /* MoreHeaderView.xib */; };
@@ -372,6 +381,23 @@
 		22B9054F1EEC520F00ED8B71 /* MyColumnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyColumnViewController.m; sourceTree = "<group>"; };
 		22B905521EEC5A1300ED8B71 /* DateAndWeatherView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateAndWeatherView.h; sourceTree = "<group>"; };
 		22B905531EEC5A1300ED8B71 /* DateAndWeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateAndWeatherView.m; sourceTree = "<group>"; };
+		22B905551EECF86600ED8B71 /* NewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewCell.h; sourceTree = "<group>"; };
+		22B905561EECF86600ED8B71 /* NewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewCell.m; sourceTree = "<group>"; };
+		22B905571EECF86600ED8B71 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
+		22B9055A1EECF98800ED8B71 /* BannerViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerViewModel.h; sourceTree = "<group>"; };
+		22B9055B1EECF98800ED8B71 /* BannerViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerViewModel.m; sourceTree = "<group>"; };
+		22B9055D1EECFAB600ED8B71 /* BannerInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerInfoModel.h; sourceTree = "<group>"; };
+		22B9055E1EECFAB600ED8B71 /* BannerInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerInfoModel.m; sourceTree = "<group>"; };
+		22B905601EECFE1C00ED8B71 /* NewsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewModel.h; sourceTree = "<group>"; };
+		22B905611EECFE1C00ED8B71 /* NewsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewModel.m; sourceTree = "<group>"; };
+		22B905631EECFF7900ED8B71 /* NewsListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListModel.h; sourceTree = "<group>"; };
+		22B905641EECFF7900ED8B71 /* NewsListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListModel.m; sourceTree = "<group>"; };
+		22B905661EED070300ED8B71 /* ColumnModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnModel.h; sourceTree = "<group>"; };
+		22B905671EED070300ED8B71 /* ColumnModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnModel.m; sourceTree = "<group>"; };
+		22B9056A1EED95E300ED8B71 /* JZLCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZLCollectionViewCell.h; sourceTree = "<group>"; };
+		22B9056B1EED95E300ED8B71 /* JZLCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZLCollectionViewCell.m; sourceTree = "<group>"; };
+		22B9056C1EED95E300ED8B71 /* JZLCycleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZLCycleView.h; sourceTree = "<group>"; };
+		22B9056D1EED95E300ED8B71 /* JZLCycleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZLCycleView.m; sourceTree = "<group>"; };
 		23ECD749F784B81055FF8EC8 /* Pods_fengxianProduct.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fengxianProduct.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B86EC1B2254EC782DD0D6E /* Pods-fengxianProduct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fengxianProduct.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fengxianProduct/Pods-fengxianProduct.debug.xcconfig"; sourceTree = "<group>"; };
 		8431F33C1EE8E3EE00295A18 /* MoreHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreHeaderView.h; sourceTree = "<group>"; };
@@ -1015,8 +1041,22 @@
 			children = (
 				22B905521EEC5A1300ED8B71 /* DateAndWeatherView.h */,
 				22B905531EEC5A1300ED8B71 /* DateAndWeatherView.m */,
+				22B905551EECF86600ED8B71 /* NewsTableViewCell.h */,
+				22B905561EECF86600ED8B71 /* NewsTableViewCell.m */,
+				22B905571EECF86600ED8B71 /* NewsTableViewCell.xib */,
 			);
 			path = NewsView;
+			sourceTree = "<group>";
+		};
+		22B905691EED95E300ED8B71 /* JZLCycleView */ = {
+			isa = PBXGroup;
+			children = (
+				22B9056A1EED95E300ED8B71 /* JZLCollectionViewCell.h */,
+				22B9056B1EED95E300ED8B71 /* JZLCollectionViewCell.m */,
+				22B9056C1EED95E300ED8B71 /* JZLCycleView.h */,
+				22B9056D1EED95E300ED8B71 /* JZLCycleView.m */,
+			);
+			path = JZLCycleView;
 			sourceTree = "<group>";
 		};
 		8431F33B1EE8E38C00295A18 /* moreView */ = {
@@ -1230,6 +1270,10 @@
 				2261433A1EE84B6E00193487 /* ForgetPasswordViewModel.m */,
 				8431F34B1EE9330200295A18 /* MoreViewModel.h */,
 				8431F34C1EE9330200295A18 /* MoreViewModel.m */,
+				22B9055A1EECF98800ED8B71 /* BannerViewModel.h */,
+				22B9055B1EECF98800ED8B71 /* BannerViewModel.m */,
+				22B905601EECFE1C00ED8B71 /* NewsViewModel.h */,
+				22B905611EECFE1C00ED8B71 /* NewsViewModel.m */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -1237,6 +1281,7 @@
 		84AABC5E1EE69F76001AA7C0 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				22B905691EED95E300ED8B71 /* JZLCycleView */,
 				22B905191EEC4B5400ED8B71 /* Lib */,
 				84AABE581EE6A035001AA7C0 /* lottie-ios */,
 				84AABE031EE6A003001AA7C0 /* CoreArchive */,
@@ -1910,6 +1955,12 @@
 				84D248391EE7D44A00937D28 /* ReturnMsgBaseClass.m */,
 				22B9050B1EEBEA3100ED8B71 /* SignAndCollectMdoel.h */,
 				22B9050C1EEBEA3100ED8B71 /* SignAndCollectMdoel.m */,
+				22B9055D1EECFAB600ED8B71 /* BannerInfoModel.h */,
+				22B9055E1EECFAB600ED8B71 /* BannerInfoModel.m */,
+				22B905631EECFF7900ED8B71 /* NewsListModel.h */,
+				22B905641EECFF7900ED8B71 /* NewsListModel.m */,
+				22B905661EED070300ED8B71 /* ColumnModel.h */,
+				22B905671EED070300ED8B71 /* ColumnModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2084,6 +2135,7 @@
 				221A51191EE99BCD00A543C0 /* UserInfoTableViewCell.xib in Resources */,
 				22B905151EEC1E4500ED8B71 /* MySettingTableViewCell.xib in Resources */,
 				2261430B1EE6E2A500193487 /* launch_Image4.gif in Resources */,
+				22B905591EECF86600ED8B71 /* NewsTableViewCell.xib in Resources */,
 				8431F34A1EE917DF00295A18 /* MoreTableViewCell.xib in Resources */,
 				226143091EE6E2A500193487 /* launch_Image2.gif in Resources */,
 				226143081EE6E2A500193487 /* launch_Image1.gif in Resources */,
@@ -2194,6 +2246,7 @@
 				84AABEB11EE6A035001AA7C0 /* LOTAnimatableLayer.m in Sources */,
 				84AABDD61EE69F76001AA7C0 /* HMScannerViewController.m in Sources */,
 				84AABEBC1EE6A035001AA7C0 /* LOTAnimatablePointValue.m in Sources */,
+				22B905681EED070300ED8B71 /* ColumnModel.m in Sources */,
 				84AABDE41EE69F76001AA7C0 /* YYDiskCache.m in Sources */,
 				22B9054C1EEC4F4B00ED8B71 /* SubViewController.m in Sources */,
 				84AABEC91EE6A035001AA7C0 /* LOTLayer.m in Sources */,
@@ -2224,6 +2277,7 @@
 				22B905391EEC4B5400ED8B71 /* TGMoreLayout.m in Sources */,
 				84AABEE31EE6AF41001AA7C0 /* BaseViewController.m in Sources */,
 				84AABE541EE6A003001AA7C0 /* UILabel+FlickerNumber.m in Sources */,
+				22B905621EECFE1C00ED8B71 /* NewsViewModel.m in Sources */,
 				84AABDFA1EE69F76001AA7C0 /* YYTextTransaction.m in Sources */,
 				84AABDF71EE69F76001AA7C0 /* UIPasteboard+YYText.m in Sources */,
 				847745051EE7B07B00043F25 /* ViewModelClass.m in Sources */,
@@ -2234,6 +2288,7 @@
 				22B9050D1EEBEA3100ED8B71 /* SignAndCollectMdoel.m in Sources */,
 				84AABDFD1EE69F76001AA7C0 /* YYLabel.m in Sources */,
 				226143241EE8370700193487 /* AgreementViewModel.m in Sources */,
+				22B9056E1EED95E300ED8B71 /* JZLCollectionViewCell.m in Sources */,
 				84AABDE51EE69F76001AA7C0 /* YYKVStorage.m in Sources */,
 				8431F3491EE917DF00295A18 /* MoreTableViewCell.m in Sources */,
 				84AABECF1EE6A035001AA7C0 /* LOTShapeRectangle.m in Sources */,
@@ -2241,6 +2296,8 @@
 				84AABE551EE6A003001AA7C0 /* UITableViewCell+Extend.m in Sources */,
 				84AABE561EE6A003001AA7C0 /* UIView+Extend.m in Sources */,
 				84AABDED1EE69F76001AA7C0 /* YYTextLine.m in Sources */,
+				22B9055C1EECF98800ED8B71 /* BannerViewModel.m in Sources */,
+				22B9055F1EECFAB600ED8B71 /* BannerInfoModel.m in Sources */,
 				226143131EE6E35100193487 /* LaunchViewController.m in Sources */,
 				22B9053C1EEC4B5400ED8B71 /* TGSegmentMoreBtn.m in Sources */,
 				84AABDE81EE69F76001AA7C0 /* YYTextDebugOption.m in Sources */,
@@ -2275,9 +2332,11 @@
 				84AABDF01EE69F76001AA7C0 /* YYTextArchiver.m in Sources */,
 				845862621EE68A7100AF52B3 /* UIDevice+YYAdd.m in Sources */,
 				22B905341EEC4B5400ED8B71 /* TGCarouselImageManager.m in Sources */,
+				22B905651EECFF7900ED8B71 /* NewsListModel.m in Sources */,
 				84D2483A1EE7D44A00937D28 /* ReturnMsgBaseClass.m in Sources */,
 				847745081EE7B0AC00043F25 /* loginViewMdoel.m in Sources */,
 				84AABDD21EE69F76001AA7C0 /* HMScanner.m in Sources */,
+				22B905581EECF86600ED8B71 /* NewsTableViewCell.m in Sources */,
 				84AABDCF1EE69F76001AA7C0 /* UIViewController+LewPopupViewController.m in Sources */,
 				22B9053D1EEC4B5400ED8B71 /* TGSementBarVC.m in Sources */,
 				226BDF831EE6859D009D2A3F /* main.m in Sources */,
@@ -2302,6 +2361,7 @@
 				84AABE481EE6A003001AA7C0 /* NSObject+Extend.m in Sources */,
 				84AABE501EE6A003001AA7C0 /* UIImage+Cut.m in Sources */,
 				84AABDD41EE69F76001AA7C0 /* HMScannerController.m in Sources */,
+				22B9056F1EED95E300ED8B71 /* JZLCycleView.m in Sources */,
 				84AABE4E1EE6A003001AA7C0 /* UIFont+Extend.m in Sources */,
 				84AABE441EE6A003001AA7C0 /* CALayer+Anim.m in Sources */,
 				84AABEBA1EE6A035001AA7C0 /* LOTAnimatableColorValue.m in Sources */,

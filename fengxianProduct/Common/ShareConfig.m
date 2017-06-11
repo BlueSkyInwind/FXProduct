@@ -9,7 +9,7 @@
 #import "ShareConfig.h"
 #import "LoginViewController.h"
 #import "MoreViewModel.h"
-
+#import "NewsViewModel.h"
 @implementation ShareConfig
 
 static ShareConfig * shareConfig = nil;
@@ -95,6 +95,18 @@ static ShareConfig * shareConfig = nil;
     [moreVM obtainAccountInfo];
     
 }
+
+-(void)obtainColumnInfo{
+    
+    NewsViewModel * newsVM = [[NewsViewModel alloc]init];
+    [newsVM setBlockWithReturnBlock:^(id returnValue) {
+        
+    } WithFaileBlock:^{
+        
+    }];
+    [newsVM fatchColumnListType:@"1"];
+}
+
 
 
 

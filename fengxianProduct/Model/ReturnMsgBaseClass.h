@@ -13,6 +13,7 @@
 @property (nonatomic,strong)NSNumber * returnCode;
 @property(nonatomic,strong)id<Optional> result;
 @property(nonatomic,strong)id<Optional> msg;
+@property(nonatomic,strong)id<Optional> total;
 
 
 @end

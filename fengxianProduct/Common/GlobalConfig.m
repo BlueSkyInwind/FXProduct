@@ -39,9 +39,11 @@ NSString * const kUserPass     =   @"userPass";
 
 //ju
 NSString * const FX_AccountID     =    @"accountID";
-
 //登陆标识
 NSString * const kLoginFlag    =   @"loginFlag";
+NSString * const FX_ColumnInfo    =   @"ColumnInfo";
+
+
 
 //邀请码
 NSString * const kInvitationCode = @"invitation_code";

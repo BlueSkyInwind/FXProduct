@@ -26,7 +26,7 @@
     // Configure for text only and offset down
     hud.mode = MBProgressHUDModeText;
     
-    if (message.length < 20) {
+    if (message.length < 20 && [message isEqual:[NSString class]]) {
         hud.labelText = message;
         hud.labelFont = [UIFont systemFontOfSize:12];
     } else {

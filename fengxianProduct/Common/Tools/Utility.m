@@ -17,6 +17,7 @@
     self = [super init];
     if (self) {
         self.userInfo = [[UserInfoObj alloc] init];
+        self.columnModel = [[ColumnModel alloc]init];
         self.isLoadImage = NO;
     }
     return self;

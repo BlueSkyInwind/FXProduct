@@ -62,7 +62,7 @@
     userAccount = [Utility sharedUtility].userInfo.Mobile == nil ? @"" : [Utility sharedUtility].userInfo.Mobile;
     nickname = [Utility sharedUtility].userInfo.Name == nil ? @"" : [Utility sharedUtility].userInfo.Name;
     userID = [Utility sharedUtility].userInfo.Code == nil ? @"" : [Utility sharedUtility].userInfo.Code;
-    userQrcode = @"More_userQRCode_Icon";
+    userQrcode = @"More_userQRCode_Icon_gray";
     mohliePhone = [Utility sharedUtility].userInfo.Mobile == nil ? @"" : [Utility sharedUtility].userInfo.Mobile;
     emailStr = [Utility sharedUtility].userInfo.Email == nil ? @"" : [Utility sharedUtility].userInfo.Email;
     gender = [[Utility sharedUtility].userInfo.Gender intValue] == 1 ?  @"男":@"女";

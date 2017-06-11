@@ -8,14 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "UserInfoObj.h"
-
+#import "ColumnModel.h"
 @interface Utility : NSObject
+
 
 @property (nonatomic,strong) UserInfoObj *userInfo;
 @property (nonatomic,assign) BOOL loginFlage;
 @property (nonatomic,assign) BOOL networkState;
 @property (nonatomic,assign) BOOL isSign;
 @property (nonatomic,assign) BOOL isLoadImage;
+@property (nonatomic,strong) ColumnModel *columnModel;
 
 + (Utility *)sharedUtility;
 

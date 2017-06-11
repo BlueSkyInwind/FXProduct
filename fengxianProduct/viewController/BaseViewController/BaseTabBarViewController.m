@@ -25,9 +25,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [[ShareConfig share]obtainColumnInfo];
     [self setTabbarCon];
     self.delegate = self;
-    
 }
 
 - (void)setTabbarCon

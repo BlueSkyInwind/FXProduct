@@ -24,7 +24,9 @@
 -(void)presentAlertTextfield:(UIViewController *)vc placeHolder:(NSString *)placeHolder userInputContent:(void(^)(NSString * resultStr))userInputContent;
 
 
-
 + (void)configDefaultShare;
+
+-(void)obtainColumnInfo;
+
 
 @end

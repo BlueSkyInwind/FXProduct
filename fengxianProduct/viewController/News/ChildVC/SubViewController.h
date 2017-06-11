@@ -10,4 +10,7 @@
 
 @interface SubViewController : UIViewController
 
+@property (nonatomic,assign)NSInteger columnID;
+
+
 @end

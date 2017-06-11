@@ -76,6 +76,8 @@ UIKIT_EXTERN NSString * const FX_AccountID;
 
 //登陆标识
 UIKIT_EXTERN NSString * const kLoginFlag;
+//用户栏目信息
+UIKIT_EXTERN NSString * const FX_ColumnInfo;
 
 //邀请码
 UIKIT_EXTERN NSString * const kInvitationCode;

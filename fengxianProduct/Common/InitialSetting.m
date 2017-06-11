@@ -8,7 +8,7 @@
 
 #import "InitialSetting.h"
 #import "MoreViewModel.h"
-
+#import "ColumnModel.h"
 @implementation InitialSetting
 
 + (void)load
@@ -40,6 +40,8 @@
     });
     //获取用户信息
     [Utility sharedUtility].loginFlage = [[Tool getContentWithKey:kLoginFlag] integerValue];
+    [Utility sharedUtility].columnModel = [[ColumnModel alloc]initWithDictionary:[Tool getContentWithKey:FX_ColumnInfo] error:nil];
+
     if ([Tool getContentWithKey:FX_AccountID] && [Utility sharedUtility].loginFlage) {
         
         [Utility sharedUtility].userInfo = [[UserInfoObj alloc]initWithDictionary:[Tool getContentWithKey:FX_AccountID] error:nil];
