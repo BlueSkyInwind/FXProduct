@@ -30,7 +30,6 @@
         if ([returnMsg.returnCode intValue] == 1) {
             [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"密码修改成功"];
         }
-        
         self.returnBlock(returnMsg);
     } failure:^(EnumServerStatus status, id object) {
         

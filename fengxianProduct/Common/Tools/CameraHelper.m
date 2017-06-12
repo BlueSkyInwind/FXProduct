@@ -39,16 +39,15 @@ static CameraHelper * cameraHlp;
     return cameraHlp;
 }
 
--(void)obtainController:(UIViewController *)control userSeletedImage:(void(^)(UIImage *userImage, NSData *userImageData))userSeletedImage{
+-(void)obtainController:(UIViewController *)control userSeletedImage:(void(^)(UIImage *userImage, NSData *userImageData, NSString * userimageName))userSeletedImage{
     
     controller = control;
     [self showActionSheet:control];
-    self.seletedImage = ^(UIImage *image, NSData *imageData) {
+    self.seletedImage = ^(UIImage *image, NSData *imageData,NSString * imageName) {
         
-        userSeletedImage(image,imageData);
+        userSeletedImage(image,imageData,imageName);
         
     };
-
 }
 #pragma mark ------- 弹出UIActionSheet------------
 -(void)showActionSheet:(UIViewController *)vc{
@@ -146,25 +145,27 @@ static CameraHelper * cameraHlp;
         imageFileName = [representation filename];
         
         if (imageFileName == nil) {
-            imageFileName = @"userimage.png";
+            imageFileName = @"png";
         }else{
             
             NSRange range = [imageFileName rangeOfString:@"." options:NSBackwardsSearch];
             imageFileName = [imageFileName substringFromIndex:range.location+1];
         }
         self.imageName = imageFileName;
+        if (self.seletedImage) {
+            self.seletedImage(selectImage, selectImageData,imageFileName);
+        }
     };
-    self.imageName = [self obtainTodayDate];
+//    self.imageName = [self obtainTodayDate];
     ALAssetsLibrary* assetslibrary = [[ALAssetsLibrary alloc] init];
     [assetslibrary assetForURL:imageURL
      
                    resultBlock:resultblock
      
                   failureBlock:nil];
-    
-    
-    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
-    [self saveImage:image withName:@"avatar.png"];
+    selectImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    selectImageData = UIImageJPEGRepresentation(selectImage, 0.2);
+    [self saveImage:selectImage withName:@"avatar.png"];
     [picker dismissViewControllerAnimated:YES completion:^{
         
     }];
@@ -176,9 +177,7 @@ static CameraHelper * cameraHlp;
     
 //    UIImage * saveImage = [[PathTools shareManager]imageByScalingAndCroppingForSizeOldImage:currentImage];
     NSData * imageData = UIImageJPEGRepresentation(currentImage, 0.2);
-    if (self.seletedImage) {
-        self.seletedImage(currentImage, imageData);
-    }
+
 //    CGFloat num = [[PathTools shareManager]compressionQuality:imageData];
 //    
 //    if (num != 1) {

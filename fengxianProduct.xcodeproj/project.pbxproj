@@ -79,6 +79,12 @@
 		8431F3491EE917DF00295A18 /* MoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8431F3471EE917DF00295A18 /* MoreTableViewCell.m */; };
 		8431F34A1EE917DF00295A18 /* MoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8431F3481EE917DF00295A18 /* MoreTableViewCell.xib */; };
 		8431F34D1EE9330200295A18 /* MoreViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8431F34C1EE9330200295A18 /* MoreViewModel.m */; };
+		8439A47B1EEE2BA2002ADF1B /* NewsMultipleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8439A4791EEE2BA2002ADF1B /* NewsMultipleTableViewCell.m */; };
+		8439A47C1EEE2BA2002ADF1B /* NewsMultipleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8439A47A1EEE2BA2002ADF1B /* NewsMultipleTableViewCell.xib */; };
+		8439A4801EEE320E002ADF1B /* NewsTwoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8439A47E1EEE320E002ADF1B /* NewsTwoTableViewCell.m */; };
+		8439A4811EEE320E002ADF1B /* NewsTwoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8439A47F1EEE320E002ADF1B /* NewsTwoTableViewCell.xib */; };
+		8439A4851EEE6B43002ADF1B /* NSString+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = 8439A4841EEE6B43002ADF1B /* NSString+URL.m */; };
+		8439A4881EEE9F45002ADF1B /* userSourceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8439A4871EEE9F45002ADF1B /* userSourceModel.m */; };
 		8458624A1EE68A7100AF52B3 /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458620C1EE68A7100AF52B3 /* NSData+AES.m */; };
 		8458624B1EE68A7100AF52B3 /* NSString+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458620E1EE68A7100AF52B3 /* NSString+AES.m */; };
 		8458624C1EE68A7100AF52B3 /* AddressClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 845862111EE68A7100AF52B3 /* AddressClass.m */; };
@@ -411,6 +417,16 @@
 		8431F3481EE917DF00295A18 /* MoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreTableViewCell.xib; sourceTree = "<group>"; };
 		8431F34B1EE9330200295A18 /* MoreViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewModel.h; sourceTree = "<group>"; };
 		8431F34C1EE9330200295A18 /* MoreViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewModel.m; sourceTree = "<group>"; };
+		8439A4781EEE2BA2002ADF1B /* NewsMultipleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsMultipleTableViewCell.h; sourceTree = "<group>"; };
+		8439A4791EEE2BA2002ADF1B /* NewsMultipleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsMultipleTableViewCell.m; sourceTree = "<group>"; };
+		8439A47A1EEE2BA2002ADF1B /* NewsMultipleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsMultipleTableViewCell.xib; sourceTree = "<group>"; };
+		8439A47D1EEE320E002ADF1B /* NewsTwoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTwoTableViewCell.h; sourceTree = "<group>"; };
+		8439A47E1EEE320E002ADF1B /* NewsTwoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTwoTableViewCell.m; sourceTree = "<group>"; };
+		8439A47F1EEE320E002ADF1B /* NewsTwoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTwoTableViewCell.xib; sourceTree = "<group>"; };
+		8439A4831EEE6B43002ADF1B /* NSString+URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URL.h"; sourceTree = "<group>"; };
+		8439A4841EEE6B43002ADF1B /* NSString+URL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URL.m"; sourceTree = "<group>"; };
+		8439A4861EEE9F45002ADF1B /* userSourceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userSourceModel.h; sourceTree = "<group>"; };
+		8439A4871EEE9F45002ADF1B /* userSourceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userSourceModel.m; sourceTree = "<group>"; };
 		8458620B1EE68A7100AF52B3 /* NSData+AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES.h"; sourceTree = "<group>"; };
 		8458620C1EE68A7100AF52B3 /* NSData+AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES.m"; sourceTree = "<group>"; };
 		8458620D1EE68A7100AF52B3 /* NSString+AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AES.h"; sourceTree = "<group>"; };
@@ -1044,6 +1060,12 @@
 				22B905551EECF86600ED8B71 /* NewsTableViewCell.h */,
 				22B905561EECF86600ED8B71 /* NewsTableViewCell.m */,
 				22B905571EECF86600ED8B71 /* NewsTableViewCell.xib */,
+				8439A4781EEE2BA2002ADF1B /* NewsMultipleTableViewCell.h */,
+				8439A4791EEE2BA2002ADF1B /* NewsMultipleTableViewCell.m */,
+				8439A47A1EEE2BA2002ADF1B /* NewsMultipleTableViewCell.xib */,
+				8439A47D1EEE320E002ADF1B /* NewsTwoTableViewCell.h */,
+				8439A47E1EEE320E002ADF1B /* NewsTwoTableViewCell.m */,
+				8439A47F1EEE320E002ADF1B /* NewsTwoTableViewCell.xib */,
 			);
 			path = NewsView;
 			sourceTree = "<group>";
@@ -1207,6 +1229,8 @@
 			children = (
 				221A51241EEAE90000A543C0 /* CameraHelper.h */,
 				221A51251EEAE90000A543C0 /* CameraHelper.m */,
+				8439A4831EEE6B43002ADF1B /* NSString+URL.h */,
+				8439A4841EEE6B43002ADF1B /* NSString+URL.m */,
 				845862311EE68A7100AF52B3 /* CheckUtils.h */,
 				845862321EE68A7100AF52B3 /* CheckUtils.m */,
 				845862331EE68A7100AF52B3 /* DataWriteAndRead.h */,
@@ -1961,6 +1985,8 @@
 				22B905641EECFF7900ED8B71 /* NewsListModel.m */,
 				22B905661EED070300ED8B71 /* ColumnModel.h */,
 				22B905671EED070300ED8B71 /* ColumnModel.m */,
+				8439A4861EEE9F45002ADF1B /* userSourceModel.h */,
+				8439A4871EEE9F45002ADF1B /* userSourceModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2131,11 +2157,13 @@
 				226BDF8E1EE6859D009D2A3F /* Assets.xcassets in Resources */,
 				8431F3401EE8E40900295A18 /* MoreHeaderView.xib in Resources */,
 				847744FE1EE7958D00043F25 /* ForgetPasswordViewController.xib in Resources */,
+				8439A4811EEE320E002ADF1B /* NewsTwoTableViewCell.xib in Resources */,
 				8431F3451EE8FD9C00295A18 /* MoreNavView.xib in Resources */,
 				221A51191EE99BCD00A543C0 /* UserInfoTableViewCell.xib in Resources */,
 				22B905151EEC1E4500ED8B71 /* MySettingTableViewCell.xib in Resources */,
 				2261430B1EE6E2A500193487 /* launch_Image4.gif in Resources */,
 				22B905591EECF86600ED8B71 /* NewsTableViewCell.xib in Resources */,
+				8439A47C1EEE2BA2002ADF1B /* NewsMultipleTableViewCell.xib in Resources */,
 				8431F34A1EE917DF00295A18 /* MoreTableViewCell.xib in Resources */,
 				226143091EE6E2A500193487 /* launch_Image2.gif in Resources */,
 				226143081EE6E2A500193487 /* launch_Image1.gif in Resources */,
@@ -2196,7 +2224,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -2242,6 +2270,7 @@
 				8431F34D1EE9330200295A18 /* MoreViewModel.m in Sources */,
 				84AABDDF1EE69F76001AA7C0 /* UIView+SDExtension.m in Sources */,
 				84D2483D1EE7FB7700937D28 /* SMSViewModel.m in Sources */,
+				8439A4851EEE6B43002ADF1B /* NSString+URL.m in Sources */,
 				8458624F1EE68A7100AF52B3 /* MBPAlertView.m in Sources */,
 				84AABEB11EE6A035001AA7C0 /* LOTAnimatableLayer.m in Sources */,
 				84AABDD61EE69F76001AA7C0 /* HMScannerViewController.m in Sources */,
@@ -2348,6 +2377,7 @@
 				84AABE4A1EE6A003001AA7C0 /* NSString+Password.m in Sources */,
 				84AABEB51EE6A035001AA7C0 /* LOTMaskLayer.m in Sources */,
 				22B905351EEC4B5400ED8B71 /* TGCarouselImageView.m in Sources */,
+				8439A4801EEE320E002ADF1B /* NewsTwoTableViewCell.m in Sources */,
 				84AABE4B1EE6A003001AA7C0 /* UIBarButtonItem+Extend.m in Sources */,
 				84AABEC81EE6A035001AA7C0 /* LOTComposition.m in Sources */,
 				8458625D1EE68A7100AF52B3 /* NSDictionary+NilSafe.m in Sources */,
@@ -2380,6 +2410,7 @@
 				84AABDEA1EE69F76001AA7C0 /* YYTextInput.m in Sources */,
 				8458625F1EE68A7100AF52B3 /* NSString+Validate.m in Sources */,
 				84AABDFB1EE69F76001AA7C0 /* YYTextUtilities.m in Sources */,
+				8439A47B1EEE2BA2002ADF1B /* NewsMultipleTableViewCell.m in Sources */,
 				84AABDDA1EE69F76001AA7C0 /* TAAnimatedDotView.m in Sources */,
 				846053B11EEAA40E00E1002E /* UserQrcodeShareView.m in Sources */,
 				84AABECB1EE6A035001AA7C0 /* LOTShapeCircle.m in Sources */,
@@ -2391,6 +2422,7 @@
 				84AABE471EE6A003001AA7C0 /* NSDate+Extend.m in Sources */,
 				8458625C1EE68A7100AF52B3 /* NSData+YYAdd.m in Sources */,
 				84AABEEB1EE6B251001AA7C0 /* NewsViewController.m in Sources */,
+				8439A4881EEE9F45002ADF1B /* userSourceModel.m in Sources */,
 				84AABDEC1EE69F76001AA7C0 /* YYTextLayout.m in Sources */,
 				8458625E1EE68A7100AF52B3 /* NSNumber+YYAdd.m in Sources */,
 				221A51181EE99BCD00A543C0 /* UserInfoTableViewCell.m in Sources */,

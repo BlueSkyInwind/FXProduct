@@ -35,4 +35,7 @@
  */
 - (void)uploadColumnListType:(NSString *)number Column:(NSString *)Column;
 
+
+-(void)fatchWeatherInfo;
+
 @end

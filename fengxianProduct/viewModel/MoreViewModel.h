@@ -23,7 +23,7 @@
                    moblie:(NSString *)moblie
                      date:(NSString *)date
                   address:(NSString *)address
-                    image:(NSDictionary *)images;
+                    image:(NSString *)images;
 
 /**
  头像上传

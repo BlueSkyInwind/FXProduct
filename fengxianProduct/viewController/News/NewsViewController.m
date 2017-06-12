@@ -11,6 +11,7 @@
 #import "HomePageViewController.h"
 #import "SubViewController.h"
 #import "MyColumnViewController.h"
+#import "NewsViewModel.h"
 @interface NewsViewController (){
     
     NSMutableArray * items;
@@ -41,7 +42,8 @@
     barBtn.tintColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = barBtn;
     [self configureView];
-    
+    [self getNewsWeather];
+
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(moreColumnClick) name:@"NewsMoreBtnClick" object:nil];
     
 }
@@ -95,6 +97,15 @@
         ;
     }];
 
+}
+-(void)getNewsWeather{
+    NewsViewModel * newsVM = [[NewsViewModel alloc]init];
+    [newsVM setBlockWithReturnBlock:^(id returnValue) {
+        
+    } WithFaileBlock:^{
+        
+    }];
+    [newsVM fatchWeatherInfo];
 }
 #pragma mark - 点击事件
 -(void)moreColumnClick{

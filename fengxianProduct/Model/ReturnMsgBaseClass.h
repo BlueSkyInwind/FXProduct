@@ -14,6 +14,7 @@
 @property(nonatomic,strong)id<Optional> result;
 @property(nonatomic,strong)id<Optional> msg;
 @property(nonatomic,strong)id<Optional> total;
+@property(nonatomic,strong)NSString<Optional> *Url;
 
 
 @end

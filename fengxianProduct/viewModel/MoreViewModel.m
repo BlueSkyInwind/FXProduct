@@ -8,6 +8,8 @@
 
 #import "MoreViewModel.h"
 #import "SignAndCollectMdoel.h"
+#import "NSString+URL.h"
+#import "userSourceModel.h"
 @implementation MoreViewModel
 
 /**
@@ -48,11 +50,11 @@
                    moblie:(NSString *)moblie
                    date:(NSString *)date
                     address:(NSString *)address
-                    image:(NSDictionary *)images{
+                    image:(NSString *)images{
     
     //http://infx2.echaokj.cn/ajax/inter/UserDetail.ashx?AccountId=1&Name=好可爱的人&Images=XX.png&Gender=1&Email=1111@qq.com&Mobile=18321587571&Date=2014-4-12&Address=浦东新区
     
-    NSString * baseUrl = [NSString stringWithFormat:@"%@inter/UserDetail.ashx?AccountId=%@&Name=%@&Images=%@&Gender=%@&Email=%@&Mobile=%@&Date=%@&Address=%@",_main_url,[Utility sharedUtility].userInfo.ID,name,@"http%3A%2F%2Finfx2.echaokj.cn%2FDownload%2FApp%2F20170610122549.png",gender,email,moblie,date,address];
+    NSString * baseUrl = [NSString stringWithFormat:@"%@inter/UserDetail.ashx?AccountId=%@&Name=%@&Images=%@&Gender=%@&Email=%@&Mobile=%@&Date=%@&Address=%@",_main_url,[Utility sharedUtility].userInfo.ID,name,images,gender,email,moblie,date,address];
     NSString *newUrl = [baseUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     [[FXNetworkManager sharedNetWorkManager]POSTWithURL:newUrl parameters:nil finished:^(EnumServerStatus status, id object) {
@@ -74,23 +76,27 @@
     
     //http://infx2.echaokj.cn/ajax/My/Upload.ashx
     NSString * baseUrl = @"http://infx2.echaokj.cn/ajax/My/Upload.ashx";
+    NSString * imageDataStr = [[imagedic allValues].firstObject base64EncodedStringWithOptions:0];
+    NSString * type = [imagedic allKeys].firstObject;
+    NSString *imageStr = [imageDataStr URLEncodedString];
+    userSourceModel * userSource = [[userSourceModel alloc]init];
+    userSource.File = imageStr;
+    userSource.format = type;
+    NSDictionary * dic = [userSource toDictionary];
 
-    [[FXNetworkManager sharedNetWorkManager]POSTUpLoadImage:baseUrl FilePath:imagedic parameters:nil finished:^(EnumServerStatus status, id object) {
-        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+    [[FXNetworkManager sharedNetWorkManager] POSTWithURL:baseUrl parameters:dic finished:^(EnumServerStatus status, id object) {
+        NSString *  jsonStr = [[NSString alloc] initWithData:object encoding:NSUTF8StringEncoding];
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithString:jsonStr error:nil];
         if ([returnMsg.returnCode intValue] != 1) {
             [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:(NSString *)returnMsg.msg];
         }
         self.returnBlock(returnMsg);
-        
     } failure:^(EnumServerStatus status, id object) {
         NSError * error = object;
         [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
         [self faileBlock];
-        
     }];
 }
-
-
 
 -(void)fatchIsSignAndCollect{
     

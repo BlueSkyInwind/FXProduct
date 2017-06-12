@@ -38,7 +38,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     imageArr = @[@"More_jifenduihuan",@"More_feedBack",@"More_setting"];
     titleArr = @[@"积分兑换",@"我的反馈",@"我的设置"];
-    [self obtainSignStatus];
+    if ([Utility sharedUtility].loginFlage) {
+        [self obtainSignStatus];
+    }
     [self configureView];
 }
 -(void)viewWillAppear:(BOOL)animated{

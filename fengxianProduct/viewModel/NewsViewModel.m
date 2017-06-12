@@ -33,7 +33,6 @@
     
 }
 
-
 - (void)fatchColumnListType:(NSString *)number{
     
     //http://infx2.echaokj.cn/ajax/Basic/ColumnList.ashx?Type=1&AccountId=0
@@ -79,8 +78,27 @@
         [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
         [self faileBlock];
     }];
-    
 }
+
+-(void)fatchWeatherInfo{
+    
+    //http://i.tianqi.com/index.php?c=code&id=52&icon=1&num=3&py=fengxian
+     NSString * baseUrl = @"http://i.tianqi.com/index.php?c=code&id=52&icon=1&num=3&py=fengxian";
+    
+    [[FXNetworkManager sharedNetWorkManager]GETWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+    
+        self.returnBlock(object);
+        
+    } failure:^(EnumServerStatus status, id object) {
+        
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+
+}
+
+
 
 
 @end

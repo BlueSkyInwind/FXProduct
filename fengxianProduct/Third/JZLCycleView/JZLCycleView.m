@@ -198,7 +198,7 @@
     if (self.imageArray.count == 0) {
         return;
     }else {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.index inSection:0];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.index - 1 inSection:0];
         [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:0 animated:YES];
         
         if (indexPath.row == self.imageArray.count * 2) {
@@ -206,7 +206,6 @@
                 NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.imageArray.count inSection:0];
                 [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:0 animated:NO];
             });
-            
         }
         NSInteger num = self.index % self.imageArray.count ;
         self.pageControl.currentPage = num;

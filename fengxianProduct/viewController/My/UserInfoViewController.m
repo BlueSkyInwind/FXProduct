@@ -113,21 +113,22 @@
     }else if([gender isEqualToString:@"女"]){
         num = @"0";
     }
-    [moreVM updateAccountInfo:contentArr[0][1] gender:num email:contentArr[1][1] moblie:contentArr[1][0]  date:contentArr[2][1]  address:contentArr[2][2] image:@{CSM.imageName:seletedImageData}];
+    [moreVM updateAccountInfo:contentArr[0][1] gender:num email:contentArr[1][1] moblie:contentArr[1][0]  date:contentArr[2][1]  address:contentArr[2][2] image:contentArr[0][0]];
 }
--(void)uploadAvatar:(NSString *)data  finsh:(void(^)(bool isSuccess))finsh{
+-(void)uploadAvatar:(NSDictionary *)data  finsh:(void(^)(bool isSuccess))finsh{
     
     MoreViewModel * moreVM = [[MoreViewModel alloc]init];
     [moreVM setBlockWithReturnBlock:^(id returnValue) {
         ReturnMsgBaseClass * returnMsg = returnValue;
         if ([returnMsg.returnCode intValue] == 1) {
+            [contentArr[0] replaceObjectAtIndex:0 withObject:returnMsg.Url];
             [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"头像上传成功"];
             finsh(YES);
         }
     } WithFaileBlock:^{
         
     }];
-    [moreVM uploadAvatarImage:@{CSM.imageName:data}];
+    [moreVM uploadAvatarImage:data];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -209,11 +210,9 @@
         case 0:{
             switch (indexPath.row) {
                 case 0:{
-                    [[CameraHelper shareManager]obtainController:self userSeletedImage:^(UIImage *userImage, NSData *userImageData) {
-                        
-                        [self uploadAvatar:[userImageData base64EncodedStringWithOptions:0] finsh:^(bool isSuccess) {
-                            
-                            
+                    [[CameraHelper shareManager]obtainController:self userSeletedImage:^(UIImage *userImage, NSData *userImageData, NSString * userimageName) {
+                        [self uploadAvatar:@{userimageName : userImageData} finsh:^(bool isSuccess) {
+                            [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
                         }];
                     }];
                 }

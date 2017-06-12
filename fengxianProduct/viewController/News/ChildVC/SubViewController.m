@@ -12,6 +12,8 @@
 #import "NewsViewModel.h"
 #import "NewsListModel.h"
 #import "JZLCycleView.h"
+#import "NewsTwoTableViewCell.h"
+#import "NewsMultipleTableViewCell.h"
 
 @interface SubViewController ()<UITableViewDelegate,UITableViewDataSource>{
     NSMutableArray * dataArr;
@@ -49,9 +51,17 @@
     }];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"NewsTableViewCell" bundle:nil] forCellReuseIdentifier:@"NewsTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"NewsTwoTableViewCell" bundle:nil] forCellReuseIdentifier:@"NewsTwoTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"NewsMultipleTableViewCell" bundle:nil] forCellReuseIdentifier:@"NewsMultipleTableViewCell"];
+    
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    NewsListInfo * newsList = dataArr[indexPath.row];
+    if ([newsList.Seat intValue] == 1) {
+        return 140;
+    }else if ([newsList.Seat intValue] == 4){
+        return 140;
+    }
     return 90;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -63,11 +73,21 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    NewsListInfo * newsList = dataArr[indexPath.row];
+    if ([newsList.Seat intValue] == 1) {
+        NewsMultipleTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"NewsMultipleTableViewCell" forIndexPath:indexPath];
+        [cell configureViewTitleImageOne:newsList.Image1 ImageTwo:newsList.Image2 ImageThree:newsList.Image3 titleLabel:newsList.Title titleLocation:newsList.Source titleType:newsList.Column visitorNum:[NSString stringWithFormat:@"%@",newsList.Num] commentNum:[NSString stringWithFormat:@"%@",newsList.PLNum] imageType:[newsList.Species integerValue]];
+        return cell;
+    }else if ([newsList.Seat intValue] == 4){
+        
+        NewsTwoTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"NewsTwoTableViewCell" forIndexPath:indexPath];
+        [cell configureViewTitleImageOne:newsList.Image1 ImageTwo:newsList.Image2 titleLabel:newsList.Title titleLocation:newsList.Source titleType:newsList.Column visitorNum:[NSString stringWithFormat:@"%@",newsList.Num] commentNum:[NSString stringWithFormat:@"%@",newsList.PLNum] imageType:[newsList.Species integerValue]];
+        return cell;
+    }
     NewsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"NewsTableViewCell" forIndexPath:indexPath];
     if (!cell) {
         cell = [[NewsTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"NewsTableViewCell"];
     }
-    NewsListInfo * newsList = dataArr[indexPath.row];
     [cell configureViewTitleImage:newsList.Image1 titleLabel:newsList.Title titleLocation:newsList.Source titleType:newsList.Column visitorNum:[NSString stringWithFormat:@"%@",newsList.Num] commentNum:[NSString stringWithFormat:@"%@",newsList.PLNum] imageType:[newsList.Species integerValue]];
     return cell;
 }
