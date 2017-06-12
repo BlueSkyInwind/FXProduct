@@ -23,6 +23,8 @@
 
     int  pages;
     
+    NewsListModel * newsListModel;
+    
 }
 
 @property (nonatomic,strong)UITableView * tableView;
@@ -35,7 +37,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor redColor];
-    pages = 0;
+    pages = 1;
     dataArr = [NSMutableArray array];
     bannerArr = [NSMutableArray array];
 
@@ -97,15 +99,20 @@
         [cell addSubview:_cycleView];
         return cell;
     }
+    
     NewsListInfo * newsList = dataArr[indexPath.row];
     if ([newsList.Seat intValue] == 1) {
         NewsMultipleTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"NewsMultipleTableViewCell" forIndexPath:indexPath];
-        [cell configureViewTitleImageOne:newsList.Image1 ImageTwo:newsList.Image2 ImageThree:newsList.Image3 titleLabel:newsList.Title titleLocation:newsList.Source titleType:newsList.Column visitorNum:[NSString stringWithFormat:@"%@",newsList.Num] commentNum:[NSString stringWithFormat:@"%@",newsList.PLNum] imageType:[newsList.Species integerValue]];
+        cell.newsList = newsList;
+
+//        [cell configureViewTitleImageOne:newsList.Image1 ImageTwo:newsList.Image2 ImageThree:newsList.Image3 titleLabel:newsList.Title titleLocation:newsList.Source titleType:newsList.Column visitorNum:[NSString stringWithFormat:@"%@",newsList.Num] commentNum:[NSString stringWithFormat:@"%@",newsList.PLNum] imageType:[newsList.Species integerValue]];
         return cell;
     }else if ([newsList.Seat intValue] == 4){
         
         NewsTwoTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"NewsTwoTableViewCell" forIndexPath:indexPath];
-        [cell configureViewTitleImageOne:newsList.Image1 ImageTwo:newsList.Image2 titleLabel:newsList.Title titleLocation:newsList.Source titleType:newsList.Column visitorNum:[NSString stringWithFormat:@"%@",newsList.Num] commentNum:[NSString stringWithFormat:@"%@",newsList.PLNum] imageType:[newsList.Species integerValue]];
+        cell.newsList = newsList;
+
+//        [cell configureViewTitleImageOne:newsList.Image1 ImageTwo:newsList.Image2 titleLabel:newsList.Title titleLocation:newsList.Source titleType:newsList.Column visitorNum:[NSString stringWithFormat:@"%@",newsList.Num] commentNum:[NSString stringWithFormat:@"%@",newsList.PLNum] imageType:[newsList.Species integerValue]];
         return cell;
     }
     
@@ -113,7 +120,8 @@
     if (!cell) {
         cell = [[NewsTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"NewsTableViewCell"];
     }
-    [cell configureViewTitleImage:newsList.Image1 titleLabel:newsList.Title titleLocation:newsList.Source titleType:newsList.Column visitorNum:[NSString stringWithFormat:@"%@",newsList.Num] commentNum:[NSString stringWithFormat:@"%@",newsList.PLNum] imageType:[newsList.Species integerValue]];
+//    [cell configureViewTitleImage:newsList.Image1 titleLabel:newsList.Title titleLocation:newsList.Source titleType:newsList.Column visitorNum:[NSString stringWithFormat:@"%@",newsList.Num] commentNum:[NSString stringWithFormat:@"%@",newsList.PLNum] imageType:[newsList.Species integerValue]];
+    cell.newsList = newsList;
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -131,12 +139,12 @@
 -(void)requestNewsListInfo{
     NewsViewModel * newsVM = [[NewsViewModel alloc]init];
     [newsVM setBlockWithReturnBlock:^(id returnValue) {
-        NewsListModel * newsListModel = returnValue;
-        if ([newsListModel.Next integerValue] == 1) {
-            [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"以显示全部内容"];
+        newsListModel = returnValue;
+        if (pages == 1) {
+            [dataArr removeAllObjects];
         }
         NSMutableArray * tempArr = [newsListModel.rows mutableCopy];
-        dataArr = [[dataArr arrayByAddingObjectsFromArray:tempArr] mutableCopy];
+        [dataArr addObjectsFromArray:tempArr];
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
@@ -180,7 +188,7 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView.mj_header endRefreshing];
     });
-    pages = 0;
+    pages = 1;
     [self requestNewsListInfo];
     [self requestBannerInfo];
 
@@ -188,6 +196,10 @@
 
 -(void)footerRereshing
 {
+    if ([newsListModel.Next intValue] == 1) {
+        [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"以显示全部内容"];
+        [self.tableView.mj_footer endRefreshing];
+    }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView.mj_footer endRefreshing];
     });

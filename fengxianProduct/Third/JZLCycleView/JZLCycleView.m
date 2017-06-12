@@ -211,7 +211,6 @@
         self.pageControl.currentPage = num;
         [self setTitle:num];
     }
-
 }
 //手动滚动时删除定时器
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {

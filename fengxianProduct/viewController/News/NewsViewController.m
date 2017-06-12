@@ -12,6 +12,8 @@
 #import "SubViewController.h"
 #import "MyColumnViewController.h"
 #import "NewsViewModel.h"
+#import "SearchBarViewController.h"
+
 @interface NewsViewController (){
     
     NSMutableArray * items;
@@ -115,6 +117,9 @@
     
 }
 -(void)GosearchViewContrller{
+    //可以加动画
+    SearchBarViewController * searchBarVC = [[SearchBarViewController alloc]init];
+    [self.navigationController pushViewController:searchBarVC animated:YES];
     
 }
 - (void)didReceiveMemoryWarning {

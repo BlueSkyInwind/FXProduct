@@ -35,6 +35,15 @@
  */
 - (void)uploadColumnListType:(NSString *)number Column:(NSString *)Column;
 
+/**
+ 新闻搜索接口
+
+ @param content 搜索内容
+ @param page 页数
+ @param numberOfPage 每页内容
+ */
+- (void)fatchNewsInfoSearchContent:(NSString *)content pageSize:(int)page numberOfPage:(int)numberOfPage;
+
 
 -(void)fatchWeatherInfo;
 

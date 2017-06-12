@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewsListModel.h"
 
 @interface NewsMultipleTableViewCell : UITableViewCell
 
@@ -25,6 +26,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *visitorNum;
 
 @property (weak, nonatomic) IBOutlet UILabel *commentNumLabel;
+
+
+@property (strong ,nonatomic)NewsListInfo * newsList;
 
 
 -(void)configureViewTitleImageOne:(NSString *)imageName1 ImageTwo:(NSString *)imageName2 ImageThree:(NSString *)imageName3 titleLabel:(NSString *)title titleLocation:(NSString *)Location titleType:(NSString *)type visitorNum:(NSString *)visitor commentNum:(NSString *)comment imageType:(NSInteger)imageType;

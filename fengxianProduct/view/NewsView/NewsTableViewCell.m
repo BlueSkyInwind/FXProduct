@@ -16,6 +16,27 @@
     self.atlasLabel.hidden = YES;
     self.vdieoBtn.hidden = YES;
 }
+-(void)setNewsList:(NewsListInfo *)newsList{
+    _newsList = newsList;
+    [self setNeedsLayout];
+}
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    
+    self.atlasLabel.hidden = YES;
+    self.vdieoBtn.hidden = YES;
+    [self.titleImage sd_setImageWithURL:[NSURL URLWithString:self.newsList.Image1] placeholderImage:[UIImage imageNamed:@"user_Icon" ]options:SDWebImageRefreshCached];
+    self.titleLabel.text = self.newsList.Title;
+    self.titleLocation.text = self.newsList.Source;
+    self.titleType.text = self.newsList.Column;
+    self.visitorNum.text = [NSString stringWithFormat:@"%@",self.newsList.Num];
+    self.commentNum.text = [NSString stringWithFormat:@"%@",self.newsList.PLNum];
+    if ([self.newsList.Species integerValue] == 2) {
+        self.atlasLabel.hidden = NO;
+    }else if ([self.newsList.Species integerValue] == 3){
+        self.vdieoBtn.hidden = NO;
+    }
+}
 
 -(void)configureViewTitleImage:(NSString *)imageName titleLabel:(NSString *)title titleLocation:(NSString *)Location titleType:(NSString *)type visitorNum:(NSString *)visitor commentNum:(NSString *)comment imageType:(NSInteger)imageType{
     

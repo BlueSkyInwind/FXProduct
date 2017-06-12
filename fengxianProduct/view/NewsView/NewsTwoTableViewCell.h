@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewsListModel.h"
 
 @interface NewsTwoTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -19,6 +20,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleType;
 @property (weak, nonatomic) IBOutlet UILabel *visitorNum;
 @property (weak, nonatomic) IBOutlet UILabel *commentNum;
+
+
+@property (strong ,nonatomic)NewsListInfo * newsList;
+
 
 -(void)configureViewTitleImageOne:(NSString *)imageName1  ImageTwo:(NSString *)imageName2 titleLabel:(NSString *)title titleLocation:(NSString *)Location titleType:(NSString *)type visitorNum:(NSString *)visitor commentNum:(NSString *)comment imageType:(NSInteger)imageType;
 @end

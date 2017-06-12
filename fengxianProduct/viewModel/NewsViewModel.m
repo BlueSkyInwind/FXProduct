@@ -80,6 +80,29 @@
     }];
 }
 
+
+- (void)fatchNewsInfoSearchContent:(NSString *)content pageSize:(int)page numberOfPage:(int)numberOfPage{
+    
+    //http://infx2.echaokj.cn/ajax/Home/NewSelect.ashx?Sel=搜索内容&PageSize=1&PageCount=10
+    
+    NSString * baseUrl = [NSString stringWithFormat:@"%@Home/NewSelect.ashx?Sel=%@&PageSize=%d&PageCount=%d",_main_url,content,page,numberOfPage];
+    
+    [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            NewsListModel * newsListModel = [[NewsListModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
+            self.returnBlock(newsListModel);
+        }
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+}
+
+
+
+
 -(void)fatchWeatherInfo{
     
     //http://i.tianqi.com/index.php?c=code&id=52&icon=1&num=3&py=fengxian

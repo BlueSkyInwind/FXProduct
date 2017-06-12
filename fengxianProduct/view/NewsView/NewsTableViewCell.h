@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "NewsListModel.h"
 @interface NewsTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *titleImage;
@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *atlasLabel;
 @property (weak, nonatomic) IBOutlet UIButton *vdieoBtn;
 
+@property (strong ,nonatomic)NewsListInfo * newsList;
 
 
 /**
