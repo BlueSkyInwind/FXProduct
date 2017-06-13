@@ -42,6 +42,7 @@ NSString * const FX_AccountID     =    @"accountID";
 //登陆标识
 NSString * const kLoginFlag    =   @"loginFlag";
 NSString * const FX_ColumnInfo    =   @"ColumnInfo";
+NSString * const FX_SearchHistory    =   @"SearchHistory";
 
 
 

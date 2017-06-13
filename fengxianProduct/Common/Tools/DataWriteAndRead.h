@@ -14,4 +14,6 @@
 
 + (id)readDataWithkey:(NSString *)key;
 
++(void)removeDataWithKey:(NSString *)key;
+
 @end

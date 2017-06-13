@@ -15,26 +15,29 @@
 #import <QuartzCore/QuartzCore.h>
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "DataWriteAndRead.h"
+#import "ClearSearchHistoryView.h"
+#import "SearchHistoryTableViewCell.h"
 
 #define searchBarWidth 0.79
 
 @interface SearchBarViewController ()<UISearchControllerDelegate,UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UINavigationControllerDelegate,CAAnimationDelegate>{
-    
-    NSMutableArray * resultArray;
-    
     NSMutableArray * historyArray;
-    
-    NSString * keyWord;
-    
     NSMutableArray * dataArr;
     int  pages;
     NewsListModel * newsListModel;
-
     NSString * searchContentStr;
+    
+    BOOL isDisplayHistory;
+    CGFloat tableViewHeight;
+    
+    MJRefreshNormalHeader *header;
+    MJRefreshAutoNormalFooter *footer;
 }
 @property (nonatomic,strong) UISearchBar * searchBar;
 @property (nonatomic,strong) UITableView * tableView;
 @property (nonatomic,strong) UISearchController * searchController;
+@property (nonatomic,strong) ClearSearchHistoryView * ClearSearchHV;
 
 
 @end
@@ -46,46 +49,52 @@
     // Do any additional setup after loading the view.
     [self addBackItem];
     pages = 1;
-    resultArray = [NSMutableArray array];
+    isDisplayHistory = YES;
+    tableViewHeight = 40;
+    [self loadSearchHistory];
     dataArr = [NSMutableArray array];
     //搜索历史的加载
-    
     [self configureView];
+    [self setupMJRefreshTableView];
 }
+-(void)loadSearchHistory{
+    
+    //搜索历史的加载
+    if ([DataWriteAndRead readDataWithkey:FX_SearchHistory]) {
+        historyArray = [DataWriteAndRead readDataWithkey:FX_SearchHistory];
+    }else{
+        historyArray = [NSMutableArray array];
+    }
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.delegate = self;
-
-    _tableView.tableFooterView.hidden = NO;
-    if (historyArray.count == 0 || !historyArray) {
-        
-        _tableView.tableFooterView.hidden = YES;
-        
+    if (historyArray.count == 0 || !historyArray || !historyArray.count) {
+        tableViewHeight = 0;
     }
-//    _searchController.active = NO;
-    [resultArray removeAllObjects];
-    [_tableView reloadData];
+    [self.tableView reloadData];
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     //保存搜索历史
-
+    [DataWriteAndRead writeDataWithkey:FX_SearchHistory value:historyArray];
 }
+
 -(void)configureView{
     
-
     self.view.backgroundColor = [UIColor whiteColor];
-    
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,[UIScreen  mainScreen].bounds.size.width ,[UIScreen  mainScreen].bounds.size.height)];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.backgroundColor = [UIColor whiteColor];
-    _tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    [self.view addSubview:self.tableView];
+//    _tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"NewsTableViewCell" bundle:nil] forCellReuseIdentifier:@"NewsTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"NewsTwoTableViewCell" bundle:nil] forCellReuseIdentifier:@"NewsTwoTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"NewsMultipleTableViewCell" bundle:nil] forCellReuseIdentifier:@"NewsMultipleTableViewCell"];
-    
+    [self.tableView registerNib:[UINib nibWithNibName:@"SearchHistoryTableViewCell" bundle:nil] forCellReuseIdentifier:@"SearchHistoryTableViewCell"];
 //    self.searchFooterView = [[[NSBundle mainBundle]loadNibNamed:@"SearchFooterView" owner:nil options:nil]firstObject];
     
     //创建UISearchController
@@ -120,64 +129,71 @@
 -(void)clearSearchHistory{
     
     [historyArray removeAllObjects];
+    tableViewHeight = 0;
     [_tableView reloadData];
-    _tableView.tableHeaderView.hidden = YES;
     //清楚缓存
+    [DataWriteAndRead removeDataWithKey:FX_SearchHistory];
 }
--(void)cancelClick{
-    
-    [self.view endEditing:YES];
-    [self.navigationController popViewControllerAnimated:YES];
-    
-}
+
 #pragma mark - tableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     NSInteger number;
-    if (_searchController.active) {
-        number = resultArray.count;
-    }else{
+    if (isDisplayHistory) {
         number = historyArray.count;
+    }else{
+        number = dataArr.count;
     }
     return number;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    if (isDisplayHistory) {
+        SearchHistoryTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"SearchHistoryTableViewCell" forIndexPath:indexPath];
+        cell.contentLabel.text = historyArray[indexPath.row];
+        return cell;
+    }
+    
     NewsListInfo * newsList = dataArr[indexPath.row];
     if ([newsList.Seat intValue] == 1) {
         NewsMultipleTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"NewsMultipleTableViewCell" forIndexPath:indexPath];
         cell.newsList = newsList;
-        
-        //        [cell configureViewTitleImageOne:newsList.Image1 ImageTwo:newsList.Image2 ImageThree:newsList.Image3 titleLabel:newsList.Title titleLocation:newsList.Source titleType:newsList.Column visitorNum:[NSString stringWithFormat:@"%@",newsList.Num] commentNum:[NSString stringWithFormat:@"%@",newsList.PLNum] imageType:[newsList.Species integerValue]];
         return cell;
+        
     }else if ([newsList.Seat intValue] == 4){
         
         NewsTwoTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"NewsTwoTableViewCell" forIndexPath:indexPath];
         cell.newsList = newsList;
-        
-        //        [cell configureViewTitleImageOne:newsList.Image1 ImageTwo:newsList.Image2 titleLabel:newsList.Title titleLocation:newsList.Source titleType:newsList.Column visitorNum:[NSString stringWithFormat:@"%@",newsList.Num] commentNum:[NSString stringWithFormat:@"%@",newsList.PLNum] imageType:[newsList.Species integerValue]];
         return cell;
     }
+    
     NewsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"NewsTableViewCell" forIndexPath:indexPath];
     if (!cell) {
         cell = [[NewsTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"NewsTableViewCell"];
     }
-    //    [cell configureViewTitleImage:newsList.Image1 titleLabel:newsList.Title titleLocation:newsList.Source titleType:newsList.Column visitorNum:[NSString stringWithFormat:@"%@",newsList.Num] commentNum:[NSString stringWithFormat:@"%@",newsList.PLNum] imageType:[newsList.Species integerValue]];
     cell.newsList = newsList;
     return cell;
 }
 #pragma mark - UITableViewDatasource
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (_searchController.active) {
+    if (isDisplayHistory) {
+        isDisplayHistory= NO;
+        searchContentStr = historyArray[indexPath.row];
+        [header beginRefreshing];
+    }else{
+        //数据点击
         
-
+        
+        
+        
         
     }
-    
-    _searchController.active = NO;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (isDisplayHistory) {
+        return 40;
+    }
     NewsListInfo * newsList = dataArr[indexPath.row];
     if ([newsList.Seat intValue] == 1) {
         return 140;
@@ -186,35 +202,53 @@
     }
     return 90;
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    return tableViewHeight;
+}
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     
     return 0.1;
-    
 }
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *view = [[UIView alloc]init];
+        self.ClearSearchHV = [[NSBundle mainBundle]loadNibNamed:@"ClearSearchHistoryView" owner:self options:nil].lastObject;
+    __weak typeof (self) weakSelf = self;
+    self.ClearSearchHV.deleteSearchHistory = ^(UIButton *button) {
+        [weakSelf clearSearchHistory];
+    };
+    [view addSubview:self.ClearSearchHV];
+    [self.ClearSearchHV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(view);
+    }];
+    return view;
+}
+
 #pragma mark - UISearchResultsUpdating
 
 -(void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     
     NSLog(@"updateSearchResultsForSearchController");
     //搜索结果的检验
-    NSString * searchString = [[self.searchController.searchBar text] stringByReplacingOccurrencesOfString:@" " withString:@""];
-    if ([searchString isEqualToString:@""]){
-        return;
-    }
-    //搜索网络请求
-    [self requestNewsListInfo:searchString];
+    searchContentStr = [[self.searchController.searchBar text] stringByReplacingOccurrencesOfString:@" " withString:@""];
+ 
 //    _searchController.active = NO;
 
 }
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
-
+    if ([searchContentStr isEqualToString:@""]){
+        [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"请输入搜索关键字"];
+        return;
+    }
+    [historyArray addObject:searchContentStr];
+    //搜索网络请求
+    [self requestNewsListInfo:searchContentStr];
 
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
-    _searchController.active =NO;
-    _tableView.tableFooterView.hidden = NO;
-    [resultArray removeAllObjects];
+    isDisplayHistory = YES;
+    tableViewHeight = 40;
     [_tableView reloadData];
 }
 
@@ -227,7 +261,7 @@
         if ([newsListModel.Next integerValue] == 1) {
             [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"以显示全部内容"];
         }
-        searchContentStr = searchStr;
+        isDisplayHistory = NO;
         if (pages == 1) {
             [dataArr removeAllObjects];
         }
@@ -247,18 +281,22 @@
 -(void)setupMJRefreshTableView
 {
     
-    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
-    //    header.automaticallyChangeAlpha = YES;
+    header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
+    header.automaticallyChangeAlpha = YES;
     //    [header beginRefreshing];
     self.tableView.mj_header = header;
     
-    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
-    //    header.automaticallyChangeAlpha = YES;
+    footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+    footer.automaticallyChangeAlpha = YES;
     self.tableView.mj_footer = footer;
     
 }
 -(void)headerRereshing
 {
+    if (isDisplayHistory) {
+        [self.tableView.mj_header endRefreshing];
+        return;
+    }
     //以下两种方法
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView.mj_header endRefreshing];
@@ -274,7 +312,6 @@
         [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"以显示全部内容"];
         [self.tableView.mj_footer endRefreshing];
     }
-    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView.mj_footer endRefreshing];
     });

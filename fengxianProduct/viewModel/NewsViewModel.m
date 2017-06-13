@@ -43,7 +43,7 @@
 
     NSString * baseUrl = [NSString stringWithFormat:@"%@Basic/ColumnList.ashx?Type=%@&AccountId=%@",_main_url,number,accountID];
     
-    [[FXNetworkManager sharedNetWorkManager]POSTHideIndicatorWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+    [[FXNetworkManager sharedNetWorkManager]GETWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
         if ([returnMsg.returnCode intValue] == 1) {
             ColumnModel * columnModel = [[ColumnModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
@@ -85,7 +85,7 @@
     
     //http://infx2.echaokj.cn/ajax/Home/NewSelect.ashx?Sel=搜索内容&PageSize=1&PageCount=10
     
-    NSString * baseUrl = [NSString stringWithFormat:@"%@Home/NewSelect.ashx?Sel=%@&PageSize=%d&PageCount=%d",_main_url,content,page,numberOfPage];
+    NSString * baseUrl = [NSString stringWithFormat:@"%@Home/NewSelect.ashx?Sel=%@&PageSize=%d&PageCount=%d",_main_url,[content stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],page,numberOfPage];
     
     [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
@@ -100,16 +100,14 @@
     }];
 }
 
-
-
-
 -(void)fatchWeatherInfo{
     
     //http://i.tianqi.com/index.php?c=code&id=52&icon=1&num=3&py=fengxian
      NSString * baseUrl = @"http://i.tianqi.com/index.php?c=code&id=52&icon=1&num=3&py=fengxian";
     
     [[FXNetworkManager sharedNetWorkManager]GETWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
-    
+        NSString *  jsonStr = [[NSString alloc] initWithData:object encoding:NSUTF8StringEncoding];
+
         self.returnBlock(object);
         
     } failure:^(EnumServerStatus status, id object) {

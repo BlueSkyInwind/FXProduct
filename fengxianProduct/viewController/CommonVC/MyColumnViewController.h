@@ -10,4 +10,6 @@
 
 @interface MyColumnViewController : BaseViewController
 
+@property (strong,nonatomic)NSMutableArray * dataArr;
+
 @end

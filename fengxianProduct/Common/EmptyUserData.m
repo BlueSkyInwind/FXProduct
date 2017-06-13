@@ -23,6 +23,7 @@
     [Tool saveUserDefaul:@"0" Key:kLoginFlag];
     [Tool saveUserDefaul:nil Key:FX_AccountID];
     [Tool saveUserDefaul:nil Key:FX_ColumnInfo];
+    [DataWriteAndRead removeDataWithKey:FX_SearchHistory];
 }
 
 @end

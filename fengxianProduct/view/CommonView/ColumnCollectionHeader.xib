@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="ColumnCollectionHeader" id="iN0-l3-epB" customClass="ColumnCollectionHeader">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CU7-v6-21P">
+                    <rect key="frame" x="15" y="7.5" width="115" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="115" id="94d-Ov-WBg"/>
+                        <constraint firstAttribute="height" constant="21" id="QtB-kg-rH5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qe8-cR-VXQ">
+                    <rect key="frame" x="347" y="9" width="18" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="18" id="j6W-EW-oqI"/>
+                        <constraint firstAttribute="height" constant="18" id="rSg-Xd-sv0"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="column_status_delete_Btn"/>
+                    <connections>
+                        <action selector="closeBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="HO7-cD-6Hf"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="se2-UY-fbn">
+                    <rect key="frame" x="299" y="5" width="40" height="25"/>
+                    <color key="backgroundColor" red="0.25882352941176467" green="0.65490196078431373" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="hAb-bd-jwS"/>
+                        <constraint firstAttribute="width" constant="40" id="v04-nf-JRj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="编辑">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="statusBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="ym5-ir-laz"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="CU7-v6-21P" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="GW6-bu-Omq"/>
+                <constraint firstAttribute="trailing" secondItem="se2-UY-fbn" secondAttribute="trailing" constant="36" id="PWT-KI-t7y"/>
+                <constraint firstItem="CU7-v6-21P" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="RFs-KT-bJM"/>
+                <constraint firstItem="qe8-cR-VXQ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ebn-qO-QPY"/>
+                <constraint firstAttribute="trailing" secondItem="qe8-cR-VXQ" secondAttribute="trailing" constant="10" id="ldd-UC-xBT"/>
+                <constraint firstItem="se2-UY-fbn" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="wpb-8S-GEe"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="closeEditBtn" destination="qe8-cR-VXQ" id="CbM-qQ-O73"/>
+                <outlet property="statusBtn" destination="se2-UY-fbn" id="F5F-Be-MlO"/>
+                <outlet property="statusBtnRightConstraint" destination="PWT-KI-t7y" id="qJr-9A-tlS"/>
+                <outlet property="titleLabel" destination="CU7-v6-21P" id="kCA-kB-S7K"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="-263.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="column_status_delete_Btn" width="16" height="17"/>
+    </resources>
+</document>

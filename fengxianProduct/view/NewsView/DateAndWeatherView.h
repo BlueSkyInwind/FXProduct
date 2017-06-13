@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface DateAndWeatherView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+
+
 
 @end

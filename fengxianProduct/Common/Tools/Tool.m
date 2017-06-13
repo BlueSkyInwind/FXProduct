@@ -285,9 +285,9 @@
 }
 +(void)setCornerWithoutRadius:(UIView *)view borderColor:(UIColor *)color
 {
-    view.layer.cornerRadius = 0;
+    view.layer.cornerRadius = 5;
     view.layer.masksToBounds = YES;
-    view.layer.borderWidth = 1;
+    view.layer.borderWidth = 0.5;
     view.layer.borderColor = color.CGColor;
 }
 

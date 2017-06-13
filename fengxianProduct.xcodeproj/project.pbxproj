@@ -86,6 +86,18 @@
 		8439A4811EEE320E002ADF1B /* NewsTwoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8439A47F1EEE320E002ADF1B /* NewsTwoTableViewCell.xib */; };
 		8439A4851EEE6B43002ADF1B /* NSString+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = 8439A4841EEE6B43002ADF1B /* NSString+URL.m */; };
 		8439A4881EEE9F45002ADF1B /* userSourceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8439A4871EEE9F45002ADF1B /* userSourceModel.m */; };
+		8440D6C11EEF8D0000C59B2C /* ClearSearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440D6C01EEF8D0000C59B2C /* ClearSearchHistoryView.m */; };
+		8440D6C31EEF8D3500C59B2C /* ClearSearchHistoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8440D6C21EEF8D3500C59B2C /* ClearSearchHistoryView.xib */; };
+		8440D6C71EEFB28F00C59B2C /* SearchHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440D6C51EEFB28F00C59B2C /* SearchHistoryTableViewCell.m */; };
+		8440D6C81EEFB28F00C59B2C /* SearchHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8440D6C61EEFB28F00C59B2C /* SearchHistoryTableViewCell.xib */; };
+		8440D6CA1EEFBA9600C59B2C /* DateAndWeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8440D6C91EEFBA9600C59B2C /* DateAndWeatherView.xib */; };
+		8440D6CF1EEFC41700C59B2C /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440D6CD1EEFC41700C59B2C /* CollectionViewCell.m */; };
+		8440D6D01EEFC41700C59B2C /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8440D6CE1EEFC41700C59B2C /* CollectionViewCell.xib */; };
+		8440D6D31EEFCD4200C59B2C /* ColumnCollectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440D6D21EEFCD4200C59B2C /* ColumnCollectionHeader.m */; };
+		8440D6D51EEFCD5400C59B2C /* ColumnCollectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8440D6D41EEFCD5400C59B2C /* ColumnCollectionHeader.xib */; };
+		8440D6D91EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440D6D71EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.m */; };
+		8440D6DA1EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8440D6D81EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.xib */; };
+		8440D6DD1EEFD8FA00C59B2C /* ColumnViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440D6DC1EEFD8FA00C59B2C /* ColumnViewModel.m */; };
 		8458624A1EE68A7100AF52B3 /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458620C1EE68A7100AF52B3 /* NSData+AES.m */; };
 		8458624B1EE68A7100AF52B3 /* NSString+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458620E1EE68A7100AF52B3 /* NSString+AES.m */; };
 		8458624C1EE68A7100AF52B3 /* AddressClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 845862111EE68A7100AF52B3 /* AddressClass.m */; };
@@ -430,6 +442,24 @@
 		8439A4841EEE6B43002ADF1B /* NSString+URL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URL.m"; sourceTree = "<group>"; };
 		8439A4861EEE9F45002ADF1B /* userSourceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userSourceModel.h; sourceTree = "<group>"; };
 		8439A4871EEE9F45002ADF1B /* userSourceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userSourceModel.m; sourceTree = "<group>"; };
+		8440D6BF1EEF8D0000C59B2C /* ClearSearchHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClearSearchHistoryView.h; sourceTree = "<group>"; };
+		8440D6C01EEF8D0000C59B2C /* ClearSearchHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClearSearchHistoryView.m; sourceTree = "<group>"; };
+		8440D6C21EEF8D3500C59B2C /* ClearSearchHistoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClearSearchHistoryView.xib; sourceTree = "<group>"; };
+		8440D6C41EEFB28F00C59B2C /* SearchHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHistoryTableViewCell.h; sourceTree = "<group>"; };
+		8440D6C51EEFB28F00C59B2C /* SearchHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHistoryTableViewCell.m; sourceTree = "<group>"; };
+		8440D6C61EEFB28F00C59B2C /* SearchHistoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		8440D6C91EEFBA9600C59B2C /* DateAndWeatherView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateAndWeatherView.xib; sourceTree = "<group>"; };
+		8440D6CC1EEFC41700C59B2C /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		8440D6CD1EEFC41700C59B2C /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		8440D6CE1EEFC41700C59B2C /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		8440D6D11EEFCD4200C59B2C /* ColumnCollectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnCollectionHeader.h; sourceTree = "<group>"; };
+		8440D6D21EEFCD4200C59B2C /* ColumnCollectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnCollectionHeader.m; sourceTree = "<group>"; };
+		8440D6D41EEFCD5400C59B2C /* ColumnCollectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColumnCollectionHeader.xib; sourceTree = "<group>"; };
+		8440D6D61EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnHeaderCollectionReusableView.h; sourceTree = "<group>"; };
+		8440D6D71EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnHeaderCollectionReusableView.m; sourceTree = "<group>"; };
+		8440D6D81EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColumnHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
+		8440D6DB1EEFD8FA00C59B2C /* ColumnViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnViewModel.h; sourceTree = "<group>"; };
+		8440D6DC1EEFD8FA00C59B2C /* ColumnViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnViewModel.m; sourceTree = "<group>"; };
 		8458620B1EE68A7100AF52B3 /* NSData+AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES.h"; sourceTree = "<group>"; };
 		8458620C1EE68A7100AF52B3 /* NSData+AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES.m"; sourceTree = "<group>"; };
 		8458620D1EE68A7100AF52B3 /* NSString+AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AES.h"; sourceTree = "<group>"; };
@@ -1060,6 +1090,7 @@
 			children = (
 				22B905521EEC5A1300ED8B71 /* DateAndWeatherView.h */,
 				22B905531EEC5A1300ED8B71 /* DateAndWeatherView.m */,
+				8440D6C91EEFBA9600C59B2C /* DateAndWeatherView.xib */,
 				22B905551EECF86600ED8B71 /* NewsTableViewCell.h */,
 				22B905561EECF86600ED8B71 /* NewsTableViewCell.m */,
 				22B905571EECF86600ED8B71 /* NewsTableViewCell.xib */,
@@ -1069,6 +1100,12 @@
 				8439A47D1EEE320E002ADF1B /* NewsTwoTableViewCell.h */,
 				8439A47E1EEE320E002ADF1B /* NewsTwoTableViewCell.m */,
 				8439A47F1EEE320E002ADF1B /* NewsTwoTableViewCell.xib */,
+				8440D6C41EEFB28F00C59B2C /* SearchHistoryTableViewCell.h */,
+				8440D6C51EEFB28F00C59B2C /* SearchHistoryTableViewCell.m */,
+				8440D6C61EEFB28F00C59B2C /* SearchHistoryTableViewCell.xib */,
+				8440D6BF1EEF8D0000C59B2C /* ClearSearchHistoryView.h */,
+				8440D6C01EEF8D0000C59B2C /* ClearSearchHistoryView.m */,
+				8440D6C21EEF8D3500C59B2C /* ClearSearchHistoryView.xib */,
 			);
 			path = NewsView;
 			sourceTree = "<group>";
@@ -1114,9 +1151,26 @@
 			path = moreView;
 			sourceTree = "<group>";
 		};
+		8440D6CB1EEFC3DC00C59B2C /* CommonView */ = {
+			isa = PBXGroup;
+			children = (
+				8440D6CC1EEFC41700C59B2C /* CollectionViewCell.h */,
+				8440D6CD1EEFC41700C59B2C /* CollectionViewCell.m */,
+				8440D6CE1EEFC41700C59B2C /* CollectionViewCell.xib */,
+				8440D6D61EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.h */,
+				8440D6D71EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.m */,
+				8440D6D81EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.xib */,
+				8440D6D11EEFCD4200C59B2C /* ColumnCollectionHeader.h */,
+				8440D6D21EEFCD4200C59B2C /* ColumnCollectionHeader.m */,
+				8440D6D41EEFCD5400C59B2C /* ColumnCollectionHeader.xib */,
+			);
+			path = CommonView;
+			sourceTree = "<group>";
+		};
 		845862071EE68A2600AF52B3 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				8440D6CB1EEFC3DC00C59B2C /* CommonView */,
 				22B905511EEC59E200ED8B71 /* NewsView */,
 				8431F33B1EE8E38C00295A18 /* moreView */,
 			);
@@ -1301,6 +1355,8 @@
 				22B9055B1EECF98800ED8B71 /* BannerViewModel.m */,
 				22B905601EECFE1C00ED8B71 /* NewsViewModel.h */,
 				22B905611EECFE1C00ED8B71 /* NewsViewModel.m */,
+				8440D6DB1EEFD8FA00C59B2C /* ColumnViewModel.h */,
+				8440D6DC1EEFD8FA00C59B2C /* ColumnViewModel.m */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -2155,7 +2211,10 @@
 			files = (
 				226143191EE6EDC400193487 /* RegisterViewController.xib in Resources */,
 				22B905381EEC4B5400ED8B71 /* TGMoreCell.xib in Resources */,
+				8440D6D01EEFC41700C59B2C /* CollectionViewCell.xib in Resources */,
 				846053B31EEAA41900E1002E /* UserQrcodeShareView.xib in Resources */,
+				8440D6CA1EEFBA9600C59B2C /* DateAndWeatherView.xib in Resources */,
+				8440D6C31EEF8D3500C59B2C /* ClearSearchHistoryView.xib in Resources */,
 				84AABEFC1EE6B44E001AA7C0 /* LoginViewController.xib in Resources */,
 				226143311EE83E9400193487 /* noticeMusic.wav in Resources */,
 				226BDF911EE6859D009D2A3F /* LaunchScreen.storyboard in Resources */,
@@ -2165,8 +2224,11 @@
 				8439A4811EEE320E002ADF1B /* NewsTwoTableViewCell.xib in Resources */,
 				8431F3451EE8FD9C00295A18 /* MoreNavView.xib in Resources */,
 				221A51191EE99BCD00A543C0 /* UserInfoTableViewCell.xib in Resources */,
+				8440D6C81EEFB28F00C59B2C /* SearchHistoryTableViewCell.xib in Resources */,
+				8440D6DA1EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.xib in Resources */,
 				22B905151EEC1E4500ED8B71 /* MySettingTableViewCell.xib in Resources */,
 				2261430B1EE6E2A500193487 /* launch_Image4.gif in Resources */,
+				8440D6D51EEFCD5400C59B2C /* ColumnCollectionHeader.xib in Resources */,
 				22B905591EECF86600ED8B71 /* NewsTableViewCell.xib in Resources */,
 				8439A47C1EEE2BA2002ADF1B /* NewsMultipleTableViewCell.xib in Resources */,
 				8431F34A1EE917DF00295A18 /* MoreTableViewCell.xib in Resources */,
@@ -2229,7 +2291,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -2254,6 +2316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8440D6C71EEFB28F00C59B2C /* SearchHistoryTableViewCell.m in Sources */,
 				22B905501EEC520F00ED8B71 /* MyColumnViewController.m in Sources */,
 				226143211EE8336E00193487 /* FXWebViewController.m in Sources */,
 				226143321EE83E9400193487 /* QRCodeReaderView.m in Sources */,
@@ -2265,6 +2328,7 @@
 				84AABEBD1EE6A035001AA7C0 /* LOTAnimatableScaleValue.m in Sources */,
 				84AABED21EE6A035001AA7C0 /* LOTShapeTrimPath.m in Sources */,
 				226BDF861EE6859D009D2A3F /* AppDelegate.m in Sources */,
+				8440D6D31EEFCD4200C59B2C /* ColumnCollectionHeader.m in Sources */,
 				84AABEC11EE6A035001AA7C0 /* CGGeometryAdditions.m in Sources */,
 				22B905491EEC4F3C00ED8B71 /* HomePageViewController.m in Sources */,
 				84AABE451EE6A003001AA7C0 /* CALayer+Transition.m in Sources */,
@@ -2288,6 +2352,7 @@
 				84AABED41EE6A035001AA7C0 /* LOTAnimationView.m in Sources */,
 				84AABEC41EE6A035001AA7C0 /* CALayer+Compat.m in Sources */,
 				84AABED31EE6A035001AA7C0 /* LOTAnimationTransitionController.m in Sources */,
+				8440D6D91EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.m in Sources */,
 				22B905101EEC1DB800ED8B71 /* MySettingViewController.m in Sources */,
 				84AABEB21EE6A035001AA7C0 /* LOTEllipseShapeLayer.m in Sources */,
 				226143181EE6EDC400193487 /* RegisterViewController.m in Sources */,
@@ -2355,6 +2420,7 @@
 				845862551EE68A7100AF52B3 /* GTMBase64.m in Sources */,
 				84AABDD71EE69F76001AA7C0 /* RTRootNavigationController.m in Sources */,
 				84AABDCE1EE69F76001AA7C0 /* LewPopupViewAnimationSpring.m in Sources */,
+				8440D6CF1EEFC41700C59B2C /* CollectionViewCell.m in Sources */,
 				84AABEF11EE6B277001AA7C0 /* ActivityViewController.m in Sources */,
 				84AABEC01EE6A035001AA7C0 /* CAAnimationGroup+LOTAnimatableGroup.m in Sources */,
 				845862591EE68A7100AF52B3 /* CheckUtils.m in Sources */,
@@ -2391,6 +2457,7 @@
 				84AABDF61EE69F76001AA7C0 /* NSParagraphStyle+YYText.m in Sources */,
 				84AABDEB1EE69F76001AA7C0 /* YYTextKeyboardManager.m in Sources */,
 				84AABDEF1EE69F76001AA7C0 /* YYTextSelectionView.m in Sources */,
+				8440D6DD1EEFD8FA00C59B2C /* ColumnViewModel.m in Sources */,
 				84AABDD91EE69F76001AA7C0 /* TAAbstractDotView.m in Sources */,
 				84AABDCA1EE69F76001AA7C0 /* LewPopupBackgroundView.m in Sources */,
 				84AABE481EE6A003001AA7C0 /* NSObject+Extend.m in Sources */,
@@ -2429,6 +2496,7 @@
 				84AABEEB1EE6B251001AA7C0 /* NewsViewController.m in Sources */,
 				8439A4881EEE9F45002ADF1B /* userSourceModel.m in Sources */,
 				22B905721EEEEDF600ED8B71 /* SearchBarViewController.m in Sources */,
+				8440D6C11EEF8D0000C59B2C /* ClearSearchHistoryView.m in Sources */,
 				84AABDEC1EE69F76001AA7C0 /* YYTextLayout.m in Sources */,
 				8458625E1EE68A7100AF52B3 /* NSNumber+YYAdd.m in Sources */,
 				221A51181EE99BCD00A543C0 /* UserInfoTableViewCell.m in Sources */,

@@ -81,14 +81,13 @@
 {
     
         NSDictionary *paramDic = [NSDictionary dictionary];
-        DLog(@"请求url:---%@\n加密前参数:----%@",strURL,parameters);
+        DLog(@"请求url:---%@\n参数:----%@",strURL,parameters);
         
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-         [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/json",@"text/html",@"application/x-www-form-urlencoded",@"application/json",@"charset=UTF-8",@"text/plain",nil];
         manager.requestSerializer.timeoutInterval = 30.0;
-        DLog(@"%@",parameters);
+    
         [manager POST:strURL parameters:paramDic progress:^(NSProgress * _Nonnull uploadProgress) {
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

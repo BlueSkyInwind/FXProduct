@@ -13,6 +13,7 @@
 #import "MyColumnViewController.h"
 #import "NewsViewModel.h"
 #import "SearchBarViewController.h"
+#import "DateAndWeatherView.h"
 
 @interface NewsViewController (){
     
@@ -21,6 +22,7 @@
 }
 
 @property (nonatomic, strong) TGSementBarVC *segmentBarVC;
+@property (nonatomic, strong) DateAndWeatherView * dateAndWeatherView;
 
 @end
 
@@ -51,10 +53,19 @@
 }
 -(void)configureView{
     
+    self.dateAndWeatherView = [[NSBundle mainBundle]loadNibNamed:@"DateAndWeatherView" owner:self options:nil].lastObject;
+    [self.view addSubview:self.dateAndWeatherView];
+    [self.dateAndWeatherView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).with.offset(0);
+        make.right.equalTo(self.view.mas_right).with.offset(0);
+        make.top.equalTo(self.view.mas_top).with.offset(64);
+        make.height.equalTo(@30);
+    }];
+
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.segmentBarVC.segmentBar.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 35);
     //设置segmentBarVC大小
-    self.segmentBarVC.view.frame = CGRectMake(0, 25, _k_w, _k_h - 30);
+    self.segmentBarVC.view.frame = CGRectMake(0, 30, _k_w, _k_h - 30);
     //使用segmentBarVC
     [self.view addSubview:self.segmentBarVC.view];
     items = [NSMutableArray array];
@@ -63,7 +74,6 @@
             ColumnInfoModel * infoModel = (ColumnInfoModel *)obj;
             NSString * title = infoModel.Title;
             [items addObject:title];
-
         }];
     }
     
@@ -98,8 +108,8 @@
         .barBGColor([UIColor whiteColor])
         ;
     }];
-
 }
+
 -(void)getNewsWeather{
     NewsViewModel * newsVM = [[NewsViewModel alloc]init];
     [newsVM setBlockWithReturnBlock:^(id returnValue) {
@@ -113,6 +123,7 @@
 -(void)moreColumnClick{
     
     MyColumnViewController * myColumnVC = [[MyColumnViewController alloc]init];
+    myColumnVC.dataArr =  [[Utility sharedUtility].columnModel.rows mutableCopy];
     [self.navigationController pushViewController:myColumnVC animated:YES];
     
 }
