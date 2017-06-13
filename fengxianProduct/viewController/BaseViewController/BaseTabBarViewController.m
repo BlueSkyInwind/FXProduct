@@ -25,7 +25,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [[ShareConfig share]obtainColumnInfo];
+    [[ShareConfig share]obtainNewsColumnInfo];
+    [[ShareConfig share]obtainLivesColumnInfo];
+    [[ShareConfig share]obtainActicityColumnInfo];
+
     [self setTabbarCon];
     self.delegate = self;
 }

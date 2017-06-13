@@ -26,7 +26,9 @@
 
 + (void)configDefaultShare;
 
--(void)obtainColumnInfo;
+-(void)obtainNewsColumnInfo;
+-(void)obtainLivesColumnInfo;
+-(void)obtainActicityColumnInfo;
 
 
 @end

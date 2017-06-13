@@ -10,6 +10,8 @@
 #import "LoginViewController.h"
 #import "MoreViewModel.h"
 #import "NewsViewModel.h"
+#import "ColumnViewModel.h"
+
 @implementation ShareConfig
 
 static ShareConfig * shareConfig = nil;
@@ -96,15 +98,44 @@ static ShareConfig * shareConfig = nil;
     
 }
 
--(void)obtainColumnInfo{
+-(void)obtainNewsColumnInfo{
     
-    NewsViewModel * newsVM = [[NewsViewModel alloc]init];
-    [newsVM setBlockWithReturnBlock:^(id returnValue) {
-        
+    ColumnViewModel * columnVM = [[ColumnViewModel alloc]init];
+    [columnVM setBlockWithReturnBlock:^(id returnValue) {
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        ColumnModel * columnModel = [[ColumnModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
+        [Utility sharedUtility].columnModel = columnModel;
+        [Tool saveUserDefaul:(NSString *)returnMsg.result Key:FX_ColumnInfo];
     } WithFaileBlock:^{
         
     }];
-    [newsVM fatchColumnListType:@"1"];
+    [columnVM fatchColumnListType:@"1"];
+}
+-(void)obtainLivesColumnInfo{
+    
+    ColumnViewModel * columnVM = [[ColumnViewModel alloc]init];
+    [columnVM setBlockWithReturnBlock:^(id returnValue) {
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        ColumnModel * columnModel = [[ColumnModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
+        [Utility sharedUtility].livesColumnModel = columnModel;
+        [Tool saveUserDefaul:(NSString *)returnMsg.result Key:FX_LivesColumnInfo];
+    } WithFaileBlock:^{
+        
+    }];
+    [columnVM fatchColumnListType:@"2"];
+}
+-(void)obtainActicityColumnInfo{
+    
+    ColumnViewModel * columnVM = [[ColumnViewModel alloc]init];
+    [columnVM setBlockWithReturnBlock:^(id returnValue) {
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        ColumnModel * columnModel = [[ColumnModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
+        [Utility sharedUtility].acticityColumnModel = columnModel;
+        [Tool saveUserDefaul:(NSString *)returnMsg.result Key:FX_ActivtyColumnInfo];
+    } WithFaileBlock:^{
+        
+    }];
+    [columnVM fatchColumnListType:@"3"];
 }
 
 

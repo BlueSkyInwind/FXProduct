@@ -39,6 +39,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #define UI_IS_IPHONE            ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
 #define UI_IS_IPHONE5           (UI_IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 568.0)
+#define UI_IS_IPHONE6           (UI_IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 667.0)
 #define UI_IS_IPHONE6P            (UI_IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 736.0)
 #define UI_IS_IPHONE4           (UI_IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 480.0)
 
@@ -78,6 +79,9 @@ UIKIT_EXTERN NSString * const FX_AccountID;
 UIKIT_EXTERN NSString * const kLoginFlag;
 //用户栏目信息
 UIKIT_EXTERN NSString * const FX_ColumnInfo;
+UIKIT_EXTERN NSString * const FX_LivesColumnInfo;
+UIKIT_EXTERN NSString * const FX_ActivtyColumnInfo;
+
 //用户搜索历史
 UIKIT_EXTERN NSString * const FX_SearchHistory;
 

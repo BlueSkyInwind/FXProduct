@@ -10,7 +10,12 @@
 
 @interface ColumnViewModel : ViewModelClass
 
-
+/**
+ 获取不同类型的栏目
+ 
+ @param number 类型的id
+ */
+- (void)fatchColumnListType:(NSString *)number;
 
 /**
  上传用户的栏目
