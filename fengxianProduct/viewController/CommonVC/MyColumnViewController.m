@@ -114,18 +114,25 @@
     
     ColumnViewModel * columnVM = [[ColumnViewModel alloc]init];
     [columnVM setBlockWithReturnBlock:^(id returnValue) {
-        
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        if ([returnMsg.returnCode intValue] == 1){
+            if (self.columnResult) {
+                self.columnResult(columnArr);
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }
     } WithFaileBlock:^{
         
     }];
-    NSString * str = @"";
+    NSString * str = @"column";
     for (ColumnInfoModel * infoModel  in array) {
-        [str stringByAppendingString:[NSString stringWithFormat:@"%@,",infoModel.ColumnID]];
+       str = [str stringByAppendingString:[NSString stringWithFormat:@"%@,",infoModel.ColumnID]];
     }
+    str = [str stringByReplacingOccurrencesOfString:@"column" withString:@""];
     if ([str isEqualToString:@""]) {
         return;
     }
-    [columnVM uploadColumnListType:@"1" Column:[str substringToIndex:str.length - 2]];
+    [columnVM uploadColumnListType:self.columnType Column:[str substringToIndex:str.length - 2]];
 }
 
 #pragma mark ---- UICollectionViewDataSource
@@ -149,10 +156,10 @@
 
     if (collectionView  == _columnCollectionView) {
             CollectionViewCell *cell1 = [_columnCollectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewCell" forIndexPath:indexPath];
-        if (isSave) {
-            cell1.deleteImage.hidden = NO;
-        }else{
+        if (!isSave || ([self.columnType integerValue] == 1 && indexPath.row < 4)) {
             cell1.deleteImage.hidden = YES;
+        }else{
+            cell1.deleteImage.hidden = NO;
         }
         ColumnInfoModel * infoModel = columnArr[indexPath.row];
         cell1.titleLabel.text = infoModel.Title;
@@ -164,7 +171,6 @@
         ColumnInfoModel * infoModel = notAddArr[indexPath.row];
         cell2.titleLabel.text = infoModel.Title;
         return cell2;
-
     }
     return nil;
 }
@@ -180,11 +186,15 @@
     
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+
     if (!isSave) {
         return;
     }
     if (collectionView  == _columnCollectionView) {
+        if ([self.columnType integerValue] == 1 && indexPath.row < 4) {
+            [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"固定栏目不能删除"];
+            return;
+        }
         ColumnInfoModel * infoModel = columnArr[indexPath.row];
         [columnArr removeObjectAtIndex:indexPath.row];
         [notAddArr addObject:infoModel];

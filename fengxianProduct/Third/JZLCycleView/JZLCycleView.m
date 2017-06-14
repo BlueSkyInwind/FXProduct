@@ -15,7 +15,11 @@
 //定时器时间
 #define automaticTime 3
 
-@interface JZLCycleView ()
+@interface JZLCycleView (){
+    
+//    UICollectionView *collectionView;
+    
+}
 
 
 
@@ -47,14 +51,16 @@
     if (imageArray.count == 0) {
         [cycleView.imageArray addObject:placeholderImage];
     }else {
-        
+       
         cycleView.imageArray = [NSMutableArray arrayWithArray:imageArray];
+        if (cycleView.imageArray.count == 1) {
+            cycleView.collectionView.scrollEnabled = NO;
+            [cycleView deleteTimer];
+        }
     }
     [cycleView setTitle:0];
     return cycleView;
-    
 }
-
 
 
 //设置collectionView
@@ -67,6 +73,7 @@
     flowLayout.minimumLineSpacing = 0;
     collectionView.pagingEnabled = YES;
     collectionView.bounces = NO;
+    
     collectionView.showsHorizontalScrollIndicator = NO;
     collectionView.delegate = self;
     collectionView.dataSource = self;

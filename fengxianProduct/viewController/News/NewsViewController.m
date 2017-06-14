@@ -68,15 +68,19 @@
     self.segmentBarVC.view.frame = CGRectMake(0, 30, _k_w, _k_h - 30);
     //使用segmentBarVC
     [self.view addSubview:self.segmentBarVC.view];
+    [self getDataOfSegmentBarVC:[[Utility sharedUtility].columnModel.rows mutableCopy]];
+    
+}
+-(void)getDataOfSegmentBarVC:(NSMutableArray *)array{
+    
     items = [NSMutableArray array];
     if ([Utility sharedUtility].columnModel) {
-        [[Utility sharedUtility].columnModel.rows enumerateObjectsUsingBlock:^(ColumnInfoModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [array enumerateObjectsUsingBlock:^(ColumnInfoModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             ColumnInfoModel * infoModel = (ColumnInfoModel *)obj;
             NSString * title = infoModel.Title;
             [items addObject:title];
         }];
     }
-    
     NSMutableArray* childVCs = [NSMutableArray array];
     [childVCs addObject:[[HomePageViewController alloc] init]];
     for (int  i = 0; i < items.count - 1; i++) {
@@ -110,6 +114,7 @@
     }];
 }
 
+
 -(void)getNewsWeather{
     NewsViewModel * newsVM = [[NewsViewModel alloc]init];
     [newsVM setBlockWithReturnBlock:^(id returnValue) {
@@ -123,7 +128,12 @@
 -(void)moreColumnClick{
     
     MyColumnViewController * myColumnVC = [[MyColumnViewController alloc]init];
+    myColumnVC.columnType = @"1";
     myColumnVC.dataArr =  [[Utility sharedUtility].columnModel.rows mutableCopy];
+    __weak typeof (self) weakSelf = self;
+    myColumnVC.columnResult = ^(NSMutableArray *resultArr) {
+        [weakSelf getDataOfSegmentBarVC:resultArr];
+    };
     [self.navigationController pushViewController:myColumnVC animated:YES];
     
 }

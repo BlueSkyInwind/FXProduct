@@ -33,31 +33,6 @@
     
 }
 
-- (void)fatchColumnListType:(NSString *)number{
-    
-    //http://infx2.echaokj.cn/ajax/Basic/ColumnList.ashx?Type=1&AccountId=0
-    NSString * accountID = @"0";
-    if ([Utility sharedUtility].loginFlage) {
-        accountID = [Utility sharedUtility].userInfo.ID;
-    }
-
-    NSString * baseUrl = [NSString stringWithFormat:@"%@Basic/ColumnList.ashx?Type=%@&AccountId=%@",_main_url,number,accountID];
-    
-    [[FXNetworkManager sharedNetWorkManager]GETWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
-        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
-        if ([returnMsg.returnCode intValue] == 1) {
-            ColumnModel * columnModel = [[ColumnModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
-            [Utility sharedUtility].columnModel = columnModel;
-            [Tool saveUserDefaul:[object objectForKey:@"result"] Key:FX_ColumnInfo];
-            self.returnBlock(columnModel);
-        }
-    } failure:^(EnumServerStatus status, id object) {
-        NSError * error = object;
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
-        [self faileBlock];
-    }];
-    
-}
 
 - (void)uploadColumnListType:(NSString *)number Column:(NSString *)Column{
     

@@ -18,6 +18,8 @@
 @property (nonatomic,assign) BOOL isSign;
 @property (nonatomic,assign) BOOL isLoadImage;
 @property (nonatomic,strong) ColumnModel *columnModel;
+@property (nonatomic,strong) ColumnModel *livesColumnModel;
+@property (nonatomic,strong) ColumnModel *acticityColumnModel;
 
 + (Utility *)sharedUtility;
 
