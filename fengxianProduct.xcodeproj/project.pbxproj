@@ -124,6 +124,10 @@
 		845862641EE68A7100AF52B3 /* UserInfoObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 845862491EE68A7100AF52B3 /* UserInfoObj.m */; };
 		846053B11EEAA40E00E1002E /* UserQrcodeShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846053B01EEAA40E00E1002E /* UserQrcodeShareView.m */; };
 		846053B31EEAA41900E1002E /* UserQrcodeShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846053B21EEAA41900E1002E /* UserQrcodeShareView.xib */; };
+		847649481EF0E2F1004BEF4E /* AddColumnTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847649461EF0E2F1004BEF4E /* AddColumnTableViewCell.m */; };
+		847649491EF0E2F1004BEF4E /* AddColumnTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847649471EF0E2F1004BEF4E /* AddColumnTableViewCell.xib */; };
+		8476494D1EF0E309004BEF4E /* LivesContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8476494B1EF0E309004BEF4E /* LivesContentTableViewCell.m */; };
+		8476494E1EF0E309004BEF4E /* LivesContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8476494C1EF0E309004BEF4E /* LivesContentTableViewCell.xib */; };
 		847744FD1EE7958D00043F25 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847744FB1EE7958D00043F25 /* ForgetPasswordViewController.m */; };
 		847744FE1EE7958D00043F25 /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847744FC1EE7958D00043F25 /* ForgetPasswordViewController.xib */; };
 		847745011EE7AAF900043F25 /* FXNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847745001EE7AAF900043F25 /* FXNetworkManager.m */; };
@@ -515,6 +519,12 @@
 		846053AF1EEAA40E00E1002E /* UserQrcodeShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserQrcodeShareView.h; sourceTree = "<group>"; };
 		846053B01EEAA40E00E1002E /* UserQrcodeShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserQrcodeShareView.m; sourceTree = "<group>"; };
 		846053B21EEAA41900E1002E /* UserQrcodeShareView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserQrcodeShareView.xib; sourceTree = "<group>"; };
+		847649451EF0E2F1004BEF4E /* AddColumnTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddColumnTableViewCell.h; path = fengxianProduct/viewModel/AddColumnTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		847649461EF0E2F1004BEF4E /* AddColumnTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddColumnTableViewCell.m; path = fengxianProduct/viewModel/AddColumnTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		847649471EF0E2F1004BEF4E /* AddColumnTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddColumnTableViewCell.xib; path = fengxianProduct/viewModel/AddColumnTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		8476494A1EF0E309004BEF4E /* LivesContentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LivesContentTableViewCell.h; path = fengxianProduct/viewModel/LivesContentTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		8476494B1EF0E309004BEF4E /* LivesContentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LivesContentTableViewCell.m; path = fengxianProduct/viewModel/LivesContentTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		8476494C1EF0E309004BEF4E /* LivesContentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LivesContentTableViewCell.xib; path = fengxianProduct/viewModel/LivesContentTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		847744FA1EE7958D00043F25 /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
 		847744FB1EE7958D00043F25 /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
 		847744FC1EE7958D00043F25 /* ForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPasswordViewController.xib; sourceTree = "<group>"; };
@@ -879,6 +889,12 @@
 		223AE8531EF03870009FF7C6 /* LivesView */ = {
 			isa = PBXGroup;
 			children = (
+				847649451EF0E2F1004BEF4E /* AddColumnTableViewCell.h */,
+				847649461EF0E2F1004BEF4E /* AddColumnTableViewCell.m */,
+				847649471EF0E2F1004BEF4E /* AddColumnTableViewCell.xib */,
+				8476494A1EF0E309004BEF4E /* LivesContentTableViewCell.h */,
+				8476494B1EF0E309004BEF4E /* LivesContentTableViewCell.m */,
+				8476494C1EF0E309004BEF4E /* LivesContentTableViewCell.xib */,
 			);
 			path = LivesView;
 			sourceTree = "<group>";
@@ -2217,6 +2233,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8476494E1EF0E309004BEF4E /* LivesContentTableViewCell.xib in Resources */,
 				226143191EE6EDC400193487 /* RegisterViewController.xib in Resources */,
 				22B905381EEC4B5400ED8B71 /* TGMoreCell.xib in Resources */,
 				8440D6D01EEFC41700C59B2C /* CollectionViewCell.xib in Resources */,
@@ -2230,6 +2247,7 @@
 				8431F3401EE8E40900295A18 /* MoreHeaderView.xib in Resources */,
 				847744FE1EE7958D00043F25 /* ForgetPasswordViewController.xib in Resources */,
 				8439A4811EEE320E002ADF1B /* NewsTwoTableViewCell.xib in Resources */,
+				847649491EF0E2F1004BEF4E /* AddColumnTableViewCell.xib in Resources */,
 				8431F3451EE8FD9C00295A18 /* MoreNavView.xib in Resources */,
 				221A51191EE99BCD00A543C0 /* UserInfoTableViewCell.xib in Resources */,
 				8440D6C81EEFB28F00C59B2C /* SearchHistoryTableViewCell.xib in Resources */,
@@ -2299,7 +2317,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -2396,6 +2414,7 @@
 				84AABDFD1EE69F76001AA7C0 /* YYLabel.m in Sources */,
 				226143241EE8370700193487 /* AgreementViewModel.m in Sources */,
 				22B9056E1EED95E300ED8B71 /* JZLCollectionViewCell.m in Sources */,
+				8476494D1EF0E309004BEF4E /* LivesContentTableViewCell.m in Sources */,
 				84AABDE51EE69F76001AA7C0 /* YYKVStorage.m in Sources */,
 				8431F3491EE917DF00295A18 /* MoreTableViewCell.m in Sources */,
 				84AABECF1EE6A035001AA7C0 /* LOTShapeRectangle.m in Sources */,
@@ -2505,6 +2524,7 @@
 				8439A4881EEE9F45002ADF1B /* userSourceModel.m in Sources */,
 				22B905721EEEEDF600ED8B71 /* SearchBarViewController.m in Sources */,
 				8440D6C11EEF8D0000C59B2C /* ClearSearchHistoryView.m in Sources */,
+				847649481EF0E2F1004BEF4E /* AddColumnTableViewCell.m in Sources */,
 				84AABDEC1EE69F76001AA7C0 /* YYTextLayout.m in Sources */,
 				8458625E1EE68A7100AF52B3 /* NSNumber+YYAdd.m in Sources */,
 				221A51181EE99BCD00A543C0 /* UserInfoTableViewCell.m in Sources */,

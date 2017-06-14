@@ -25,7 +25,7 @@
     
     self.atlasLabel.hidden = YES;
     self.vdieoBtn.hidden = YES;
-    [self.titleImage sd_setImageWithURL:[NSURL URLWithString:self.newsList.Image1] placeholderImage:[UIImage imageNamed:@"user_Icon" ]options:SDWebImageRefreshCached];
+    [self.titleImage sd_setImageWithURL:[NSURL URLWithString:self.newsList.Image1] placeholderImage:[UIImage imageNamed:@"news_placeholder_Icon_1" ]options:SDWebImageRefreshCached];
     self.titleLabel.text = self.newsList.Title;
     self.titleLocation.text = self.newsList.Source;
     self.titleType.text = self.newsList.Column;
@@ -40,7 +40,7 @@
 
 -(void)configureViewTitleImage:(NSString *)imageName titleLabel:(NSString *)title titleLocation:(NSString *)Location titleType:(NSString *)type visitorNum:(NSString *)visitor commentNum:(NSString *)comment imageType:(NSInteger)imageType{
     
-    [self.titleImage sd_setImageWithURL:[NSURL URLWithString:imageName] placeholderImage:[UIImage imageNamed:@"user_Icon" ]options:SDWebImageRefreshCached];
+    [self.titleImage sd_setImageWithURL:[NSURL URLWithString:imageName] placeholderImage:[UIImage imageNamed:@"news_placeholder_Icon_1" ]options:SDWebImageRefreshCached];
     self.titleLabel.text = title;
     self.titleLocation.text = Location;
     self.titleType.text = type;

@@ -19,6 +19,12 @@
         self.userInfo = [[UserInfoObj alloc] init];
         self.columnModel = [[ColumnModel alloc]init];
         self.isLoadImage = NO;
+        
+        self.liveListModel = [[NewsListModel alloc]init];
+        self.cultureListModel = [[NewsListModel alloc]init];
+        self.shootListModel = [[NewsListModel alloc]init];
+        self.travelListModel = [[NewsListModel alloc]init];
+
     }
     return self;
 }

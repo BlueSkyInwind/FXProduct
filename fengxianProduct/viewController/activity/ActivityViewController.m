@@ -54,7 +54,7 @@
         if (UI_IS_IPHONE6) {
             return 200;
         }
-        return 150;
+        return 160;
         
     }else{
         
@@ -79,7 +79,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LoginOutCell"];
         }
-        _cycleView = [JZLCycleView cycleCollectionViewWithFrame:CGRectMake(0, 0, _k_w, 150) imageArray:bannerArr PlaceholderImage:[UIImage imageNamed:@"user_Icon"]];
+        _cycleView = [JZLCycleView cycleCollectionViewWithFrame:CGRectMake(0, 0, _k_w, 160) imageArray:bannerArr PlaceholderImage:[UIImage imageNamed:@"banner_placeholder_Icon"]];
         _cycleView.pageControl.pageIndicatorTintColor = [UIColor whiteColor];
         _cycleView.pageControl.currentPageIndicatorTintColor = UI_MAIN_COLOR;
         _cycleView.delegate = self;

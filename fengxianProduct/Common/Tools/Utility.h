@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "UserInfoObj.h"
 #import "ColumnModel.h"
+#import "NewsListModel.h"
 @interface Utility : NSObject
 
 
@@ -20,6 +21,14 @@
 @property (nonatomic,strong) ColumnModel *columnModel;
 @property (nonatomic,strong) ColumnModel *livesColumnModel;
 @property (nonatomic,strong) ColumnModel *acticityColumnModel;
+
+//生活页面缓存
+@property (nonatomic,strong) NewsListModel *liveListModel;
+@property (nonatomic,strong) NewsListModel *cultureListModel;
+@property (nonatomic,strong) NewsListModel *shootListModel;
+@property (nonatomic,strong) NewsListModel *travelListModel;
+
+
 
 + (Utility *)sharedUtility;
 

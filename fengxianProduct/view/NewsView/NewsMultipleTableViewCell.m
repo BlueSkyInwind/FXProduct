@@ -21,9 +21,9 @@
 -(void)layoutSubviews{
     [super layoutSubviews];
     
-    [self.imageView1 sd_setImageWithURL:[NSURL URLWithString:self.newsList.Image1] placeholderImage:[UIImage imageNamed:@"user_Icon" ]options:SDWebImageRefreshCached];
-    [self.imageView2 sd_setImageWithURL:[NSURL URLWithString:self.newsList.Image2] placeholderImage:[UIImage imageNamed:@"user_Icon" ]options:SDWebImageRefreshCached];
-    [self.imageView3 sd_setImageWithURL:[NSURL URLWithString:self.newsList.Image3] placeholderImage:[UIImage imageNamed:@"user_Icon" ]options:SDWebImageRefreshCached];
+    [self.imageView1 sd_setImageWithURL:[NSURL URLWithString:self.newsList.Image1] placeholderImage:[UIImage imageNamed:@"news_placeholder_Icon_1" ]options:SDWebImageRefreshCached];
+    [self.imageView2 sd_setImageWithURL:[NSURL URLWithString:self.newsList.Image2] placeholderImage:[UIImage imageNamed:@"news_placeholder_Icon_1" ]options:SDWebImageRefreshCached];
+    [self.imageView3 sd_setImageWithURL:[NSURL URLWithString:self.newsList.Image3] placeholderImage:[UIImage imageNamed:@"news_placeholder_Icon_1" ]options:SDWebImageRefreshCached];
     self.titleLabel.text = self.newsList.Title;
     self.locationLabel.text = self.newsList.Source;
     self.titleType.text = self.newsList.Column;

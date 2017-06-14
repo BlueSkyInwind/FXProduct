@@ -20,14 +20,12 @@
     
     NSString * baseUrl = [NSString stringWithFormat:@"%@Basic/ColumnList.ashx?Type=%@&AccountId=%@",_main_url,number,accountID];
     
-    [[FXNetworkManager sharedNetWorkManager]GETWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+    [[FXNetworkManager sharedNetWorkManager]POSTHideIndicatorWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
         if ([returnMsg.returnCode intValue] == 1) {
             ColumnModel * columnModel = [[ColumnModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
             self.returnBlock(returnMsg);
-
         }
-        
     } failure:^(EnumServerStatus status, id object) {
         NSError * error = object;
         [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
