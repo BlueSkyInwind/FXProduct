@@ -30,11 +30,13 @@
     self.columnViewFour.hidden  = YES;
     
 }
-
--(void)setDataArr:(NSMutableArray *)dataArr{
-    _dataArr = dataArr;
-    for (int   i = 0; i < dataArr.count; i ++) {
-        ColumnInfoModel * columnM = dataArr[i];
+-(void)layoutSubviews{
+    self.columnViewOne.hidden  = YES;
+    self.columnViewTwo.hidden  = YES;
+    self.columnViewThree.hidden  = YES;
+    self.columnViewFour.hidden  = YES;
+    for (int   i = 0; i < _dataArr.count; i ++) {
+        ColumnInfoModel * columnM = _dataArr[i];
         switch (i) {
             case 0:{
                 self.columnViewOne.hidden = NO;
@@ -64,7 +66,14 @@
                 break;
         }
     }
+
 }
+
+-(void)setDataArr:(NSMutableArray *)dataArr{
+    _dataArr = dataArr;
+    [self setNeedsLayout];
+
+    }
 - (IBAction)editBtnClick:(id)sender {
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(editBottonCilck)]) {

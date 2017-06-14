@@ -116,6 +116,11 @@
     [columnVM setBlockWithReturnBlock:^(id returnValue) {
         ReturnMsgBaseClass * returnMsg = returnValue;
         if ([returnMsg.returnCode intValue] == 1){
+            if ([_columnType intValue] == 1) {
+                [Utility sharedUtility].livesColumnModel.rows = [columnArr mutableCopy];
+            }else if ([_columnType intValue] == 2){
+                [Utility sharedUtility].livesColumnModel.rows = [columnArr mutableCopy];
+            }
             if (self.columnResult) {
                 self.columnResult(columnArr);
                 [self.navigationController popViewControllerAnimated:YES];
