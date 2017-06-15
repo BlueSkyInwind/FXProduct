@@ -134,8 +134,7 @@
     myColumnVC.dataArr =  [[Utility sharedUtility].columnModel.rows mutableCopy];
     __weak typeof (self) weakSelf = self;
     myColumnVC.columnResult = ^(NSMutableArray *resultArr) {
-        [weakSelf getDataOfSegmentBarVC:resultArr];
-         [[ShareConfig share]obtainNewsColumnInfo];
+         [weakSelf getDataOfSegmentBarVC:resultArr];
     };
     [self.navigationController pushViewController:myColumnVC animated:YES];
     

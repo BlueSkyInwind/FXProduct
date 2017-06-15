@@ -104,6 +104,7 @@
 -(void)requestNewsListInfo{
     if (self.dataArr) {
         [self.contentTableView reloadData];
+        [self obtainCellHeight:self.dataArr];
         return;
     }
     NewsViewModel * newsVM = [[NewsViewModel alloc]init];
@@ -128,16 +129,30 @@
             if (idx < 3) {
                 NewsListInfo * newsList = obj;
                 [wealSelf.dataArr addObject:newsList];
-                [self.contentTableView reloadData];
             }
         }];
+        [self.contentTableView reloadData];
+        [self obtainCellHeight:self.dataArr];
     } WithFaileBlock:^{
         
     }];
     NSParameterAssert(_columnInfoM);
     [newsVM fatchNewsInfoID:[NSString stringWithFormat:@"%@",_columnInfoM.ColumnID] pageSize:1 numberOfPage:3];
 }
-
+-(NSUInteger)obtainCellHeight:(NSArray *)arr{
+    NSInteger cellHeight= 40;
+    for (NewsListInfo * newsList in arr) {
+        if ([newsList.Seat intValue] == 1 || [newsList.Seat intValue] == 4) {
+            cellHeight += 140;
+        }else{
+            cellHeight += 90;
+        }
+    }
+    if (self.livesContentTableViewHeight) {
+        self.livesContentTableViewHeight(cellHeight);
+    }
+    return cellHeight;
+}
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

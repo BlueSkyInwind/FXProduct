@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 typedef void (^MoreButtonClick)(UIButton * button);
+typedef void (^LivesContentTableViewHeight)(NSInteger  height);
+
 @interface LivesContentTableViewCell : UITableViewCell<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UILabel *updateListNumLabel;
@@ -25,6 +27,9 @@ typedef void (^MoreButtonClick)(UIButton * button);
 @property (nonatomic,strong)ColumnInfoModel * columnInfoM;
 
 @property (copy,nonatomic)MoreButtonClick moreButtonCilck;
+
+@property (copy,nonatomic)LivesContentTableViewHeight livesContentTableViewHeight;
+
 -(void)requestNewsListInfo;
 
 @end

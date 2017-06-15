@@ -58,7 +58,6 @@
     }];
 }
 
-
 -(void)configureView{
     
     
@@ -133,8 +132,10 @@
         if ([returnMsg.returnCode intValue] == 1){
             if ([_columnType intValue] == 1) {
                 [Utility sharedUtility].columnModel.rows = [columnArr mutableCopy];
+                [[ShareConfig share]obtainNewsColumnInfo];
             }else if ([_columnType intValue] == 2){
                 [Utility sharedUtility].livesColumnModel.rows = [columnArr mutableCopy];
+                [[ShareConfig share]obtainLivesColumnInfo];
             }
             if (self.columnResult) {
                 self.columnResult(columnArr);
@@ -146,6 +147,7 @@
     }];
     NSString * str = @"column";
     for (ColumnInfoModel * infoModel  in array) {
+        
        str = [str stringByAppendingString:[NSString stringWithFormat:@"%@,",infoModel.ColumnID]];
     }
     str = [str stringByReplacingOccurrencesOfString:@"column" withString:@""];
@@ -217,10 +219,12 @@
         }
         ColumnInfoModel * infoModel = columnArr[indexPath.row];
         [columnArr removeObjectAtIndex:indexPath.row];
+        infoModel.According = @(0);
         [notAddArr addObject:infoModel];
     }else{
         ColumnInfoModel * infoModel = notAddArr[indexPath.row];
         [notAddArr removeObjectAtIndex:indexPath.row];
+        infoModel.According = @(1);
         [columnArr addObject:infoModel];
     }
     [self.columnCollectionView reloadData];

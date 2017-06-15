@@ -122,6 +122,10 @@
     }else{
         LivesContentTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"LivesContentTableViewCell" forIndexPath:indexPath];
         cell.columnInfoM = dataArr[indexPath.row - 1];
+        __weak typeof (self) weakSelf = self;
+        cell.livesContentTableViewHeight  = ^(NSInteger height) {
+            [weakSelf.tableView setRowHeight:height];
+        };
         return cell;
     }
     return nil;
@@ -155,23 +159,26 @@
 }
 -(void)columnViewOneTap{
     
-    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:1];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
     
 }
 -(void)columnViewTwoTap{
     
-    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:1];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
     
 }
 -(void)columnViewThreeTap{
     
-  
-    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:3 inSection:1];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
     
 }
 -(void)columnViewFourTap{
     
- 
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:4 inSection:1];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
     
 }
 -(void)editBottonCilck{

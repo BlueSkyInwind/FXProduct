@@ -72,6 +72,7 @@
         cell.newsList = newsList;
         return cell;
     }
+    
     NewsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"NewsTableViewCell" forIndexPath:indexPath];
     if (!cell) {
         cell = [[NewsTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"NewsTableViewCell"];
@@ -89,14 +90,14 @@
     self.titleLabel.text = columnInfoM.Title;
     
     //缓存数据
-    if ([_columnInfoM.ColumnID intValue] == 4) {
-        self.dataArr =  [[Utility sharedUtility].liveListModel.rows mutableCopy];
-    }else if([_columnInfoM.ColumnID intValue] == 5){
-        self.dataArr =  [[Utility sharedUtility].cultureListModel.rows mutableCopy];
-    }else if([_columnInfoM.ColumnID intValue] == 6){
-        self.dataArr =  [[Utility sharedUtility].shootListModel.rows mutableCopy];
-    }else if([_columnInfoM.ColumnID intValue] == 7){
-        self.dataArr =  [[Utility sharedUtility].travelListModel.rows mutableCopy];
+    if ([_columnInfoM.ColumnID intValue] == 8) {
+        return;
+    }else if([_columnInfoM.ColumnID intValue] == 9){
+        self.dataArr =  [[Utility sharedUtility].voteListModel.rows mutableCopy];
+    }else if([_columnInfoM.ColumnID intValue] == 10){
+        self.dataArr =  [[Utility sharedUtility].answerListModel.rows mutableCopy];
+    }else if([_columnInfoM.ColumnID intValue] ==11){
+        self.dataArr =  [[Utility sharedUtility].welfareListModel.rows mutableCopy];
     }
     [self requestNewsListInfo];
 }
@@ -104,6 +105,7 @@
 -(void)requestNewsListInfo{
     if (self.dataArr) {
         [self.contentTableView reloadData];
+        [self obtainCellHeight:self.dataArr];
         return;
     }
     NewsViewModel * newsVM = [[NewsViewModel alloc]init];
@@ -111,14 +113,14 @@
         
         //缓存数据
         NewsListModel * newsListModel = returnValue;
-        if ([_columnInfoM.ColumnID intValue] == 4) {
-            [Utility sharedUtility].liveListModel = newsListModel;
-        }else if([_columnInfoM.ColumnID intValue] == 5){
-            [Utility sharedUtility].cultureListModel = newsListModel;
-        }else if([_columnInfoM.ColumnID intValue] == 6){
-            [Utility sharedUtility].shootListModel = newsListModel;
-        }else if([_columnInfoM.ColumnID intValue] == 7){
-            [Utility sharedUtility].travelListModel = newsListModel;
+        if ([_columnInfoM.ColumnID intValue] == 8) {
+            
+        }else if([_columnInfoM.ColumnID intValue] == 9){
+            [Utility sharedUtility].voteListModel = newsListModel;
+        }else if([_columnInfoM.ColumnID intValue] == 10){
+            [Utility sharedUtility].answerListModel = newsListModel;
+        }else if([_columnInfoM.ColumnID intValue] == 11){
+            [Utility sharedUtility].welfareListModel = newsListModel;
         }
         
         NSMutableArray * tempArr = [newsListModel.rows mutableCopy];
@@ -129,13 +131,29 @@
                 NewsListInfo * newsList = obj;
                 [wealSelf.dataArr addObject:newsList];
                 [self.contentTableView reloadData];
+                [self obtainCellHeight:self.dataArr];
             }
         }];
     } WithFaileBlock:^{
         
     }];
     NSParameterAssert(_columnInfoM);
-    [newsVM fatchNewsInfoID:[NSString stringWithFormat:@"%@",_columnInfoM.ColumnID] pageSize:1 numberOfPage:3];
+    [newsVM fatchNewsInfoID:[NSString stringWithFormat:@"%@",_columnInfoM.ColumnID] pageSize:1 numberOfPage:1];
+}
+
+-(NSUInteger)obtainCellHeight:(NSArray *)arr{
+    NSInteger cellHeight= 40;
+    for (NewsListInfo * newsList in arr) {
+        if ([newsList.Seat intValue] == 1 || [newsList.Seat intValue] == 4) {
+            cellHeight += 140;
+        }else{
+            cellHeight += 90;
+        }
+    }
+    if (self.activityContentTableViewHeight) {
+        self.activityContentTableViewHeight(cellHeight);
+    }
+    return cellHeight;
 }
 
 

@@ -26,6 +26,9 @@ typedef void (^FailureBlock)(EnumServerStatus status, id object);
 
 + (FXNetworkManager *)sharedNetWorkManager;
 - (void)POSTWithURL:(NSString *)strURL parameters:(id)parameters finished:(FinishedBlock)finished failure:(FailureBlock)failure;
+
+- (void)POSTWithNetworkStatusURL:(NSString *)strURL parameters:(id)parameters finished:(FinishedBlock)finished failure:(FailureBlock)failure;
+
 - (void)POSTHideIndicatorWithURL:(NSString *)strURL parameters:(id)parameters finished:(FinishedBlock)finished failure:(FailureBlock)failure;
 - (void)POSTUpLoadImage:(NSString *)strURL FilePath:(NSData *)images  parameters:(id)parameters finished:(FinishedBlock)finshed failure:(FailureBlock)failure;
 -(void)GETWithURL:(NSString *)strURL parameters:(id)parameters finished:(FinishedBlock)finished failure:(FailureBlock)failure;

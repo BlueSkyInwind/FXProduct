@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 typedef void (^MoreButtonClick)(UIButton * button);
+typedef void (^ActivityContentTableViewHeight)(NSInteger  height);
+
 @interface ActivityContentTableViewCell : UITableViewCell<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UILabel *updateListNumLabel;
@@ -19,12 +21,15 @@ typedef void (^MoreButtonClick)(UIButton * button);
 
 @property (weak, nonatomic) IBOutlet UIView *backView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
 
 @property (nonatomic,strong)NSMutableArray * dataArr;
 
 @property (nonatomic,strong)ColumnInfoModel * columnInfoM;
 
 @property (copy,nonatomic)MoreButtonClick moreButtonCilck;
+@property (copy,nonatomic)ActivityContentTableViewHeight activityContentTableViewHeight;
+
 -(void)requestNewsListInfo;
 
 @end

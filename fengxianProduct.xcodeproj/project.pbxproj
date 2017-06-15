@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2207B4621EF193F200EF8036 /* ActivityContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2207B4601EF193F200EF8036 /* ActivityContentTableViewCell.m */; };
-		2207B4631EF193F200EF8036 /* ActivityActivityContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2207B4611EF193F200EF8036 /* ActivityActivityContentTableViewCell.xib */; };
+		2207B4631EF193F200EF8036 /* ActivityContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2207B4611EF193F200EF8036 /* ActivityContentTableViewCell.xib */; };
 		221A51141EE99A8C00A543C0 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 221A51131EE99A8C00A543C0 /* UserInfoViewController.m */; };
 		221A51181EE99BCD00A543C0 /* UserInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 221A51161EE99BCD00A543C0 /* UserInfoTableViewCell.m */; };
 		221A51191EE99BCD00A543C0 /* UserInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 221A51171EE99BCD00A543C0 /* UserInfoTableViewCell.xib */; };
@@ -289,6 +289,17 @@
 		84AABEFB1EE6B44E001AA7C0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AABEF91EE6B44E001AA7C0 /* LoginViewController.m */; };
 		84AABEFC1EE6B44E001AA7C0 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AABEFA1EE6B44E001AA7C0 /* LoginViewController.xib */; };
 		84AABEFF1EE6BD81001AA7C0 /* InitialSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AABEFE1EE6BD81001AA7C0 /* InitialSetting.m */; };
+		84BDC84D1EF26C27006F4DDE /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BDC84B1EF26C27006F4DDE /* FeedbackViewController.m */; };
+		84BDC84E1EF26C27006F4DDE /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BDC84C1EF26C27006F4DDE /* FeedbackViewController.xib */; };
+		84BDC8521EF26CE7006F4DDE /* XXTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BDC8511EF26CE7006F4DDE /* XXTextView.m */; };
+		84BDC8551EF2715A006F4DDE /* FeedbackViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BDC8541EF2715A006F4DDE /* FeedbackViewModel.m */; };
+		84BDC8581EF27967006F4DDE /* MyFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BDC8571EF27967006F4DDE /* MyFeedbackViewController.m */; };
+		84BDC85B1EF282E2006F4DDE /* UserCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BDC85A1EF282E2006F4DDE /* UserCommentModel.m */; };
+		84BDC85F1EF28587006F4DDE /* MyFeekbackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BDC85D1EF28587006F4DDE /* MyFeekbackTableViewCell.m */; };
+		84BDC8601EF28587006F4DDE /* MyFeekbackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BDC85E1EF28587006F4DDE /* MyFeekbackTableViewCell.xib */; };
+		84BDC8641EF29603006F4DDE /* ActivityBrokeViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BDC8621EF29603006F4DDE /* ActivityBrokeViewTableViewCell.m */; };
+		84BDC8651EF29603006F4DDE /* ActivityBrokeViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BDC8631EF29603006F4DDE /* ActivityBrokeViewTableViewCell.xib */; };
+		84BDC8681EF29C93006F4DDE /* WriteInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BDC8671EF29C93006F4DDE /* WriteInfoView.m */; };
 		84D2483A1EE7D44A00937D28 /* ReturnMsgBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D248391EE7D44A00937D28 /* ReturnMsgBaseClass.m */; };
 		84D2483D1EE7FB7700937D28 /* SMSViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2483C1EE7FB7700937D28 /* SMSViewModel.m */; };
 		84D248401EE8014900937D28 /* RegisterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2483F1EE8014900937D28 /* RegisterViewModel.m */; };
@@ -314,7 +325,7 @@
 /* Begin PBXFileReference section */
 		2207B45F1EF193F200EF8036 /* ActivityContentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityContentTableViewCell.h; sourceTree = "<group>"; };
 		2207B4601EF193F200EF8036 /* ActivityContentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityContentTableViewCell.m; sourceTree = "<group>"; };
-		2207B4611EF193F200EF8036 /* ActivityActivityContentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityActivityContentTableViewCell.xib; sourceTree = "<group>"; };
+		2207B4611EF193F200EF8036 /* ActivityContentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityContentTableViewCell.xib; sourceTree = "<group>"; };
 		221A51121EE99A8C00A543C0 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		221A51131EE99A8C00A543C0 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		221A51151EE99BCD00A543C0 /* UserInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoTableViewCell.h; sourceTree = "<group>"; };
@@ -826,6 +837,25 @@
 		84AABEFA1EE6B44E001AA7C0 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		84AABEFD1EE6BD81001AA7C0 /* InitialSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialSetting.h; sourceTree = "<group>"; };
 		84AABEFE1EE6BD81001AA7C0 /* InitialSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialSetting.m; sourceTree = "<group>"; };
+		84BDC84A1EF26C27006F4DDE /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		84BDC84B1EF26C27006F4DDE /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
+		84BDC84C1EF26C27006F4DDE /* FeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewController.xib; sourceTree = "<group>"; };
+		84BDC8501EF26CE7006F4DDE /* XXTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXTextView.h; sourceTree = "<group>"; };
+		84BDC8511EF26CE7006F4DDE /* XXTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXTextView.m; sourceTree = "<group>"; };
+		84BDC8531EF2715A006F4DDE /* FeedbackViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewModel.h; sourceTree = "<group>"; };
+		84BDC8541EF2715A006F4DDE /* FeedbackViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewModel.m; sourceTree = "<group>"; };
+		84BDC8561EF27967006F4DDE /* MyFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFeedbackViewController.h; sourceTree = "<group>"; };
+		84BDC8571EF27967006F4DDE /* MyFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFeedbackViewController.m; sourceTree = "<group>"; };
+		84BDC8591EF282E2006F4DDE /* UserCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCommentModel.h; sourceTree = "<group>"; };
+		84BDC85A1EF282E2006F4DDE /* UserCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCommentModel.m; sourceTree = "<group>"; };
+		84BDC85C1EF28587006F4DDE /* MyFeekbackTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFeekbackTableViewCell.h; sourceTree = "<group>"; };
+		84BDC85D1EF28587006F4DDE /* MyFeekbackTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFeekbackTableViewCell.m; sourceTree = "<group>"; };
+		84BDC85E1EF28587006F4DDE /* MyFeekbackTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyFeekbackTableViewCell.xib; sourceTree = "<group>"; };
+		84BDC8611EF29603006F4DDE /* ActivityBrokeViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityBrokeViewTableViewCell.h; sourceTree = "<group>"; };
+		84BDC8621EF29603006F4DDE /* ActivityBrokeViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityBrokeViewTableViewCell.m; sourceTree = "<group>"; };
+		84BDC8631EF29603006F4DDE /* ActivityBrokeViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityBrokeViewTableViewCell.xib; sourceTree = "<group>"; };
+		84BDC8661EF29C93006F4DDE /* WriteInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteInfoView.h; sourceTree = "<group>"; };
+		84BDC8671EF29C93006F4DDE /* WriteInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteInfoView.m; sourceTree = "<group>"; };
 		84D248381EE7D44A00937D28 /* ReturnMsgBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReturnMsgBaseClass.h; sourceTree = "<group>"; };
 		84D248391EE7D44A00937D28 /* ReturnMsgBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReturnMsgBaseClass.m; sourceTree = "<group>"; };
 		84D2483B1EE7FB7700937D28 /* SMSViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSViewModel.h; sourceTree = "<group>"; };
@@ -896,7 +926,12 @@
 			children = (
 				2207B45F1EF193F200EF8036 /* ActivityContentTableViewCell.h */,
 				2207B4601EF193F200EF8036 /* ActivityContentTableViewCell.m */,
-				2207B4611EF193F200EF8036 /* ActivityActivityContentTableViewCell.xib */,
+				2207B4611EF193F200EF8036 /* ActivityContentTableViewCell.xib */,
+				84BDC8611EF29603006F4DDE /* ActivityBrokeViewTableViewCell.h */,
+				84BDC8621EF29603006F4DDE /* ActivityBrokeViewTableViewCell.m */,
+				84BDC8631EF29603006F4DDE /* ActivityBrokeViewTableViewCell.xib */,
+				84BDC8661EF29C93006F4DDE /* WriteInfoView.h */,
+				84BDC8671EF29C93006F4DDE /* WriteInfoView.m */,
 			);
 			path = ActivityView;
 			sourceTree = "<group>";
@@ -1185,6 +1220,9 @@
 				22B905111EEC1E4500ED8B71 /* MySettingTableViewCell.h */,
 				22B905121EEC1E4500ED8B71 /* MySettingTableViewCell.m */,
 				22B905131EEC1E4500ED8B71 /* MySettingTableViewCell.xib */,
+				84BDC85C1EF28587006F4DDE /* MyFeekbackTableViewCell.h */,
+				84BDC85D1EF28587006F4DDE /* MyFeekbackTableViewCell.m */,
+				84BDC85E1EF28587006F4DDE /* MyFeekbackTableViewCell.xib */,
 			);
 			path = moreView;
 			sourceTree = "<group>";
@@ -1397,6 +1435,8 @@
 				22B905611EECFE1C00ED8B71 /* NewsViewModel.m */,
 				8440D6DB1EEFD8FA00C59B2C /* ColumnViewModel.h */,
 				8440D6DC1EEFD8FA00C59B2C /* ColumnViewModel.m */,
+				84BDC8531EF2715A006F4DDE /* FeedbackViewModel.h */,
+				84BDC8541EF2715A006F4DDE /* FeedbackViewModel.m */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -1404,6 +1444,7 @@
 		84AABC5E1EE69F76001AA7C0 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				84BDC84F1EF26CE7006F4DDE /* XXTextView */,
 				22B905691EED95E300ED8B71 /* JZLCycleView */,
 				22B905191EEC4B5400ED8B71 /* Lib */,
 				84AABE581EE6A035001AA7C0 /* lottie-ios */,
@@ -2045,6 +2086,11 @@
 				221A51131EE99A8C00A543C0 /* UserInfoViewController.m */,
 				22B9050E1EEC1DB800ED8B71 /* MySettingViewController.h */,
 				22B9050F1EEC1DB800ED8B71 /* MySettingViewController.m */,
+				84BDC84A1EF26C27006F4DDE /* FeedbackViewController.h */,
+				84BDC84B1EF26C27006F4DDE /* FeedbackViewController.m */,
+				84BDC84C1EF26C27006F4DDE /* FeedbackViewController.xib */,
+				84BDC8561EF27967006F4DDE /* MyFeedbackViewController.h */,
+				84BDC8571EF27967006F4DDE /* MyFeedbackViewController.m */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -2073,6 +2119,15 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
+		84BDC84F1EF26CE7006F4DDE /* XXTextView */ = {
+			isa = PBXGroup;
+			children = (
+				84BDC8501EF26CE7006F4DDE /* XXTextView.h */,
+				84BDC8511EF26CE7006F4DDE /* XXTextView.m */,
+			);
+			path = XXTextView;
+			sourceTree = "<group>";
+		};
 		84D248371EE7CFD400937D28 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -2088,6 +2143,8 @@
 				22B905671EED070300ED8B71 /* ColumnModel.m */,
 				8439A4861EEE9F45002ADF1B /* userSourceModel.h */,
 				8439A4871EEE9F45002ADF1B /* userSourceModel.m */,
+				84BDC8591EF282E2006F4DDE /* UserCommentModel.h */,
+				84BDC85A1EF282E2006F4DDE /* UserCommentModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2250,9 +2307,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8476494E1EF0E309004BEF4E /* LivesContentTableViewCell.xib in Resources */,
+				84BDC8601EF28587006F4DDE /* MyFeekbackTableViewCell.xib in Resources */,
 				226143191EE6EDC400193487 /* RegisterViewController.xib in Resources */,
 				22B905381EEC4B5400ED8B71 /* TGMoreCell.xib in Resources */,
-				2207B4631EF193F200EF8036 /* ActivityActivityContentTableViewCell.xib in Resources */,
+				2207B4631EF193F200EF8036 /* ActivityContentTableViewCell.xib in Resources */,
 				8440D6D01EEFC41700C59B2C /* CollectionViewCell.xib in Resources */,
 				846053B31EEAA41900E1002E /* UserQrcodeShareView.xib in Resources */,
 				8440D6CA1EEFBA9600C59B2C /* DateAndWeatherView.xib in Resources */,
@@ -2265,6 +2323,7 @@
 				847744FE1EE7958D00043F25 /* ForgetPasswordViewController.xib in Resources */,
 				8439A4811EEE320E002ADF1B /* NewsTwoTableViewCell.xib in Resources */,
 				847649491EF0E2F1004BEF4E /* AddColumnTableViewCell.xib in Resources */,
+				84BDC84E1EF26C27006F4DDE /* FeedbackViewController.xib in Resources */,
 				8431F3451EE8FD9C00295A18 /* MoreNavView.xib in Resources */,
 				221A51191EE99BCD00A543C0 /* UserInfoTableViewCell.xib in Resources */,
 				8440D6C81EEFB28F00C59B2C /* SearchHistoryTableViewCell.xib in Resources */,
@@ -2272,6 +2331,7 @@
 				22B905151EEC1E4500ED8B71 /* MySettingTableViewCell.xib in Resources */,
 				2261430B1EE6E2A500193487 /* launch_Image4.gif in Resources */,
 				8440D6D51EEFCD5400C59B2C /* ColumnCollectionHeader.xib in Resources */,
+				84BDC8651EF29603006F4DDE /* ActivityBrokeViewTableViewCell.xib in Resources */,
 				22B905591EECF86600ED8B71 /* NewsTableViewCell.xib in Resources */,
 				8439A47C1EEE2BA2002ADF1B /* NewsMultipleTableViewCell.xib in Resources */,
 				8431F34A1EE917DF00295A18 /* MoreTableViewCell.xib in Resources */,
@@ -2334,7 +2394,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -2370,6 +2430,8 @@
 				84AABDD51EE69F76001AA7C0 /* HMScannerMaskView.m in Sources */,
 				84AABEBD1EE6A035001AA7C0 /* LOTAnimatableScaleValue.m in Sources */,
 				84AABED21EE6A035001AA7C0 /* LOTShapeTrimPath.m in Sources */,
+				84BDC85F1EF28587006F4DDE /* MyFeekbackTableViewCell.m in Sources */,
+				84BDC8581EF27967006F4DDE /* MyFeedbackViewController.m in Sources */,
 				226BDF861EE6859D009D2A3F /* AppDelegate.m in Sources */,
 				2207B4621EF193F200EF8036 /* ActivityContentTableViewCell.m in Sources */,
 				8440D6D31EEFCD4200C59B2C /* ColumnCollectionHeader.m in Sources */,
@@ -2444,6 +2506,7 @@
 				22B9055F1EECFAB600ED8B71 /* BannerInfoModel.m in Sources */,
 				226143131EE6E35100193487 /* LaunchViewController.m in Sources */,
 				22B9053C1EEC4B5400ED8B71 /* TGSegmentMoreBtn.m in Sources */,
+				84BDC8521EF26CE7006F4DDE /* XXTextView.m in Sources */,
 				84AABDE81EE69F76001AA7C0 /* YYTextDebugOption.m in Sources */,
 				84AABDF91EE69F76001AA7C0 /* YYTextAsyncLayer.m in Sources */,
 				84AABE491EE6A003001AA7C0 /* NSString+Extend.m in Sources */,
@@ -2471,6 +2534,7 @@
 				845862591EE68A7100AF52B3 /* CheckUtils.m in Sources */,
 				8431F33E1EE8E3EE00295A18 /* MoreHeaderView.m in Sources */,
 				8458624A1EE68A7100AF52B3 /* NSData+AES.m in Sources */,
+				84BDC8641EF29603006F4DDE /* ActivityBrokeViewTableViewCell.m in Sources */,
 				8431F3431EE8FD7700295A18 /* MoreNavView.m in Sources */,
 				84AABEBE1EE6A035001AA7C0 /* LOTAnimatableShapeValue.m in Sources */,
 				84AABEB81EE6A035001AA7C0 /* LOTStrokeShapeLayer.m in Sources */,
@@ -2495,13 +2559,17 @@
 				22B905351EEC4B5400ED8B71 /* TGCarouselImageView.m in Sources */,
 				8439A4801EEE320E002ADF1B /* NewsTwoTableViewCell.m in Sources */,
 				84AABE4B1EE6A003001AA7C0 /* UIBarButtonItem+Extend.m in Sources */,
+				84BDC8681EF29C93006F4DDE /* WriteInfoView.m in Sources */,
 				84AABEC81EE6A035001AA7C0 /* LOTComposition.m in Sources */,
 				8458625D1EE68A7100AF52B3 /* NSDictionary+NilSafe.m in Sources */,
+				84BDC85B1EF282E2006F4DDE /* UserCommentModel.m in Sources */,
 				84D248401EE8014900937D28 /* RegisterViewModel.m in Sources */,
 				8458624D1EE68A7100AF52B3 /* ContactClass.m in Sources */,
 				84AABDF61EE69F76001AA7C0 /* NSParagraphStyle+YYText.m in Sources */,
 				84AABDEB1EE69F76001AA7C0 /* YYTextKeyboardManager.m in Sources */,
+				84BDC8551EF2715A006F4DDE /* FeedbackViewModel.m in Sources */,
 				84AABDEF1EE69F76001AA7C0 /* YYTextSelectionView.m in Sources */,
+				84BDC84D1EF26C27006F4DDE /* FeedbackViewController.m in Sources */,
 				8440D6DD1EEFD8FA00C59B2C /* ColumnViewModel.m in Sources */,
 				84AABDD91EE69F76001AA7C0 /* TAAbstractDotView.m in Sources */,
 				84AABDCA1EE69F76001AA7C0 /* LewPopupBackgroundView.m in Sources */,

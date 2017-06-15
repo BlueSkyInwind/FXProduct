@@ -23,6 +23,8 @@
     
     
     NewsListModel * newsListModel;
+    
+    NSInteger cellheight;
 
 }
 @property (nonatomic,strong)UITableView * tableView;
@@ -38,6 +40,7 @@
     dataArr = [NSMutableArray array];
     [self getColumnData];
     bannerArr = [NSMutableArray array];
+    cellheight = 40;
     [self configureView];
     [self setupMJRefreshTableView];
 }
@@ -77,7 +80,7 @@
         }
             break;
         case 1:{
-            return 320;
+            return cellheight;
         }
             break;
         default:
@@ -112,9 +115,12 @@
     }
     
     ActivityContentTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityContentTableViewCell" forIndexPath:indexPath];
-    cell.columnInfoM = dataArr[indexPath.row - 1];
+    cell.columnInfoM = dataArr[indexPath.row];
+    __weak typeof (self) weakSelf = self;
+    cell.activityContentTableViewHeight = ^(NSInteger height) {
+        [weakSelf.tableView setRowHeight:height];
+    };
     return cell;
-
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -126,6 +132,8 @@
 //代理跳转
 - (void)selectItemAtIndex:(NSInteger)index {
     NSLog(@"%ld",index);
+    
+    
     
 }
 #pragma mark - 数据请求

@@ -15,6 +15,7 @@
 #import "UserInfoViewController.h"
 #import "InvationRegisterView.h"
 #import "MySettingViewController.h"
+#import "FeedbackViewController.h"
 
 @interface MyViewController ()<UITableViewDelegate,UITableViewDataSource,MoreNavViewDelegate>{
     
@@ -129,8 +130,8 @@
         }
             break;
         case 1:{
-     
-            
+            FeedbackViewController * feedbackVC  = [[FeedbackViewController alloc]init];
+            [self.navigationController pushViewController:feedbackVC animated:YES];
         }
             break;
         case 2:{

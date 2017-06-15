@@ -28,7 +28,6 @@
         [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
         [self faileBlock];
     }];
-    
 }
 
 

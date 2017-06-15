@@ -42,5 +42,12 @@
  */
 -(void)requestSign;
 
+/**
+ 获取用户更多中的信息
+
+ @param type 类型
+ @param pageSize 页数
+ */
+-(void)fatchAboutUserMoreInfo:(NSString *)type pageSize:(int)pageSize;
 
 @end

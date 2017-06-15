@@ -391,5 +391,33 @@
     return endStr;
 }
 
-
+/**
+ *  计算字符串宽度
+ *
+ *  @param text 文本内容
+ *  @param size 字体大小
+ *
+ *  @return 返回文本宽度
+ */
++ (CGFloat)widthForText:(NSString *)text font:(CGFloat)size
+{
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:size]};
+    CGSize aSize = [text sizeWithAttributes:attributes];
+    return aSize.width;
+}
+/**
+ *  计算文本高度
+ *
+ *  @param text  文本内容
+ *  @param width 文本宽度
+ *  @param size  文本字体大小
+ *
+ *  @return      文本高度
+ */
++ (CGFloat)heightForText:(NSString *)text width:(CGFloat)width font:(CGFloat)size
+{
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:size]};
+    CGSize aSize = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:Nil].size;
+    return aSize.height;
+}
 @end

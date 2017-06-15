@@ -25,6 +25,9 @@
         self.shootListModel = [[NewsListModel alloc]init];
         self.travelListModel = [[NewsListModel alloc]init];
 
+        self.voteListModel = [[NewsListModel alloc]init];
+        self.answerListModel = [[NewsListModel alloc]init];
+        self.welfareListModel = [[NewsListModel alloc]init];
     }
     return self;
 }

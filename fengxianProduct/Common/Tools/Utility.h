@@ -28,6 +28,10 @@
 @property (nonatomic,strong) NewsListModel *shootListModel;
 @property (nonatomic,strong) NewsListModel *travelListModel;
 
+//活动页面缓存
+@property (nonatomic,strong) NewsListModel *voteListModel;
+@property (nonatomic,strong) NewsListModel *answerListModel;
+@property (nonatomic,strong) NewsListModel *welfareListModel;
 
 
 + (Utility *)sharedUtility;

@@ -68,4 +68,24 @@
 
 +(NSString *)toCapitalLetters:(NSString *)money;
 
+/**
+ *  计算字符串宽度
+ *
+ *  @param text 文本内容
+ *  @param size 字体大小
+ *
+ *  @return 返回文本宽度
+ */
++ (CGFloat)widthForText:(NSString *)text font:(CGFloat)size;
+/**
+ *  计算文本高度
+ *
+ *  @param text  文本内容
+ *  @param width 文本宽度
+ *  @param size  文本字体大小
+ *
+ *  @return      文本高度
+ */
++ (CGFloat)heightForText:(NSString *)text width:(CGFloat)width font:(CGFloat)size;
+
 @end

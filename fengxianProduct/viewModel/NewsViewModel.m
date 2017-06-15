@@ -12,14 +12,13 @@
 @implementation NewsViewModel
 
 
-
 - (void)fatchNewsInfoID:(NSString *)number pageSize:(int)page numberOfPage:(int)numberOfPage{
     
-    //http://infx2.echaokj.cn/ajax/Home/NewList.ashx?ColumnID=1&PageSize=1&PageCount=10http://infx2.echaokj.cn/ajax/Home/NewList.ashx?ColumnID=1&PageSize=1&PageCount=10
+    //http://infx2.echaokj.cn/ajax/Home/NewList.ashx?ColumnID=1&PageSize=1&PageCount=10
     
     NSString * baseUrl = [NSString stringWithFormat:@"%@Home/NewList.ashx?ColumnID=%@&PageSize=%d&PageCount=%d",_main_url,number,page,numberOfPage];
     
-    [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+    [[FXNetworkManager sharedNetWorkManager]POSTWithNetworkStatusURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
         if ([returnMsg.returnCode intValue] == 1) {
             NewsListModel * newsListModel = [[NewsListModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
@@ -62,7 +61,7 @@
     
     NSString * baseUrl = [NSString stringWithFormat:@"%@Home/NewSelect.ashx?Sel=%@&PageSize=%d&PageCount=%d",_main_url,[content stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],page,numberOfPage];
     
-    [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+    [[FXNetworkManager sharedNetWorkManager]POSTWithNetworkStatusURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
         if ([returnMsg.returnCode intValue] == 1) {
             NewsListModel * newsListModel = [[NewsListModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];

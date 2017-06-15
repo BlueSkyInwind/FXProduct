@@ -30,12 +30,18 @@
         self.nickNameLabel.hidden = YES;
         self.IDleftConstraint.constant = 7;
     }else{
-        self.IDleftConstraint.constant = 119;
+        [self updateTitleWidth:nickName];
         self.nickNameLabel.hidden = NO;
         self.nickNameLabel.text = nickName;
     }
 }
 
+-(void)updateTitleWidth:(NSString *)title{
+    
+    CGFloat width =  [Tool widthForText:title font:17] + 12;
+    self.IDleftConstraint.constant = width;
+
+}
 - (IBAction)qrcodeBtnClick:(id)sender {
     
     if (self.qRCodeBtnClick) {

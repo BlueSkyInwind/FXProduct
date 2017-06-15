@@ -113,7 +113,7 @@
     }else if([gender isEqualToString:@"女"]){
         num = @"0";
     }
-    [moreVM updateAccountInfo:contentArr[0][1] gender:num email:contentArr[1][1] moblie:contentArr[1][0]  date:contentArr[2][1]  address:contentArr[2][2] image:contentArr[0][0]];
+    [moreVM updateAccountInfo:contentArr[0][2] gender:num email:contentArr[1][1] moblie:contentArr[1][0]  date:contentArr[2][1]  address:contentArr[2][2] image:contentArr[0][0]];
 }
 -(void)uploadAvatar:(NSDictionary *)data  finsh:(void(^)(bool isSuccess))finsh{
     
