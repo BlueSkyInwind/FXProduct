@@ -78,7 +78,9 @@
         [array enumerateObjectsUsingBlock:^(ColumnInfoModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             ColumnInfoModel * infoModel = (ColumnInfoModel *)obj;
             NSString * title = infoModel.Title;
-            [items addObject:title];
+            if ([infoModel.According intValue] == 1) {
+                [items addObject:title];
+            }
         }];
     }
     NSMutableArray* childVCs = [NSMutableArray array];
@@ -133,6 +135,7 @@
     __weak typeof (self) weakSelf = self;
     myColumnVC.columnResult = ^(NSMutableArray *resultArr) {
         [weakSelf getDataOfSegmentBarVC:resultArr];
+         [[ShareConfig share]obtainNewsColumnInfo];
     };
     [self.navigationController pushViewController:myColumnVC animated:YES];
     

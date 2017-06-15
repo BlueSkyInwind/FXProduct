@@ -34,13 +34,23 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     dataArr = [NSMutableArray array];
-    if ([Utility sharedUtility].livesColumnModel.rows ) {
-        dataArr =[[Utility sharedUtility].livesColumnModel.rows mutableCopy];
-    }
+    [self getColumnData];
     bannerArr = [NSMutableArray array];
     [self configureView];
     [self setupMJRefreshTableView];
 }
+
+-(void)getColumnData{
+    if ([Utility sharedUtility].livesColumnModel.rows ) {
+        [[Utility sharedUtility].livesColumnModel.rows enumerateObjectsUsingBlock:^(ColumnInfoModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            ColumnInfoModel * infoModel = (ColumnInfoModel *)obj;
+            if ([infoModel.According intValue] == 1) {
+                [dataArr addObject:infoModel];
+            }
+        }];
+    }
+}
+
 -(void)configureView{
     
     self.tableView = [[UITableView alloc]init];
@@ -112,7 +122,6 @@
     }else{
         LivesContentTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"LivesContentTableViewCell" forIndexPath:indexPath];
         cell.columnInfoM = dataArr[indexPath.row - 1];
-        [cell requestNewsListInfo];
         return cell;
     }
     return nil;
@@ -147,19 +156,24 @@
 -(void)columnViewOneTap{
     
     
+    
 }
 -(void)columnViewTwoTap{
+    
     
     
 }
 -(void)columnViewThreeTap{
     
+  
+    
     
 }
 -(void)columnViewFourTap{
     
+ 
+    
 }
-
 -(void)editBottonCilck{
     
     MyColumnViewController * myColumnVC = [[MyColumnViewController alloc]init];
@@ -169,6 +183,8 @@
     myColumnVC.columnResult = ^(NSMutableArray *resultArr) {
         dataArr = resultArr;
         [weakSelf.tableView reloadData];
+        [[ShareConfig share]obtainLivesColumnInfo];
+
     };
     [self.navigationController pushViewController:myColumnVC animated:YES];
 }

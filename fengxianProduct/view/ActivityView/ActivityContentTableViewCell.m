@@ -6,12 +6,12 @@
 //  Copyright © 2017年 Wangyongxin. All rights reserved.
 //
 
-#import "LivesContentTableViewCell.h"
+#import "ActivityContentTableViewCell.h"
 #import "NewsTwoTableViewCell.h"
 #import "NewsMultipleTableViewCell.h"
 #import "NewsTableViewCell.h"
 #import "NewsViewModel.h"
-@implementation LivesContentTableViewCell
+@implementation ActivityContentTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

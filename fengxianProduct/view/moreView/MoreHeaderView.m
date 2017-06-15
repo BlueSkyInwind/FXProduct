@@ -21,12 +21,19 @@
     [self.contentView addGestureRecognizer:tap];
     
 }
--(void)configureViewImage:(NSString *)imageUrl AccountID:(NSString *)accountID {
+-(void)configureViewImage:(NSString *)imageUrl AccountID:(NSString *)accountID userNickName:(NSString *)nickName{
     
     [self.userHeaderImageBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:imageUrl] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"user_Icon"] options:SDWebImageRefreshCached];
     
     self.IDLabel.text = [NSString stringWithFormat:@"ID:%@",accountID];
-    
+    if (nickName == nil) {
+        self.nickNameLabel.hidden = YES;
+        self.IDleftConstraint.constant = 7;
+    }else{
+        self.IDleftConstraint.constant = 119;
+        self.nickNameLabel.hidden = NO;
+        self.nickNameLabel.text = nickName;
+    }
 }
 
 - (IBAction)qrcodeBtnClick:(id)sender {

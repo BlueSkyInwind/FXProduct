@@ -19,11 +19,13 @@ typedef void(^GoUserInfoBtnClick)(UITapGestureRecognizer * tap);
 
 @property (weak, nonatomic) IBOutlet UIButton *qrCodeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *userHeaderImageBtn;
+@property (weak, nonatomic) IBOutlet UILabel *nickNameLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *IDleftConstraint;
 
 @property (nonatomic,copy)QRCodeBtnClick qRCodeBtnClick;
 @property (nonatomic,copy)GoUserInfoBtnClick goUserInfoBtnClick;
 
 
--(void)configureViewImage:(NSString *)imageUrl AccountID:(NSString *)accountID;
+-(void)configureViewImage:(NSString *)imageUrl AccountID:(NSString *)accountID userNickName:(NSString *)nickName;
 
 @end

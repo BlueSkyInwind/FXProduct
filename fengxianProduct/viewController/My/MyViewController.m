@@ -48,7 +48,7 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [super viewWillAppear:animated];
     
-    [self.moreHeaderView configureViewImage:[Utility sharedUtility].userInfo.Images AccountID:[Utility sharedUtility].userInfo.Code];
+    [self.moreHeaderView configureViewImage:[Utility sharedUtility].userInfo.Images AccountID:[Utility sharedUtility].userInfo.Code userNickName:[Utility sharedUtility].userInfo.Name];
 //    [self.tableView reloadData];
     
 }
@@ -147,7 +147,7 @@
     
     UIView * view = [[UIView alloc]init];
     self.moreHeaderView = [[NSBundle mainBundle]loadNibNamed:@"MoreHeaderView" owner:self options:nil].lastObject;
-    [self.moreHeaderView configureViewImage:[Utility sharedUtility].userInfo.Images AccountID:[Utility sharedUtility].userInfo.Code];
+    [self.moreHeaderView configureViewImage:[Utility sharedUtility].userInfo.Images AccountID:[Utility sharedUtility].userInfo.Code userNickName:[Utility sharedUtility].userInfo.Name];
     __weak typeof (self) weakSelf = self;
     self.moreHeaderView.goUserInfoBtnClick = ^(UITapGestureRecognizer *tap) {
         if ([[ShareConfig share] isPresentLoginVC:weakSelf]) {

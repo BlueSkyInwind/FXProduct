@@ -11,6 +11,7 @@
 #import "ColumnHeaderCollectionReusableView.h"
 #import "ColumnViewModel.h"
 #import "ColumnCollectionHeader.h"
+#import "ColumnModel.h"
 
 @interface MyColumnViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,ColumnCollectionHeaderDelegate,UICollectionViewDelegateFlowLayout>{
     
@@ -34,15 +35,29 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"我的栏目";
+    [self addBackItem];
+
     sectionNum = 1;
     isSave = NO;
     columnArr = [NSMutableArray array];
     notAddArr = [NSMutableArray array];
-    columnArr = [self.dataArr mutableCopy];
-    [self addBackItem];
+    [self getColumnData];
     self.view.backgroundColor = [UIColor whiteColor];
     [self configureView];
 }
+
+-(void)getColumnData{
+    
+    [self.dataArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        ColumnInfoModel * columnInfoM = obj;
+        if ([columnInfoM.According intValue] == 1) {
+            [columnArr addObject:columnInfoM];
+        }else{
+            [notAddArr addObject:columnInfoM];
+        }
+    }];
+}
+
 
 -(void)configureView{
     
@@ -117,7 +132,7 @@
         ReturnMsgBaseClass * returnMsg = returnValue;
         if ([returnMsg.returnCode intValue] == 1){
             if ([_columnType intValue] == 1) {
-                [Utility sharedUtility].livesColumnModel.rows = [columnArr mutableCopy];
+                [Utility sharedUtility].columnModel.rows = [columnArr mutableCopy];
             }else if ([_columnType intValue] == 2){
                 [Utility sharedUtility].livesColumnModel.rows = [columnArr mutableCopy];
             }
@@ -137,7 +152,7 @@
     if ([str isEqualToString:@""]) {
         return;
     }
-    [columnVM uploadColumnListType:self.columnType Column:[str substringToIndex:str.length - 2]];
+    [columnVM uploadColumnListType:self.columnType Column:[str substringToIndex:str.length - 1]];
 }
 
 #pragma mark ---- UICollectionViewDataSource

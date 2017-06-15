@@ -13,6 +13,8 @@
 #import "JZLCycleView.h"
 #import "BannerViewModel.h"
 #import "BannerInfoModel.h"
+#import "ActivityContentTableViewCell.h"
+
 
 @interface ActivityViewController ()<UITableViewDelegate,UITableViewDataSource,JZLCycleViewDelegate>{
     
@@ -33,9 +35,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    dataArr = [NSMutableArray array];
+    [self getColumnData];
+    bannerArr = [NSMutableArray array];
     [self configureView];
     [self setupMJRefreshTableView];
 }
+-(void)getColumnData{
+    if ([Utility sharedUtility].acticityColumnModel.rows ) {
+        [[Utility sharedUtility].acticityColumnModel.rows enumerateObjectsUsingBlock:^(ColumnInfoModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            ColumnInfoModel * infoModel = (ColumnInfoModel *)obj;
+            if ([infoModel.According intValue] == 1) {
+                [dataArr addObject:infoModel];
+            }
+        }];
+    }
+}
+
 -(void)configureView{
     
     self.tableView = [[UITableView alloc]init];
@@ -48,18 +64,26 @@
         make.edges.equalTo(self.view);
     }];
     
+    [self.tableView registerNib:[UINib nibWithNibName:@"ActivityContentTableViewCell" bundle:nil] forCellReuseIdentifier:@"ActivityContentTableViewCell"];
+    
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
-        if (UI_IS_IPHONE6) {
-            return 200;
+    switch (indexPath.section) {
+        case 0:{
+            if (UI_IS_IPHONE6) {
+                return 200;
+            }
+            return 160;
         }
-        return 160;
-        
-    }else{
-        
-        return 30;
+            break;
+        case 1:{
+            return 320;
+        }
+            break;
+        default:
+            break;
     }
+    return 0;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
@@ -87,11 +111,10 @@
         return cell;
     }
     
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"NewsTableViewCell" forIndexPath:indexPath];
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"NewsTableViewCell"];
-    }
+    ActivityContentTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityContentTableViewCell" forIndexPath:indexPath];
+    cell.columnInfoM = dataArr[indexPath.row - 1];
     return cell;
+
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -107,20 +130,6 @@
 }
 #pragma mark - 数据请求
 
--(void)requestNewsListInfo{
-    NewsViewModel * newsVM = [[NewsViewModel alloc]init];
-    [newsVM setBlockWithReturnBlock:^(id returnValue) {
-        newsListModel = returnValue;
-        NSMutableArray * tempArr = [newsListModel.rows mutableCopy];
-        [dataArr addObjectsFromArray:tempArr];
-        [self.tableView reloadData];
-        [self.tableView.mj_header endRefreshing];
-        
-    } WithFaileBlock:^{
-        
-    }];
-    [newsVM fatchNewsInfoID:@"0" pageSize:1 numberOfPage:10];
-}
 -(void)requestBannerInfo{
     BannerViewModel * bannerVM = [[BannerViewModel alloc]init];
     [bannerVM setBlockWithReturnBlock:^(id returnValue) {
@@ -150,7 +159,6 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView.mj_header endRefreshing];
     });
-    [self requestNewsListInfo];
     [self requestBannerInfo];
     
 }
