@@ -11,6 +11,8 @@
 #import "NewsMultipleTableViewCell.h"
 #import "NewsTableViewCell.h"
 #import "NewsViewModel.h"
+#import "ActivityBrokeViewTableViewCell.h"
+
 @implementation ActivityContentTableViewCell
 
 - (void)awakeFromNib {
@@ -21,7 +23,11 @@
     self.updateListNumLabel.clipsToBounds = YES;
     self.updateListNumLabel.hidden = YES;
     [self.moreBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    self.leftIcon.hidden = NO;
+    self.moreBtn.hidden= NO;
     
+    baoliaoHeight = 220;
+
     [self configureView];
 }
 
@@ -36,6 +42,8 @@
     [self.contentTableView registerNib:[UINib nibWithNibName:@"NewsTableViewCell" bundle:nil] forCellReuseIdentifier:@"NewsTableViewCell"];
     [self.contentTableView registerNib:[UINib nibWithNibName:@"NewsTwoTableViewCell" bundle:nil] forCellReuseIdentifier:@"NewsTwoTableViewCell"];
     [self.contentTableView registerNib:[UINib nibWithNibName:@"NewsMultipleTableViewCell" bundle:nil] forCellReuseIdentifier:@"NewsMultipleTableViewCell"];
+    [self.contentTableView registerNib:[UINib nibWithNibName:@"ActivityBrokeViewTableViewCell" bundle:nil] forCellReuseIdentifier:@"ActivityBrokeViewTableViewCell"];
+
 //    [self requestNewsListInfo];
 }
 
@@ -46,6 +54,12 @@
     }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if ([_columnInfoM.ColumnID intValue] == 8) {
+        
+        return baoliaoHeight;
+    }
+
     NewsListInfo * newsList = self.dataArr[indexPath.row];
     if ([newsList.Seat intValue] == 1) {
         return 140;
@@ -55,10 +69,24 @@
     return 90;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
+    if ([_columnInfoM.ColumnID intValue] == 8) {
+     
+        return 1;
+    }
     return self.dataArr.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if ([_columnInfoM.ColumnID intValue] == 8) {
+        ActivityBrokeViewTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityBrokeViewTableViewCell" forIndexPath:indexPath];
+        cell.activityBrokeViewTableViewHeight = ^(NSInteger height) {
+            baoliaoHeight = height;
+            [self.contentTableView reloadData];
+            if (self.activityContentTableViewHeight) {
+                self.activityContentTableViewHeight(height + 40);
+            }
+        };
+        return cell;
+    }
     
     NewsListInfo * newsList = self.dataArr[indexPath.row];
     if ([newsList.Seat intValue] == 1) {
@@ -91,6 +119,9 @@
     
     //缓存数据
     if ([_columnInfoM.ColumnID intValue] == 8) {
+        [self.contentTableView reloadData];
+        self.leftIcon.hidden = YES;
+        self.moreBtn.hidden= YES;
         return;
     }else if([_columnInfoM.ColumnID intValue] == 9){
         self.dataArr =  [[Utility sharedUtility].voteListModel.rows mutableCopy];
@@ -104,7 +135,6 @@
 #pragma mrak - 数据请求
 -(void)requestNewsListInfo{
     if (self.dataArr) {
-        [self.contentTableView reloadData];
         [self obtainCellHeight:self.dataArr];
         return;
     }
@@ -150,9 +180,9 @@
             cellHeight += 90;
         }
     }
-    if (self.activityContentTableViewHeight) {
-        self.activityContentTableViewHeight(cellHeight);
-    }
+//    if (self.activityContentTableViewHeight) {
+//        self.activityContentTableViewHeight(cellHeight);
+//    }
     return cellHeight;
 }
 

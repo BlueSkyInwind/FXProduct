@@ -11,7 +11,11 @@
 typedef void (^MoreButtonClick)(UIButton * button);
 typedef void (^ActivityContentTableViewHeight)(NSInteger  height);
 
-@interface ActivityContentTableViewCell : UITableViewCell<UITableViewDelegate,UITableViewDataSource>
+@interface ActivityContentTableViewCell : UITableViewCell<UITableViewDelegate,UITableViewDataSource>{
+    
+    NSInteger baoliaoHeight;
+
+}
 
 @property (weak, nonatomic) IBOutlet UILabel *updateListNumLabel;
 
@@ -22,6 +26,7 @@ typedef void (^ActivityContentTableViewHeight)(NSInteger  height);
 @property (weak, nonatomic) IBOutlet UIView *backView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *leftIcon;
 
 @property (nonatomic,strong)NSMutableArray * dataArr;
 

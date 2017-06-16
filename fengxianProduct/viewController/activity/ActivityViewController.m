@@ -40,7 +40,7 @@
     dataArr = [NSMutableArray array];
     [self getColumnData];
     bannerArr = [NSMutableArray array];
-    cellheight = 40;
+    cellheight = 130;
     [self configureView];
     [self setupMJRefreshTableView];
 }
@@ -80,7 +80,10 @@
         }
             break;
         case 1:{
-            return cellheight;
+            if (indexPath.row == 0) {
+                return cellheight;
+            }
+            return 130;
         }
             break;
         default:
@@ -118,7 +121,8 @@
     cell.columnInfoM = dataArr[indexPath.row];
     __weak typeof (self) weakSelf = self;
     cell.activityContentTableViewHeight = ^(NSInteger height) {
-        [weakSelf.tableView setRowHeight:height];
+        cellheight = height;
+        [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     };
     return cell;
 }

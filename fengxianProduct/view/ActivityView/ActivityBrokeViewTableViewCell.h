@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
+typedef void (^ActivityBrokeViewTableViewHeight)(NSInteger  height);
+
 @interface ActivityBrokeViewTableViewCell : UITableViewCell{
     
     
@@ -20,7 +23,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *contributeBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *backImageView;
 
+@property (weak, nonatomic) IBOutlet UIView *headerView;
 
+@property (nonatomic,copy)ActivityBrokeViewTableViewHeight activityBrokeViewTableViewHeight;
 
 
 @end
