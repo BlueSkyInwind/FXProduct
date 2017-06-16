@@ -24,7 +24,8 @@
     int  pages;
     
     NewsListModel * newsListModel;
-    
+    NSInteger  tableViewHeight;
+
 }
 
 @property (nonatomic,strong)UITableView * tableView;
@@ -40,7 +41,10 @@
     pages = 1;
     dataArr = [NSMutableArray array];
     bannerArr = [NSMutableArray array];
-
+    tableViewHeight = 160;
+    if (UI_IS_IPHONE6) {
+        tableViewHeight = 200;
+    }
     [self configureView];
     [self setupMJRefreshTableView];
 
@@ -63,7 +67,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        return 160;
+        return tableViewHeight;
     }else{
         NewsListInfo * newsList = dataArr[indexPath.row];
         if ([newsList.Seat intValue] == 1) {
@@ -92,7 +96,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LoginOutCell"];
         }
-        _cycleView = [JZLCycleView cycleCollectionViewWithFrame:CGRectMake(0, 0, _k_w, 160) imageArray:bannerArr PlaceholderImage:[UIImage imageNamed:@"banner_placeholder_Icon"]];
+        _cycleView = [JZLCycleView cycleCollectionViewWithFrame:CGRectMake(0, 0, _k_w, tableViewHeight) imageArray:bannerArr PlaceholderImage:[UIImage imageNamed:@"banner_placeholder_Icon"]];
         _cycleView.pageControl.pageIndicatorTintColor = [UIColor whiteColor];
         _cycleView.pageControl.currentPageIndicatorTintColor = UI_MAIN_COLOR;
         _cycleView.delegate = self;

@@ -80,10 +80,9 @@
         ActivityBrokeViewTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityBrokeViewTableViewCell" forIndexPath:indexPath];
         cell.activityBrokeViewTableViewHeight = ^(NSInteger height) {
             baoliaoHeight = height;
-            [self.contentTableView reloadData];
-            if (self.activityContentTableViewHeight) {
-                self.activityContentTableViewHeight(height + 40);
-            }
+//            if (self.activityContentTableViewHeight) {
+//                self.activityContentTableViewHeight(baoliaoHeight + 40);
+//            }
         };
         return cell;
     }
@@ -116,10 +115,15 @@
     _columnInfoM= nil;
     _columnInfoM = columnInfoM;
     self.titleLabel.text = columnInfoM.Title;
-    
+    [self setNeedsLayout];
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
     //缓存数据
     if ([_columnInfoM.ColumnID intValue] == 8) {
-        [self.contentTableView reloadData];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.contentTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         self.leftIcon.hidden = YES;
         self.moreBtn.hidden= YES;
         return;
@@ -131,7 +135,9 @@
         self.dataArr =  [[Utility sharedUtility].welfareListModel.rows mutableCopy];
     }
     [self requestNewsListInfo];
+    
 }
+
 #pragma mrak - 数据请求
 -(void)requestNewsListInfo{
     if (self.dataArr) {

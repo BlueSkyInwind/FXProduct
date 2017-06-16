@@ -64,6 +64,7 @@
  *  圆角设置
  */
 + (void)setCorner:(UIView *)view borderColor:(UIColor *)color;
++(void)setCorner:(UIView *)view borderColor:(UIColor *)color cornerRadius:(CGFloat)cornerRadius;
 + (void)setCornerWithoutRadius:(UIView *)view borderColor:(UIColor *)color;
 
 +(NSString *)toCapitalLetters:(NSString *)money;

@@ -22,11 +22,11 @@
     [super awakeFromNib];
     [Tool setCorner:self.contentTextView borderColor:kUIColorFromRGB(0x5e5e5e)];
     [Tool setCorner:self.submitBtn borderColor:UI_MAIN_COLOR];
-    [Tool setCorner:self.titleTextField borderColor:UI_MAIN_COLOR];
+    [Tool setCorner:self.titleTextField borderColor:kUIColorFromRGB(0x5e5e5e)];
 
     self.seletTypeView.layer.cornerRadius = 3;
     self.seletTypeView.layer.masksToBounds = YES;
-    self.seletTypeView.layer.borderWidth = 1;
+    self.seletTypeView.layer.borderWidth = 0.5;
     self.seletTypeView.layer.borderColor = kUIColorFromRGB(0x5e5e5e).CGColor;
     
 }

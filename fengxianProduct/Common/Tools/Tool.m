@@ -280,6 +280,13 @@
 {
     view.layer.cornerRadius = 8;
     view.layer.masksToBounds = YES;
+    view.layer.borderWidth = 0.5;
+    view.layer.borderColor = color.CGColor;
+}
++(void)setCorner:(UIView *)view borderColor:(UIColor *)color cornerRadius:(CGFloat)cornerRadius
+{
+    view.layer.cornerRadius = 8;
+    view.layer.masksToBounds = YES;
     view.layer.borderWidth = 1;
     view.layer.borderColor = color.CGColor;
 }

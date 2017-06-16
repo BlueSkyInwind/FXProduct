@@ -80,6 +80,7 @@
         return;
     }
     self.writeInfoView = [[NSBundle mainBundle]loadNibNamed:@"WriteInfoView" owner:self options:nil].lastObject;
+    self.writeInfoView.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.writeInfoView];
     [self.writeInfoView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.headerView.mas_bottom);

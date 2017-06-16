@@ -127,6 +127,13 @@
 		845862641EE68A7100AF52B3 /* UserInfoObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 845862491EE68A7100AF52B3 /* UserInfoObj.m */; };
 		846053B11EEAA40E00E1002E /* UserQrcodeShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846053B01EEAA40E00E1002E /* UserQrcodeShareView.m */; };
 		846053B31EEAA41900E1002E /* UserQrcodeShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846053B21EEAA41900E1002E /* UserQrcodeShareView.xib */; };
+		84748E5F1EF3789800831016 /* MyIntegralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84748E5E1EF3789800831016 /* MyIntegralViewController.m */; };
+		84748E631EF37C2F00831016 /* MyIntegralHeaderCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84748E611EF37C2F00831016 /* MyIntegralHeaderCollectionViewCell.m */; };
+		84748E641EF37C2F00831016 /* MyIntegralHeaderCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84748E621EF37C2F00831016 /* MyIntegralHeaderCollectionViewCell.xib */; };
+		84748E681EF3A78D00831016 /* IntegralGoodsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84748E661EF3A78D00831016 /* IntegralGoodsCollectionViewCell.m */; };
+		84748E691EF3A78D00831016 /* IntegralGoodsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84748E671EF3A78D00831016 /* IntegralGoodsCollectionViewCell.xib */; };
+		84748E6D1EF3BEE600831016 /* IntegralAwardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84748E6B1EF3BEE600831016 /* IntegralAwardCollectionViewCell.m */; };
+		84748E6E1EF3BEE600831016 /* IntegralAwardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84748E6C1EF3BEE600831016 /* IntegralAwardCollectionViewCell.xib */; };
 		847649481EF0E2F1004BEF4E /* AddColumnTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847649461EF0E2F1004BEF4E /* AddColumnTableViewCell.m */; };
 		847649491EF0E2F1004BEF4E /* AddColumnTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847649471EF0E2F1004BEF4E /* AddColumnTableViewCell.xib */; };
 		8476494D1EF0E309004BEF4E /* LivesContentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8476494B1EF0E309004BEF4E /* LivesContentTableViewCell.m */; };
@@ -537,6 +544,18 @@
 		846053AF1EEAA40E00E1002E /* UserQrcodeShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserQrcodeShareView.h; sourceTree = "<group>"; };
 		846053B01EEAA40E00E1002E /* UserQrcodeShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserQrcodeShareView.m; sourceTree = "<group>"; };
 		846053B21EEAA41900E1002E /* UserQrcodeShareView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserQrcodeShareView.xib; sourceTree = "<group>"; };
+		84748E5D1EF3789800831016 /* MyIntegralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyIntegralViewController.h; sourceTree = "<group>"; };
+		84748E5E1EF3789800831016 /* MyIntegralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIntegralViewController.m; sourceTree = "<group>"; };
+		84748E601EF37C2F00831016 /* MyIntegralHeaderCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyIntegralHeaderCollectionViewCell.h; sourceTree = "<group>"; };
+		84748E611EF37C2F00831016 /* MyIntegralHeaderCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIntegralHeaderCollectionViewCell.m; sourceTree = "<group>"; };
+		84748E621EF37C2F00831016 /* MyIntegralHeaderCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyIntegralHeaderCollectionViewCell.xib; sourceTree = "<group>"; };
+		84748E651EF3A78D00831016 /* IntegralGoodsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegralGoodsCollectionViewCell.h; sourceTree = "<group>"; };
+		84748E661EF3A78D00831016 /* IntegralGoodsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegralGoodsCollectionViewCell.m; sourceTree = "<group>"; };
+		84748E671EF3A78D00831016 /* IntegralGoodsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntegralGoodsCollectionViewCell.xib; sourceTree = "<group>"; };
+		84748E6A1EF3BEE600831016 /* IntegralAwardCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegralAwardCollectionViewCell.h; sourceTree = "<group>"; };
+		84748E6B1EF3BEE600831016 /* IntegralAwardCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegralAwardCollectionViewCell.m; sourceTree = "<group>"; };
+		84748E6C1EF3BEE600831016 /* IntegralAwardCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntegralAwardCollectionViewCell.xib; sourceTree = "<group>"; };
+		84748E6F1EF3D1A800831016 /* fengxianProduct.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = fengxianProduct.entitlements; sourceTree = "<group>"; };
 		847649451EF0E2F1004BEF4E /* AddColumnTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddColumnTableViewCell.h; path = fengxianProduct/viewModel/AddColumnTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		847649461EF0E2F1004BEF4E /* AddColumnTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddColumnTableViewCell.m; path = fengxianProduct/viewModel/AddColumnTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		847649471EF0E2F1004BEF4E /* AddColumnTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddColumnTableViewCell.xib; path = fengxianProduct/viewModel/AddColumnTableViewCell.xib; sourceTree = SOURCE_ROOT; };
@@ -1041,6 +1060,7 @@
 		226BDF801EE6859D009D2A3F /* fengxianProduct */ = {
 			isa = PBXGroup;
 			children = (
+				84748E6F1EF3D1A800831016 /* fengxianProduct.entitlements */,
 				226143031EE6E23400193487 /* source */,
 				84AABC5E1EE69F76001AA7C0 /* Third */,
 				845862651EE68A8600AF52B3 /* Network */,
@@ -1226,6 +1246,15 @@
 				84BDC85C1EF28587006F4DDE /* MyFeekbackTableViewCell.h */,
 				84BDC85D1EF28587006F4DDE /* MyFeekbackTableViewCell.m */,
 				84BDC85E1EF28587006F4DDE /* MyFeekbackTableViewCell.xib */,
+				84748E601EF37C2F00831016 /* MyIntegralHeaderCollectionViewCell.h */,
+				84748E611EF37C2F00831016 /* MyIntegralHeaderCollectionViewCell.m */,
+				84748E621EF37C2F00831016 /* MyIntegralHeaderCollectionViewCell.xib */,
+				84748E651EF3A78D00831016 /* IntegralGoodsCollectionViewCell.h */,
+				84748E661EF3A78D00831016 /* IntegralGoodsCollectionViewCell.m */,
+				84748E671EF3A78D00831016 /* IntegralGoodsCollectionViewCell.xib */,
+				84748E6A1EF3BEE600831016 /* IntegralAwardCollectionViewCell.h */,
+				84748E6B1EF3BEE600831016 /* IntegralAwardCollectionViewCell.m */,
+				84748E6C1EF3BEE600831016 /* IntegralAwardCollectionViewCell.xib */,
 			);
 			path = moreView;
 			sourceTree = "<group>";
@@ -2094,6 +2123,8 @@
 				84BDC84C1EF26C27006F4DDE /* FeedbackViewController.xib */,
 				84BDC8561EF27967006F4DDE /* MyFeedbackViewController.h */,
 				84BDC8571EF27967006F4DDE /* MyFeedbackViewController.m */,
+				84748E5D1EF3789800831016 /* MyIntegralViewController.h */,
+				84748E5E1EF3789800831016 /* MyIntegralViewController.m */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -2269,8 +2300,13 @@
 				TargetAttributes = {
 					226BDF7D1EE6859D009D2A3F = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = 6W7BW6GZZR;
+						DevelopmentTeam = VNXSPJQ3S4;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					226BDF961EE6859D009D2A3F = {
 						CreatedOnToolsVersion = 8.3.1;
@@ -2330,15 +2366,18 @@
 				8431F3451EE8FD9C00295A18 /* MoreNavView.xib in Resources */,
 				221A51191EE99BCD00A543C0 /* UserInfoTableViewCell.xib in Resources */,
 				8440D6C81EEFB28F00C59B2C /* SearchHistoryTableViewCell.xib in Resources */,
+				84748E691EF3A78D00831016 /* IntegralGoodsCollectionViewCell.xib in Resources */,
 				8440D6DA1EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.xib in Resources */,
 				22B905151EEC1E4500ED8B71 /* MySettingTableViewCell.xib in Resources */,
 				2261430B1EE6E2A500193487 /* launch_Image4.gif in Resources */,
+				84748E6E1EF3BEE600831016 /* IntegralAwardCollectionViewCell.xib in Resources */,
 				8440D6D51EEFCD5400C59B2C /* ColumnCollectionHeader.xib in Resources */,
 				84BDC8651EF29603006F4DDE /* ActivityBrokeViewTableViewCell.xib in Resources */,
 				22B905591EECF86600ED8B71 /* NewsTableViewCell.xib in Resources */,
 				8439A47C1EEE2BA2002ADF1B /* NewsMultipleTableViewCell.xib in Resources */,
 				8431F34A1EE917DF00295A18 /* MoreTableViewCell.xib in Resources */,
 				226143091EE6E2A500193487 /* launch_Image2.gif in Resources */,
+				84748E641EF37C2F00831016 /* MyIntegralHeaderCollectionViewCell.xib in Resources */,
 				226143081EE6E2A500193487 /* launch_Image1.gif in Resources */,
 				226143331EE83E9400193487 /* scanLine@2x.png in Resources */,
 				226143351EE83E9400193487 /* scanscanBg.png in Resources */,
@@ -2398,7 +2437,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -2484,6 +2523,7 @@
 				84AABECC1EE6A035001AA7C0 /* LOTShapeFill.m in Sources */,
 				84AABDF11EE69F76001AA7C0 /* YYTextAttribute.m in Sources */,
 				22B905391EEC4B5400ED8B71 /* TGMoreLayout.m in Sources */,
+				84748E5F1EF3789800831016 /* MyIntegralViewController.m in Sources */,
 				84AABEE31EE6AF41001AA7C0 /* BaseViewController.m in Sources */,
 				84AABE541EE6A003001AA7C0 /* UILabel+FlickerNumber.m in Sources */,
 				22B905621EECFE1C00ED8B71 /* NewsViewModel.m in Sources */,
@@ -2513,6 +2553,7 @@
 				84BDC8521EF26CE7006F4DDE /* XXTextView.m in Sources */,
 				84AABDE81EE69F76001AA7C0 /* YYTextDebugOption.m in Sources */,
 				84AABDF91EE69F76001AA7C0 /* YYTextAsyncLayer.m in Sources */,
+				84748E631EF37C2F00831016 /* MyIntegralHeaderCollectionViewCell.m in Sources */,
 				84AABE491EE6A003001AA7C0 /* NSString+Extend.m in Sources */,
 				221A51261EEAE90000A543C0 /* CameraHelper.m in Sources */,
 				84AABDFE1EE69F76001AA7C0 /* YYTextView.m in Sources */,
@@ -2541,6 +2582,7 @@
 				84BDC8641EF29603006F4DDE /* ActivityBrokeViewTableViewCell.m in Sources */,
 				8431F3431EE8FD7700295A18 /* MoreNavView.m in Sources */,
 				84AABEBE1EE6A035001AA7C0 /* LOTAnimatableShapeValue.m in Sources */,
+				84748E6D1EF3BEE600831016 /* IntegralAwardCollectionViewCell.m in Sources */,
 				84AABEB81EE6A035001AA7C0 /* LOTStrokeShapeLayer.m in Sources */,
 				84AABDF01EE69F76001AA7C0 /* YYTextArchiver.m in Sources */,
 				845862621EE68A7100AF52B3 /* UIDevice+YYAdd.m in Sources */,
@@ -2557,6 +2599,7 @@
 				845862641EE68A7100AF52B3 /* UserInfoObj.m in Sources */,
 				84AABEB91EE6A035001AA7C0 /* LOTAnimatableBoundsValue.m in Sources */,
 				84AABEC51EE6A035001AA7C0 /* NSValue+Compat.m in Sources */,
+				84748E681EF3A78D00831016 /* IntegralGoodsCollectionViewCell.m in Sources */,
 				84AABDC71EE69F76001AA7C0 /* Model.m in Sources */,
 				84AABE4A1EE6A003001AA7C0 /* NSString+Password.m in Sources */,
 				84AABEB51EE6A035001AA7C0 /* LOTMaskLayer.m in Sources */,
@@ -2794,7 +2837,9 @@
 			baseConfigurationReference = 34B86EC1B2254EC782DD0D6E /* Pods-fengxianProduct.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6W7BW6GZZR;
+				CODE_SIGN_ENTITLEMENTS = fengxianProduct/fengxianProduct.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = VNXSPJQ3S4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2814,8 +2859,10 @@
 					"$(PROJECT_DIR)/fengxianProduct/Third/libSTLivenessController",
 					"$(PROJECT_DIR)/fengxianProduct/Third/MoxieSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Wangyongxin.fengxianProduct;
+				PRODUCT_BUNDLE_IDENTIFIER = com.echao.question299;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2825,7 +2872,9 @@
 			baseConfigurationReference = E477D3E950B213F05A541012 /* Pods-fengxianProduct.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6W7BW6GZZR;
+				CODE_SIGN_ENTITLEMENTS = fengxianProduct/fengxianProduct.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = VNXSPJQ3S4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2845,8 +2894,10 @@
 					"$(PROJECT_DIR)/fengxianProduct/Third/libSTLivenessController",
 					"$(PROJECT_DIR)/fengxianProduct/Third/MoxieSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Wangyongxin.fengxianProduct;
+				PRODUCT_BUNDLE_IDENTIFIER = com.echao.question299;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
