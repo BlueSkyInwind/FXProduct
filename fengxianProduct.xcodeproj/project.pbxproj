@@ -43,6 +43,12 @@
 		226BDF911EE6859D009D2A3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 226BDF8F1EE6859D009D2A3F /* LaunchScreen.storyboard */; };
 		226BDF9C1EE6859D009D2A3F /* fengxianProductTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BDF9B1EE6859D009D2A3F /* fengxianProductTests.m */; };
 		226BDFA71EE6859D009D2A3F /* fengxianProductUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 226BDFA61EE6859D009D2A3F /* fengxianProductUITests.m */; };
+		229520CB1EF65E5800FA2351 /* IntegralViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 229520CA1EF65E5800FA2351 /* IntegralViewModel.m */; };
+		229520CE1EF65EF900FA2351 /* integralModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 229520CD1EF65EF900FA2351 /* integralModel.m */; };
+		229520D21EF6BCE300FA2351 /* DetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229520D11EF6BCE300FA2351 /* DetailHeaderView.m */; };
+		229520D61EF6BD0100FA2351 /* DetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229520D51EF6BD0100FA2351 /* DetailHeaderView.xib */; };
+		229520D91EF6C83200FA2351 /* DetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 229520D81EF6C83200FA2351 /* DetailModel.m */; };
+		229520DC1EF6CCDC00FA2351 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229520DB1EF6CCDC00FA2351 /* DetailViewController.m */; };
 		22B9050A1EEBD03C00ED8B71 /* InvationRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905091EEBD03C00ED8B71 /* InvationRegisterView.m */; };
 		22B9050D1EEBEA3100ED8B71 /* SignAndCollectMdoel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9050C1EEBEA3100ED8B71 /* SignAndCollectMdoel.m */; };
 		22B905101EEC1DB800ED8B71 /* MySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9050F1EEC1DB800ED8B71 /* MySettingViewController.m */; };
@@ -387,6 +393,17 @@
 		226BDFA21EE6859D009D2A3F /* fengxianProductUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fengxianProductUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		226BDFA61EE6859D009D2A3F /* fengxianProductUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fengxianProductUITests.m; sourceTree = "<group>"; };
 		226BDFA81EE6859D009D2A3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		229520C91EF65E5800FA2351 /* IntegralViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegralViewModel.h; sourceTree = "<group>"; };
+		229520CA1EF65E5800FA2351 /* IntegralViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegralViewModel.m; sourceTree = "<group>"; };
+		229520CC1EF65EF900FA2351 /* integralModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = integralModel.h; sourceTree = "<group>"; };
+		229520CD1EF65EF900FA2351 /* integralModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = integralModel.m; sourceTree = "<group>"; };
+		229520D01EF6BCE300FA2351 /* DetailHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailHeaderView.h; sourceTree = "<group>"; };
+		229520D11EF6BCE300FA2351 /* DetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailHeaderView.m; sourceTree = "<group>"; };
+		229520D51EF6BD0100FA2351 /* DetailHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailHeaderView.xib; sourceTree = "<group>"; };
+		229520D71EF6C83200FA2351 /* DetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailModel.h; sourceTree = "<group>"; };
+		229520D81EF6C83200FA2351 /* DetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailModel.m; sourceTree = "<group>"; };
+		229520DA1EF6CCDC00FA2351 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		229520DB1EF6CCDC00FA2351 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		22B905081EEBD03C00ED8B71 /* InvationRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvationRegisterView.h; sourceTree = "<group>"; };
 		22B905091EEBD03C00ED8B71 /* InvationRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvationRegisterView.m; sourceTree = "<group>"; };
 		22B9050B1EEBEA3100ED8B71 /* SignAndCollectMdoel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignAndCollectMdoel.h; sourceTree = "<group>"; };
@@ -1107,6 +1124,16 @@
 			path = fengxianProductUITests;
 			sourceTree = "<group>";
 		};
+		229520CF1EF6BC8000FA2351 /* DetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				229520D01EF6BCE300FA2351 /* DetailHeaderView.h */,
+				229520D11EF6BCE300FA2351 /* DetailHeaderView.m */,
+				229520D51EF6BD0100FA2351 /* DetailHeaderView.xib */,
+			);
+			path = DetailsView;
+			sourceTree = "<group>";
+		};
 		22B905191EEC4B5400ED8B71 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -1177,6 +1204,8 @@
 			children = (
 				22B9054E1EEC520F00ED8B71 /* MyColumnViewController.h */,
 				22B9054F1EEC520F00ED8B71 /* MyColumnViewController.m */,
+				229520DA1EF6CCDC00FA2351 /* DetailViewController.h */,
+				229520DB1EF6CCDC00FA2351 /* DetailViewController.m */,
 			);
 			path = CommonVC;
 			sourceTree = "<group>";
@@ -1278,6 +1307,7 @@
 		845862071EE68A2600AF52B3 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				229520CF1EF6BC8000FA2351 /* DetailsView */,
 				2207B45E1EF1937400EF8036 /* ActivityView */,
 				223AE8531EF03870009FF7C6 /* LivesView */,
 				8440D6CB1EEFC3DC00C59B2C /* CommonView */,
@@ -1469,6 +1499,8 @@
 				8440D6DC1EEFD8FA00C59B2C /* ColumnViewModel.m */,
 				84BDC8531EF2715A006F4DDE /* FeedbackViewModel.h */,
 				84BDC8541EF2715A006F4DDE /* FeedbackViewModel.m */,
+				229520C91EF65E5800FA2351 /* IntegralViewModel.h */,
+				229520CA1EF65E5800FA2351 /* IntegralViewModel.m */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -2179,6 +2211,10 @@
 				8439A4871EEE9F45002ADF1B /* userSourceModel.m */,
 				84BDC8591EF282E2006F4DDE /* UserCommentModel.h */,
 				84BDC85A1EF282E2006F4DDE /* UserCommentModel.m */,
+				229520CC1EF65EF900FA2351 /* integralModel.h */,
+				229520CD1EF65EF900FA2351 /* integralModel.m */,
+				229520D71EF6C83200FA2351 /* DetailModel.h */,
+				229520D81EF6C83200FA2351 /* DetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2389,6 +2425,7 @@
 				2207B4651EF2C70300EF8036 /* WriteInfoView.xib in Resources */,
 				226143301EE83E9400193487 /* lightSelect.png in Resources */,
 				221A51231EEADCF800A543C0 /* PickerSelectView.xib in Resources */,
+				229520D61EF6BD0100FA2351 /* DetailHeaderView.xib in Resources */,
 				84AABDD11EE69F76001AA7C0 /* HMScanner.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2437,7 +2474,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -2490,6 +2527,7 @@
 				84D2483D1EE7FB7700937D28 /* SMSViewModel.m in Sources */,
 				8439A4851EEE6B43002ADF1B /* NSString+URL.m in Sources */,
 				8458624F1EE68A7100AF52B3 /* MBPAlertView.m in Sources */,
+				229520D91EF6C83200FA2351 /* DetailModel.m in Sources */,
 				84AABEB11EE6A035001AA7C0 /* LOTAnimatableLayer.m in Sources */,
 				84AABDD61EE69F76001AA7C0 /* HMScannerViewController.m in Sources */,
 				84AABEBC1EE6A035001AA7C0 /* LOTAnimatablePointValue.m in Sources */,
@@ -2499,6 +2537,7 @@
 				84AABEC91EE6A035001AA7C0 /* LOTLayer.m in Sources */,
 				84AABED11EE6A035001AA7C0 /* LOTShapeTransform.m in Sources */,
 				84AABED41EE6A035001AA7C0 /* LOTAnimationView.m in Sources */,
+				229520CE1EF65EF900FA2351 /* integralModel.m in Sources */,
 				84AABEC41EE6A035001AA7C0 /* CALayer+Compat.m in Sources */,
 				84AABED31EE6A035001AA7C0 /* LOTAnimationTransitionController.m in Sources */,
 				8440D6D91EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.m in Sources */,
@@ -2522,6 +2561,7 @@
 				8458624B1EE68A7100AF52B3 /* NSString+AES.m in Sources */,
 				84AABECC1EE6A035001AA7C0 /* LOTShapeFill.m in Sources */,
 				84AABDF11EE69F76001AA7C0 /* YYTextAttribute.m in Sources */,
+				229520DC1EF6CCDC00FA2351 /* DetailViewController.m in Sources */,
 				22B905391EEC4B5400ED8B71 /* TGMoreLayout.m in Sources */,
 				84748E5F1EF3789800831016 /* MyIntegralViewController.m in Sources */,
 				84AABEE31EE6AF41001AA7C0 /* BaseViewController.m in Sources */,
@@ -2562,6 +2602,7 @@
 				84AABEC61EE6A035001AA7C0 /* UIBezierPath.m in Sources */,
 				84AABE421EE6A003001AA7C0 /* NSString+File.m in Sources */,
 				84AABEC71EE6A035001AA7C0 /* UIColor.m in Sources */,
+				229520D21EF6BCE300FA2351 /* DetailHeaderView.m in Sources */,
 				84AABDE31EE69F76001AA7C0 /* YYCache.m in Sources */,
 				84AABE461EE6A003001AA7C0 /* NSArray+Extend.m in Sources */,
 				22B9050A1EEBD03C00ED8B71 /* InvationRegisterView.m in Sources */,
@@ -2582,6 +2623,7 @@
 				84BDC8641EF29603006F4DDE /* ActivityBrokeViewTableViewCell.m in Sources */,
 				8431F3431EE8FD7700295A18 /* MoreNavView.m in Sources */,
 				84AABEBE1EE6A035001AA7C0 /* LOTAnimatableShapeValue.m in Sources */,
+				229520CB1EF65E5800FA2351 /* IntegralViewModel.m in Sources */,
 				84748E6D1EF3BEE600831016 /* IntegralAwardCollectionViewCell.m in Sources */,
 				84AABEB81EE6A035001AA7C0 /* LOTStrokeShapeLayer.m in Sources */,
 				84AABDF01EE69F76001AA7C0 /* YYTextArchiver.m in Sources */,

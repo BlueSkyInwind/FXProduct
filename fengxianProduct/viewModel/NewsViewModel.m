@@ -9,6 +9,7 @@
 #import "NewsViewModel.h"
 #import "NewsListModel.h"
 #import "ColumnModel.h"
+#import "DetailModel.h"
 @implementation NewsViewModel
 
 
@@ -90,7 +91,25 @@
         [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
         [self faileBlock];
     }];
+}
 
+- (void)fatchDeatailInfoID:(NSString *)number{
+    
+    //http://infx2.echaokj.cn/ajax/New/NewDetail.ashx?id=70
+    
+    NSString * baseUrl = [NSString stringWithFormat:@"%@New/NewDetail.ashx?id=%@",_main_url,number];
+    
+    [[FXNetworkManager sharedNetWorkManager]POSTWithNetworkStatusURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            DetailModel * detailModel = [[DetailModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
+            self.returnBlock(detailModel);
+        }
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
 }
 
 

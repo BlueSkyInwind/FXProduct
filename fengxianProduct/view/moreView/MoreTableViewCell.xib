@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GyN-aV-AWL">
@@ -50,8 +50,8 @@
                             <constraint firstAttribute="height" constant="1" id="Jdm-WG-dtr"/>
                         </constraints>
                     </view>
-                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6B-l2-MOI">
-                        <rect key="frame" x="243" y="13.5" width="40" height="18"/>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6B-l2-MOI">
+                        <rect key="frame" x="252" y="13.5" width="40" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="RM4-rp-cjh"/>
                             <constraint firstAttribute="width" constant="40" id="fXZ-B6-wb7"/>
@@ -63,7 +63,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="r6B-l2-MOI" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7My-4r-9pb"/>
-                    <constraint firstItem="bjr-Hm-u0z" firstAttribute="leading" secondItem="r6B-l2-MOI" secondAttribute="trailing" constant="14" id="ExC-nl-MrB"/>
+                    <constraint firstItem="bjr-Hm-u0z" firstAttribute="leading" secondItem="r6B-l2-MOI" secondAttribute="trailing" constant="5" id="ExC-nl-MrB"/>
                     <constraint firstAttribute="trailing" secondItem="KrO-xN-A4T" secondAttribute="trailing" id="I7p-ww-6ck"/>
                     <constraint firstItem="bjr-Hm-u0z" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="5" id="OdO-y5-Azd"/>
                     <constraint firstItem="KrO-xN-A4T" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="QGj-4k-EBT"/>

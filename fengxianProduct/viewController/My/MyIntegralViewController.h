@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "integralModel.h"
 
 @interface MyIntegralViewController : BaseViewController
+
+@property (nonatomic)integralModel * integralM;
 
 @end

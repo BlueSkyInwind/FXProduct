@@ -16,13 +16,19 @@
 #import "InvationRegisterView.h"
 #import "MySettingViewController.h"
 #import "FeedbackViewController.h"
+#import "MyIntegralViewController.h"
+#import "IntegralViewModel.h"
+#import "integralModel.h"
 
 @interface MyViewController ()<UITableViewDelegate,UITableViewDataSource,MoreNavViewDelegate>{
     
     NSArray * imageArr;
     NSArray * titleArr;
+    
+    NSMutableArray * dataArray;
+    integralModel * accountIntegralM;
+    
 }
-
 
 @property (nonatomic,strong)UITableView * tableView;
 @property (nonatomic,strong)MoreTableViewCell * moreTableViewCell;
@@ -39,29 +45,47 @@
     self.view.backgroundColor = [UIColor whiteColor];
     imageArr = @[@"More_jifenduihuan",@"More_feedBack",@"More_setting"];
     titleArr = @[@"积分兑换",@"我的反馈",@"我的设置"];
+    dataArray = [NSMutableArray array];
+    
     if ([Utility sharedUtility].loginFlage) {
         [self obtainSignStatus];
+     
     }
     [self configureView];
 }
 -(void)viewWillAppear:(BOOL)animated{
-//    self.navigationController.navigationBarHidden = YES;
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [super viewWillAppear:animated];
-    
+    [self obtainIntegral:^(integralModel *integralModel) {
+    }];
     [self.moreHeaderView configureViewImage:[Utility sharedUtility].userInfo.Images AccountID:[Utility sharedUtility].userInfo.Code userNickName:[Utility sharedUtility].userInfo.Name];
-//    [self.tableView reloadData];
     
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     
-
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:NO animated:animated];
 
 }
+#pragma mark - 积分请求
+-(void)obtainIntegral:(void(^)(integralModel * integralModel))finish
+{
+    IntegralViewModel * integralM = [[IntegralViewModel alloc]init];
+    [integralM setBlockWithReturnBlock:^(id returnValue) {
+        accountIntegralM = [[integralModel alloc]init];
+        accountIntegralM = returnValue;
+        dataArray = [accountIntegralM.rows mutableCopy];
+        finish(accountIntegralM);
+        NSIndexPath * indexpath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.tableView reloadRowsAtIndexPaths:@[indexpath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    } WithFaileBlock:^{
+        
+    }];
+    [integralM fatchAccountIntegral];
+}
+
 -(void)configureView{
     
     self.tableView = [[UITableView alloc]init];
@@ -103,7 +127,7 @@
             cell.moreCellIcon.image = [UIImage imageNamed:imageArr[indexPath.row]];
             cell.titleIabel.text = titleArr[indexPath.row];
             cell.subTitleLabel.hidden = NO;
-            cell.subTitleLabel.text = @"40";
+            cell.subTitleLabel.text = [NSString stringWithFormat:@"%@",accountIntegralM.Integral];
         }
             break;
         case 1:{
@@ -122,14 +146,21 @@
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (![[ShareConfig share] isPresentLoginVC:self]) {
+        return;
+    }
+
     switch (indexPath.row) {
         case 0:{
-
-            
+            if (accountIntegralM) {
+                MyIntegralViewController * myIntegralVC  = [[MyIntegralViewController alloc]init];
+                myIntegralVC.integralM = accountIntegralM;
+                [self.navigationController pushViewController:myIntegralVC animated:YES];
+            }
         }
             break;
         case 1:{
+
             FeedbackViewController * feedbackVC  = [[FeedbackViewController alloc]init];
             [self.navigationController pushViewController:feedbackVC animated:YES];
         }
@@ -178,7 +209,6 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    
     return 200;
 }
 

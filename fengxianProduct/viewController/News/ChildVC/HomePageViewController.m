@@ -16,6 +16,7 @@
 #import "BannerInfoModel.h"
 #import "NewsTwoTableViewCell.h"
 #import "NewsMultipleTableViewCell.h"
+#import "DetailViewController.h"
 
 @interface HomePageViewController ()<UITableViewDelegate,UITableViewDataSource,JZLCycleViewDelegate>{
     NSMutableArray * dataArr;
@@ -130,6 +131,10 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    DetailViewController *detailVC = [[DetailViewController alloc]init];
+    NewsListInfo * newsList = dataArr[indexPath.row];
+    detailVC.detailID = newsList.ID;
+    [self.navigationController pushViewController:detailVC animated:YES];
     
 }
 #pragma mark - 录播图点击

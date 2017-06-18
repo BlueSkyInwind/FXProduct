@@ -35,4 +35,12 @@
 
 -(void)fatchWeatherInfo;
 
+/**
+ 详情页接口
+
+ @param number ID
+ */
+- (void)fatchDeatailInfoID:(NSString *)number;
+
+
 @end

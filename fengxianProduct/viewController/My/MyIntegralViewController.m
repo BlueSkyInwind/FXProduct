@@ -10,8 +10,14 @@
 #import "IntegralGoodsCollectionViewCell.h"
 #import "MyIntegralHeaderCollectionViewCell.h"
 #import "IntegralAwardCollectionViewCell.h"
+#import "IntegralViewModel.h"
+#import "AgreementViewModel.h"
+#import "FXWebViewController.h"
 
-@interface MyIntegralViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface MyIntegralViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,MyIntegralHeaderCollectionViewCellDelegate>{
+    
+    NSMutableArray * dataArray;
+}
 
 
 @property (strong,nonatomic)UICollectionView * integalCollectionView;
@@ -25,11 +31,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"我的积分";
+    dataArray = [_integralM.rows mutableCopy];
     [self addBackItem];
-    
+    [self configureView];
     
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+}
+-(void)viewDidDisappear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    
+}
 -(void)configureView{
     
     UICollectionViewFlowLayout  * columnCustomLayout = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
@@ -37,20 +55,38 @@
     _integalCollectionView.backgroundColor = [UIColor whiteColor];
     _integalCollectionView.dataSource = self;
     _integalCollectionView.delegate = self;
-    [Tool setCornerWithoutRadius:_integalCollectionView borderColor:[UIColor blackColor]];
     [self.view addSubview:_integalCollectionView];
     [self.integalCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left).with.offset(0);
-        make.right.equalTo(self.view.mas_right).with.offset(0);
-        make.top.equalTo(self.view.mas_top).with.offset(0);
-        make.height.equalTo(self.view.mas_bottom);
+        make.edges.equalTo(self.view);
     }];
     
     [_integalCollectionView registerNib:[UINib nibWithNibName:@"IntegralGoodsCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"IntegralGoodsCollectionViewCell"];
     
     [_integalCollectionView registerNib:[UINib nibWithNibName:@"MyIntegralHeaderCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"MyIntegralHeaderCollectionViewCell"];
-    
     [_integalCollectionView registerNib:[UINib nibWithNibName:@"IntegralAwardCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"IntegralAwardCollectionViewCell"];
+}
+
+-(void)backButtonCilck{
+    
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+-(void)integralButtonCilck{
+    AgreementViewModel * agreementVM = [[AgreementViewModel alloc]init];
+    [agreementVM setBlockWithReturnBlock:^(id returnValue) {
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        if ([returnMsg.returnCode intValue] == 1) {
+            FXWebViewController * webVC = [[FXWebViewController alloc]init];
+            webVC.title = returnMsg.result[@"Title"];
+            webVC.Content = returnMsg.result[@"Information"];
+            [self.navigationController pushViewController:webVC animated:YES];
+        }
+    } WithFaileBlock:^{
+        
+    }];
+    [agreementVM fatchRegisterAgreement:1];
+    
 }
 
 #pragma mark ---- UICollectionViewDataSource
@@ -62,21 +98,32 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    if (section == 0) {
         return 1;
+
+    }else if (section == 1){
+        return 1;
+
+    }else{
+        return dataArray.count;
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-                MyIntegralHeaderCollectionViewCell *cell1 = [_integalCollectionView dequeueReusableCellWithReuseIdentifier:@"MyIntegralHeaderCollectionViewCell" forIndexPath:indexPath];
+        MyIntegralHeaderCollectionViewCell *cell1 = [_integalCollectionView dequeueReusableCellWithReuseIdentifier:@"MyIntegralHeaderCollectionViewCell" forIndexPath:indexPath];
+        cell1.delegate = self;
+                cell1.integralNumLabel.text = [NSString stringWithFormat:@"%@",self.integralM.Integral];
         return cell1;
     }else if (indexPath.section == 1){
-                IntegralAwardCollectionViewCell *cell2 = [_integalCollectionView dequeueReusableCellWithReuseIdentifier:@"IntegralAwardCollectionViewCell" forIndexPath:indexPath];
+        IntegralAwardCollectionViewCell *cell2 = [_integalCollectionView dequeueReusableCellWithReuseIdentifier:@"IntegralAwardCollectionViewCell" forIndexPath:indexPath];
         return cell2;
 
     }else{
-                IntegralGoodsCollectionViewCell *cell3 = [_integalCollectionView dequeueReusableCellWithReuseIdentifier:@"IntegralGoodsCollectionViewCell" forIndexPath:indexPath];
-        
+        IntegralGoodsCollectionViewCell *cell3 = [_integalCollectionView dequeueReusableCellWithReuseIdentifier:@"IntegralGoodsCollectionViewCell" forIndexPath:indexPath];
+        integralGoodsModel * integralGoods = dataArray[indexPath.row];
+        cell3.integralGoodsM = integralGoods;
         return cell3;
     }
 
@@ -91,23 +138,29 @@
 - (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath*)destinationIndexPath
 {
     
-    
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-
-
 }
 
 #pragma mark ---- UICollectionViewDelegateFlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return (CGSize){80,40};
+    if (indexPath.section == 0) {
+        return (CGSize){_k_w,230};
+    }else if (indexPath.section == 1){
+        return (CGSize){_k_w,60};
+    }else{
+        return (CGSize){130,130};
+    }
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
+    if (section == 0) {
+        return UIEdgeInsetsMake(0, 0, 0, 0);
+    }
     return UIEdgeInsetsMake(5, 5, 5, 5);
 }
 
@@ -115,7 +168,6 @@
 {
     return 5.f;
 }
-
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
@@ -127,7 +179,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (BOOL)prefersStatusBarHidden{
+    return YES;
+}
+- (UIStatusBarAnimation)preferredStatusBarUpdateAnimation{
+    return UIStatusBarAnimationSlide;
+}
 /*
 #pragma mark - Navigation
 

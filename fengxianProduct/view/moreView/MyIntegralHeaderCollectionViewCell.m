@@ -13,8 +13,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-     [Tool setCorner:self.integralDetailView borderColor:UI_MAIN_COLOR cornerRadius:2];
-     [Tool setCorner:self.integralConvertView borderColor:UI_MAIN_COLOR cornerRadius:2];
+     [Tool setCorner:self.integralDetailView borderColor:[UIColor whiteColor] cornerRadius:1];
+     [Tool setCorner:self.integralConvertView borderColor:[UIColor whiteColor] cornerRadius:1];
     
     UITapGestureRecognizer * detailTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(integralDetailTap)];
     [self.integralDetailView addGestureRecognizer:detailTap];
@@ -37,7 +37,20 @@
     
 }
 
+- (IBAction)backBtnCilck:(id)sender {
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(backButtonCilck)]) {
+        [self.delegate backButtonCilck];
+    }
+    
+}
+- (IBAction)integralBtnClick:(id)sender {
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(integralButtonCilck)]) {
+        [self.delegate integralButtonCilck];
+    }
 
+}
 
 
 
