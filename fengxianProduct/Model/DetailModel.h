@@ -14,18 +14,19 @@
 @interface DetailCommentModel : JSONModel
 
 @property (nonatomic,strong)NSString<Optional> * Images;
-@property (nonatomic,strong)NSNumber<Optional> * CommentNum;
+@property (nonatomic,strong)NSString<Optional> * Image3;
+@property (nonatomic,strong)NSString<Optional> * CommentNum;
 @property (nonatomic,strong)NSString<Optional> * Time;
 @property (nonatomic,strong)NSString<Optional> * Conten;
 @property (nonatomic,strong)NSString<Optional> * Reply;
-@property (nonatomic,strong)NSNumber<Optional> * ThumbNum;
-@property (nonatomic,strong)NSString<Optional> * lower;
+@property (nonatomic,strong)NSString<Optional> * ThumbNum;
+@property (nonatomic,strong)NSDictionary<Optional> * lower;
 @property (nonatomic,strong)NSString<Optional> * Name;
-@property (nonatomic,strong)NSNumber<Optional> * ID;
+@property (nonatomic,strong)NSString<Optional> * ID;
 @property (nonatomic,strong)NSString<Optional> * Star;
+@property (nonatomic,strong)NSNumber<Optional> * success;
 
 @end
-
 
 
 @interface DetailModel : JSONModel
@@ -43,7 +44,7 @@
 @property (nonatomic,strong)NSString * Information;
 @property (nonatomic,strong)NSString * Time;
 @property (nonatomic,strong)NSString * LastReplyTime;
-@property (nonatomic,strong)NSArray * rows;
+@property (nonatomic,strong)NSArray<DetailCommentModel> * rows;
 @property (nonatomic,strong)NSArray * rows2;
 
 

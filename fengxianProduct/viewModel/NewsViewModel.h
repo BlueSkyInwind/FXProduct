@@ -41,6 +41,13 @@
  @param number ID
  */
 - (void)fatchDeatailInfoID:(NSString *)number;
+/**
+ 图集详情
+
+ @param number ID
+ */
+- (void)fatchPhotoDeatailInfoID:(NSString *)number;
+
 
 
 @end

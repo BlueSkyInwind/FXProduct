@@ -11,6 +11,7 @@
 #import "NewsMultipleTableViewCell.h"
 #import "NewsTableViewCell.h"
 #import "NewsViewModel.h"
+#import "PhotoViewController.h"
 @implementation LivesContentTableViewCell
 
 - (void)awakeFromNib {
@@ -81,6 +82,11 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    PhotoViewController *photoVC = [[PhotoViewController alloc]init];
+    NewsListInfo * newsList = self.dataArr[indexPath.row];
+    photoVC.detailID = newsList.ID;
+    photoVC.Species =  newsList.Species;
+    [_currentVC.navigationController pushViewController:photoVC animated:YES];
     
 }
 -(void)setColumnInfoM:(ColumnInfoModel *)columnInfoM{

@@ -10,6 +10,8 @@
 #import "NewsListModel.h"
 #import "ColumnModel.h"
 #import "DetailModel.h"
+#import "PhotoModel.h"
+
 @implementation NewsViewModel
 
 
@@ -112,7 +114,24 @@
     }];
 }
 
-
+- (void)fatchPhotoDeatailInfoID:(NSString *)number{
+    
+    //http://infx2.echaokj.cn/ajax/Life/TakenDetail.ashx?id=2996
+    
+    NSString * baseUrl = [NSString stringWithFormat:@"%@Life/TakenDetail.ashx?id=%@",_main_url,number];
+    
+    [[FXNetworkManager sharedNetWorkManager]POSTWithNetworkStatusURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            PhotoModel * photoModel = [[PhotoModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
+            self.returnBlock(photoModel);
+        }
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+}
 
 
 @end

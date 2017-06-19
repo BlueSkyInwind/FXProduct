@@ -11,14 +11,20 @@
 #import <WebKit/WebKit.h>
 #import "NewsViewModel.h"
 #import "DetailModel.h"
-@interface DetailViewController ()<WKScriptMessageHandler,WKNavigationDelegate,WKUIDelegate>{
+#import "DetailButtomView.h"
+
+@interface DetailViewController ()<WKScriptMessageHandler,WKNavigationDelegate,WKUIDelegate,UIWebViewDelegate>{
     NSMutableArray * commenArray;
+    
+    NSInteger commentViewHieight;
 }
 
 @property (nonatomic,strong)DetailHeaderView * detailHeaderView;
-@property (nonatomic,strong)WKWebView * contentWebView;
+@property (nonatomic,strong)UIWebView * contentWebView;
 @property (nonatomic,strong)UIScrollView * backScrollView;
 @property (nonatomic,strong)DetailModel * detailModel;
+@property (nonatomic,strong) UIView * view2;
+@property (nonatomic,strong) DetailButtomView * detailButtomView;
 
 @end
 
@@ -28,6 +34,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"新闻详情";
+    commentViewHieight = 170;
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = false;
 
@@ -53,68 +60,91 @@
     [newViewM fatchDeatailInfoID:[NSString stringWithFormat:@"%@",self.detailID]];
     
 }
+#pragma mark - 新闻详情布局
 -(void)configureView{
     
-    
-    _backScrollView = [[UIScrollView alloc]init];
+    _backScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_h)];
     _backScrollView.backgroundColor = [UIColor whiteColor];
-    self.backScrollView.contentSize = CGSizeMake(_k_w, 2 * _k_h);
+    self.backScrollView.contentSize = CGSizeMake(_k_w, _k_h);
+//    _backScrollView.showsHorizontalScrollIndicator = false;
+//    _backScrollView.showsVerticalScrollIndicator = false;
     [self.view addSubview:_backScrollView];
-    [_backScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
-    
     
     self.detailHeaderView = [[NSBundle mainBundle]loadNibNamed:@"DetailHeaderView" owner:self options:nil].lastObject;
+    self.detailHeaderView.frame = CGRectMake(0, 64, _k_w, 90);
     self.detailHeaderView.titleLabel.text = self.detailModel.Title;
     self.detailHeaderView.timeLabel.text = self.detailModel.Time;
     self.detailHeaderView.autherLabel.text = self.detailModel.Auther;
     self.detailHeaderView.sourceLabel.text = self.detailModel.Source;
-    [self.backScrollView addSubview:self.detailHeaderView];
-    [self.detailHeaderView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top).with.offset(64);
-        make.left.equalTo(self.view.mas_left);
-        make.right.equalTo(self.view.mas_right);
-        make.height.equalTo(@90);
-    }];
-    
-    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
-    config.preferences = [[WKPreferences alloc] init];
-    config.preferences.javaScriptEnabled = true;
-    config.preferences.javaScriptCanOpenWindowsAutomatically = true;
-    config.userContentController = [[WKUserContentController alloc] init];
-    
-    _contentWebView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:config];
-    _contentWebView.navigationDelegate = self;
-    _contentWebView.UIDelegate = self;
-    _contentWebView.scrollView.contentSize = self.view.bounds.size;
-    [self.backScrollView addSubview:_contentWebView];
-    _contentWebView.scrollView.showsHorizontalScrollIndicator = false;
-    _contentWebView.scrollView.showsVerticalScrollIndicator = false;
-    [_contentWebView loadHTMLString:self.detailModel.Information baseURL:nil];
-    [self.contentWebView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.detailHeaderView.mas_bottom);
-        make.left.equalTo(self.view.mas_left);
-        make.right.equalTo(self.view.mas_right);
-        make.height.equalTo(@(_k_h));
-    }];
+    self.detailHeaderView.userInteractionEnabled = YES;
+    [_backScrollView addSubview:self.detailHeaderView];
 
+//    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+//    config.preferences = [[WKPreferences alloc] init];
+//    config.preferences.javaScriptEnabled = true;
+//    config.preferences.javaScriptCanOpenWindowsAutomatically = true;
+//    config.ignoresViewportScaleLimits = YES;
+//    config.userContentController = [[WKUserContentController alloc] init];
+    //    _contentWebView.navigationDelegate = self;
+    //    _contentWebView.UIDelegate = self;
+    if ([self.Species integerValue] == 3) {
+        UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 165, _k_w, 200)];
+        view.backgroundColor = [UIColor blackColor];
+        [_backScrollView addSubview:view];
+        
+        _contentWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 365, _k_w, _k_h)];
+    }else{
+        _contentWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 154, _k_w, _k_h)];
+    }
+    _contentWebView.scrollView.scrollEnabled =  NO;
+    [_contentWebView.scrollView setZoomScale:2.0 animated:YES];
+    _contentWebView.delegate = self;
+    [_backScrollView addSubview:_contentWebView];
+    [_contentWebView loadHTMLString:self.detailModel.Information baseURL:nil];
+    
+//    _view2 = [[UIView alloc]initWithFrame:CGRectMake(0, _contentWebView.frame.size.height + 10, _k_w, 100)];
+//    _view2.backgroundColor = [UIColor redColor];
+//    [_backScrollView addSubview:_view2];
+    
+    DetailCommentModel * detailCommentM = self.detailModel.rows.firstObject;
+    if (detailCommentM.Reply) {
+        commentViewHieight  += 60;
+    }
+    DetailCommentModel * detailCommentM2 = [[DetailCommentModel alloc]initWithDictionary:detailCommentM.lower error:nil];
+    if ([detailCommentM2.success integerValue] == 1) {
+        commentViewHieight  += 90;
+    }
+    self.detailButtomView = [[NSBundle mainBundle]loadNibNamed:@"DetailButtomView" owner:self options:nil].lastObject;
+    self.detailButtomView.frame = CGRectMake(0, _contentWebView.frame.size.height + 10, _k_w, commentViewHieight);
+    self.detailButtomView.detailCommentModel =  self.detailModel.rows.firstObject;
+    [self.backScrollView addSubview:self.detailButtomView];
 
 }
 
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+    CGFloat documentHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue];
+    CGRect frame = webView.frame;
+    frame.size.height = documentHeight + 10;
+    webView.frame = frame;
+   self.detailButtomView.frame = CGRectMake(0, _contentWebView.frame.size.height + 154, _k_w, commentViewHieight);
+    self.backScrollView.contentSize = CGSizeMake(_k_w, 190 + documentHeight + 30 + commentViewHieight);
 
-//- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
-//    
-//    [webView evaluateJavaScript:@"document.getElementById(\"content\").offsetHeight;" completionHandler:^(id _Nullable result, NSError * _Nullable error) {
-//        //获取页面高度，并重置webview的frame
-//        CGFloat documentHeight = [result doubleValue];
-//        CGRect frame = webView.frame;
-//        frame.size.height = documentHeight;
-//        webView.frame = frame;
-//       self.backScrollView.contentSize = CGSizeMake(_k_w, 90 + frame.size.height);
-//    }];
-//}
-//
+    [self.view layoutSubviews];
+}
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+    
+    [webView evaluateJavaScript:@"document.body.offsetHeight" completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+        //获取页面高度，并重置webview的frame
+        CGFloat documentHeight = [result doubleValue];
+        CGRect frame = webView.frame;
+        frame.size.height = documentHeight;
+        webView.frame = frame;
+
+       self.backScrollView.contentSize = CGSizeMake(_k_w, 90 + frame.size.height);
+    }];
+}
+
 // 类似 UIWebView的 -webView: shouldStartLoadWithRequest: navigationType:
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
     

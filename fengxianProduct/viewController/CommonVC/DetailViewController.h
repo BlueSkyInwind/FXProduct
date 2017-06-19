@@ -10,6 +10,7 @@
 #import "DetailModel.h"
 @interface DetailViewController : BaseViewController
 
+@property (nonatomic,strong)NSNumber * Species;
 @property (nonatomic,strong)NSNumber * detailID;
 
 @end

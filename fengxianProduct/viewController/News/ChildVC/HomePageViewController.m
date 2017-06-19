@@ -134,6 +134,7 @@
     DetailViewController *detailVC = [[DetailViewController alloc]init];
     NewsListInfo * newsList = dataArr[indexPath.row];
     detailVC.detailID = newsList.ID;
+    detailVC.Species =  newsList.Species;
     [self.navigationController pushViewController:detailVC animated:YES];
     
 }

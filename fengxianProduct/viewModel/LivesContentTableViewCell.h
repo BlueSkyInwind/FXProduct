@@ -27,6 +27,7 @@ typedef void (^LivesContentTableViewHeight)(NSInteger  height);
 @property (nonatomic,strong)ColumnInfoModel * columnInfoM;
 
 @property (copy,nonatomic)MoreButtonClick moreButtonCilck;
+@property (strong,nonatomic)UIViewController * currentVC;
 
 @property (copy,nonatomic)LivesContentTableViewHeight livesContentTableViewHeight;
 

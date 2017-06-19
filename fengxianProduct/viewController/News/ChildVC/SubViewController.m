@@ -14,6 +14,7 @@
 #import "JZLCycleView.h"
 #import "NewsTwoTableViewCell.h"
 #import "NewsMultipleTableViewCell.h"
+#import "DetailViewController.h"
 
 @interface SubViewController ()<UITableViewDelegate,UITableViewDataSource>{
     NSMutableArray * dataArr;
@@ -97,6 +98,10 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    DetailViewController *detailVC = [[DetailViewController alloc]init];
+    NewsListInfo * newsList = dataArr[indexPath.row];
+    detailVC.detailID = newsList.ID;
+    [self.navigationController pushViewController:detailVC animated:YES];
     
 }
 #pragma mark - 数据请求

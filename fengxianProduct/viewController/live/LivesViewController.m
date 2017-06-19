@@ -124,8 +124,10 @@
         cell.dataArr = dataArr;
         return cell;
     }else{
+        
         LivesContentTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"LivesContentTableViewCell" forIndexPath:indexPath];
         cell.columnInfoM = dataArr[indexPath.row - 1];
+        cell.currentVC = self;
         __weak typeof (self) weakSelf = self;
         cell.livesContentTableViewHeight  = ^(NSInteger height) {
             [weakSelf.tableView setRowHeight:height];
@@ -134,6 +136,7 @@
     }
     return nil;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
