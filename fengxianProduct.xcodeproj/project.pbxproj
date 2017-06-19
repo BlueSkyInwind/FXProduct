@@ -49,6 +49,9 @@
 		229520D61EF6BD0100FA2351 /* DetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229520D51EF6BD0100FA2351 /* DetailHeaderView.xib */; };
 		229520D91EF6C83200FA2351 /* DetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 229520D81EF6C83200FA2351 /* DetailModel.m */; };
 		229520DC1EF6CCDC00FA2351 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229520DB1EF6CCDC00FA2351 /* DetailViewController.m */; };
+		229520DF1EF82FF200FA2351 /* CommonBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229520DE1EF82FF200FA2351 /* CommonBottomView.m */; };
+		229520E11EF8301000FA2351 /* CommonBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229520E01EF8301000FA2351 /* CommonBottomView.xib */; };
+		229520E41EF8395F00FA2351 /* CommentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229520E31EF8395F00FA2351 /* CommentDetailViewController.m */; };
 		22B9050A1EEBD03C00ED8B71 /* InvationRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905091EEBD03C00ED8B71 /* InvationRegisterView.m */; };
 		22B9050D1EEBEA3100ED8B71 /* SignAndCollectMdoel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9050C1EEBEA3100ED8B71 /* SignAndCollectMdoel.m */; };
 		22B905101EEC1DB800ED8B71 /* MySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9050F1EEC1DB800ED8B71 /* MySettingViewController.m */; };
@@ -412,6 +415,11 @@
 		229520D81EF6C83200FA2351 /* DetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailModel.m; sourceTree = "<group>"; };
 		229520DA1EF6CCDC00FA2351 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		229520DB1EF6CCDC00FA2351 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		229520DD1EF82FF200FA2351 /* CommonBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonBottomView.h; sourceTree = "<group>"; };
+		229520DE1EF82FF200FA2351 /* CommonBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonBottomView.m; sourceTree = "<group>"; };
+		229520E01EF8301000FA2351 /* CommonBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonBottomView.xib; sourceTree = "<group>"; };
+		229520E21EF8395F00FA2351 /* CommentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentDetailViewController.h; sourceTree = "<group>"; };
+		229520E31EF8395F00FA2351 /* CommentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentDetailViewController.m; sourceTree = "<group>"; };
 		22B905081EEBD03C00ED8B71 /* InvationRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvationRegisterView.h; sourceTree = "<group>"; };
 		22B905091EEBD03C00ED8B71 /* InvationRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvationRegisterView.m; sourceTree = "<group>"; };
 		22B9050B1EEBEA3100ED8B71 /* SignAndCollectMdoel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignAndCollectMdoel.h; sourceTree = "<group>"; };
@@ -1160,6 +1168,9 @@
 				840DFFFA1EF7D2BC00709337 /* ExplainView.h */,
 				840DFFFB1EF7D2BC00709337 /* ExplainView.m */,
 				840DFFFD1EF7D2CB00709337 /* ExplainView.xib */,
+				229520DD1EF82FF200FA2351 /* CommonBottomView.h */,
+				229520DE1EF82FF200FA2351 /* CommonBottomView.m */,
+				229520E01EF8301000FA2351 /* CommonBottomView.xib */,
 			);
 			path = DetailsView;
 			sourceTree = "<group>";
@@ -1238,6 +1249,8 @@
 				229520DB1EF6CCDC00FA2351 /* DetailViewController.m */,
 				840DFFF71EF7CFBC00709337 /* PhotoViewController.h */,
 				840DFFF81EF7CFBC00709337 /* PhotoViewController.m */,
+				229520E21EF8395F00FA2351 /* CommentDetailViewController.h */,
+				229520E31EF8395F00FA2351 /* CommentDetailViewController.m */,
 			);
 			path = CommonVC;
 			sourceTree = "<group>";
@@ -2421,6 +2434,7 @@
 				22B905381EEC4B5400ED8B71 /* TGMoreCell.xib in Resources */,
 				2207B4631EF193F200EF8036 /* ActivityContentTableViewCell.xib in Resources */,
 				8440D6D01EEFC41700C59B2C /* CollectionViewCell.xib in Resources */,
+				229520E11EF8301000FA2351 /* CommonBottomView.xib in Resources */,
 				846053B31EEAA41900E1002E /* UserQrcodeShareView.xib in Resources */,
 				8440D6CA1EEFBA9600C59B2C /* DateAndWeatherView.xib in Resources */,
 				8440D6C31EEF8D3500C59B2C /* ClearSearchHistoryView.xib in Resources */,
@@ -2511,7 +2525,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -2560,6 +2574,7 @@
 				84AABE4D1EE6A003001AA7C0 /* UIDevice+Extend.m in Sources */,
 				840DFFFC1EF7D2BC00709337 /* ExplainView.m in Sources */,
 				84AABDDC1EE69F76001AA7C0 /* TAPageControl.m in Sources */,
+				229520DF1EF82FF200FA2351 /* CommonBottomView.m in Sources */,
 				8431F34D1EE9330200295A18 /* MoreViewModel.m in Sources */,
 				84AABDDF1EE69F76001AA7C0 /* UIView+SDExtension.m in Sources */,
 				84D2483D1EE7FB7700937D28 /* SMSViewModel.m in Sources */,
@@ -2730,6 +2745,7 @@
 				846053B11EEAA40E00E1002E /* UserQrcodeShareView.m in Sources */,
 				84AABECB1EE6A035001AA7C0 /* LOTShapeCircle.m in Sources */,
 				84AABEE11EE6AF41001AA7C0 /* BaseNavigationViewController.m in Sources */,
+				229520E41EF8395F00FA2351 /* CommentDetailViewController.m in Sources */,
 				84AABECD1EE6A035001AA7C0 /* LOTShapeGroup.m in Sources */,
 				84AABEE21EE6AF41001AA7C0 /* BaseTabBarViewController.m in Sources */,
 				845862521EE68A7100AF52B3 /* EmptyUserData.m in Sources */,

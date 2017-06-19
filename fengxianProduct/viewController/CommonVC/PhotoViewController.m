@@ -17,6 +17,8 @@
     
     NSInteger explainViewHeight;
     
+    BOOL isDispaly;
+    
 }
 @property (nonatomic,strong)PhotoModel * photoModel;
 @property (nonatomic,strong)ExplainView * explainView;
@@ -25,6 +27,8 @@
 @property (nonatomic,strong)NSMutableArray * explainArray;
 
 @property (nonatomic,assign)NSInteger  selectPhoto;
+@property (nonatomic,strong) UIPageControl *pageControl;
+
 @end
 
 @implementation PhotoViewController
@@ -35,6 +39,7 @@
     self.view.backgroundColor = [UIColor blackColor];
     self.navigationItem.title = @"新闻详情";
     _selectPhoto = 1;
+    isDispaly= YES;
     [self addBackItem];
     __weak typeof (self) weakSelf = self;
     [self obtainDetail:^(BOOL isSuccess) {
@@ -66,40 +71,89 @@
 {
     backScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_h - 64)];
     if (self.photoArray.count != 0) {
-        backScrollView.contentSize = CGSizeMake(_k_w * self.photoArray.count, _k_h - 64);
+        backScrollView.contentSize = CGSizeMake(_k_w * self.photoArray.count, 0);
     }
     backScrollView.delegate =self;
     backScrollView.contentOffset = CGPointMake(_k_w * (self.selectPhoto - 1), 0);
+    backScrollView.bounces = NO;
     backScrollView.pagingEnabled= YES;
     backScrollView.backgroundColor = [UIColor blackColor];
-    [self.view addSubview:backScrollView];
-    [self AddImageViewArr];
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(backScrollViewClick)];
+    [backScrollView addGestureRecognizer:tap];
     
-    PhotoDetailModel * photoDetailM = self.photoModel.Images.firstObject;
-    explainViewHeight =   [Tool heightForText:photoDetailM.Cont width:(_k_w - 25) font:14] + 66;
-    self.explainView = [[NSBundle mainBundle]loadNibNamed:@"ExplainView" owner:self options:nil].lastObject;
-    self.explainView.frame = CGRectMake(0, _k_h - 66, _k_w, explainViewHeight);
-    self.explainView.titleLabel.text = self.photoModel.Title;
-    self.explainView.imageNum.text = [NSString stringWithFormat:@"1/%@",self.photoModel.total];
-    [self.view addSubview:self.explainView];
+    [self.view addSubview:backScrollView];
+    
+    self.pageControl=[[UIPageControl alloc] init];
+    self.pageControl.backgroundColor=[UIColor clearColor];
+    [self.pageControl setBounds:CGRectMake(0, 0,200, 100)];
+    [self.pageControl setCenter:CGPointMake(_k_w/2,_k_h/2+200.0)];
+    self.pageControl.numberOfPages=[self.photoArray count];
+    self.pageControl.currentPage=0;
+    [self.pageControl addTarget:self action:@selector(switchPage:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:_pageControl];
+    
+    [self AddImageViewArr];
+    [self addExplainView];
 }
-//-(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
-//    
-//    NSInteger count = targetContentOffset->x  / (ScreenWidth + 10);
-//    self.selectPhoto = count + 1;
-////    backScrollView.contentOffset = CGPointMake(targetContentOffset->x + 10 * count, 0);
-//    self.title = [NSString stringWithFormat:@"%lu/%lu",(unsigned long)self.selectPhoto,(unsigned long)self.photoArray.count];
-//    
-//}
+-(void)addExplainView{
+    
+    PhotoDetailModel * photoDetailM = self.photoArray[self.selectPhoto];
+    explainViewHeight =  [Tool heightForText:photoDetailM.Cont width:(_k_w - 25) font:14] + 66;
+    
+    if (!self.explainView) {
+        self.explainView = [[NSBundle mainBundle]loadNibNamed:@"ExplainView" owner:self options:nil].lastObject;
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(explainViewClick)];
+        [self.explainView addGestureRecognizer:tap];
+
+        self.explainView.alpha = 0.5;
+        [self.view addSubview:self.explainView];
+
+    }
+    self.explainView.frame = CGRectMake(0, _k_h - explainViewHeight - 44, _k_w, explainViewHeight);
+    self.explainView.titleLabel.text = self.photoModel.Title;
+    self.explainView.imageNum.text = [NSString stringWithFormat:@"%lu/%lu",(unsigned long)self.selectPhoto+1,(unsigned long)self.photoArray.count];
+    self.explainView.photoDetailModel = self.photoArray[self.selectPhoto];
+}
+-(void)explainViewClick{
+    
+    
+    
+    
+    
+}
+-(void)backScrollViewClick{
+    
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        if (isDispaly) {
+            self.explainView.frame = CGRectMake(0, 2 * _k_h , _k_w, explainViewHeight);
+            self.explainView.hidden = YES;
+            
+        }else{
+            [self addExplainView];
+            self.explainView.hidden = NO;
+        }
+    } completion:^(BOOL finished) {
+        isDispaly = !isDispaly;
+
+    }];
+}
+- (void)switchPage:(id)sender{
+    UIPageControl *currentControl=(UIPageControl *)sender;
+    NSInteger currentPage=currentControl.currentPage;
+    [backScrollView setContentOffset:CGPointMake(currentPage*self.view.bounds.size.width, 0)] ;
+}
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     
     NSInteger count = scrollView.contentOffset.x  / _k_w;
-    self.selectPhoto = count + 1;
-    [UIView animateWithDuration:0 animations:^{
-        backScrollView.contentOffset = CGPointMake((_k_w + 10) * count, 0);
-    }];
-    self.explainView.imageNum.text = [NSString stringWithFormat:@"%lu/%lu",(unsigned long)self.selectPhoto,(unsigned long)self.photoArray.count];
-    self.explainView.contentLabel.text = self.explainArray[self.selectPhoto -1];
+    [self.pageControl setCurrentPage:count];
+    self.selectPhoto = count;
+    
+    self.explainView.imageNum.text = [NSString stringWithFormat:@"%lu/%lu",(unsigned long)self.selectPhoto+1,(unsigned long)self.photoArray.count];
+    self.explainView.photoDetailModel = self.photoArray[self.selectPhoto];
+    if (!self.explainView.hidden) {
+        [self addExplainView];
+    }
+
 }
 -(void)AddImageViewArr{
     
@@ -108,8 +162,9 @@
         [self.explainArray addObject:photoDetailM.Cont];
         UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_w * 0.8)];
         [imageView sd_setImageWithURL:[NSURL URLWithString:photoDetailM.Image] placeholderImage:[UIImage imageNamed:@"news_placeholder_Icon_1" ] options:SDWebImageRefreshCached];
+        imageView.userInteractionEnabled = YES;
         imageView.frame = CGRectMake(0, 0, _k_w, _k_w * imageView.image.size.height / imageView.image.size.width);
-        imageView.center = CGPointMake(_k_w / 2  + (_k_w + 10) * i, (_k_h - 64) / 2);
+        imageView.center = CGPointMake(_k_w / 2  + (_k_w) * i, (_k_h - 64) / 2);
         [backScrollView addSubview:imageView];
     }
 }

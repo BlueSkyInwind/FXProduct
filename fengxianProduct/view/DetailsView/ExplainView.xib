@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,7 +29,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BoT-4B-Ibm">
-                            <rect key="frame" x="72" y="16" width="298" height="19.5"/>
+                            <rect key="frame" x="67" y="16" width="303" height="19.5"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="k5Y-Km-DTp"/>
                             </constraints>
@@ -42,7 +42,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="Evf-aS-oZ7"/>
                         <constraint firstAttribute="trailing" secondItem="BoT-4B-Ibm" secondAttribute="trailing" constant="5" id="HsT-m9-xvv"/>
-                        <constraint firstItem="BoT-4B-Ibm" firstAttribute="leading" secondItem="51O-iO-PYE" secondAttribute="trailing" constant="10" id="Voa-nY-QHf"/>
+                        <constraint firstItem="BoT-4B-Ibm" firstAttribute="leading" secondItem="51O-iO-PYE" secondAttribute="trailing" constant="5" id="Voa-nY-QHf"/>
                         <constraint firstItem="BoT-4B-Ibm" firstAttribute="centerY" secondItem="Lsg-j0-8VR" secondAttribute="centerY" id="ZJI-fP-imn"/>
                         <constraint firstItem="51O-iO-PYE" firstAttribute="leading" secondItem="Lsg-j0-8VR" secondAttribute="leading" constant="15" id="pmu-tR-Fj1"/>
                         <constraint firstItem="51O-iO-PYE" firstAttribute="centerY" secondItem="Lsg-j0-8VR" secondAttribute="centerY" id="s7v-1Q-mWP"/>
@@ -52,7 +52,7 @@
                     <rect key="frame" x="0.0" y="50" width="375" height="97"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PP-8V-Kvg">
-                            <rect key="frame" x="15" y="8" width="350" height="81"/>
+                            <rect key="frame" x="15" y="0.0" width="350" height="97"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -61,8 +61,8 @@
                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="8PP-8V-Kvg" firstAttribute="leading" secondItem="Vq0-eh-Chx" secondAttribute="leading" constant="15" id="Mz5-vn-qT0"/>
-                        <constraint firstItem="8PP-8V-Kvg" firstAttribute="top" secondItem="Vq0-eh-Chx" secondAttribute="top" constant="8" id="fIb-pT-LqL"/>
-                        <constraint firstAttribute="bottom" secondItem="8PP-8V-Kvg" secondAttribute="bottom" constant="8" id="uPu-Zk-k7c"/>
+                        <constraint firstItem="8PP-8V-Kvg" firstAttribute="top" secondItem="Vq0-eh-Chx" secondAttribute="top" id="fIb-pT-LqL"/>
+                        <constraint firstAttribute="bottom" secondItem="8PP-8V-Kvg" secondAttribute="bottom" id="uPu-Zk-k7c"/>
                         <constraint firstAttribute="trailing" secondItem="8PP-8V-Kvg" secondAttribute="trailing" constant="10" id="wqb-q8-Pdl"/>
                     </constraints>
                 </view>

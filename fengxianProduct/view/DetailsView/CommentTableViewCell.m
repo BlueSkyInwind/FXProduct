@@ -16,7 +16,7 @@
     self.secondComentViewHeight.constant = 0;
     self.secondComentView.hidden = YES;
     self.redactReply.hidden = YES;
-    self.accoutImage.layer.cornerRadius = self.accoutImage.frame.size.width;
+    self.accoutImage.layer.cornerRadius = self.accoutImage.frame.size.width / 2;
     self.accoutImage.clipsToBounds=  YES;
     UITapGestureRecognizer * commentTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(commentTapClick)];
     [self.commentImageView addGestureRecognizer:commentTap];
@@ -46,8 +46,8 @@
     self.commentTime.text = _detailCommentModel.Time;
     self.accountLabel.text = _detailCommentModel.Conten;
    self.accoutContentHeight.constant =  [Tool heightForText:_detailCommentModel.Conten width:self.accountLabel.frame.size.width font:14];
-    self.commentNum.text = _detailCommentModel.CommentNum;
-    self.spotNum.text = _detailCommentModel.ThumbNum;
+    self.commentNum.text = _detailCommentModel.ThumbNum;
+    self.spotNum.text = _detailCommentModel.CommentNum;
     if (_detailCommentModel.Reply != nil || [_detailCommentModel.Reply  isEqualToString:@""]) {
         self.redactReply.hidden = NO;
         self.redactReply.text = [NSString stringWithFormat:@"【小编回复】%@",_detailCommentModel.Reply];

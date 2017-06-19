@@ -12,6 +12,8 @@
 #import "NewsViewModel.h"
 #import "DetailModel.h"
 #import "DetailButtomView.h"
+#import "CommonBottomView.h"
+#import "CommentDetailViewController.h"
 
 @interface DetailViewController ()<WKScriptMessageHandler,WKNavigationDelegate,WKUIDelegate,UIWebViewDelegate>{
     NSMutableArray * commenArray;
@@ -25,6 +27,7 @@
 @property (nonatomic,strong)DetailModel * detailModel;
 @property (nonatomic,strong) UIView * view2;
 @property (nonatomic,strong) DetailButtomView * detailButtomView;
+@property (nonatomic,strong) CommonBottomView * commonBottomView;
 
 @end
 
@@ -63,13 +66,17 @@
 #pragma mark - 新闻详情布局
 -(void)configureView{
     
-    _backScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_h)];
+    _backScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_h - 40)];
     _backScrollView.backgroundColor = [UIColor whiteColor];
     self.backScrollView.contentSize = CGSizeMake(_k_w, _k_h);
 //    _backScrollView.showsHorizontalScrollIndicator = false;
 //    _backScrollView.showsVerticalScrollIndicator = false;
     [self.view addSubview:_backScrollView];
     
+    self.commonBottomView = [[NSBundle mainBundle]loadNibNamed:@"CommonBottomView" owner:self options:nil].lastObject;
+    self.commonBottomView.frame = CGRectMake(0, _k_h - 40, _k_w, 40);
+    [self.view addSubview:self.commonBottomView];
+
     self.detailHeaderView = [[NSBundle mainBundle]loadNibNamed:@"DetailHeaderView" owner:self options:nil].lastObject;
     self.detailHeaderView.frame = CGRectMake(0, 64, _k_w, 90);
     self.detailHeaderView.titleLabel.text = self.detailModel.Title;
@@ -101,22 +108,25 @@
     _contentWebView.delegate = self;
     [_backScrollView addSubview:_contentWebView];
     [_contentWebView loadHTMLString:self.detailModel.Information baseURL:nil];
-    
-//    _view2 = [[UIView alloc]initWithFrame:CGRectMake(0, _contentWebView.frame.size.height + 10, _k_w, 100)];
-//    _view2.backgroundColor = [UIColor redColor];
-//    [_backScrollView addSubview:_view2];
-    
+        
     DetailCommentModel * detailCommentM = self.detailModel.rows.firstObject;
+    //小编回复
     if (detailCommentM.Reply) {
         commentViewHieight  += 60;
     }
+    //二级评论
     DetailCommentModel * detailCommentM2 = [[DetailCommentModel alloc]initWithDictionary:detailCommentM.lower error:nil];
     if ([detailCommentM2.success integerValue] == 1) {
         commentViewHieight  += 90;
     }
+    if (self.detailModel.rows.count == 0) {
+        commentViewHieight -= 100;
+    }
     self.detailButtomView = [[NSBundle mainBundle]loadNibNamed:@"DetailButtomView" owner:self options:nil].lastObject;
     self.detailButtomView.frame = CGRectMake(0, _contentWebView.frame.size.height + 10, _k_w, commentViewHieight);
     self.detailButtomView.detailCommentModel =  self.detailModel.rows.firstObject;
+    self.detailButtomView.browerNum.text = [NSString stringWithFormat:@"%@",self.detailModel.Num];
+    self.detailButtomView.spotNum.text = [NSString stringWithFormat:@"%@",self.detailModel.ThNum];
     [self.backScrollView addSubview:self.detailButtomView];
 
 }
@@ -126,8 +136,14 @@
     CGRect frame = webView.frame;
     frame.size.height = documentHeight + 10;
     webView.frame = frame;
-   self.detailButtomView.frame = CGRectMake(0, _contentWebView.frame.size.height + 154, _k_w, commentViewHieight);
-    self.backScrollView.contentSize = CGSizeMake(_k_w, 190 + documentHeight + 30 + commentViewHieight);
+    if ([self.Species integerValue] == 3) {
+        
+        self.detailButtomView.frame = CGRectMake(0, _contentWebView.frame.size.height + 354, _k_w, commentViewHieight);
+        self.backScrollView.contentSize = CGSizeMake(_k_w, 390 + documentHeight + 30 + commentViewHieight);
+    }else{
+        self.detailButtomView.frame = CGRectMake(0, _contentWebView.frame.size.height + 154, _k_w, commentViewHieight);
+        self.backScrollView.contentSize = CGSizeMake(_k_w, 190 + documentHeight + 30 + commentViewHieight);
+    }
 
     [self.view layoutSubviews];
 }

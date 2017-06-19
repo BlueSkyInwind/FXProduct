@@ -101,7 +101,7 @@
     
     NSString * baseUrl = [NSString stringWithFormat:@"%@New/NewDetail.ashx?id=%@",_main_url,number];
     
-    [[FXNetworkManager sharedNetWorkManager]POSTWithNetworkStatusURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+    [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
         if ([returnMsg.returnCode intValue] == 1) {
             DetailModel * detailModel = [[DetailModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
@@ -120,7 +120,7 @@
     
     NSString * baseUrl = [NSString stringWithFormat:@"%@Life/TakenDetail.ashx?id=%@",_main_url,number];
     
-    [[FXNetworkManager sharedNetWorkManager]POSTWithNetworkStatusURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+    [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
         if ([returnMsg.returnCode intValue] == 1) {
             PhotoModel * photoModel = [[PhotoModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
