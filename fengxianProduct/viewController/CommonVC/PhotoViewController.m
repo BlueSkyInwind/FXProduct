@@ -99,7 +99,7 @@
         backScrollView.contentOffset = CGPointMake((_k_w + 10) * count, 0);
     }];
     self.explainView.imageNum.text = [NSString stringWithFormat:@"%lu/%lu",(unsigned long)self.selectPhoto,(unsigned long)self.photoArray.count];
-    
+    self.explainView.contentLabel.text = self.explainArray[self.selectPhoto -1];
 }
 -(void)AddImageViewArr{
     
@@ -107,9 +107,9 @@
         PhotoDetailModel * photoDetailM = self.photoArray[i];
         [self.explainArray addObject:photoDetailM.Cont];
         UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_w * 0.8)];
-        imageView.center = CGPointMake(_k_w / 2  + (_k_w + 10) * i, (_k_h - 64) / 2);
-        [imageView sd_setImageWithURL:[NSURL URLWithString:photoDetailM.Image] placeholderImage:[UIImage imageNamed:@"user_Icon" ] options:SDWebImageRefreshCached];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:photoDetailM.Image] placeholderImage:[UIImage imageNamed:@"news_placeholder_Icon_1" ] options:SDWebImageRefreshCached];
         imageView.frame = CGRectMake(0, 0, _k_w, _k_w * imageView.image.size.height / imageView.image.size.width);
+        imageView.center = CGPointMake(_k_w / 2  + (_k_w + 10) * i, (_k_h - 64) / 2);
         [backScrollView addSubview:imageView];
     }
 }
