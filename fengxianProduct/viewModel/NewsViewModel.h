@@ -48,6 +48,13 @@
  */
 - (void)fatchPhotoDeatailInfoID:(NSString *)number;
 
+/**
+ 收藏点赞，爆料，评论接口
+
+ @param type 类型
+ @param ceteid 内容
+ */
+- (void)fatchCollectAndSpotStatus:(NSString *)type ceteID:(NSString *)ceteid;
 
 
 @end

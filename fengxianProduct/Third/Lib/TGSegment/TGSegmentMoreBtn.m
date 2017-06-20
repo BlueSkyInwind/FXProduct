@@ -22,15 +22,15 @@
 }
 
 -(CGFloat)radio {
-    return 0.86;
+    return 0.4;
 }
 
--(CGRect)titleRectForContentRect:(CGRect)contentRect{
-    return CGRectMake(0, 1, contentRect.size.width * self.radio, contentRect.size.height);
-}
+//-(CGRect)titleRectForContentRect:(CGRect)contentRect{
+//    return CGRectMake(0, 1, contentRect.size.width * self.radio, contentRect.size.height);
+//}
 
 -(CGRect)imageRectForContentRect:(CGRect)contentRect{
-    return CGRectMake(contentRect.size.width * self.radio * self.radio, 4, contentRect.size.width * ( 1 - self.radio), contentRect.size.height -4);
+    return CGRectMake(contentRect.size.width * self.radio, 4, contentRect.size.width * 0.5, contentRect.size.height -4);
 }
 
 @end

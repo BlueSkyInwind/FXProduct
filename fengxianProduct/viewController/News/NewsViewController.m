@@ -41,7 +41,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.title = @"新闻";
+//    self.navigationItem.title = @"新闻";
+    UIImageView * imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"news_HomeTitle_Icon"]];
+    self.navigationItem.titleView = imageView;
     UIBarButtonItem *barBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"search_Icon"] style:UIBarButtonItemStylePlain target:self action:@selector(GosearchViewContrller)];
     barBtn.tintColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = barBtn;

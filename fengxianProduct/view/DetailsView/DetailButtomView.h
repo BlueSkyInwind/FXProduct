@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "DetailModel.h"
 
+@protocol DetailButtomViewDelegate <NSObject>
+- (void)DetailSpotButtonClick;
+
+
+@end
+
 @interface DetailButtomView : UIView<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIView *browseNumView;
@@ -19,5 +25,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *spotNum;
 
 @property (nonatomic,strong) DetailCommentModel * detailCommentModel;
+@property (nonatomic,assign) id<DetailButtomViewDelegate> delegate;
 
 @end

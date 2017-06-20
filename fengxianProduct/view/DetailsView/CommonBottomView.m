@@ -10,31 +10,34 @@
 
 @implementation CommonBottomView
 
-
 -(void)awakeFromNib{
     [super awakeFromNib];
     self.CommentViewIcon.layer.cornerRadius = self.CommentViewIcon.frame.size.width / 2;
     self.CommentViewIcon.clipsToBounds = YES;
-    
-    
+
 }
 
 - (IBAction)commentBtnClick:(id)sender {
-  
-    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(commentButtonClick)]) {
+        [self.delegate commentButtonClick];
+    }
 }
-
 - (IBAction)spotBtnClick:(id)sender {
-  
+    if (self.delegate && [self.delegate respondsToSelector:@selector(spotButtonClick)]) {
+        [self.delegate spotButtonClick];
+    }
     
 }
 - (IBAction)collectBtnClick:(id)sender{
-  
+    if (self.delegate && [self.delegate respondsToSelector:@selector(collectButtonClick)]) {
+        [self.delegate collectButtonClick];
+    }
     
 }
 - (IBAction)shareBtnClick:(id)sender {
-    
-    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(shareButtonClick)]) {
+        [self.delegate shareButtonClick];
+    }
 }
 
 /*

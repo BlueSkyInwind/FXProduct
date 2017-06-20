@@ -7,6 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailModel.h"
+
+@protocol CommonBottomViewDelegate <NSObject>
+
+- (void)commentButtonClick;
+- (void)spotButtonClick;
+- (void)collectButtonClick;
+- (void)shareButtonClick;
+
+@end
 
 @interface CommonBottomView : UIView
 
@@ -20,5 +30,8 @@
 
 @property (weak, nonatomic) IBOutlet UIView *CommentViewIcon;
 
+@property (nonatomic,assign) id<CommonBottomViewDelegate> delegate;
+
+@property (nonatomic,strong)DetailModel * detailModel;
 
 @end

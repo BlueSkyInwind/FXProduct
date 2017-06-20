@@ -126,7 +126,6 @@
         cell3.integralGoodsM = integralGoods;
         return cell3;
     }
-
     return nil;
 }
 
@@ -140,6 +139,7 @@
     
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
     
 }
 

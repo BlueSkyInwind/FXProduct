@@ -30,6 +30,27 @@ PODS:
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
+  - ShareSDK3 (3.6.3):
+    - MOBFoundation
+    - ShareSDK3/ShareSDK (= 3.6.3)
+  - ShareSDK3/ShareSDK (3.6.3):
+    - MOBFoundation
+  - ShareSDK3/ShareSDKExtension (3.6.3):
+    - MOBFoundation
+  - ShareSDK3/ShareSDKPlatforms/Copy (3.6.3):
+    - MOBFoundation
+  - ShareSDK3/ShareSDKPlatforms/Mail (3.6.3):
+    - MOBFoundation
+  - ShareSDK3/ShareSDKPlatforms/QQ (3.6.3):
+    - MOBFoundation
+  - ShareSDK3/ShareSDKPlatforms/SinaWeibo (3.6.3):
+    - MOBFoundation
+  - ShareSDK3/ShareSDKPlatforms/SMS (3.6.3):
+    - MOBFoundation
+  - ShareSDK3/ShareSDKPlatforms/WeChat (3.6.3):
+    - MOBFoundation
+  - ShareSDK3/ShareSDKUI (3.6.3):
+    - MOBFoundation
   - UMengAnalytics (4.2.4)
   - YYModel (1.0.4)
 
@@ -47,6 +68,15 @@ DEPENDENCIES:
   - pop (~> 1.0.8)
   - ReactiveObjC (~> 3.0.0)
   - SDWebImage
+  - ShareSDK3
+  - ShareSDK3/ShareSDKExtension
+  - ShareSDK3/ShareSDKPlatforms/Copy
+  - ShareSDK3/ShareSDKPlatforms/Mail
+  - ShareSDK3/ShareSDKPlatforms/QQ
+  - ShareSDK3/ShareSDKPlatforms/SinaWeibo
+  - ShareSDK3/ShareSDKPlatforms/SMS
+  - ShareSDK3/ShareSDKPlatforms/WeChat
+  - ShareSDK3/ShareSDKUI
   - UMengAnalytics
   - YYModel
 
@@ -64,9 +94,10 @@ SPEC CHECKSUMS:
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   ReactiveObjC: ce79989e8684b9086b5f8d0c74bc7b81a8729c9e
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  ShareSDK3: d271520113160eb24b31cd642b45b38fcd592d93
   UMengAnalytics: ef8d45f94c0e5771dc364cf6a5731d9d3b101da2
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 481ab1f44160540bb3efa799fd82ac691ea22282
+PODFILE CHECKSUM: e1f4ad16c8c94ffc7c345364abb6b8a9d1c46cfd
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

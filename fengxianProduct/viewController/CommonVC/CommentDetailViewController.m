@@ -26,9 +26,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"新闻详情";
     [self addBackItem];
-    commentCellHieight = 90;
     
     dataArr = [_detailModel.rows mutableCopy];
+    [self configureView];
 }
 -(void)configureView{
     
@@ -42,11 +42,11 @@
     }];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CommentTableViewCell" bundle:nil] forCellReuseIdentifier:@"CommentTableViewCell"];
-
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     DetailCommentModel * detailCommentM = dataArr[indexPath.row];
     //小编回复
+    commentCellHieight = 90;
     if (detailCommentM.Reply) {
         commentCellHieight  += 60;
     }
@@ -55,7 +55,6 @@
     if ([detailCommentM2.success integerValue] == 1) {
         commentCellHieight  += 90;
     }
-    
     return commentCellHieight;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

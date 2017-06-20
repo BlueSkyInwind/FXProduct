@@ -27,7 +27,9 @@
 }
 -(void)spotViewCilck{
     
-    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(DetailSpotButtonClick)]) {
+        [self.delegate DetailSpotButtonClick];
+    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 

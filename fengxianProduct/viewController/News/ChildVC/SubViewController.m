@@ -15,7 +15,7 @@
 #import "NewsTwoTableViewCell.h"
 #import "NewsMultipleTableViewCell.h"
 #import "DetailViewController.h"
-
+#import "PhotoViewController.h"
 @interface SubViewController ()<UITableViewDelegate,UITableViewDataSource>{
     NSMutableArray * dataArr;
     
@@ -98,10 +98,18 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    DetailViewController *detailVC = [[DetailViewController alloc]init];
     NewsListInfo * newsList = dataArr[indexPath.row];
-    detailVC.detailID = newsList.ID;
-    [self.navigationController pushViewController:detailVC animated:YES];
+    if ([newsList.Species integerValue] == 2) {
+        PhotoViewController *photoVC = [[PhotoViewController alloc]init];
+        photoVC.detailID = newsList.ID;
+        photoVC.Species =  newsList.Species;
+        [self.navigationController pushViewController:photoVC animated:YES];
+    }else{
+        DetailViewController *detailVC = [[DetailViewController alloc]init];
+        detailVC.detailID = newsList.ID;
+        detailVC.Species =  newsList.Species;
+        [self.navigationController pushViewController:detailVC animated:YES];
+    }
     
 }
 #pragma mark - 数据请求

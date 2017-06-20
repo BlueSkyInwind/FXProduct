@@ -18,9 +18,25 @@ target 'fengxianProduct' do
     # pod 'FMDB/standalone'   # FMDB with latest SQLite amalgamation source
     # pod 'FMDB/standalone/FTS'   # FMDB with latest SQLite amalgamation source and FTS
     # pod 'FMDB/SQLCipher'   # FMDB with SQLCipher
-    pod 'MOBFoundation'
     pod 'Masonry'
     pod 'JSONModel'
+    
+    pod 'ShareSDK3'
+    pod 'ShareSDK3/ShareSDKUI'
+    pod 'ShareSDK3/ShareSDKExtension'
+    pod 'MOBFoundation'
+    # 短信(可选)
+    pod 'ShareSDK3/ShareSDKPlatforms/SMS'
+    # 邮件(可选)
+    pod 'ShareSDK3/ShareSDKPlatforms/Mail'
+    # 拷贝(可选)
+    pod 'ShareSDK3/ShareSDKPlatforms/Copy'
+    # 新浪微博(可选)
+    pod 'ShareSDK3/ShareSDKPlatforms/SinaWeibo'
+    # 微信(可选)
+    pod 'ShareSDK3/ShareSDKPlatforms/WeChat'
+    # 腾讯QQ(可选)
+    pod 'ShareSDK3/ShareSDKPlatforms/QQ'
 
 
 end

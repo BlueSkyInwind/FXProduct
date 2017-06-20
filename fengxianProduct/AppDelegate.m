@@ -32,6 +32,9 @@ AppDelegate *app = nil;
     self.window.rootViewController = launchVC;
     [self.window makeKeyAndVisible];
     [self monitorNetworkState];
+    //shareSDK
+    [ShareConfig configDefaultShare];
+    
     [self performSelector:@selector(enter) withObject:self afterDelay:4];
 //    [self enter];
     app = self;

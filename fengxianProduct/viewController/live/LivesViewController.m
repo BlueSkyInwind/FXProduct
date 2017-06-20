@@ -16,6 +16,8 @@
 #import "AddColumnTableViewCell.h"
 #import "LivesContentTableViewCell.h"
 #import "MyColumnViewController.h"
+#import "LiveMoreViewController.h"
+
 @interface LivesViewController ()<UITableViewDelegate,UITableViewDataSource,JZLCycleViewDelegate,AddColumnTableViewCellDelegate>{
     NSMutableArray * dataArr;
     NSMutableArray * bannerArr;
@@ -129,6 +131,13 @@
         cell.columnInfoM = dataArr[indexPath.row - 1];
         cell.currentVC = self;
         __weak typeof (self) weakSelf = self;
+        cell.moreButtonCilck = ^(UIButton *button) {
+            LiveMoreViewController * liveMoreVC = [[LiveMoreViewController alloc]init];
+            ColumnInfoModel *columnInfoM = dataArr[indexPath.row - 1];
+            liveMoreVC.columnID = [columnInfoM.ColumnID integerValue];
+            liveMoreVC.columnInfoModel = columnInfoM;
+            [self.navigationController pushViewController:liveMoreVC animated:YES];
+        };
         cell.livesContentTableViewHeight  = ^(NSInteger height) {
             [weakSelf.tableView setRowHeight:height];
         };
@@ -198,7 +207,6 @@
         dataArr = resultArr;
         [weakSelf.tableView reloadData];
         [[ShareConfig share]obtainLivesColumnInfo];
-
     };
     [self.navigationController pushViewController:myColumnVC animated:YES];
 }
@@ -218,9 +226,7 @@
         [self.tableView.mj_header endRefreshing];
     });
     [self requestBannerInfo];
-    
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

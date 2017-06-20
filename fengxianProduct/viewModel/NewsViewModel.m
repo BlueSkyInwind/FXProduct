@@ -119,7 +119,6 @@
     //http://infx2.echaokj.cn/ajax/Life/TakenDetail.ashx?id=2996
     
     NSString * baseUrl = [NSString stringWithFormat:@"%@Life/TakenDetail.ashx?id=%@",_main_url,number];
-    
     [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
         if ([returnMsg.returnCode intValue] == 1) {
@@ -132,6 +131,27 @@
         [self faileBlock];
     }];
 }
+
+
+- (void)fatchCollectAndSpotStatus:(NSString *)type ceteID:(NSString *)ceteid{
+    
+    //http://infx2.echaokj.cn/ajax/inter/UserToApply.ashx?type=0&id=13&cateid=8:1,9:357
+    
+    NSString * baseUrl = [NSString stringWithFormat:@"%@inter/UserToApply.ashx?type=%@&id=%@&cateid=%@",_main_url,type,[Utility sharedUtility].userInfo.ID,ceteid];
+    
+    [[FXNetworkManager sharedNetWorkManager]POSTWithNetworkStatusURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            self.returnBlock(returnMsg);
+        }
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+}
+
+
 
 
 @end

@@ -14,8 +14,12 @@
 #import "DetailButtomView.h"
 #import "CommonBottomView.h"
 #import "CommentDetailViewController.h"
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKUI/ShareSDKUI.h>
+#import "SBPlayer.h"
 
-@interface DetailViewController ()<WKScriptMessageHandler,WKNavigationDelegate,WKUIDelegate,UIWebViewDelegate>{
+
+@interface DetailViewController ()<WKScriptMessageHandler,WKNavigationDelegate,WKUIDelegate,UIWebViewDelegate,CommonBottomViewDelegate,DetailButtomViewDelegate>{
     NSMutableArray * commenArray;
     
     NSInteger commentViewHieight;
@@ -25,9 +29,10 @@
 @property (nonatomic,strong)UIWebView * contentWebView;
 @property (nonatomic,strong)UIScrollView * backScrollView;
 @property (nonatomic,strong)DetailModel * detailModel;
-@property (nonatomic,strong) UIView * view2;
+@property (nonatomic,strong)UIView * vedioPlayerView;
 @property (nonatomic,strong) DetailButtomView * detailButtomView;
 @property (nonatomic,strong) CommonBottomView * commonBottomView;
+@property (nonatomic,strong) SBPlayer *player;
 
 @end
 
@@ -49,8 +54,8 @@
             [weakSelf configureView];
         }
     }];
-    
 }
+#pragma mark - 网络请求
 -(void)obtainDetail:(void(^)(BOOL isSuccess))finish{
     
     NewsViewModel * newViewM = [[NewsViewModel alloc]init];
@@ -62,6 +67,49 @@
     }];
     [newViewM fatchDeatailInfoID:[NSString stringWithFormat:@"%@",self.detailID]];
     
+}
+-(void)requestSpotAndCollect:(NSString *)type{
+    NewsViewModel * newViewM = [[NewsViewModel alloc]init];
+    [newViewM setBlockWithReturnBlock:^(id returnValue) {
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        if ([returnMsg.returnCode intValue] == 1) {
+            [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:(NSString *)returnMsg.msg];
+        }
+    } WithFaileBlock:^{
+        
+    }];
+    [newViewM fatchCollectAndSpotStatus:type ceteID:[NSString stringWithFormat:@"8:%@",self.detailID]];
+}
+
+#pragma mark - 底部tab点击代理 时间
+-(void)commentButtonClick{
+    
+    CommentDetailViewController * commentDetailVC = [[CommentDetailViewController alloc]init];
+    commentDetailVC.detailModel = self.detailModel;
+    [self.navigationController pushViewController:commentDetailVC animated:YES];
+    
+}
+- (void)spotButtonClick{
+    [self requestSpotAndCollect:@"1"];
+}
+- (void)collectButtonClick{
+    NewsViewModel * newViewM = [[NewsViewModel alloc]init];
+    [newViewM setBlockWithReturnBlock:^(id returnValue) {
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        if ([returnMsg.returnCode intValue] == 1) {
+            [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:(NSString *)returnMsg.msg];
+        }
+    } WithFaileBlock:^{
+        
+    }];
+    [newViewM fatchCollectAndSpotStatus:@"0" ceteID:[NSString stringWithFormat:@"8:%@",self.detailID]];
+}
+- (void)shareButtonClick{
+    [self shareContent:self.detailModel.Share Title:self.detailModel.Title];
+}
+#pragma mark - 页面底部评论区点击事件
+-(void)DetailSpotButtonClick{
+    [self requestSpotAndCollect:@"1"];
 }
 #pragma mark - 新闻详情布局
 -(void)configureView{
@@ -75,6 +123,7 @@
     
     self.commonBottomView = [[NSBundle mainBundle]loadNibNamed:@"CommonBottomView" owner:self options:nil].lastObject;
     self.commonBottomView.frame = CGRectMake(0, _k_h - 40, _k_w, 40);
+    self.commonBottomView.delegate = self;
     [self.view addSubview:self.commonBottomView];
 
     self.detailHeaderView = [[NSBundle mainBundle]loadNibNamed:@"DetailHeaderView" owner:self options:nil].lastObject;
@@ -95,10 +144,8 @@
     //    _contentWebView.navigationDelegate = self;
     //    _contentWebView.UIDelegate = self;
     if ([self.Species integerValue] == 3) {
-        UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 165, _k_w, 200)];
-        view.backgroundColor = [UIColor blackColor];
-        [_backScrollView addSubview:view];
-        
+        //添加视频播放发的视图
+        [self initVedioPalyView];
         _contentWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 365, _k_w, _k_h)];
     }else{
         _contentWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 154, _k_w, _k_h)];
@@ -125,11 +172,36 @@
     self.detailButtomView = [[NSBundle mainBundle]loadNibNamed:@"DetailButtomView" owner:self options:nil].lastObject;
     self.detailButtomView.frame = CGRectMake(0, _contentWebView.frame.size.height + 10, _k_w, commentViewHieight);
     self.detailButtomView.detailCommentModel =  self.detailModel.rows.firstObject;
+    self.detailButtomView.delegate = self;
     self.detailButtomView.browerNum.text = [NSString stringWithFormat:@"%@",self.detailModel.Num];
     self.detailButtomView.spotNum.text = [NSString stringWithFormat:@"%@",self.detailModel.ThNum];
     [self.backScrollView addSubview:self.detailButtomView];
 
 }
+-(void)initVedioPalyView{
+    
+    _vedioPlayerView = [[UIView alloc]initWithFrame:CGRectMake(0, 165, _k_w, 200)];
+    _vedioPlayerView.backgroundColor = [UIColor blackColor];
+    [_backScrollView addSubview:_vedioPlayerView];
+    self.player = [[SBPlayer alloc]initWithUrl:[NSURL URLWithString:self.detailModel.MP4]];
+    //设置标题
+//    self.player.frame = CGRectMake(0, 0, _vedioPlayerView.frame.size.width, _vedioPlayerView.frame.size.height);
+    [self.player setTitle:@""];
+    //设置播放器背景颜色
+    self.player.backgroundColor = [UIColor blackColor];
+    //设置播放器填充模式 默认SBLayerVideoGravityResizeAspectFill，可以不添加此语句
+    self.player.mode = SBLayerVideoGravityResize;
+    //添加播放器到视图
+    [self.vedioPlayerView addSubview:self.player];
+    [self.player mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.left.mas_equalTo(self.vedioPlayerView);
+        make.top.mas_equalTo(self.vedioPlayerView.mas_top);
+        make.height.mas_equalTo(self.vedioPlayerView.mas_height);
+    }];
+
+}
+
+
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     CGFloat documentHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue];
@@ -168,6 +240,36 @@
     NSLog(@"=========%@",request.URL.absoluteString);
     decisionHandler(WKNavigationActionPolicyAllow);
 }
+//分享函数
+-(void)shareContent:(NSString*)urlStr Title:(NSString *)title
+{
+    NSArray *imageArr = @[[UIImage imageNamed:@"logo_share"]];
+    if (imageArr) {
+        NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+        [shareParams SSDKSetupShareParamsByText:@""
+                                         images:imageArr
+                                            url:[NSURL URLWithString:urlStr]
+                                          title:title
+                                           type:SSDKContentTypeAuto];
+        [shareParams SSDKEnableUseClientShare];
+        [ShareSDK showShareActionSheet:nil
+                                 items:nil
+                           shareParams:shareParams
+                   onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
+                       switch (state) {
+                           case SSDKResponseStateSuccess:
+                               [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"分享成功"];
+                               break;
+                               
+                           case SSDKResponseStateFail:
+                               [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"分享失败"];
+                           default:
+                               break;
+                       }
+                   }];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

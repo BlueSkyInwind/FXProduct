@@ -12,6 +12,7 @@
 #import "NewsTableViewCell.h"
 #import "NewsViewModel.h"
 #import "PhotoViewController.h"
+#import "DetailViewController.h"
 @implementation LivesContentTableViewCell
 
 - (void)awakeFromNib {
@@ -81,13 +82,19 @@
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    PhotoViewController *photoVC = [[PhotoViewController alloc]init];
+
     NewsListInfo * newsList = self.dataArr[indexPath.row];
-    photoVC.detailID = newsList.ID;
-    photoVC.Species =  newsList.Species;
-    [_currentVC.navigationController pushViewController:photoVC animated:YES];
-    
+    if ([newsList.Species integerValue] == 2) {
+        PhotoViewController *photoVC = [[PhotoViewController alloc]init];
+        photoVC.detailID = newsList.ID;
+        photoVC.Species =  newsList.Species;
+        [_currentVC.navigationController pushViewController:photoVC animated:YES];
+    }else{
+        DetailViewController *detailVC = [[DetailViewController alloc]init];
+        detailVC.detailID = newsList.ID;
+        detailVC.Species =  newsList.Species;
+        [_currentVC.navigationController pushViewController:detailVC animated:YES];
+    }
 }
 -(void)setColumnInfoM:(ColumnInfoModel *)columnInfoM{
     _columnInfoM= nil;

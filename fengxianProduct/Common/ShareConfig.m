@@ -11,7 +11,12 @@
 #import "MoreViewModel.h"
 #import "NewsViewModel.h"
 #import "ColumnViewModel.h"
-
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKConnector/ShareSDKConnector.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+#import <TencentOpenAPI/TencentOAuth.h>
+#import "WXApi.h"
+#import "WeiboSDK.h"
 @implementation ShareConfig
 
 static ShareConfig * shareConfig = nil;
@@ -138,13 +143,50 @@ static ShareConfig * shareConfig = nil;
     [columnVM fatchColumnListType:@"3"];
 }
 
-
-
-
 + (void)configDefaultShare
 {
-
-    
+    [ShareSDK registerApp:@"1ed17f90dd16f"
+          activePlatforms:@[@(SSDKPlatformSubTypeWechatSession),
+                            @(SSDKPlatformSubTypeWechatTimeline),
+                            @(SSDKPlatformTypeSinaWeibo),
+                            @(SSDKPlatformTypeQQ),
+                            @(SSDKPlatformSubTypeQZone),
+                            @(SSDKPlatformTypeCopy)]
+                 onImport:^(SSDKPlatformType platformType) {
+                     switch (platformType) {
+                         case SSDKPlatformTypeWechat:
+                             [ShareSDKConnector connectWeChat:[WXApi class]];
+                             break;
+                             
+                         case SSDKPlatformTypeSinaWeibo:
+                             [ShareSDKConnector connectWeibo:[WeiboSDK class]];
+                             break;
+                             
+                         case SSDKPlatformTypeQQ:
+                             [ShareSDKConnector connectQQ:[QQApiInterface class] tencentOAuthClass:[TencentOAuth class]];
+                             break;
+                             
+                         default:
+                             break;
+                     }
+                 } onConfiguration:^(SSDKPlatformType platformType, NSMutableDictionary *appInfo) {
+                     switch (platformType) {
+                         case SSDKPlatformTypeWechat:
+                             [appInfo SSDKSetupWeChatByAppId:@"wx7d85dee11a192edd" appSecret:@"42e0cfc89a29225f89d2a10a5c8eeea1"];
+                             break;
+                             
+                         case SSDKPlatformTypeSinaWeibo:
+                             [appInfo SSDKSetupSinaWeiboByAppKey:@"3104260815" appSecret:@"b18758d7734349bd0f144d8b31e364dd" redirectUri:@"https://www.baidu.com" authType:SSDKAuthTypeBoth];
+                             break;
+                             
+                         case SSDKPlatformTypeQQ:
+                             [appInfo SSDKSetupQQByAppId:@"1105939730" appKey:@"5GZIZMXMcbtfhSvk" authType:SSDKAuthTypeBoth];
+                             break;
+                         default:
+                             break;
+                     }
+                 }];
 }
+
 
 @end

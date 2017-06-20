@@ -101,20 +101,20 @@
         UIImage * hideImage = [UIImage imageNamed:@"MoreColumn_Icon"];//Profile_filter_upClick
         
         _showMoreBtn = [[TGSegmentMoreBtn alloc] init];
-        [_showMoreBtn setTitle:@"更多" forState:UIControlStateNormal];
+//        [_showMoreBtn setTitle:@"更多" forState:UIControlStateNormal];
         [_showMoreBtn setImage:showImage forState:UIControlStateNormal];
         _showMoreBtn.layer.borderColor = [self.segmentConfig.showMoreBtnBorderColor CGColor];
         _showMoreBtn.layer.borderWidth = self.segmentConfig.showMoreBtnborderW;
         _showMoreBtn.layer.masksToBounds = YES;
         _showMoreBtn.layer.cornerRadius = self.segmentConfig.indicatorH * 2;
-        [_showMoreBtn setTitle:@"更多" forState:UIControlStateSelected];
+//        [_showMoreBtn setTitle:@"更多" forState:UIControlStateSelected];
         [_showMoreBtn setImage:hideImage forState:UIControlStateSelected];
         _showMoreBtn.imageView.contentMode = UIViewContentModeCenter;
         [_showMoreBtn setTitleColor:self.segmentConfig.showMoreBtnTitleColor forState:UIControlStateNormal];
         _showMoreBtn.backgroundColor = self.segmentConfig.showMoreBtnBGColor;
         _showMoreBtn.titleLabel.font = self.segmentConfig.showMoreBtnTitleFont;
         
-        UIView *lineV = [[UIView alloc] initWithFrame:CGRectMake(self.segmentConfig.limitMargin * 0.5, (self.segmentConfig.segmentBarH - self.segmentConfig.showMoreBtnlineViewH) * 0.5 - self.segmentConfig.indicatorH * 2 + 2, 1, self.segmentConfig.showMoreBtnlineViewH -2)];
+        UIView *lineV = [[UIView alloc] initWithFrame:CGRectMake(self.segmentConfig.limitMargin * 0.5, (self.segmentConfig.segmentBarH - self.segmentConfig.showMoreBtnlineViewH) * 0.4 - self.segmentConfig.indicatorH * 2 + 2, 1, self.segmentConfig.showMoreBtnlineViewH + 5)];
         lineV.backgroundColor = self.segmentConfig.showMoreBtnlineViewColor;
         if (self.segmentConfig.isShowMoreBtnlineView){
             [_showMoreBtn addSubview:lineV];

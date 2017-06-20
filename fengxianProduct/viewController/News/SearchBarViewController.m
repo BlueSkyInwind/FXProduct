@@ -18,7 +18,8 @@
 #import "DataWriteAndRead.h"
 #import "ClearSearchHistoryView.h"
 #import "SearchHistoryTableViewCell.h"
-
+#import "PhotoViewController.h"
+#import "DetailViewController.h"
 #define searchBarWidth 0.79
 
 @interface SearchBarViewController ()<UISearchControllerDelegate,UISearchResultsUpdating,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate,UINavigationControllerDelegate,CAAnimationDelegate>{
@@ -183,13 +184,21 @@
         [header beginRefreshing];
     }else{
         //数据点击
-        
-        
-        
-        
-        
+        NewsListInfo * newsList = dataArr[indexPath.row];
+        if ([newsList.Species integerValue] == 2) {
+            PhotoViewController *photoVC = [[PhotoViewController alloc]init];
+            photoVC.detailID = newsList.ID;
+            photoVC.Species =  newsList.Species;
+            [self.navigationController pushViewController:photoVC animated:YES];
+        }else{
+            DetailViewController *detailVC = [[DetailViewController alloc]init];
+            detailVC.detailID = newsList.ID;
+            detailVC.Species =  newsList.Species;
+            [self.navigationController pushViewController:detailVC animated:YES];
+        }
     }
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (isDisplayHistory) {
         return 40;
