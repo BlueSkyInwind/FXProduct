@@ -15,12 +15,13 @@
 - (void)spotButtonClick;
 - (void)collectButtonClick;
 - (void)shareButtonClick;
+- (void)inputCommentTap;
 
 @end
 
 @interface CommonBottomView : UIView
 
-@property (weak, nonatomic) IBOutlet UITextField *commentTextField;
+@property (weak, nonatomic) IBOutlet UIImageView *commentImageView;
 
 @property (weak, nonatomic) IBOutlet UIButton *commentBtn;
 @property (weak, nonatomic) IBOutlet UIButton *spotBtn;

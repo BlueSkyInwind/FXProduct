@@ -151,6 +151,24 @@
     }];
 }
 
+- (void)uploadComment:(NSString *)commentRank NewID:(NSString *)newID content:(NSString *)content commentType:(NSString *)commentType{
+    
+     //http://infx2.echaokj.cn/ajax/Home/CommAdd2.ashx?id=1&NewID=1&AccountId=1&type=8&Cont内容&Star=1
+    
+    NSString * baseUrl = [NSString stringWithFormat:@"%@Home/CommAdd2.ashx?id=%@&NewID=%@&AccountId=%@&type=%@&Cont=%@&Star=1",_main_url,commentRank,newID,[Utility sharedUtility].userInfo.ID,commentType,content];
+    NSString *newUrl = [baseUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    [[FXNetworkManager sharedNetWorkManager]POSTWithNetworkStatusURL:newUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            self.returnBlock(returnMsg);
+        }
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+}
 
 
 

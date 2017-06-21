@@ -1,29 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CommentInputView">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="udy-Ws-JwJ">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="31"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="udy-Ws-JwJ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKe-Bv-ywH">
+                            <rect key="frame" x="15" y="7" width="46" height="26"/>
+                            <color key="backgroundColor" red="0.36862745098039218" green="0.36862745098039218" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="46" id="Eac-2L-5cw"/>
+                                <constraint firstAttribute="height" constant="26" id="lUO-Eb-OQz"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="取消"/>
+                            <connections>
+                                <action selector="cancelBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="lBh-gs-1eO"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VcJ-me-52G">
+                            <rect key="frame" x="314" y="7" width="46" height="26"/>
+                            <color key="backgroundColor" red="0.0039215686274509803" green="0.47843137254901957" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="26" id="T9s-xD-8Hc"/>
+                                <constraint firstAttribute="width" constant="46" id="UG4-Pe-V9C"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="确定">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="sureBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Fnt-dR-l9w"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="vKe-Bv-ywH" firstAttribute="centerY" secondItem="udy-Ws-JwJ" secondAttribute="centerY" id="2OK-bb-aSX"/>
+                        <constraint firstItem="VcJ-me-52G" firstAttribute="centerY" secondItem="udy-Ws-JwJ" secondAttribute="centerY" id="3gN-yt-hNj"/>
+                        <constraint firstItem="vKe-Bv-ywH" firstAttribute="leading" secondItem="udy-Ws-JwJ" secondAttribute="leading" constant="15" id="8kP-tL-cyY"/>
+                        <constraint firstAttribute="height" constant="40" id="8lY-k3-rJ7"/>
+                        <constraint firstAttribute="trailing" secondItem="VcJ-me-52G" secondAttribute="trailing" constant="15" id="Aau-om-NNn"/>
+                    </constraints>
                 </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aiy-20-Det">
+                    <rect key="frame" x="15" y="40" width="345" height="60"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Aiy-20-Det" secondAttribute="trailing" constant="15" id="HLN-AZ-aHb"/>
+                <constraint firstItem="Aiy-20-Det" firstAttribute="top" secondItem="udy-Ws-JwJ" secondAttribute="bottom" id="UZi-wC-wd5"/>
+                <constraint firstItem="udy-Ws-JwJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WSu-1v-Vbs"/>
+                <constraint firstAttribute="trailing" secondItem="udy-Ws-JwJ" secondAttribute="trailing" id="XXz-ua-XYr"/>
+                <constraint firstItem="udy-Ws-JwJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Zuc-kG-TY3"/>
+                <constraint firstAttribute="bottom" secondItem="Aiy-20-Det" secondAttribute="bottom" id="c7c-q0-djB"/>
+                <constraint firstItem="Aiy-20-Det" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="jhH-hJ-6Sr"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cancalBtn" destination="vKe-Bv-ywH" id="GeK-VB-4gG"/>
+                <outlet property="contentTextView" destination="Aiy-20-Det" id="ttf-4d-6u9"/>
+                <outlet property="sureBtn" destination="VcJ-me-52G" id="szy-xU-8dS"/>
+            </connections>
             <point key="canvasLocation" x="33.5" y="-238"/>
         </view>
     </objects>

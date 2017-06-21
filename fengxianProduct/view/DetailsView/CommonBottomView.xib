@@ -67,31 +67,40 @@
                         <constraint firstAttribute="height" constant="10" id="G5A-vw-oKH"/>
                     </constraints>
                 </view>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="  写评论..." minimumFontSize="17" background="comment_click_ICon" translatesAutoresizingMaskIntoConstraints="NO" id="WF4-dA-jrb">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comment_click_ICon" translatesAutoresizingMaskIntoConstraints="NO" id="2xA-93-TZU">
                     <rect key="frame" x="10" y="5" width="221" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="vko-tf-RHj"/>
+                        <constraint firstAttribute="height" constant="30" id="0y1-AT-S2G"/>
                     </constraints>
-                    <color key="textColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </imageView>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="写评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WzX-j6-xNk">
+                    <rect key="frame" x="31" y="12" width="43" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="qhN-lP-PQR"/>
+                        <constraint firstAttribute="width" constant="43" id="tdR-Vn-Qhr"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
+                    <color key="textColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="WF4-dA-jrb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="5k4-sk-NST"/>
+                <constraint firstItem="2xA-93-TZU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="49f-H5-nOj"/>
                 <constraint firstItem="Czc-KN-yiV" firstAttribute="leading" secondItem="qfw-Io-ovN" secondAttribute="trailing" constant="8" id="Ass-Ok-fre"/>
                 <constraint firstItem="Czc-KN-yiV" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="EYp-ce-jBA"/>
                 <constraint firstItem="LCw-wF-MJM" firstAttribute="top" secondItem="Mgj-Hj-IHO" secondAttribute="top" id="FXh-jL-Uh0"/>
+                <constraint firstItem="Mgj-Hj-IHO" firstAttribute="leading" secondItem="2xA-93-TZU" secondAttribute="trailing" constant="10" id="Iro-k7-dNa"/>
                 <constraint firstAttribute="trailing" secondItem="Czc-KN-yiV" secondAttribute="trailing" constant="10" id="M6k-Tv-hde"/>
                 <constraint firstItem="qfw-Io-ovN" firstAttribute="leading" secondItem="kJo-Cg-13M" secondAttribute="trailing" constant="8" id="PYi-fu-Eht"/>
                 <constraint firstItem="Mgj-Hj-IHO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="YOF-uW-hKc"/>
                 <constraint firstItem="kJo-Cg-13M" firstAttribute="leading" secondItem="Mgj-Hj-IHO" secondAttribute="trailing" constant="8" id="ZXP-Tw-MsR"/>
                 <constraint firstItem="LCw-wF-MJM" firstAttribute="leading" secondItem="Mgj-Hj-IHO" secondAttribute="trailing" constant="-12" id="a5K-YD-uG6"/>
                 <constraint firstItem="kJo-Cg-13M" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dGe-9B-V0V"/>
-                <constraint firstItem="Mgj-Hj-IHO" firstAttribute="leading" secondItem="WF4-dA-jrb" secondAttribute="trailing" constant="10" id="g5j-KU-JIN"/>
-                <constraint firstItem="WF4-dA-jrb" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ti7-gr-ys7"/>
+                <constraint firstItem="2xA-93-TZU" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="lyc-O6-pcF"/>
+                <constraint firstItem="WzX-j6-xNk" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="qjq-Jj-f5E"/>
                 <constraint firstItem="qfw-Io-ovN" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="w6s-dq-BSK"/>
+                <constraint firstItem="2xA-93-TZU" firstAttribute="leading" secondItem="WzX-j6-xNk" secondAttribute="trailing" constant="-64" id="yHJ-Th-UNz"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -99,7 +108,7 @@
                 <outlet property="CommentViewIcon" destination="LCw-wF-MJM" id="yVZ-y8-env"/>
                 <outlet property="collectBtn" destination="qfw-Io-ovN" id="RAj-xb-lwP"/>
                 <outlet property="commentBtn" destination="Mgj-Hj-IHO" id="rbK-DX-zym"/>
-                <outlet property="commentTextField" destination="WF4-dA-jrb" id="GKy-Wy-I2R"/>
+                <outlet property="commentImageView" destination="2xA-93-TZU" id="E2o-gU-uOz"/>
                 <outlet property="shareBtn" destination="Czc-KN-yiV" id="FY1-aU-NV1"/>
                 <outlet property="spotBtn" destination="kJo-Cg-13M" id="Z3x-kl-7Qm"/>
             </connections>
@@ -109,7 +118,7 @@
     <resources>
         <image name="Collect_Icon_gray" width="24" height="24"/>
         <image name="Comment_List_Icon" width="24" height="24"/>
-        <image name="comment_click_ICon" width="175" height="32"/>
+        <image name="comment_click_ICon" width="16" height="16"/>
         <image name="share_Icon" width="24" height="24"/>
         <image name="tab_dianzan_Icon_gray" width="24" height="24"/>
     </resources>

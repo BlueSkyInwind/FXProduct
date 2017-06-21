@@ -285,7 +285,7 @@
 }
 +(void)setCorner:(UIView *)view borderColor:(UIColor *)color cornerRadius:(CGFloat)cornerRadius
 {
-    view.layer.cornerRadius = 8;
+    view.layer.cornerRadius = cornerRadius;
     view.layer.masksToBounds = YES;
     view.layer.borderWidth = 1;
     view.layer.borderColor = color.CGColor;

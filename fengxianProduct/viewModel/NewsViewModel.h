@@ -18,11 +18,6 @@
  @param numberOfPage 每页数量
  */
 - (void)fatchNewsInfoID:(NSString *)number pageSize:(int)page numberOfPage:(int)numberOfPage;
-
-
-
-
-
 /**
  新闻搜索接口
 
@@ -56,5 +51,14 @@
  */
 - (void)fatchCollectAndSpotStatus:(NSString *)type ceteID:(NSString *)ceteid;
 
+/**
+ 提交评论
+
+ @param commentRank 评论等级
+ @param newID 新闻id
+ @param content 内容
+ @param commentType 评论类型
+ */
+- (void)uploadComment:(NSString *)commentRank NewID:(NSString *)newID content:(NSString *)content commentType:(NSString *)commentType;
 
 @end

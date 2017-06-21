@@ -14,7 +14,16 @@
     [super awakeFromNib];
     self.CommentViewIcon.layer.cornerRadius = self.CommentViewIcon.frame.size.width / 2;
     self.CommentViewIcon.clipsToBounds = YES;
+    
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(commentViewtap)];
+    [self.commentImageView addGestureRecognizer:tap];
 
+}
+-(void)commentViewtap{
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(inputCommentTap)]) {
+        [self.delegate inputCommentTap];
+    }
 }
 
 - (IBAction)commentBtnClick:(id)sender {
@@ -26,13 +35,11 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(spotButtonClick)]) {
         [self.delegate spotButtonClick];
     }
-    
 }
 - (IBAction)collectBtnClick:(id)sender{
     if (self.delegate && [self.delegate respondsToSelector:@selector(collectButtonClick)]) {
         [self.delegate collectButtonClick];
     }
-    
 }
 - (IBAction)shareBtnClick:(id)sender {
     if (self.delegate && [self.delegate respondsToSelector:@selector(shareButtonClick)]) {
