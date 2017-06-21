@@ -56,6 +56,7 @@
 -(void)configureView{
     
     self.dateAndWeatherView = [[NSBundle mainBundle]loadNibNamed:@"DateAndWeatherView" owner:self options:nil].lastObject;
+    self.dateAndWeatherView.vc = self;
     [self.view addSubview:self.dateAndWeatherView];
     [self.dateAndWeatherView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(0);
@@ -71,6 +72,7 @@
     //使用segmentBarVC
     [self.view addSubview:self.segmentBarVC.view];
     [self getDataOfSegmentBarVC:[[Utility sharedUtility].columnModel.rows mutableCopy]];
+    [self.view bringSubviewToFront:self.dateAndWeatherView];
     
 }
 -(void)getDataOfSegmentBarVC:(NSMutableArray *)array{

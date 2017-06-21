@@ -15,7 +15,7 @@
 
 @property (nonatomic,strong)NSNumber * NewID;
 @property(nonatomic,strong)NSString * Title;
-@property(nonatomic,strong)NSString * Type;
+@property(nonatomic,strong)NSNumber * Type;
 @property(nonatomic,strong)NSString * Image;
 
 @end

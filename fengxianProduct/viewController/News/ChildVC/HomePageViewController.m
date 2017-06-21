@@ -149,6 +149,19 @@
 //代理跳转
 - (void)selectItemAtIndex:(NSInteger)index {
     NSLog(@"%ld",index);
+    BannerInfoModel * bannerInfo = bannerArr[index];
+    if ([bannerInfo.Type integerValue] == 2) {
+        PhotoViewController *photoVC = [[PhotoViewController alloc]init];
+        photoVC.detailID = bannerInfo.NewID;
+        photoVC.Species =  bannerInfo.Type;
+        [self.navigationController pushViewController:photoVC animated:YES];
+    }else{
+        DetailViewController *detailVC = [[DetailViewController alloc]init];
+        detailVC.detailID = bannerInfo.NewID;
+        detailVC.Species =  bannerInfo.Type;
+        [self.navigationController pushViewController:detailVC animated:YES];
+    }
+
     
 }
 #pragma mark - 数据请求

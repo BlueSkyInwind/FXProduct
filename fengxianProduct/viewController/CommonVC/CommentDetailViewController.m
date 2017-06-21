@@ -10,6 +10,7 @@
 #import "CommentTableViewCell.h"
 #import "CommentInputView.h"
 #import "NewsViewModel.h"
+#import "PopCommentInput.h"
 
 @interface CommentDetailViewController ()<UITableViewDelegate,UITableViewDataSource,UITextViewDelegate>{
     NSInteger commentCellHieight;
@@ -81,7 +82,10 @@
     __block DetailCommentModel *detailCommentModel = dataArr[indexPath.row];
     cell.detailCommentModel = dataArr[indexPath.row];
     cell.commentEventClick = ^(UITapGestureRecognizer *tap) {
-        [self showCommentView:detailCommentModel.ID];
+        PopCommentInput * popComment = [PopCommentInput share];
+        popComment.detailID = self.detailID;
+        popComment.commentId = detailCommentModel.ID;
+        [popComment showCommentView];
     };
     cell.spotEventClick = ^(UITapGestureRecognizer *tap) {
         [self requestSpot:detailCommentModel.ID];
@@ -106,86 +110,6 @@
         
     }];
     [newViewM fatchCommentSpotStatus:commentId];
-}
-
-#pragma Mark - 输入框视图
--(void)showCommentView:(NSString *)commentId{
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
-    
-    _maskView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_h)];
-    _maskView.backgroundColor = [UIColor blackColor];
-    _maskView.alpha = 0.7;
-    [[UIApplication sharedApplication].keyWindow addSubview:_maskView];
-    
-    _commentInputView =  [[NSBundle mainBundle]loadNibNamed:@"CommentInputView" owner:self options:nil].lastObject;
-    _commentInputView.frame = CGRectMake(0, _k_h - commentInputViewHeight, _k_w, commentInputViewHeight);
-    _commentInputView.contentTextView.delegate =self;
-    __weak typeof (self) weakSelf = self;
-    _commentInputView.cancelButtonClick = ^(UIButton *button) {
-        
-        [weakSelf removeCommentView];
-    };
-    _commentInputView.sureButtonClick = ^(UIButton *button) {
-
-        [weakSelf uploadAccountComment:commentId isFinish:^(BOOL isSuccess) {
-            [weakSelf removeCommentView];
-        }];
-    };
-    [[UIApplication sharedApplication].keyWindow addSubview:_commentInputView];
-    [_commentInputView.contentTextView  becomeFirstResponder];
-}
-- (void)keyboardWillChangeFrame:(NSNotification *)note
-{
-    // 键盘显示\隐藏完毕的frame
-    CGRect frame = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    // 动画时间
-    CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    // 动画
-    [UIView animateWithDuration:duration animations:^{
-        _commentInputView.frame = CGRectMake(0, frame.origin.y - commentInputViewHeight, _k_w, commentInputViewHeight);
-        //        [self.view layoutIfNeeded]; // 自动布局的view改变约束后,需要强制布局
-    }];
-}
--(void)removeCommentView{
-    
-    [self.commentInputView endEditing:YES];
-    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
-        self.commentInputView.frame = CGRectMake(0, _k_h+100, _k_w, 100);
-    } completion:^(BOOL finished) {
-        [self.commentInputView removeFromSuperview];
-        [self.maskView  removeFromSuperview];
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
-    }];
-}
-
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
-    
-    //    NSString * str = [text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    float height = [Tool heightForText:text width:_k_w - 30 font:14];
-    if (height > 60) {
-        commentInputViewHeight  = 40 + height;
-        _commentInputView.frame = CGRectMake(0, _k_h - commentInputViewHeight, _k_w, commentInputViewHeight);
-    }
-    return YES;
-}
-
--(void)uploadAccountComment:(NSString *)commentId isFinish:(void(^)(BOOL isSuccess))finish{
-    if (self.commentInputView.contentTextView.text.length < 10) {
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"评论内容最少十个字"];
-        return;
-    }
-    NewsViewModel * newViewM = [[NewsViewModel alloc]init];
-    [newViewM setBlockWithReturnBlock:^(id returnValue) {
-        ReturnMsgBaseClass * returnMsg = returnValue;
-        if ([returnMsg.returnCode intValue] == 1) {
-            [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"添加评论成功，等待审核"];
-            finish(YES);
-        }
-    } WithFaileBlock:^{
-        
-    }];
-    [newViewM uploadComment:commentId NewID:[NSString stringWithFormat:@"%@",self.detailID] content:self.commentInputView.contentTextView.text commentType:@"8"];
 }
 
 #pragma mark ----------设置列表的可刷新性----------

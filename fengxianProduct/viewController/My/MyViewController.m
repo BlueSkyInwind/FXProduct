@@ -56,8 +56,10 @@
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     [super viewWillAppear:animated];
-    [self obtainIntegral:^(integralModel *integralModel) {
-    }];
+    if ([Utility sharedUtility].loginFlage) {
+        [self obtainIntegral:^(integralModel *integralModel) {
+        }];
+    }
     [self.moreHeaderView configureViewImage:[Utility sharedUtility].userInfo.Images AccountID:[Utility sharedUtility].userInfo.Code userNickName:[Utility sharedUtility].userInfo.Name];
     
 }

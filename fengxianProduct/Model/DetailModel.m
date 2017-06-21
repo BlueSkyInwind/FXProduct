@@ -7,10 +7,6 @@
 //
 
 #import "DetailModel.h"
-@implementation DetailCommentModel
-
-@end
-
 @implementation DetailModel
 
 @end

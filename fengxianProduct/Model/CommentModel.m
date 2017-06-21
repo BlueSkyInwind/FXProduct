@@ -8,6 +8,13 @@
 
 #import "CommentModel.h"
 
+
+
+@implementation DetailCommentModel
+
+@end
+
+
 @implementation CommentModel
 
 @end

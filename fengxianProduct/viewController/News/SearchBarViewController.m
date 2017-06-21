@@ -150,6 +150,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (isDisplayHistory) {
+        _tableView.separatorStyle = UITableViewCellSelectionStyleNone;
         SearchHistoryTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"SearchHistoryTableViewCell" forIndexPath:indexPath];
         cell.contentLabel.text = historyArray[indexPath.row];
         return cell;

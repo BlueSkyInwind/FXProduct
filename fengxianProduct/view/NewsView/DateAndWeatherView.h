@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DateAndWeatherView : UIView
+@interface DateAndWeatherView : UIView<UIGestureRecognizerDelegate>
+@property (nonatomic,strong)UIViewController * vc;
+
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
+@property (weak, nonatomic) IBOutlet UIWebView *weatherView;
 
 
 @end

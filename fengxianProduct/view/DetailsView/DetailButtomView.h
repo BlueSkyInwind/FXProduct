@@ -23,6 +23,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *spotNum;
 
+@property (nonatomic,strong)NSNumber * detailID;
 @property (nonatomic,strong) DetailCommentModel * detailCommentModel;
 @property (nonatomic,assign) id<DetailButtomViewDelegate> delegate;
 

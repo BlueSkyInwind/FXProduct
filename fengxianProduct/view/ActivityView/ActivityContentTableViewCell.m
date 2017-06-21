@@ -80,9 +80,9 @@
         ActivityBrokeViewTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityBrokeViewTableViewCell" forIndexPath:indexPath];
         cell.activityBrokeViewTableViewHeight = ^(NSInteger height) {
             baoliaoHeight = height;
-//            if (self.activityContentTableViewHeight) {
-//                self.activityContentTableViewHeight(baoliaoHeight + 40);
-//            }
+            if (self.activityContentTableViewHeight) {
+                self.activityContentTableViewHeight(baoliaoHeight + 40);
+            }
         };
         return cell;
     }

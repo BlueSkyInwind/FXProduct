@@ -52,6 +52,7 @@
 		229520DF1EF82FF200FA2351 /* CommonBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229520DE1EF82FF200FA2351 /* CommonBottomView.m */; };
 		229520E11EF8301000FA2351 /* CommonBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229520E01EF8301000FA2351 /* CommonBottomView.xib */; };
 		229520E41EF8395F00FA2351 /* CommentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229520E31EF8395F00FA2351 /* CommentDetailViewController.m */; };
+		229C467D1EFABE6200932533 /* PopCommentInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C467C1EFABE6200932533 /* PopCommentInput.m */; };
 		22B9050A1EEBD03C00ED8B71 /* InvationRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905091EEBD03C00ED8B71 /* InvationRegisterView.m */; };
 		22B9050D1EEBEA3100ED8B71 /* SignAndCollectMdoel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9050C1EEBEA3100ED8B71 /* SignAndCollectMdoel.m */; };
 		22B905101EEC1DB800ED8B71 /* MySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9050F1EEC1DB800ED8B71 /* MySettingViewController.m */; };
@@ -434,6 +435,8 @@
 		229520E01EF8301000FA2351 /* CommonBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonBottomView.xib; sourceTree = "<group>"; };
 		229520E21EF8395F00FA2351 /* CommentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentDetailViewController.h; sourceTree = "<group>"; };
 		229520E31EF8395F00FA2351 /* CommentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentDetailViewController.m; sourceTree = "<group>"; };
+		229C467B1EFABE6200932533 /* PopCommentInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopCommentInput.h; sourceTree = "<group>"; };
+		229C467C1EFABE6200932533 /* PopCommentInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopCommentInput.m; sourceTree = "<group>"; };
 		22B905081EEBD03C00ED8B71 /* InvationRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvationRegisterView.h; sourceTree = "<group>"; };
 		22B905091EEBD03C00ED8B71 /* InvationRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvationRegisterView.m; sourceTree = "<group>"; };
 		22B9050B1EEBEA3100ED8B71 /* SignAndCollectMdoel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignAndCollectMdoel.h; sourceTree = "<group>"; };
@@ -1211,6 +1214,8 @@
 				84375A411EF90520008D2455 /* CommentInputView.h */,
 				84375A421EF90520008D2455 /* CommentInputView.m */,
 				84375A441EF9052A008D2455 /* CommentInputView.xib */,
+				229C467B1EFABE6200932533 /* PopCommentInput.h */,
+				229C467C1EFABE6200932533 /* PopCommentInput.m */,
 			);
 			path = DetailsView;
 			sourceTree = "<group>";
@@ -2607,7 +2612,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -2813,6 +2818,7 @@
 				84AABE441EE6A003001AA7C0 /* CALayer+Anim.m in Sources */,
 				84AABEBA1EE6A035001AA7C0 /* LOTAnimatableColorValue.m in Sources */,
 				84AABDCD1EE69F76001AA7C0 /* LewPopupViewAnimationSlide.m in Sources */,
+				229C467D1EFABE6200932533 /* PopCommentInput.m in Sources */,
 				226143381EE83EA800193487 /* lhScanQCodeViewController.m in Sources */,
 				84AABDDE1EE69F76001AA7C0 /* SDCycleScrollView.m in Sources */,
 				84AABDCB1EE69F76001AA7C0 /* LewPopupViewAnimationDrop.m in Sources */,

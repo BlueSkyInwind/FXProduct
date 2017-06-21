@@ -18,7 +18,7 @@
 #import <ShareSDKUI/ShareSDKUI.h>
 #import "SBPlayer.h"
 #import "CommentInputView.h"
-
+#import "PopCommentInput.h"
 @interface DetailViewController ()<WKScriptMessageHandler,WKNavigationDelegate,WKUIDelegate,UIWebViewDelegate,CommonBottomViewDelegate,DetailButtomViewDelegate,UITextViewDelegate>{
     NSMutableArray * commenArray;
     
@@ -118,6 +118,12 @@
         ReturnMsgBaseClass * returnMsg = returnValue;
         if ([returnMsg.returnCode intValue] == 1) {
             [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:(NSString *)returnMsg.msg];
+            NSString * str = (NSString *)returnMsg.msg;
+            if ([str isEqualToString:@"收藏成功！"] ) {
+                [self.commonBottomView.collectBtn setBackgroundImage:[UIImage imageNamed:@"Collect_Icon_blue"] forState:UIControlStateNormal];
+            }else if([str isEqualToString:@"取消收藏成功！"]){
+                [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"Collect_Icon_gray"] forState:UIControlStateNormal];
+            }
         }
     } WithFaileBlock:^{
         
@@ -127,12 +133,13 @@
 - (void)shareButtonClick{
     [self shareContent:self.detailModel.Share Title:self.detailModel.Title];
 }
-
 - (void)inputCommentTap{
-    
-    [self showCommentView];
+//    [self showCommentView];
+    PopCommentInput * popComment = [PopCommentInput share];
+    popComment.detailID = self.detailID;
+    popComment.commentId = @"0";
+    [popComment showCommentView];
 }
-
 #pragma mark - 页面底部评论区点击事件
 -(void)DetailSpotButtonClick{
     [self requestSpotAndCollect:@"1"];
@@ -198,6 +205,7 @@
     self.detailButtomView = [[NSBundle mainBundle]loadNibNamed:@"DetailButtomView" owner:self options:nil].lastObject;
     self.detailButtomView.frame = CGRectMake(0, _contentWebView.frame.size.height + 10, _k_w, commentViewHieight);
     self.detailButtomView.detailCommentModel =  self.detailModel.rows.firstObject;
+    self.detailButtomView.detailID = self.detailID;
     self.detailButtomView.delegate = self;
     self.detailButtomView.browerNum.text = [NSString stringWithFormat:@"%@",self.detailModel.Num];
     self.detailButtomView.spotNum.text = [NSString stringWithFormat:@"%@",self.detailModel.ThNum];
@@ -224,7 +232,6 @@
         make.top.mas_equalTo(self.vedioPlayerView.mas_top);
         make.height.mas_equalTo(self.vedioPlayerView.mas_height);
     }];
-
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
@@ -265,87 +272,6 @@
     decisionHandler(WKNavigationActionPolicyAllow);
 }
 
-#pragma Mark - 输入框视图
--(void)showCommentView{
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
-    
-    _maskView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_h)];
-    _maskView.backgroundColor = [UIColor blackColor];
-    _maskView.alpha = 0.7;
-    [[UIApplication sharedApplication].keyWindow addSubview:_maskView];
-    
-    _commentInputView =  [[NSBundle mainBundle]loadNibNamed:@"CommentInputView" owner:self options:nil].lastObject;
-    _commentInputView.frame = CGRectMake(0, _k_h - commentInputViewHeight, _k_w, commentInputViewHeight);
-    _commentInputView.contentTextView.delegate =self;
-    __weak typeof (self) weakSelf = self;
-    _commentInputView.cancelButtonClick = ^(UIButton *button) {
-        
-        [weakSelf removeCommentView];
-    };
-    _commentInputView.sureButtonClick = ^(UIButton *button) {
-        
-        [weakSelf uploadAccountComment:^(BOOL isSuccess) {
-            [weakSelf removeCommentView];
-        }];
-    };
-    [[UIApplication sharedApplication].keyWindow addSubview:_commentInputView];
-    [_commentInputView.contentTextView  becomeFirstResponder];
-}
-- (void)keyboardWillChangeFrame:(NSNotification *)note
-{
-    // 键盘显示\隐藏完毕的frame
-    CGRect frame = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    // 动画时间
-    CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    // 动画
-    [UIView animateWithDuration:duration animations:^{
-        _commentInputView.frame = CGRectMake(0, frame.origin.y - commentInputViewHeight, _k_w, commentInputViewHeight);
-//        [self.view layoutIfNeeded]; // 自动布局的view改变约束后,需要强制布局
-    }];
-}
-
--(void)removeCommentView{
-    
-    [self.commentInputView endEditing:YES];
-    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
-        self.commentInputView.frame = CGRectMake(0, _k_h+100, _k_w, 100);
-    } completion:^(BOOL finished) {
-        [self.commentInputView removeFromSuperview];
-        [self.maskView  removeFromSuperview];
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillChangeFrameNotification object:nil];
-    }];
-}
-
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
-    
-//    NSString * str = [text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
-    float height = [Tool heightForText:text width:_k_w - 30 font:14];
-    if (height > 60) {
-         commentInputViewHeight  = 40 + height;
-        _commentInputView.frame = CGRectMake(0, _k_h - commentInputViewHeight, _k_w, commentInputViewHeight);
-    }
-    return YES;
-}
-
--(void)uploadAccountComment:(void(^)(BOOL isSuccess))finish{
-    if (self.commentInputView.contentTextView.text.length < 10) {
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"评论内容最少十个字"];
-        return;
-    }
-    NewsViewModel * newViewM = [[NewsViewModel alloc]init];
-    [newViewM setBlockWithReturnBlock:^(id returnValue) {
-        ReturnMsgBaseClass * returnMsg = returnValue;
-        if ([returnMsg.returnCode intValue] == 1) {
-            [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"添加评论成功，等待审核"];
-            finish(YES);
-        }
-    } WithFaileBlock:^{
-        
-    }];
-    [newViewM uploadComment:@"0" NewID:[NSString stringWithFormat:@"%@",self.detailID] content:self.commentInputView.contentTextView.text commentType:@"8"];
-}
 
 //分享函数
 -(void)shareContent:(NSString*)urlStr Title:(NSString *)title

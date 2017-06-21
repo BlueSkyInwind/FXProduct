@@ -97,7 +97,6 @@
     if (self.activityBrokeViewTableViewHeight) {
         self.activityBrokeViewTableViewHeight(520);
     }
-
 }
 -(void)removeWriteInfoView{
     

@@ -35,17 +35,17 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="原创" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QzH-GU-dJl">
-                    <rect key="frame" x="144" y="60" width="50" height="21"/>
+                    <rect key="frame" x="144" y="60" width="80" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="bql-HC-oGM"/>
-                        <constraint firstAttribute="width" constant="50" id="rU9-hV-sZg"/>
+                        <constraint firstAttribute="width" constant="80" id="rU9-hV-sZg"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IN风险" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTS-5L-if5">
-                    <rect key="frame" x="209" y="60" width="55" height="21"/>
+                    <rect key="frame" x="239" y="60" width="55" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="55" id="SL4-pc-P8z"/>
                         <constraint firstAttribute="height" constant="21" id="jIe-3z-gB5"/>

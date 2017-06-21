@@ -13,7 +13,6 @@ typedef void (^ActivityBrokeViewTableViewHeight)(NSInteger  height);
 
 @interface ActivityBrokeViewTableViewCell : UITableViewCell{
     
-    
     BOOL isBaoliao;
     BOOL isContribute;
     

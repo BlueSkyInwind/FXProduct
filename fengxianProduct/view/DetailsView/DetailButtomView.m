@@ -8,7 +8,8 @@
 
 #import "DetailButtomView.h"
 #import "CommentTableViewCell.h"
-
+#import "NewsViewModel.h"
+#import "PopCommentInput.h"
 @implementation DetailButtomView
 
 -(void)awakeFromNib{
@@ -46,8 +47,37 @@
         cell = [[CommentTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CommentTableViewCell"];
     }
     cell.detailCommentModel = self.detailCommentModel;
+    cell.commentEventClick = ^(UITapGestureRecognizer *tap) {
+        PopCommentInput * popComment = [PopCommentInput share];
+        popComment.detailID = self.detailID;
+        popComment.commentId = self.detailCommentModel.ID;
+        [popComment showCommentView];
+    };
+    cell.spotEventClick = ^(UITapGestureRecognizer *tap) {
+        [self requestSpot:self.detailCommentModel.ID];
+    };
+
     return cell;
 }
+-(void)requestSpot:(NSString *)commentId{
+    NewsViewModel * newViewM = [[NewsViewModel alloc]init];
+    [newViewM setBlockWithReturnBlock:^(id returnValue) {
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        if ([returnMsg.returnCode intValue] == 1) {
+            NSString * number = (NSString *)returnMsg.msg;
+            if ([number isEqualToString:@"1"]) {
+                [[MBPAlertView sharedMBPTextView] showTextOnly:self message:@"点赞成功"];
+                
+            }else if ([number isEqualToString:@"2"]){
+                [[MBPAlertView sharedMBPTextView] showTextOnly:self message:@"取消点赞"];
+            }
+        }
+    } WithFaileBlock:^{
+        
+    }];
+    [newViewM fatchCommentSpotStatus:commentId];
+}
+
 
 /*
 // Only override drawRect: if you perform custom drawing.
