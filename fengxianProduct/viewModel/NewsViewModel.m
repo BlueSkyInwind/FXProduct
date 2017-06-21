@@ -11,7 +11,7 @@
 #import "ColumnModel.h"
 #import "DetailModel.h"
 #import "PhotoModel.h"
-
+#import "CommentModel.h"
 @implementation NewsViewModel
 
 
@@ -170,6 +170,41 @@
     }];
 }
 
+- (void)fatchCommentSpotStatus:(NSString *)commentID{
+    
+    //http://infx2.echaokj.cn/ajax/Home/CommThumb.ashx?id=1
+    NSString * baseUrl = [NSString stringWithFormat:@"%@Home/CommThumb.ashx?id=%@",_main_url,commentID];
+    [[FXNetworkManager sharedNetWorkManager]POSTWithNetworkStatusURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            self.returnBlock(returnMsg);
+        }
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+}
+
+- (void)fatchCommentListNewsID:(NSString *)number  type:(NSString *)type pageSize:(int)page numberOfPage:(int)numberOfPage{
+    
+    //http://infx2.echaokj.cn/ajax/Home/CommList.ashx?id=3114&type=8&PageSize=1&PageCount=10
+    
+    NSString * baseUrl = [NSString stringWithFormat:@"%@Home/CommList.ashx?id=%@&type=%@&PageSize=%d&PageCount=%d",_main_url,number,type,page,numberOfPage];
+    
+    [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            CommentModel * commentModel = [[CommentModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
+            self.returnBlock(commentModel);
+        }
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+    
+}
 
 
 @end

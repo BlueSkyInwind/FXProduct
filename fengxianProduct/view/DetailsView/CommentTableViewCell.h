@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "DetailModel.h"
+
+
+typedef void (^CommentEventClick)(UITapGestureRecognizer * tap);
+typedef void (^SpotEventClick)(UITapGestureRecognizer * tap);
+
 @interface CommentTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *accoutImage;
@@ -31,5 +36,9 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *redactReplyHeight;
 
 @property (nonatomic, strong)DetailCommentModel * detailCommentModel;
+@property (nonatomic, copy)CommentEventClick  commentEventClick;
+@property (nonatomic, copy)SpotEventClick  spotEventClick;
+
+
 
 @end

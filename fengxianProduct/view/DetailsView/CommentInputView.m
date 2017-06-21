@@ -14,11 +14,11 @@
     [super awakeFromNib];
     
     [Tool setCorner:self.cancalBtn borderColor:[UIColor clearColor] cornerRadius:2];
-    [Tool setCorner:self.cancalBtn borderColor:[UIColor clearColor] cornerRadius:3];
+    [Tool setCorner:self.sureBtn borderColor:[UIColor clearColor] cornerRadius:3];
 
     self.contentTextView.layer.cornerRadius = 1;
     self.contentTextView.layer.masksToBounds = YES;
-    self.contentTextView.layer.borderWidth = 0.5;
+    self.contentTextView.layer.borderWidth = 0.3;
     self.contentTextView.layer.borderColor = kUIColorFromRGB(0x5e5e5e).CGColor;
 }
 - (IBAction)cancelBtnClick:(id)sender {

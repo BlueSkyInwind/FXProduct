@@ -60,5 +60,22 @@
  @param commentType 评论类型
  */
 - (void)uploadComment:(NSString *)commentRank NewID:(NSString *)newID content:(NSString *)content commentType:(NSString *)commentType;
+/**
+ 评论点赞
+
+ @param commentID 评论ID
+ */
+- (void)fatchCommentSpotStatus:(NSString *)commentID;
+
+/**
+ 品论列表
+
+ @param number 新闻Id
+ @param type 类型
+ @param page 页数
+ @param numberOfPage 每页个数
+ */
+- (void)fatchCommentListNewsID:(NSString *)number  type:(NSString *)type pageSize:(int)page numberOfPage:(int)numberOfPage;
+
 
 @end

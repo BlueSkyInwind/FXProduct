@@ -173,6 +173,7 @@
 		847745011EE7AAF900043F25 /* FXNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847745001EE7AAF900043F25 /* FXNetworkManager.m */; };
 		847745051EE7B07B00043F25 /* ViewModelClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 847745041EE7B07B00043F25 /* ViewModelClass.m */; };
 		847745081EE7B0AC00043F25 /* loginViewMdoel.m in Sources */ = {isa = PBXBuildFile; fileRef = 847745071EE7B0AC00043F25 /* loginViewMdoel.m */; };
+		848F3B731EFA73FC00FD6702 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 848F3B721EFA73FC00FD6702 /* CommentModel.m */; };
 		84AABC231EE69672001AA7C0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AABC221EE69672001AA7C0 /* libz.tbd */; };
 		84AABC251EE696FC001AA7C0 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AABC241EE696FC001AA7C0 /* libstdc++.6.0.9.tbd */; };
 		84AABC271EE6970D001AA7C0 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AABC261EE6970D001AA7C0 /* AddressBook.framework */; };
@@ -651,6 +652,8 @@
 		847745041EE7B07B00043F25 /* ViewModelClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewModelClass.m; sourceTree = "<group>"; };
 		847745061EE7B0AC00043F25 /* loginViewMdoel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewMdoel.h; sourceTree = "<group>"; };
 		847745071EE7B0AC00043F25 /* loginViewMdoel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewMdoel.m; sourceTree = "<group>"; };
+		848F3B711EFA73FC00FD6702 /* CommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
+		848F3B721EFA73FC00FD6702 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
 		84AABC221EE69672001AA7C0 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		84AABC241EE696FC001AA7C0 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		84AABC261EE6970D001AA7C0 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -2329,6 +2332,8 @@
 				229520CD1EF65EF900FA2351 /* integralModel.m */,
 				229520D71EF6C83200FA2351 /* DetailModel.h */,
 				229520D81EF6C83200FA2351 /* DetailModel.m */,
+				848F3B711EFA73FC00FD6702 /* CommentModel.h */,
+				848F3B721EFA73FC00FD6702 /* CommentModel.m */,
 				840DFFFF1EF7DB0200709337 /* PhotoModel.h */,
 				840D00001EF7DB0200709337 /* PhotoModel.m */,
 			);
@@ -2602,7 +2607,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -2712,6 +2717,7 @@
 				84AABDFD1EE69F76001AA7C0 /* YYLabel.m in Sources */,
 				226143241EE8370700193487 /* AgreementViewModel.m in Sources */,
 				22B9056E1EED95E300ED8B71 /* JZLCollectionViewCell.m in Sources */,
+				848F3B731EFA73FC00FD6702 /* CommentModel.m in Sources */,
 				8476494D1EF0E309004BEF4E /* LivesContentTableViewCell.m in Sources */,
 				84AABDE51EE69F76001AA7C0 /* YYKVStorage.m in Sources */,
 				8431F3491EE917DF00295A18 /* MoreTableViewCell.m in Sources */,

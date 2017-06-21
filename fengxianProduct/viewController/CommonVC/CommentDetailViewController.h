@@ -12,6 +12,6 @@
 @interface CommentDetailViewController : BaseViewController
 
 @property (nonatomic,strong)DetailModel * detailModel;
-
+@property (nonatomic,strong)NSNumber * detailID;
 
 @end

@@ -12,7 +12,6 @@
 @protocol DetailButtomViewDelegate <NSObject>
 - (void)DetailSpotButtonClick;
 
-
 @end
 
 @interface DetailButtomView : UIView<UITableViewDelegate,UITableViewDataSource>

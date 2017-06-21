@@ -7,27 +7,7 @@
 //
 
 #import <JSONModel/JSONModel.h>
-@protocol DetailCommentModel
-
-@end
-
-@interface DetailCommentModel : JSONModel
-
-@property (nonatomic,strong)NSString<Optional> * Images;
-@property (nonatomic,strong)NSString<Optional> * Image3;
-@property (nonatomic,strong)NSString<Optional> * CommentNum;
-@property (nonatomic,strong)NSString<Optional> * Time;
-@property (nonatomic,strong)NSString<Optional> * Conten;
-@property (nonatomic,strong)NSString<Optional> * Reply;
-@property (nonatomic,strong)NSString<Optional> * ThumbNum;
-@property (nonatomic,strong)NSDictionary<Optional> * lower;
-@property (nonatomic,strong)NSString<Optional> * Name;
-@property (nonatomic,strong)NSString<Optional> * ID;
-@property (nonatomic,strong)NSString<Optional> * Star;
-@property (nonatomic,strong)NSNumber<Optional> * success;
-
-@end
-
+#import "CommentModel.h"
 
 @interface DetailModel : JSONModel
 

@@ -18,23 +18,24 @@
     self.redactReply.hidden = YES;
     self.accoutImage.layer.cornerRadius = self.accoutImage.frame.size.width / 2;
     self.accoutImage.clipsToBounds=  YES;
-    UITapGestureRecognizer * commentTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(commentTapClick)];
+    UITapGestureRecognizer * commentTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(commentTapClick:)];
     [self.commentImageView addGestureRecognizer:commentTap];
     
-    UITapGestureRecognizer * spotTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(spotTapClick)];
+    UITapGestureRecognizer * spotTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(spotTapClick:)];
     [self.spotImageView addGestureRecognizer:spotTap];
 }
--(void)commentTapClick{
-    
-    
-    
-    
+
+-(void)commentTapClick:(UITapGestureRecognizer *)tap{
+    if (self.commentEventClick ) {
+        self.commentEventClick(tap);
+    }
 }
--(void)spotTapClick{
-    
-    
-    
+-(void)spotTapClick:(UITapGestureRecognizer *)tap{
+    if (self.spotEventClick ) {
+        self.spotEventClick(tap);
+    }
 }
+
 -(void)setDetailCommentModel:(DetailCommentModel *)detailCommentModel{
     _detailCommentModel = detailCommentModel;
     [self setNeedsLayout];
