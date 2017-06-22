@@ -1,4 +1,4 @@
-//
+ //
 //  ActivityViewController.m
 //  fengxianProduct
 //
@@ -14,7 +14,7 @@
 #import "BannerViewModel.h"
 #import "BannerInfoModel.h"
 #import "ActivityContentTableViewCell.h"
-
+#import "ActivityBrokeViewTableViewCell.h"
 
 @interface ActivityViewController ()<UITableViewDelegate,UITableViewDataSource,JZLCycleViewDelegate>{
     
@@ -25,7 +25,8 @@
     NewsListModel * newsListModel;
     
     NSInteger cellheight;
-    
+    NSInteger baoliaoCellheight;
+
     NSInteger  tableViewHeight;
 
 
@@ -45,7 +46,8 @@
     dataArr = [NSMutableArray array];
     [self getColumnData];
     bannerArr = [NSMutableArray array];
-    cellheight = 260;
+    cellheight = 120;
+    baoliaoCellheight = 260;
     tableViewHeight = 160;
     if (UI_IS_IPHONE6) {
         tableViewHeight = 200;
@@ -77,7 +79,8 @@
     }];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ActivityContentTableViewCell" bundle:nil] forCellReuseIdentifier:@"ActivityContentTableViewCell"];
-    
+    [self.tableView registerNib:[UINib nibWithNibName:@"ActivityBrokeViewTableViewCell" bundle:nil] forCellReuseIdentifier:@"ActivityBrokeViewTableViewCell"];
+
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
@@ -90,9 +93,9 @@
             break;
         case 1:{
             if (indexPath.row == 0) {
-                return cellheight;
+                return baoliaoCellheight;
             }
-            return 130;
+            return cellheight;
         }
             break;
         default:
@@ -124,23 +127,46 @@
         _cycleView.delegate = self;
         [cell addSubview:_cycleView];
         return cell;
+    }else{
+        
+        if (indexPath.row == 0) {
+            ActivityBrokeViewTableViewCell * firstCell = [tableView dequeueReusableCellWithIdentifier:@"ActivityBrokeViewTableViewCell" forIndexPath:indexPath];
+            firstCell.columnInfoM = dataArr[indexPath.row];
+            __weak typeof (self) weakSelf = self;
+            firstCell.activityBrokeViewTableViewHeight = ^(NSInteger height) {
+                baoliaoCellheight = height;
+                NSIndexPath * indexP = [NSIndexPath indexPathForRow:0 inSection:1];
+                [weakSelf.tableView reloadRowsAtIndexPaths:@[indexP] withRowAnimation:UITableViewRowAnimationAutomatic];
+            };
+            return firstCell;
+        }
+        
+        self.cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityContentTableViewCell" forIndexPath:indexPath];
+        self.cell.columnInfoM = dataArr[indexPath.row];
+        __weak typeof (self) weakSelf = self;
+        self.cell.activityContentTableViewHeight = ^(NSInteger height, NSNumber *colmunId) {
+            cellheight = height;
+            if ([colmunId integerValue] == 9) {
+                NSIndexPath * indexP = [NSIndexPath indexPathForRow:1 inSection:1];
+                [weakSelf.tableView reloadRowsAtIndexPaths:@[indexP] withRowAnimation:UITableViewRowAnimationAutomatic];
+            }else if ([colmunId integerValue] == 10){
+                NSIndexPath * indexP = [NSIndexPath indexPathForRow:2 inSection:1];
+                [weakSelf.tableView reloadRowsAtIndexPaths:@[indexP] withRowAnimation:UITableViewRowAnimationAutomatic];
+            }else if ([colmunId integerValue] == 11){
+                NSIndexPath * indexP = [NSIndexPath indexPathForRow:3 inSection:1];
+                [weakSelf.tableView reloadRowsAtIndexPaths:@[indexP] withRowAnimation:UITableViewRowAnimationAutomatic];
+            }
+        };
+        return self.cell;
     }
-    
-    self.cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityContentTableViewCell" forIndexPath:indexPath];
-    self.cell.columnInfoM = dataArr[indexPath.row];
-    __weak typeof (self) weakSelf = self;
-    self.cell.activityContentTableViewHeight = ^(NSInteger height) {
-        cellheight = height;
-        [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    };
-    return self.cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
     
-    
+
 }
+
 #pragma mark - 录播图点击
 //代理跳转
 - (void)selectItemAtIndex:(NSInteger)index {
@@ -149,8 +175,8 @@
     
     
 }
-#pragma mark - 数据请求
 
+#pragma mark - 数据请求
 -(void)requestBannerInfo{
     BannerViewModel * bannerVM = [[BannerViewModel alloc]init];
     [bannerVM setBlockWithReturnBlock:^(id returnValue) {
@@ -168,7 +194,6 @@
 #pragma mark ----------设置列表的可刷新性----------
 -(void)setupMJRefreshTableView
 {
-    
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
     //    header.automaticallyChangeAlpha = YES;
     [header beginRefreshing];

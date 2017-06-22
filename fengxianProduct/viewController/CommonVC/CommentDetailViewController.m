@@ -38,7 +38,13 @@
     if (UI_IS_IPHONE6P) {
         commentInputViewHeight = 150;
     }
-    dataArr = [_detailModel.rows mutableCopy];
+    dataArr = [NSMutableArray array];
+    if (_detailModel) {
+        dataArr = [_detailModel.rows mutableCopy];
+    }else{
+        [self requestCommentListInfo];
+    }
+    
     [self configureView];
     [self setupMJRefreshTableView];
 }

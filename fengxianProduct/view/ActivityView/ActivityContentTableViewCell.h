@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 typedef void (^MoreButtonClick)(UIButton * button);
-typedef void (^ActivityContentTableViewHeight)(NSInteger  height);
+typedef void (^ActivityContentTableViewHeight)(NSInteger  height ,NSNumber * colmunId);
 
 @interface ActivityContentTableViewCell : UITableViewCell<UITableViewDelegate,UITableViewDataSource>{
     

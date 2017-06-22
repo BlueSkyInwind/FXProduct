@@ -30,6 +30,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *shareBtn;
 
 @property (weak, nonatomic) IBOutlet UIView *CommentViewIcon;
+@property (weak, nonatomic) IBOutlet UILabel *defaultLabel;
+@property (weak, nonatomic) IBOutlet UIView *cuttingLine;
 
 @property (nonatomic,assign) id<CommonBottomViewDelegate> delegate;
 

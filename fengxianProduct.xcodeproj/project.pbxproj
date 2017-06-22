@@ -175,6 +175,13 @@
 		847745051EE7B07B00043F25 /* ViewModelClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 847745041EE7B07B00043F25 /* ViewModelClass.m */; };
 		847745081EE7B0AC00043F25 /* loginViewMdoel.m in Sources */ = {isa = PBXBuildFile; fileRef = 847745071EE7B0AC00043F25 /* loginViewMdoel.m */; };
 		848F3B731EFA73FC00FD6702 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 848F3B721EFA73FC00FD6702 /* CommentModel.m */; };
+		849FDDF11EFBC5D7002159F9 /* MyCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FDDF01EFBC5D7002159F9 /* MyCollectViewController.m */; };
+		849FDDF41EFBC640002159F9 /* MyBrokeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FDDF31EFBC640002159F9 /* MyBrokeViewController.m */; };
+		849FDDF81EFBC670002159F9 /* MyMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FDDF61EFBC670002159F9 /* MyMessageViewController.m */; };
+		849FDDF91EFBC670002159F9 /* MyMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849FDDF71EFBC670002159F9 /* MyMessageViewController.xib */; };
+		849FDDFD1EFBC6DC002159F9 /* MyCollectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FDDFB1EFBC6DC002159F9 /* MyCollectTableViewCell.m */; };
+		849FDDFE1EFBC6DC002159F9 /* MyCollectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849FDDFC1EFBC6DC002159F9 /* MyCollectTableViewCell.xib */; };
+		849FDE011EFBCF51002159F9 /* CollectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FDE001EFBCF51002159F9 /* CollectModel.m */; };
 		84AABC231EE69672001AA7C0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AABC221EE69672001AA7C0 /* libz.tbd */; };
 		84AABC251EE696FC001AA7C0 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AABC241EE696FC001AA7C0 /* libstdc++.6.0.9.tbd */; };
 		84AABC271EE6970D001AA7C0 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AABC261EE6970D001AA7C0 /* AddressBook.framework */; };
@@ -657,6 +664,18 @@
 		847745071EE7B0AC00043F25 /* loginViewMdoel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewMdoel.m; sourceTree = "<group>"; };
 		848F3B711EFA73FC00FD6702 /* CommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		848F3B721EFA73FC00FD6702 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
+		849FDDEF1EFBC5D7002159F9 /* MyCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectViewController.h; sourceTree = "<group>"; };
+		849FDDF01EFBC5D7002159F9 /* MyCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectViewController.m; sourceTree = "<group>"; };
+		849FDDF21EFBC640002159F9 /* MyBrokeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBrokeViewController.h; sourceTree = "<group>"; };
+		849FDDF31EFBC640002159F9 /* MyBrokeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBrokeViewController.m; sourceTree = "<group>"; };
+		849FDDF51EFBC670002159F9 /* MyMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMessageViewController.h; sourceTree = "<group>"; };
+		849FDDF61EFBC670002159F9 /* MyMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMessageViewController.m; sourceTree = "<group>"; };
+		849FDDF71EFBC670002159F9 /* MyMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyMessageViewController.xib; sourceTree = "<group>"; };
+		849FDDFA1EFBC6DC002159F9 /* MyCollectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectTableViewCell.h; sourceTree = "<group>"; };
+		849FDDFB1EFBC6DC002159F9 /* MyCollectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectTableViewCell.m; sourceTree = "<group>"; };
+		849FDDFC1EFBC6DC002159F9 /* MyCollectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectTableViewCell.xib; sourceTree = "<group>"; };
+		849FDDFF1EFBCF51002159F9 /* CollectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectModel.h; sourceTree = "<group>"; };
+		849FDE001EFBCF51002159F9 /* CollectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectModel.m; sourceTree = "<group>"; };
 		84AABC221EE69672001AA7C0 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		84AABC241EE696FC001AA7C0 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		84AABC261EE6970D001AA7C0 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -1374,6 +1393,9 @@
 				84748E6A1EF3BEE600831016 /* IntegralAwardCollectionViewCell.h */,
 				84748E6B1EF3BEE600831016 /* IntegralAwardCollectionViewCell.m */,
 				84748E6C1EF3BEE600831016 /* IntegralAwardCollectionViewCell.xib */,
+				849FDDFA1EFBC6DC002159F9 /* MyCollectTableViewCell.h */,
+				849FDDFB1EFBC6DC002159F9 /* MyCollectTableViewCell.m */,
+				849FDDFC1EFBC6DC002159F9 /* MyCollectTableViewCell.xib */,
 			);
 			path = moreView;
 			sourceTree = "<group>";
@@ -2279,6 +2301,13 @@
 				84BDC8571EF27967006F4DDE /* MyFeedbackViewController.m */,
 				84748E5D1EF3789800831016 /* MyIntegralViewController.h */,
 				84748E5E1EF3789800831016 /* MyIntegralViewController.m */,
+				849FDDEF1EFBC5D7002159F9 /* MyCollectViewController.h */,
+				849FDDF01EFBC5D7002159F9 /* MyCollectViewController.m */,
+				849FDDF21EFBC640002159F9 /* MyBrokeViewController.h */,
+				849FDDF31EFBC640002159F9 /* MyBrokeViewController.m */,
+				849FDDF51EFBC670002159F9 /* MyMessageViewController.h */,
+				849FDDF61EFBC670002159F9 /* MyMessageViewController.m */,
+				849FDDF71EFBC670002159F9 /* MyMessageViewController.xib */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -2341,6 +2370,8 @@
 				848F3B721EFA73FC00FD6702 /* CommentModel.m */,
 				840DFFFF1EF7DB0200709337 /* PhotoModel.h */,
 				840D00001EF7DB0200709337 /* PhotoModel.m */,
+				849FDDFF1EFBCF51002159F9 /* CollectModel.h */,
+				849FDE001EFBCF51002159F9 /* CollectModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2541,7 +2572,9 @@
 				84375A891EF92BFB008D2455 /* play.png in Resources */,
 				84375A8A1EF92BFB008D2455 /* play@2x.png in Resources */,
 				840DFFFE1EF7D2CB00709337 /* ExplainView.xib in Resources */,
+				849FDDFE1EFBC6DC002159F9 /* MyCollectTableViewCell.xib in Resources */,
 				84BDC8651EF29603006F4DDE /* ActivityBrokeViewTableViewCell.xib in Resources */,
+				849FDDF91EFBC670002159F9 /* MyMessageViewController.xib in Resources */,
 				84375A881EF92BFB008D2455 /* full_screen@2x.png in Resources */,
 				84375A451EF9052A008D2455 /* CommentInputView.xib in Resources */,
 				22B905591EECF86600ED8B71 /* NewsTableViewCell.xib in Resources */,
@@ -2612,7 +2645,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -2644,6 +2677,7 @@
 				84AABEFB1EE6B44E001AA7C0 /* LoginViewController.m in Sources */,
 				84AABEC31EE6A035001AA7C0 /* CADisplayLink.m in Sources */,
 				84AABEB71EE6A035001AA7C0 /* LOTShapeLayerView.m in Sources */,
+				849FDDFD1EFBC6DC002159F9 /* MyCollectTableViewCell.m in Sources */,
 				221A51141EE99A8C00A543C0 /* UserInfoViewController.m in Sources */,
 				84AABDD51EE69F76001AA7C0 /* HMScannerMaskView.m in Sources */,
 				84AABEBD1EE6A035001AA7C0 /* LOTAnimatableScaleValue.m in Sources */,
@@ -2682,6 +2716,7 @@
 				229520CE1EF65EF900FA2351 /* integralModel.m in Sources */,
 				84AABEC41EE6A035001AA7C0 /* CALayer+Compat.m in Sources */,
 				84AABED31EE6A035001AA7C0 /* LOTAnimationTransitionController.m in Sources */,
+				849FDDF11EFBC5D7002159F9 /* MyCollectViewController.m in Sources */,
 				8440D6D91EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.m in Sources */,
 				84375A7C1EF929F3008D2455 /* SBPlayer.m in Sources */,
 				22B905101EEC1DB800ED8B71 /* MySettingViewController.m in Sources */,
@@ -2701,6 +2736,7 @@
 				84AABDF81EE69F76001AA7C0 /* UIView+YYText.m in Sources */,
 				84AABEBF1EE6A035001AA7C0 /* LOTAnimationCache.m in Sources */,
 				22B9053E1EEC4B5400ED8B71 /* TGShowMoreVC.m in Sources */,
+				849FDE011EFBCF51002159F9 /* CollectModel.m in Sources */,
 				8458624B1EE68A7100AF52B3 /* NSString+AES.m in Sources */,
 				840D00011EF7DB0200709337 /* PhotoModel.m in Sources */,
 				84AABECC1EE6A035001AA7C0 /* LOTShapeFill.m in Sources */,
@@ -2762,6 +2798,7 @@
 				84AABDCE1EE69F76001AA7C0 /* LewPopupViewAnimationSpring.m in Sources */,
 				8440D6CF1EEFC41700C59B2C /* CollectionViewCell.m in Sources */,
 				84AABEF11EE6B277001AA7C0 /* ActivityViewController.m in Sources */,
+				849FDDF81EFBC670002159F9 /* MyMessageViewController.m in Sources */,
 				84AABEC01EE6A035001AA7C0 /* CAAnimationGroup+LOTAnimatableGroup.m in Sources */,
 				845862591EE68A7100AF52B3 /* CheckUtils.m in Sources */,
 				8431F33E1EE8E3EE00295A18 /* MoreHeaderView.m in Sources */,
@@ -2826,6 +2863,7 @@
 				22B905371EEC4B5400ED8B71 /* TGMoreCell.m in Sources */,
 				84AABDEE1EE69F76001AA7C0 /* YYTextMagnifier.m in Sources */,
 				84AABDE01EE69F76001AA7C0 /* UIViewController+KNSemiModal.m in Sources */,
+				849FDDF41EFBC640002159F9 /* MyBrokeViewController.m in Sources */,
 				84AABE431EE6A003001AA7C0 /* CoreArchive.m in Sources */,
 				84AABDDB1EE69F76001AA7C0 /* TADotView.m in Sources */,
 				84AABDE91EE69F76001AA7C0 /* YYTextEffectWindow.m in Sources */,

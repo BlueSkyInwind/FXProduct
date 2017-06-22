@@ -88,7 +88,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="JF8-M4-veJ" firstAttribute="leading" secondItem="sdM-zI-fj9" secondAttribute="trailing" id="RUb-fb-mPI"/>
                                     <constraint firstAttribute="trailing" secondItem="JF8-M4-veJ" secondAttribute="trailing" constant="2" id="SMc-4n-Yjt"/>
@@ -103,7 +103,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pK1-7T-ENb" firstAttribute="leading" secondItem="SfA-ph-j6q" secondAttribute="trailing" constant="2" id="7j4-1T-Dsc"/>
                             <constraint firstItem="pK1-7T-ENb" firstAttribute="centerY" secondItem="2B4-a1-DkE" secondAttribute="centerY" id="Iad-yB-zrN"/>
@@ -127,7 +127,7 @@
                                 <rect key="frame" x="213.5" y="1" width="101.5" height="80"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vdi-GW-dHc" firstAttribute="leading" secondItem="eBy-3L-2z6" secondAttribute="leading" constant="5" id="3qa-bp-UQb"/>
                             <constraint firstAttribute="bottom" secondItem="vdi-GW-dHc" secondAttribute="bottom" constant="0.5" id="5D3-hy-qVV"/>

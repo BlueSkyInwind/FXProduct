@@ -22,6 +22,11 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    [Tool setCornerWithoutRadius:self.backView borderColor:[UIColor grayColor]];
+    self.updateList.layer.cornerRadius = self.updateList.frame.size.width;
+    self.updateList.clipsToBounds = YES;
+    self.updateList.hidden = YES;
+    
     self.baoliaoBtn.layer.cornerRadius = 3;
     self.baoliaoBtn.clipsToBounds = YES;
     self.contributeBtn.layer.cornerRadius = 3;
@@ -29,6 +34,12 @@
     
     isBaoliao = NO;
     isContribute = NO;
+    
+}
+
+-(void)setColumnInfoM:(ColumnInfoModel *)columnInfoM{
+    _columnInfoM = columnInfoM;
+    self.titleLabel.text = columnInfoM.Title;
     
 }
 
@@ -45,7 +56,6 @@
         [self.baoliaoBtn setBackgroundColor:kUIColorFromRGB(0x5e5e5e)];
         [self removeWriteInfoView];
     }
-    
 }
 - (IBAction)contributeBtnClick:(id)sender {
     
@@ -62,8 +72,8 @@
         [self.contributeBtn setBackgroundColor:kUIColorFromRGB(0x5e5e5e)];
         [self removeWriteInfoView];
     }
-    
 }
+
 /**
  加载信息填写页面
 
@@ -81,7 +91,7 @@
     }
     self.writeInfoView = [[NSBundle mainBundle]loadNibNamed:@"WriteInfoView" owner:self options:nil].lastObject;
     self.writeInfoView.backgroundColor = [UIColor whiteColor];
-    [self addSubview:self.writeInfoView];
+    [self.backView addSubview:self.writeInfoView];
     [self.writeInfoView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.headerView.mas_bottom);
         make.right.equalTo(self.mas_right);
@@ -95,7 +105,7 @@
         self.writeInfoView.contributeView.hidden= NO;
     }
     if (self.activityBrokeViewTableViewHeight) {
-        self.activityBrokeViewTableViewHeight(520);
+        self.activityBrokeViewTableViewHeight(570);
     }
 }
 -(void)removeWriteInfoView{
@@ -103,9 +113,8 @@
     [self.writeInfoView removeFromSuperview];
     self.writeInfoView = nil;
     if (self.activityBrokeViewTableViewHeight) {
-        self.activityBrokeViewTableViewHeight(220);
+        self.activityBrokeViewTableViewHeight(260);
     }
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

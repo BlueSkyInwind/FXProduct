@@ -11,6 +11,7 @@
 #import "NSString+URL.h"
 #import "userSourceModel.h"
 #import "UserCommentModel.h"
+#import "CollectModel.h"
 @implementation MoreViewModel
 
 /**
@@ -160,7 +161,23 @@
     }];
 }
 
-
+-(void)fatchUserCollectInfo:(NSString *)type pageSize:(int)pageSize{
+    
+    //http://infx2.echaokj.cn/ajax/My/CommentType.ashx?type=0&AccountId=6&PageSize=1
+    NSString * baseUrl = [NSString stringWithFormat:@"%@My/CommentType.ashx?type=%@&AccountId=%@&PageSize=%d",_main_url,type,[Utility sharedUtility].userInfo.ID,pageSize];
+    
+    [[FXNetworkManager sharedNetWorkManager]POSTHideIndicatorWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            CollectModel * collectModel = [[CollectModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
+            self.returnBlock(collectModel);
+        }
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+}
 
 
 

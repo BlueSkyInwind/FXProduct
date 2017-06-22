@@ -19,6 +19,7 @@
 #import "MyIntegralViewController.h"
 #import "IntegralViewModel.h"
 #import "integralModel.h"
+#import "MyCollectViewController.h"
 
 @interface MyViewController ()<UITableViewDelegate,UITableViewDataSource,MoreNavViewDelegate>{
     
@@ -223,7 +224,8 @@
 #pragma mark - MoreNavViewDelegate
 -(void)CollectViewCilck{
     if ([[ShareConfig share] isPresentLoginVC:self]) {
-        
+        MyCollectViewController * myCollectViewController = [[MyCollectViewController  alloc]init];
+        [self.navigationController pushViewController:myCollectViewController animated:YES];
     }
 }
 -(void)DiscloseViewCilck{

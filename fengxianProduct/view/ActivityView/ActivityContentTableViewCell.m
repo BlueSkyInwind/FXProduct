@@ -28,7 +28,6 @@
     
     baoliaoHeight = 220;
 
-    [self configureView];
 }
 
 -(void)configureView{
@@ -42,8 +41,6 @@
     [self.contentTableView registerNib:[UINib nibWithNibName:@"NewsTableViewCell" bundle:nil] forCellReuseIdentifier:@"NewsTableViewCell"];
     [self.contentTableView registerNib:[UINib nibWithNibName:@"NewsTwoTableViewCell" bundle:nil] forCellReuseIdentifier:@"NewsTwoTableViewCell"];
     [self.contentTableView registerNib:[UINib nibWithNibName:@"NewsMultipleTableViewCell" bundle:nil] forCellReuseIdentifier:@"NewsMultipleTableViewCell"];
-    [self.contentTableView registerNib:[UINib nibWithNibName:@"ActivityBrokeViewTableViewCell" bundle:nil] forCellReuseIdentifier:@"ActivityBrokeViewTableViewCell"];
-
 //    [self requestNewsListInfo];
 }
 
@@ -56,10 +53,11 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if ([_columnInfoM.ColumnID intValue] == 8) {
-        
         return baoliaoHeight;
     }
-
+    if (!self.dataArr || self.dataArr.count == 0) {
+        return 40;
+    }
     NewsListInfo * newsList = self.dataArr[indexPath.row];
     if ([newsList.Seat intValue] == 1) {
         return 140;
@@ -67,31 +65,22 @@
         return 140;
     }
     return 90;
+    
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if ([_columnInfoM.ColumnID intValue] == 8) {
-     
         return 1;
-    }
-    return self.dataArr.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([_columnInfoM.ColumnID intValue] == 8) {
-        ActivityBrokeViewTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityBrokeViewTableViewCell" forIndexPath:indexPath];
-        cell.activityBrokeViewTableViewHeight = ^(NSInteger height) {
-            baoliaoHeight = height;
-            if (self.activityContentTableViewHeight) {
-                self.activityContentTableViewHeight(baoliaoHeight + 40);
-            }
-        };
-        return cell;
+  
+    NewsListInfo * newsList;
+    if (!self.dataArr || self.dataArr.count == 0) {
+        newsList = [[NewsListInfo alloc]init];
+    }else{
+        newsList = self.dataArr[indexPath.row];
     }
-    
-    NewsListInfo * newsList = self.dataArr[indexPath.row];
     if ([newsList.Seat intValue] == 1) {
         NewsMultipleTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"NewsMultipleTableViewCell" forIndexPath:indexPath];
         cell.newsList = newsList;
-
         return cell;
     }else if ([newsList.Seat intValue] == 4){
         
@@ -99,13 +88,13 @@
         cell.newsList = newsList;
         return cell;
     }
-    
     NewsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"NewsTableViewCell" forIndexPath:indexPath];
     if (!cell) {
         cell = [[NewsTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"NewsTableViewCell"];
     }
     cell.newsList = newsList;
     return cell;
+    
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -115,33 +104,26 @@
     _columnInfoM= nil;
     _columnInfoM = columnInfoM;
     self.titleLabel.text = columnInfoM.Title;
-    [self setNeedsLayout];
-}
-
--(void)layoutSubviews{
-    [super layoutSubviews];
     //缓存数据
-    if ([_columnInfoM.ColumnID intValue] == 8) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        [self.contentTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        self.leftIcon.hidden = YES;
-        self.moreBtn.hidden= YES;
-        return;
-    }else if([_columnInfoM.ColumnID intValue] == 9){
+    if([_columnInfoM.ColumnID intValue] == 9){
         self.dataArr =  [[Utility sharedUtility].voteListModel.rows mutableCopy];
     }else if([_columnInfoM.ColumnID intValue] == 10){
         self.dataArr =  [[Utility sharedUtility].answerListModel.rows mutableCopy];
     }else if([_columnInfoM.ColumnID intValue] ==11){
         self.dataArr =  [[Utility sharedUtility].welfareListModel.rows mutableCopy];
     }
-    [self requestNewsListInfo];
-    
-}
+    [self requestNewsListInfo:_columnInfoM.ColumnID];
 
+}
+-(void)layoutSubviews{
+    [super layoutSubviews];
+
+}
 #pragma mrak - 数据请求
--(void)requestNewsListInfo{
+-(void)requestNewsListInfo:(NSNumber *)Id{
     if (self.dataArr) {
-        [self obtainCellHeight:self.dataArr];
+        [self.contentTableView reloadData];
+        [self obtainCellHeight:self.dataArr ColmunId:Id];
         return;
     }
     NewsViewModel * newsVM = [[NewsViewModel alloc]init];
@@ -149,9 +131,7 @@
         
         //缓存数据
         NewsListModel * newsListModel = returnValue;
-        if ([_columnInfoM.ColumnID intValue] == 8) {
-            
-        }else if([_columnInfoM.ColumnID intValue] == 9){
+        if([_columnInfoM.ColumnID intValue] == 9){
             [Utility sharedUtility].voteListModel = newsListModel;
         }else if([_columnInfoM.ColumnID intValue] == 10){
             [Utility sharedUtility].answerListModel = newsListModel;
@@ -163,13 +143,13 @@
         __weak typeof (self) wealSelf = self;
         self.dataArr = [NSMutableArray array];
         [tempArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (idx < 3) {
-                NewsListInfo * newsList = obj;
+            if (idx < 1) {
+                NewsListInfo * newsList = obj;              
                 [wealSelf.dataArr addObject:newsList];
-                [self.contentTableView reloadData];
-                [self obtainCellHeight:self.dataArr];
             }
         }];
+        [self.contentTableView reloadData];
+        [self obtainCellHeight:self.dataArr ColmunId:_columnInfoM.ColumnID];
     } WithFaileBlock:^{
         
     }];
@@ -177,7 +157,7 @@
     [newsVM fatchNewsInfoID:[NSString stringWithFormat:@"%@",_columnInfoM.ColumnID] pageSize:1 numberOfPage:1];
 }
 
--(NSUInteger)obtainCellHeight:(NSArray *)arr{
+-(NSUInteger)obtainCellHeight:(NSArray *)arr ColmunId:(NSNumber *)Id{
     NSInteger cellHeight= 40;
     for (NewsListInfo * newsList in arr) {
         if ([newsList.Seat intValue] == 1 || [newsList.Seat intValue] == 4) {
@@ -186,12 +166,11 @@
             cellHeight += 90;
         }
     }
-//    if (self.activityContentTableViewHeight) {
-//        self.activityContentTableViewHeight(cellHeight);
-//    }
+    if (self.activityContentTableViewHeight) {
+        self.activityContentTableViewHeight(cellHeight, Id);
+    }
     return cellHeight;
 }
-
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

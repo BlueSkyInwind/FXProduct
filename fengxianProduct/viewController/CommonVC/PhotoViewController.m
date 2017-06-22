@@ -10,8 +10,14 @@
 #import "NewsViewModel.h"
 #import "PhotoModel.h"
 #import "ExplainView.h"
+#import "CommonBottomView.h"
+#import "PopCommentInput.h"
+#import "CommentDetailViewController.h"
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKUI/ShareSDKUI.h>
+#import "UIImage+Color.h"
 
-@interface PhotoViewController ()<UIScrollViewDelegate>{
+@interface PhotoViewController ()<UIScrollViewDelegate,CommonBottomViewDelegate>{
     
     UIScrollView * backScrollView;
     
@@ -27,7 +33,9 @@
 @property (nonatomic,strong)NSMutableArray * explainArray;
 
 @property (nonatomic,assign)NSInteger  selectPhoto;
-@property (nonatomic,strong) UIPageControl *pageControl;
+@property (nonatomic,strong)UIPageControl *pageControl;
+
+@property (nonatomic,strong)CommonBottomView *  commonBottomView;
 
 @end
 
@@ -95,6 +103,21 @@
     
     [self AddImageViewArr];
     [self addExplainView];
+    
+    self.commonBottomView = [[NSBundle mainBundle]loadNibNamed:@"CommonBottomView" owner:self options:nil].lastObject;
+    self.commonBottomView.frame = CGRectMake(0, _k_h - 40, _k_w, 40);
+    self.commonBottomView.backgroundColor = [UIColor blackColor];
+    self.commonBottomView.delegate = self;
+    self.commonBottomView.cuttingLine.hidden = NO;
+//    self.moblielcon.image = [[UIImage imageNamed:@"1_Signin_icon_01"] imageWithTintColor:UI_MAIN_COLOR];
+    [self.commonBottomView.collectBtn setBackgroundImage: [[UIImage imageNamed:@"Collect_Icon_gray"] imageWithTintColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    [self.commonBottomView.spotBtn setBackgroundImage: [[UIImage imageNamed:@"tab_dianzan_Icon_gray"] imageWithTintColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    [self.commonBottomView.shareBtn setBackgroundImage: [[UIImage imageNamed:@"share_Icon"] imageWithTintColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    [self.commonBottomView.shareBtn setBackgroundImage: [[UIImage imageNamed:@"Comment_List_Icon"] imageWithTintColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    [self.commonBottomView.commentImageView setImage:[[UIImage imageNamed:@"comment_click_ICon"] imageWithTintColor:[UIColor whiteColor]]];
+    self.commonBottomView.defaultLabel.textColor = [UIColor whiteColor];
+    [self.view addSubview:self.commonBottomView];
+    
 }
 -(void)addExplainView{
     
@@ -122,6 +145,75 @@
     
     
 }
+#pragma mark - 底部tab点击代理 时间
+-(void)commentButtonClick{
+    if (![[ShareConfig share] isPresentLoginVC:self]) {
+        return;
+    }
+    CommentDetailViewController * commentDetailVC = [[CommentDetailViewController alloc]init];
+    commentDetailVC.detailID = self.detailID;
+    [self.navigationController pushViewController:commentDetailVC animated:YES];
+    
+}
+- (void)spotButtonClick{
+    if (![[ShareConfig share] isPresentLoginVC:self]) {
+        return;
+    }
+    [self requestSpotAndCollect:@"1"];
+}
+- (void)collectButtonClick{
+    if (![[ShareConfig share] isPresentLoginVC:self]) {
+        return;
+    }
+    NewsViewModel * newViewM = [[NewsViewModel alloc]init];
+    [newViewM setBlockWithReturnBlock:^(id returnValue) {
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        if ([returnMsg.returnCode intValue] == 1) {
+            [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:(NSString *)returnMsg.msg];
+            NSString * str = (NSString *)returnMsg.msg;
+            if ([str isEqualToString:@"收藏成功！"] ) {
+                [self.commonBottomView.collectBtn setBackgroundImage:[UIImage imageNamed:@"Collect_Icon_blue"] forState:UIControlStateNormal];
+            }else if([str isEqualToString:@"取消收藏成功！"]){
+                [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"Collect_Icon_gray"] forState:UIControlStateNormal];
+            }
+        }
+    } WithFaileBlock:^{
+        
+    }];
+    [newViewM fatchCollectAndSpotStatus:@"0" ceteID:[NSString stringWithFormat:@"8:%@",self.detailID]];
+}
+- (void)shareButtonClick{
+    [self shareContent:self.photoModel.Share Title:self.photoModel.Title];
+}
+
+- (void)inputCommentTap{
+    if (![[ShareConfig share] isPresentLoginVC:self]) {
+        return;
+    }
+    //    [self showCommentView];
+    PopCommentInput * popComment = [PopCommentInput share];
+    popComment.detailID = self.detailID;
+    popComment.commentId = @"0";
+    [popComment showCommentView];
+}
+-(void)requestSpotAndCollect:(NSString *)type{
+    NewsViewModel * newViewM = [[NewsViewModel alloc]init];
+    [newViewM setBlockWithReturnBlock:^(id returnValue) {
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        if ([returnMsg.returnCode intValue] == 1) {
+            [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:(NSString *)returnMsg.msg];
+            NSString * str = (NSString *)returnMsg.msg;
+            if ([str isEqualToString:@"点赞成功！"] ) {
+                [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"Dianzan_blue"] forState:UIControlStateNormal];
+            }else if([str isEqualToString:@"取消点赞成功！"]){
+                [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"Dianzan_gray"] forState:UIControlStateNormal];
+            }
+        }
+    } WithFaileBlock:^{
+        
+    }];
+    [newViewM fatchCollectAndSpotStatus:type ceteID:[NSString stringWithFormat:@"8:%@",self.detailID]];
+}
 -(void)backScrollViewClick{
     
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
@@ -135,7 +227,6 @@
         }
     } completion:^(BOOL finished) {
         isDispaly = !isDispaly;
-
     }];
 }
 - (void)switchPage:(id)sender{
@@ -173,9 +264,7 @@
         }];
     }
 }
-
 -(void)loadImageWithUrl:(NSString *)str imageView:(UIImageView *)imageView completed:(void(^)(UIImage * image))completedLoad{
-    
     [imageView sd_setImageWithURL:[NSURL URLWithString:str]
                  placeholderImage:[UIImage imageNamed:@"news_placeholder_Icon_1" ]
                           options:SDWebImageAvoidAutoSetImage // 下载完成后不要自动设置image
@@ -184,6 +273,35 @@
                                     completedLoad(image);
                                 });
                         }];
+}
+//分享函数
+-(void)shareContent:(NSString*)urlStr Title:(NSString *)title
+{
+    NSArray *imageArr = @[[UIImage imageNamed:@"logo_share"]];
+    if (imageArr) {
+        NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+        [shareParams SSDKSetupShareParamsByText:@""
+                                         images:imageArr
+                                            url:[NSURL URLWithString:urlStr]
+                                          title:title
+                                           type:SSDKContentTypeAuto];
+        [shareParams SSDKEnableUseClientShare];
+        [ShareSDK showShareActionSheet:nil
+                                 items:nil
+                           shareParams:shareParams
+                   onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
+                       switch (state) {
+                           case SSDKResponseStateSuccess:
+                               [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"分享成功"];
+                               break;
+                               
+                           case SSDKResponseStateFail:
+                               [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"分享失败"];
+                           default:
+                               break;
+                       }
+                   }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

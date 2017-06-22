@@ -102,7 +102,9 @@
 
 #pragma mark - 底部tab点击代理 时间
 -(void)commentButtonClick{
-    
+    if (![[ShareConfig share] isPresentLoginVC:self]) {
+        return;
+    }
     CommentDetailViewController * commentDetailVC = [[CommentDetailViewController alloc]init];
     commentDetailVC.detailModel = self.detailModel;
     commentDetailVC.detailID = self.detailID;
@@ -110,9 +112,15 @@
     
 }
 - (void)spotButtonClick{
+    if (![[ShareConfig share] isPresentLoginVC:self]) {
+        return;
+    }
     [self requestSpotAndCollect:@"1"];
 }
 - (void)collectButtonClick{
+    if (![[ShareConfig share] isPresentLoginVC:self]) {
+        return;
+    }
     NewsViewModel * newViewM = [[NewsViewModel alloc]init];
     [newViewM setBlockWithReturnBlock:^(id returnValue) {
         ReturnMsgBaseClass * returnMsg = returnValue;
@@ -134,6 +142,9 @@
     [self shareContent:self.detailModel.Share Title:self.detailModel.Title];
 }
 - (void)inputCommentTap{
+    if (![[ShareConfig share] isPresentLoginVC:self]) {
+        return;
+    }
 //    [self showCommentView];
     PopCommentInput * popComment = [PopCommentInput share];
     popComment.detailID = self.detailID;
@@ -142,6 +153,9 @@
 }
 #pragma mark - 页面底部评论区点击事件
 -(void)DetailSpotButtonClick{
+    if (![[ShareConfig share] isPresentLoginVC:self]) {
+        return;
+    }
     [self requestSpotAndCollect:@"1"];
 }
 #pragma mark - 新闻详情布局
@@ -240,7 +254,6 @@
     frame.size.height = documentHeight + 10;
     webView.frame = frame;
     if ([self.Species integerValue] == 3) {
-        
         self.detailButtomView.frame = CGRectMake(0, _contentWebView.frame.size.height + 354, _k_w, commentViewHieight);
         self.backScrollView.contentSize = CGSizeMake(_k_w, 390 + documentHeight + 30 + commentViewHieight);
     }else{

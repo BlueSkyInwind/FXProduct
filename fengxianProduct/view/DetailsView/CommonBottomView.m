@@ -14,6 +14,7 @@
     [super awakeFromNib];
     self.CommentViewIcon.layer.cornerRadius = self.CommentViewIcon.frame.size.width / 2;
     self.CommentViewIcon.clipsToBounds = YES;
+    self.cuttingLine.hidden = YES;
     
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(commentViewtap)];
     [self.commentImageView addGestureRecognizer:tap];

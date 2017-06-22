@@ -50,4 +50,13 @@
  */
 -(void)fatchAboutUserMoreInfo:(NSString *)type pageSize:(int)pageSize;
 
+/**
+ 获取用户收藏信息
+
+ @param type 类型
+ @param pageSize 页数
+ */
+-(void)fatchUserCollectInfo:(NSString *)type pageSize:(int)pageSize;
+
+
 @end

@@ -16,6 +16,7 @@
 
 //{"ID":3969,"Seat":2,"Source":"经济日报","Auther":"吴凯、李治国","Title":"上海奉贤“锁定”重点行业和领域，引领传统产业升级","Introduce":"","Species":1,"Image1":"http://infx2.echaokj.cn/Download/sompany/cut/test636325979368202982.jpg","Type":0,"PLNum":0,"Num":258,"Column":"","Time":"2017-06-09 09:00:00"}
 
+@property (nonatomic,strong)NSString<Optional> * CommType;
 @property (nonatomic,strong)NSNumber<Optional> * ID;
 @property (nonatomic,strong)NSNumber<Optional> * Seat;
 @property (nonatomic,strong)NSString<Optional> * Source;

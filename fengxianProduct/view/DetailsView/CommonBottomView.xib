@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -83,6 +83,13 @@
                     <color key="textColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJI-fk-abh">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="hOS-gm-UJf"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -93,10 +100,13 @@
                 <constraint firstItem="Mgj-Hj-IHO" firstAttribute="leading" secondItem="2xA-93-TZU" secondAttribute="trailing" constant="10" id="Iro-k7-dNa"/>
                 <constraint firstAttribute="trailing" secondItem="Czc-KN-yiV" secondAttribute="trailing" constant="10" id="M6k-Tv-hde"/>
                 <constraint firstItem="qfw-Io-ovN" firstAttribute="leading" secondItem="kJo-Cg-13M" secondAttribute="trailing" constant="8" id="PYi-fu-Eht"/>
+                <constraint firstItem="cJI-fk-abh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="QKS-qz-4Os"/>
+                <constraint firstItem="cJI-fk-abh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="R3c-Er-cND"/>
                 <constraint firstItem="Mgj-Hj-IHO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="YOF-uW-hKc"/>
                 <constraint firstItem="kJo-Cg-13M" firstAttribute="leading" secondItem="Mgj-Hj-IHO" secondAttribute="trailing" constant="8" id="ZXP-Tw-MsR"/>
                 <constraint firstItem="LCw-wF-MJM" firstAttribute="leading" secondItem="Mgj-Hj-IHO" secondAttribute="trailing" constant="-12" id="a5K-YD-uG6"/>
                 <constraint firstItem="kJo-Cg-13M" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dGe-9B-V0V"/>
+                <constraint firstAttribute="trailing" secondItem="cJI-fk-abh" secondAttribute="trailing" id="kqP-QO-q6j"/>
                 <constraint firstItem="2xA-93-TZU" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="lyc-O6-pcF"/>
                 <constraint firstItem="WzX-j6-xNk" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="qjq-Jj-f5E"/>
                 <constraint firstItem="qfw-Io-ovN" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="w6s-dq-BSK"/>
@@ -109,6 +119,8 @@
                 <outlet property="collectBtn" destination="qfw-Io-ovN" id="RAj-xb-lwP"/>
                 <outlet property="commentBtn" destination="Mgj-Hj-IHO" id="rbK-DX-zym"/>
                 <outlet property="commentImageView" destination="2xA-93-TZU" id="E2o-gU-uOz"/>
+                <outlet property="cuttingLine" destination="cJI-fk-abh" id="vwR-5r-xlK"/>
+                <outlet property="defaultLabel" destination="WzX-j6-xNk" id="IpT-BK-mIW"/>
                 <outlet property="shareBtn" destination="Czc-KN-yiV" id="FY1-aU-NV1"/>
                 <outlet property="spotBtn" destination="kJo-Cg-13M" id="Z3x-kl-7Qm"/>
             </connections>
@@ -118,7 +130,7 @@
     <resources>
         <image name="Collect_Icon_gray" width="24" height="24"/>
         <image name="Comment_List_Icon" width="24" height="24"/>
-        <image name="comment_click_ICon" width="16" height="16"/>
+        <image name="comment_click_ICon" width="175" height="32"/>
         <image name="share_Icon" width="24" height="24"/>
         <image name="tab_dianzan_Icon_gray" width="24" height="24"/>
     </resources>

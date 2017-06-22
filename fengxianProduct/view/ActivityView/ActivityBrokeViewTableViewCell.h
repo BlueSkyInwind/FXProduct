@@ -21,8 +21,16 @@ typedef void (^ActivityBrokeViewTableViewHeight)(NSInteger  height);
 @property (weak, nonatomic) IBOutlet UIButton *baoliaoBtn;
 @property (weak, nonatomic) IBOutlet UIButton *contributeBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *backImageView;
-
 @property (weak, nonatomic) IBOutlet UIView *headerView;
+
+@property (weak, nonatomic) IBOutlet UIView *backView;
+@property (weak, nonatomic) IBOutlet UIImageView *titleImage;
+@property (weak, nonatomic) IBOutlet UILabel *updateList;
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+@property (nonatomic,strong)ColumnInfoModel * columnInfoM;
+
 
 @property (nonatomic,copy)ActivityBrokeViewTableViewHeight activityBrokeViewTableViewHeight;
 
