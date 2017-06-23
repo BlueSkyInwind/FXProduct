@@ -175,7 +175,6 @@
     
     
 }
-
 #pragma mark - 数据请求
 -(void)requestBannerInfo{
     BannerViewModel * bannerVM = [[BannerViewModel alloc]init];
