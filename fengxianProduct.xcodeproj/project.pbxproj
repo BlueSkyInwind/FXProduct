@@ -351,6 +351,7 @@
 		84C32E571EFD11E500373BC5 /* AddIamgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C32E561EFD11E500373BC5 /* AddIamgeView.m */; };
 		84C32E5A1EFD124000373BC5 /* AddImageAndContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C32E591EFD124000373BC5 /* AddImageAndContentView.m */; };
 		84C32E5C1EFD127B00373BC5 /* AddIamgeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C32E5B1EFD127B00373BC5 /* AddIamgeView.xib */; };
+		84C32E5E1EFD363200373BC5 /* AddImageAndContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C32E5D1EFD363200373BC5 /* AddImageAndContentView.xib */; };
 		84D2483A1EE7D44A00937D28 /* ReturnMsgBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D248391EE7D44A00937D28 /* ReturnMsgBaseClass.m */; };
 		84D2483D1EE7FB7700937D28 /* SMSViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2483C1EE7FB7700937D28 /* SMSViewModel.m */; };
 		84D248401EE8014900937D28 /* RegisterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2483F1EE8014900937D28 /* RegisterViewModel.m */; };
@@ -993,6 +994,7 @@
 		84C32E581EFD124000373BC5 /* AddImageAndContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddImageAndContentView.h; sourceTree = "<group>"; };
 		84C32E591EFD124000373BC5 /* AddImageAndContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddImageAndContentView.m; sourceTree = "<group>"; };
 		84C32E5B1EFD127B00373BC5 /* AddIamgeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddIamgeView.xib; sourceTree = "<group>"; };
+		84C32E5D1EFD363200373BC5 /* AddImageAndContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddImageAndContentView.xib; sourceTree = "<group>"; };
 		84D248381EE7D44A00937D28 /* ReturnMsgBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReturnMsgBaseClass.h; sourceTree = "<group>"; };
 		84D248391EE7D44A00937D28 /* ReturnMsgBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReturnMsgBaseClass.m; sourceTree = "<group>"; };
 		84D2483B1EE7FB7700937D28 /* SMSViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSViewModel.h; sourceTree = "<group>"; };
@@ -1075,6 +1077,7 @@
 				84C32E5B1EFD127B00373BC5 /* AddIamgeView.xib */,
 				84C32E581EFD124000373BC5 /* AddImageAndContentView.h */,
 				84C32E591EFD124000373BC5 /* AddImageAndContentView.m */,
+				84C32E5D1EFD363200373BC5 /* AddImageAndContentView.xib */,
 			);
 			path = ActivityView;
 			sourceTree = "<group>";
@@ -2588,6 +2591,7 @@
 				84BDC84E1EF26C27006F4DDE /* FeedbackViewController.xib in Resources */,
 				8431F3451EE8FD9C00295A18 /* MoreNavView.xib in Resources */,
 				221A51191EE99BCD00A543C0 /* UserInfoTableViewCell.xib in Resources */,
+				84C32E5E1EFD363200373BC5 /* AddImageAndContentView.xib in Resources */,
 				8440D6C81EEFB28F00C59B2C /* SearchHistoryTableViewCell.xib in Resources */,
 				84748E691EF3A78D00831016 /* IntegralGoodsCollectionViewCell.xib in Resources */,
 				8440D6DA1EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.xib in Resources */,

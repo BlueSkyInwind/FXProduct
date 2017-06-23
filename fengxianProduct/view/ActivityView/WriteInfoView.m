@@ -28,13 +28,8 @@
     self.seletTypeView.layer.borderWidth = 0.5;
     self.seletTypeView.layer.borderColor = kUIColorFromRGB(0x5e5e5e).CGColor;
     
-//    self.addPhotoBtn = [[AddPhotoImageItem alloc]initWithButton:@"feedback_image_Icon" withImageName:@"" atIndex:0 editable:NO isShowButtonImage:YES];
-//    self.addPhotoBtn.frame = CGRectMake(10, 5, _k_w * 0.15, _k_w * 0.15);
-//    self.addPhotoBtn.delegate = self;
-//    [self.imageDispalyView addSubview:self.addPhotoBtn];
-    
     self.addImageView = [[NSBundle mainBundle]loadNibNamed:@"AddIamgeView" owner:self options:nil].lastObject;
-    self.addImageView.frame = CGRectMake(10, 5, _k_w * 0.16, _k_w * 0.16);
+    self.addImageView.frame = CGRectMake(10, 5, _k_w * 0.18, _k_w * 0.18);
     [self.addImageView.contentBtn setBackgroundImage:[UIImage imageNamed:@"feedback_image_Icon"] forState:UIControlStateNormal];
     self.addImageView.isDelete = NO;
     self.addImageView.delegate = self;
@@ -63,7 +58,7 @@
     if (photosArr.count == imageArray.count) {
         return;
     }
-    CGRect frame = CGRectMake(10, 5, _k_w * 0.16, _k_w * 0.16);
+    CGRect frame = CGRectMake(10, 5, _k_w * 0.18, _k_w * 0.18);
     int n = (int) [imageArray count];
     int row = (n-1) / 3;
     int col = (n-1) % 3;
@@ -71,6 +66,7 @@
     frame.origin.x = frame.origin.x + frame.size.width * col + 30 * col;
     frame.origin.y = frame.origin.y + (frame.size.height + 10) * row  + 20 * row;
      AddIamgeView * imageItem  = [[NSBundle mainBundle]loadNibNamed:@"AddIamgeView" owner:self options:nil].lastObject;  imageItem.isDelete = YES;
+    imageItem.deleteImageIcon.hidden = NO;
     [imageItem setAIndex:n-1];
     
     [imageItem setFrame:frame];
@@ -85,7 +81,7 @@
     //move the add button
     row = n / 3;
     col = n % 3;
-    frame = CGRectMake(10, 5, _k_w * 0.16, _k_w * 0.16);
+    frame = CGRectMake(10, 5, _k_w * 0.18, _k_w * 0.18);
     frame.origin.x = frame.origin.x + frame.size.width * col + 30 * col ;
     frame.origin.y = frame.origin.y + (frame.size.height + 10) * row   + 20 * row;
     NSLog(@"add button col:%d,row:%d",col,row);
@@ -130,6 +126,20 @@
             [self.delegate submitImageClick];
         }
     }
+}
+-(void)addContentImageAndContentClick{
+    
+    
+    
+    
+    
+}
+-(void)DeleteContentImageAndContentClick:(NSInteger)index{
+    
+    
+    
+    
+    
 }
 
 

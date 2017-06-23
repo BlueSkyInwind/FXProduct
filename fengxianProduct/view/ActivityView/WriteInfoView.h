@@ -10,7 +10,7 @@
 #import "XXTextView.h"
 #import "AddPhotoImageItem.h"
 #import "AddIamgeView.h"
-
+#import "AddImageAndContentView.h"
 @protocol  WriteInfoViewDelegate <NSObject>
 
 -(void)submitButtonClick;
@@ -22,7 +22,7 @@
 
 
 
-@interface WriteInfoView : UIView<AddPhotoImageItemDelegate,AddIamgeViewDelegate>{
+@interface WriteInfoView : UIView<AddPhotoImageItemDelegate,AddIamgeViewDelegate,AddImageAndContentViewDelegate>{
     
     NSMutableArray *  photosArr;
     NSMutableArray *  imageArray;
