@@ -82,7 +82,7 @@
     NSString * type = [imagedic allKeys].firstObject;
     NSString *imageStr = [imageDataStr URLEncodedString];
     userSourceModel * userSource = [[userSourceModel alloc]init];
-    userSource.File = imageStr;
+    userSource.File = imageDataStr;
     userSource.format = type;
     NSDictionary * dic = [userSource toDictionary];
 

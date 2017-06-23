@@ -148,23 +148,8 @@
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BLw-mS-4Mk">
                             <rect key="frame" x="10" y="261" width="355" height="60"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGV-oL-24Y">
-                                    <rect key="frame" x="10" y="5" width="50" height="50"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="50" id="HBp-cc-aZt"/>
-                                        <constraint firstAttribute="width" constant="50" id="lQz-ih-RbM"/>
-                                    </constraints>
-                                    <state key="normal" backgroundImage="feedback_image_Icon"/>
-                                    <connections>
-                                        <action selector="selectUploadImageClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="hwn-vp-7fV"/>
-                                    </connections>
-                                </button>
-                            </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="gGV-oL-24Y" firstAttribute="leading" secondItem="BLw-mS-4Mk" secondAttribute="leading" constant="10" id="an4-Jg-th9"/>
-                                <constraint firstItem="gGV-oL-24Y" firstAttribute="centerY" secondItem="BLw-mS-4Mk" secondAttribute="centerY" id="hLX-GG-Z5V"/>
                                 <constraint firstAttribute="height" constant="60" id="zPA-TB-veo"/>
                             </constraints>
                         </view>

@@ -54,7 +54,7 @@
     [feedbackVM uploadAccountFeedfackInfo:self.contentTextView.text imageURl:uploadimageURL userNumber:self.contactWayTextField.text];
 }
 - (IBAction)selectImageBtnCilck:(id)sender {
-    [[CameraHelper shareManager]obtainController:self userSeletedImage:^(UIImage *userImage, NSData *userImageData, NSString * userimageName) {
+    [[CameraHelper shareManager]obtainController:self isVedio:NO userSeletedImage:^(UIImage *userImage, NSData *userImageData, NSString * userimageName) {
         [self uploadAvatar:@{userimageName : userImageData} finsh:^(bool isSuccess) {
             
         }];

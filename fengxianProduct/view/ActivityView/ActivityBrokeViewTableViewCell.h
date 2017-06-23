@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WriteInfoView.h"
 
 typedef void (^ActivityBrokeViewTableViewHeight)(NSInteger  height);
 
@@ -17,6 +17,7 @@ typedef void (^ActivityBrokeViewTableViewHeight)(NSInteger  height);
     BOOL isContribute;
     
 }
+@property (strong,nonatomic)WriteInfoView * writeInfoView;
 
 @property (weak, nonatomic) IBOutlet UIButton *baoliaoBtn;
 @property (weak, nonatomic) IBOutlet UIButton *contributeBtn;
@@ -31,7 +32,7 @@ typedef void (^ActivityBrokeViewTableViewHeight)(NSInteger  height);
 
 @property (nonatomic,strong)ColumnInfoModel * columnInfoM;
 
-
+@property (nonatomic,strong)UIViewController * vc;
 @property (nonatomic,copy)ActivityBrokeViewTableViewHeight activityBrokeViewTableViewHeight;
 
 

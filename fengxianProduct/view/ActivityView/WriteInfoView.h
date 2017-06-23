@@ -8,7 +8,26 @@
 
 #import <UIKit/UIKit.h>
 #import "XXTextView.h"
-@interface WriteInfoView : UIView
+#import "AddPhotoImageItem.h"
+#import "AddIamgeView.h"
+
+@protocol  WriteInfoViewDelegate <NSObject>
+
+-(void)submitButtonClick;
+-(void)submitImageClick;
+-(void)submitVedioClick;
+
+
+@end
+
+
+
+@interface WriteInfoView : UIView<AddPhotoImageItemDelegate,AddIamgeViewDelegate>{
+    
+    NSMutableArray *  photosArr;
+    NSMutableArray *  imageArray;
+
+}
 
 @property (weak, nonatomic) IBOutlet UIView *contributeView;
 
@@ -26,6 +45,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *vedioClickBtn;
 
 @property (weak, nonatomic) IBOutlet UIButton *submitBtn;
+
+@property (assign, nonatomic)id<WriteInfoViewDelegate> delegate;
+@property (nonatomic,strong) AddIamgeView * addImageView;
+
+
+-(void)Addbutton:(NSData *)image;
 
 
 

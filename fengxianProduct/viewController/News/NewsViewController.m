@@ -89,6 +89,9 @@
     }
     NSMutableArray* childVCs = [NSMutableArray array];
     [childVCs addObject:[[HomePageViewController alloc] init]];
+    if (items.count == 0) {
+        return;
+    }
     for (int  i = 0; i < items.count - 1; i++) {
         SubViewController * subVc = [[SubViewController alloc] init];
         subVc.columnID = i + 1;

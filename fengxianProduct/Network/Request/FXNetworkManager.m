@@ -32,50 +32,50 @@
 
 - (void)POSTWithURL:(NSString *)strURL parameters:(id)parameters finished:(FinishedBlock)finished failure:(FailureBlock)failure
 {
-     if (![Utility sharedUtility].networkState) {
-            [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"请确认您的手机是否连接到网络!"];
-            return;
-        } else {
-            MBProgressHUD *_waitView = [self loadingHUD];
-            [_waitView show:YES];
-            [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
-            NSDictionary *paramDic = parameters;
-            DLog(@"请求url:---%@\n加密前参数:----%@",strURL,parameters);
-            
-            AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-            manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-            if (parameters) {
-                manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-                [manager.requestSerializer setValue:@"application/x-www-form-urlencoded;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
-                  [manager.requestSerializer setValue:@"Keep-Alive" forHTTPHeaderField:@"Connection"];
-            }
-            manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/json",@"text/html",@"application/x-www-form-urlencoded",@"application/json",@"charset=UTF-8",@"text/plain", nil];
-            manager.requestSerializer.timeoutInterval = 30.0;
-            DLog(@"%@",parameters);
-            [manager POST:strURL parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
-                
-            } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-      
-//                NSDictionary *dic = [NSDictionary dictionaryWithDictionary:responseObject];
-                NSString *jsonStr = @"";
-                if ([responseObject isKindOfClass:[NSData class]]) {
-                    jsonStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-                }else{
-                    NSData *data = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
-                    jsonStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                }
-                DLog(@"response json --- %@",jsonStr);
-                [_waitView removeFromSuperview];
-                [AFNetworkActivityIndicatorManager sharedManager].enabled = NO;
-                finished(Enum_SUCCESS,responseObject);
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                [_waitView removeFromSuperview];
-                [AFNetworkActivityIndicatorManager sharedManager].enabled = NO;
-                failure(Enum_FAIL,error);
-                [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"服务器请求失败,请重试!"];
-                DLog(@"error---%@",error.description);
-            }];
+    if (![Utility sharedUtility].networkState) {
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"请确认您的手机是否连接到网络!"];
+        return;
+    } else {
+        MBProgressHUD *_waitView = [self loadingHUD];
+        [_waitView show:YES];
+        [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+        NSDictionary *paramDic = parameters;
+        DLog(@"请求url:---%@\n加密前参数:----%@",strURL,parameters);
+        
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        if (parameters) {
+            manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+            [manager.requestSerializer setValue:@"application/x-www-form-urlencoded;charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+            [manager.requestSerializer setValue:@"Keep-Alive" forHTTPHeaderField:@"Connection"];
         }
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/json",@"text/html",@"application/x-www-form-urlencoded",@"application/json",@"charset=UTF-8",@"text/plain", nil];
+        manager.requestSerializer.timeoutInterval = 30.0;
+        DLog(@"%@",parameters);
+        [manager POST:strURL parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
+            
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+            //                NSDictionary *dic = [NSDictionary dictionaryWithDictionary:responseObject];
+            NSString *jsonStr = @"";
+            if ([responseObject isKindOfClass:[NSData class]]) {
+                jsonStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+            }else{
+                NSData *data = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
+                jsonStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            }
+            DLog(@"response json --- %@",jsonStr);
+            [_waitView removeFromSuperview];
+            [AFNetworkActivityIndicatorManager sharedManager].enabled = NO;
+            finished(Enum_SUCCESS,responseObject);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            [_waitView removeFromSuperview];
+            [AFNetworkActivityIndicatorManager sharedManager].enabled = NO;
+            failure(Enum_FAIL,error);
+            [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"服务器请求失败,请重试!"];
+            DLog(@"error---%@",error.description);
+        }];
+    }
 }
 - (void)POSTWithNetworkStatusURL:(NSString *)strURL parameters:(id)parameters finished:(FinishedBlock)finished failure:(FailureBlock)failure
 {
