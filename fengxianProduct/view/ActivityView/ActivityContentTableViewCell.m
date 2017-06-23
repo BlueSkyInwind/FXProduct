@@ -25,8 +25,9 @@
     [self.moreBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     self.leftIcon.hidden = NO;
     self.moreBtn.hidden= NO;
-    
     baoliaoHeight = 220;
+    
+    [self configureView];
 
 }
 
@@ -36,12 +37,11 @@
     self.contentTableView.dataSource = self;
     self.contentTableView.backgroundColor = [UIColor whiteColor];
     self.contentTableView.scrollEnabled = NO;
-//    self.contentTableView.separatorStyle =  UITableViewCellSeparatorStyleNone;
+    self.contentTableView.separatorStyle =  UITableViewCellSeparatorStyleNone;
     
     [self.contentTableView registerNib:[UINib nibWithNibName:@"NewsTableViewCell" bundle:nil] forCellReuseIdentifier:@"NewsTableViewCell"];
     [self.contentTableView registerNib:[UINib nibWithNibName:@"NewsTwoTableViewCell" bundle:nil] forCellReuseIdentifier:@"NewsTwoTableViewCell"];
     [self.contentTableView registerNib:[UINib nibWithNibName:@"NewsMultipleTableViewCell" bundle:nil] forCellReuseIdentifier:@"NewsMultipleTableViewCell"];
-//    [self requestNewsListInfo];
 }
 
 - (IBAction)moreBtnClick:(id)sender {
@@ -51,10 +51,7 @@
     }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    if ([_columnInfoM.ColumnID intValue] == 8) {
-        return baoliaoHeight;
-    }
+
     if (!self.dataArr || self.dataArr.count == 0) {
         return 40;
     }
@@ -65,19 +62,17 @@
         return 140;
     }
     return 90;
-    
 }
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (self.dataArr.count == 0) {
+        return 0;
+    }
         return 1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
   
-    NewsListInfo * newsList;
-    if (!self.dataArr || self.dataArr.count == 0) {
-        newsList = [[NewsListInfo alloc]init];
-    }else{
-        newsList = self.dataArr[indexPath.row];
-    }
+    NewsListInfo * newsList = self.dataArr[indexPath.row];
     if ([newsList.Seat intValue] == 1) {
         NewsMultipleTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"NewsMultipleTableViewCell" forIndexPath:indexPath];
         cell.newsList = newsList;
@@ -94,9 +89,10 @@
     }
     cell.newsList = newsList;
     return cell;
-    
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
     
     
 }
@@ -113,8 +109,8 @@
         self.dataArr =  [[Utility sharedUtility].welfareListModel.rows mutableCopy];
     }
     [self requestNewsListInfo:_columnInfoM.ColumnID];
-
 }
+
 -(void)layoutSubviews{
     [super layoutSubviews];
 

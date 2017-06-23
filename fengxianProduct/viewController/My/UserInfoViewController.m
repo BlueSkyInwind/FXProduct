@@ -210,7 +210,7 @@
         case 0:{
             switch (indexPath.row) {
                 case 0:{
-                    [[CameraHelper shareManager]obtainController:self userSeletedImage:^(UIImage *userImage, NSData *userImageData, NSString * userimageName) {
+                    [[CameraHelper shareManager]obtainController:self isVedio:NO userSeletedImage:^(UIImage *userImage, NSData *userImageData, NSString * userimageName) {
                         [self uploadAvatar:@{userimageName : userImageData} finsh:^(bool isSuccess) {
                             [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
                         }];

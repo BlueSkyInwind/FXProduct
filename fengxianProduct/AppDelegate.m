@@ -34,9 +34,8 @@ AppDelegate *app = nil;
     [self monitorNetworkState];
     //shareSDK
     [ShareConfig configDefaultShare];
-    
     [self performSelector:@selector(enter) withObject:self afterDelay:4];
-//    [self enter];
+//   [self enter];
     app = self;
 
     return YES;

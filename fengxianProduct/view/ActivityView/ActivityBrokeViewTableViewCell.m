@@ -7,14 +7,12 @@
 //
 
 #import "ActivityBrokeViewTableViewCell.h"
-#import "WriteInfoView.h"
-
-@interface ActivityBrokeViewTableViewCell(){
+#import "MoreViewModel.h"
+@interface ActivityBrokeViewTableViewCell()<WriteInfoViewDelegate>{
     
     
 
 }
-@property (strong,nonatomic)WriteInfoView * writeInfoView;
 @end
 
 @implementation ActivityBrokeViewTableViewCell
@@ -34,13 +32,11 @@
     
     isBaoliao = NO;
     isContribute = NO;
-    
 }
 
 -(void)setColumnInfoM:(ColumnInfoModel *)columnInfoM{
     _columnInfoM = columnInfoM;
     self.titleLabel.text = columnInfoM.Title;
-    
 }
 
 - (IBAction)baoliaoBtnClick:(id)sender {
@@ -67,7 +63,6 @@
     if (isContribute) {
         [self.contributeBtn setBackgroundColor:UI_MAIN_COLOR];
         [self loadWriteInfoView:2];
-
     }else{
         [self.contributeBtn setBackgroundColor:kUIColorFromRGB(0x5e5e5e)];
         [self removeWriteInfoView];
@@ -91,6 +86,7 @@
     }
     self.writeInfoView = [[NSBundle mainBundle]loadNibNamed:@"WriteInfoView" owner:self options:nil].lastObject;
     self.writeInfoView.backgroundColor = [UIColor whiteColor];
+    self.writeInfoView.delegate =self;
     [self.backView addSubview:self.writeInfoView];
     [self.writeInfoView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.headerView.mas_bottom);
@@ -105,7 +101,7 @@
         self.writeInfoView.contributeView.hidden= NO;
     }
     if (self.activityBrokeViewTableViewHeight) {
-        self.activityBrokeViewTableViewHeight(570);
+        self.activityBrokeViewTableViewHeight(610);
     }
 }
 -(void)removeWriteInfoView{
@@ -116,7 +112,44 @@
         self.activityBrokeViewTableViewHeight(260);
     }
 }
+#pragma mrak - WriteInfoViewDelegate
+-(void)submitButtonClick{
+    
+    
+    
+    
+}
+-(void)submitImageClick{
+    __weak typeof (self) weakSelf = self;
+    [[CameraHelper shareManager]obtainController:self.vc isVedio:NO userSeletedImage:^(UIImage *userImage, NSData *userImageData, NSString * userimageName) {
+        [self uploadAvatar:@{userimageName : userImageData} finsh:^(bool isSuccess,NSString * contentUrlStr) {
+            [weakSelf.writeInfoView Addbutton:userImageData];
+        }];
+    }];
+}
 
+-(void)submitVedioClick{
+    __weak typeof (self) weakSelf = self;
+    [[CameraHelper shareManager]obtainController:self.vc isVedio:YES userSeletedImage:^(UIImage *userImage, NSData *userImageData, NSString * userimageName) {
+        [self uploadAvatar:@{userimageName : userImageData} finsh:^(bool isSuccess,NSString * contentUrlStr) {
+            [weakSelf.writeInfoView.vedioClickBtn setBackgroundImage:userImage forState:UIControlStateNormal];
+        }];
+    }];
+}
+
+-(void)uploadAvatar:(NSDictionary *)data  finsh:(void(^)(bool isSuccess ,NSString * contentUrlStr))finsh{
+    
+    MoreViewModel * moreVM = [[MoreViewModel alloc]init];
+    [moreVM setBlockWithReturnBlock:^(id returnValue) {
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        if ([returnMsg.returnCode intValue] == 1) {
+            finsh(YES,returnMsg.Url);
+        }
+    } WithFaileBlock:^{
+        
+    }];
+    [moreVM uploadAvatarImage:data];
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

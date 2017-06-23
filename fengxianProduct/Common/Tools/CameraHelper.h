@@ -22,7 +22,7 @@ typedef void(^UserSelectedImage)(UIImage * image,NSData * imageData,NSString * i
 @property (nonatomic,copy)UserSelectedImage seletedImage;
 
 +(CameraHelper *)shareManager;
--(void)obtainController:(UIViewController *)control userSeletedImage:(void(^)(UIImage *userImage, NSData *userImageData, NSString * userimageName))userSeletedImage;
+-(void)obtainController:(UIViewController *)control isVedio:(BOOL)isVedio userSeletedImage:(void(^)(UIImage *userImage, NSData *userImageData, NSString * userimageName))userSeletedImage;
 -(void)openCamera;
 -(void)openPhotoAblum;
 @end

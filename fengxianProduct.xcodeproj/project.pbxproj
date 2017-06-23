@@ -347,6 +347,11 @@
 		84BDC8641EF29603006F4DDE /* ActivityBrokeViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BDC8621EF29603006F4DDE /* ActivityBrokeViewTableViewCell.m */; };
 		84BDC8651EF29603006F4DDE /* ActivityBrokeViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BDC8631EF29603006F4DDE /* ActivityBrokeViewTableViewCell.xib */; };
 		84BDC8681EF29C93006F4DDE /* WriteInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BDC8671EF29C93006F4DDE /* WriteInfoView.m */; };
+		84C32E541EFCF6B700373BC5 /* AddPhotoImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C32E531EFCF6B700373BC5 /* AddPhotoImageItem.m */; };
+		84C32E571EFD11E500373BC5 /* AddIamgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C32E561EFD11E500373BC5 /* AddIamgeView.m */; };
+		84C32E5A1EFD124000373BC5 /* AddImageAndContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C32E591EFD124000373BC5 /* AddImageAndContentView.m */; };
+		84C32E5C1EFD127B00373BC5 /* AddIamgeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C32E5B1EFD127B00373BC5 /* AddIamgeView.xib */; };
+		84C32E5E1EFD363200373BC5 /* AddImageAndContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C32E5D1EFD363200373BC5 /* AddImageAndContentView.xib */; };
 		84D2483A1EE7D44A00937D28 /* ReturnMsgBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D248391EE7D44A00937D28 /* ReturnMsgBaseClass.m */; };
 		84D2483D1EE7FB7700937D28 /* SMSViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2483C1EE7FB7700937D28 /* SMSViewModel.m */; };
 		84D248401EE8014900937D28 /* RegisterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2483F1EE8014900937D28 /* RegisterViewModel.m */; };
@@ -982,6 +987,14 @@
 		84BDC8631EF29603006F4DDE /* ActivityBrokeViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityBrokeViewTableViewCell.xib; sourceTree = "<group>"; };
 		84BDC8661EF29C93006F4DDE /* WriteInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteInfoView.h; sourceTree = "<group>"; };
 		84BDC8671EF29C93006F4DDE /* WriteInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteInfoView.m; sourceTree = "<group>"; };
+		84C32E521EFCF6B700373BC5 /* AddPhotoImageItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPhotoImageItem.h; sourceTree = "<group>"; };
+		84C32E531EFCF6B700373BC5 /* AddPhotoImageItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPhotoImageItem.m; sourceTree = "<group>"; };
+		84C32E551EFD11E500373BC5 /* AddIamgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddIamgeView.h; sourceTree = "<group>"; };
+		84C32E561EFD11E500373BC5 /* AddIamgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddIamgeView.m; sourceTree = "<group>"; };
+		84C32E581EFD124000373BC5 /* AddImageAndContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddImageAndContentView.h; sourceTree = "<group>"; };
+		84C32E591EFD124000373BC5 /* AddImageAndContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddImageAndContentView.m; sourceTree = "<group>"; };
+		84C32E5B1EFD127B00373BC5 /* AddIamgeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddIamgeView.xib; sourceTree = "<group>"; };
+		84C32E5D1EFD363200373BC5 /* AddImageAndContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddImageAndContentView.xib; sourceTree = "<group>"; };
 		84D248381EE7D44A00937D28 /* ReturnMsgBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReturnMsgBaseClass.h; sourceTree = "<group>"; };
 		84D248391EE7D44A00937D28 /* ReturnMsgBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReturnMsgBaseClass.m; sourceTree = "<group>"; };
 		84D2483B1EE7FB7700937D28 /* SMSViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSViewModel.h; sourceTree = "<group>"; };
@@ -1059,6 +1072,12 @@
 				84BDC8661EF29C93006F4DDE /* WriteInfoView.h */,
 				84BDC8671EF29C93006F4DDE /* WriteInfoView.m */,
 				2207B4641EF2C70300EF8036 /* WriteInfoView.xib */,
+				84C32E551EFD11E500373BC5 /* AddIamgeView.h */,
+				84C32E561EFD11E500373BC5 /* AddIamgeView.m */,
+				84C32E5B1EFD127B00373BC5 /* AddIamgeView.xib */,
+				84C32E581EFD124000373BC5 /* AddImageAndContentView.h */,
+				84C32E591EFD124000373BC5 /* AddImageAndContentView.m */,
+				84C32E5D1EFD363200373BC5 /* AddImageAndContentView.xib */,
 			);
 			path = ActivityView;
 			sourceTree = "<group>";
@@ -1649,6 +1668,7 @@
 		84AABC5E1EE69F76001AA7C0 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				84C32E511EFCF6B700373BC5 /* AddPhotos */,
 				84375A741EF9299F008D2455 /* SBPlayer */,
 				84BDC84F1EF26CE7006F4DDE /* XXTextView */,
 				22B905691EED95E300ED8B71 /* JZLCycleView */,
@@ -2345,6 +2365,15 @@
 			path = XXTextView;
 			sourceTree = "<group>";
 		};
+		84C32E511EFCF6B700373BC5 /* AddPhotos */ = {
+			isa = PBXGroup;
+			children = (
+				84C32E521EFCF6B700373BC5 /* AddPhotoImageItem.h */,
+				84C32E531EFCF6B700373BC5 /* AddPhotoImageItem.m */,
+			);
+			path = AddPhotos;
+			sourceTree = "<group>";
+		};
 		84D248371EE7CFD400937D28 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -2562,6 +2591,7 @@
 				84BDC84E1EF26C27006F4DDE /* FeedbackViewController.xib in Resources */,
 				8431F3451EE8FD9C00295A18 /* MoreNavView.xib in Resources */,
 				221A51191EE99BCD00A543C0 /* UserInfoTableViewCell.xib in Resources */,
+				84C32E5E1EFD363200373BC5 /* AddImageAndContentView.xib in Resources */,
 				8440D6C81EEFB28F00C59B2C /* SearchHistoryTableViewCell.xib in Resources */,
 				84748E691EF3A78D00831016 /* IntegralGoodsCollectionViewCell.xib in Resources */,
 				8440D6DA1EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.xib in Resources */,
@@ -2575,6 +2605,7 @@
 				849FDDFE1EFBC6DC002159F9 /* MyCollectTableViewCell.xib in Resources */,
 				84BDC8651EF29603006F4DDE /* ActivityBrokeViewTableViewCell.xib in Resources */,
 				849FDDF91EFBC670002159F9 /* MyMessageViewController.xib in Resources */,
+				84C32E5C1EFD127B00373BC5 /* AddIamgeView.xib in Resources */,
 				84375A881EF92BFB008D2455 /* full_screen@2x.png in Resources */,
 				84375A451EF9052A008D2455 /* CommentInputView.xib in Resources */,
 				22B905591EECF86600ED8B71 /* NewsTableViewCell.xib in Resources */,
@@ -2698,6 +2729,7 @@
 				229520DF1EF82FF200FA2351 /* CommonBottomView.m in Sources */,
 				8431F34D1EE9330200295A18 /* MoreViewModel.m in Sources */,
 				84AABDDF1EE69F76001AA7C0 /* UIView+SDExtension.m in Sources */,
+				84C32E571EFD11E500373BC5 /* AddIamgeView.m in Sources */,
 				84D2483D1EE7FB7700937D28 /* SMSViewModel.m in Sources */,
 				8439A4851EEE6B43002ADF1B /* NSString+URL.m in Sources */,
 				8458624F1EE68A7100AF52B3 /* MBPAlertView.m in Sources */,
@@ -2744,6 +2776,7 @@
 				229520DC1EF6CCDC00FA2351 /* DetailViewController.m in Sources */,
 				22B905391EEC4B5400ED8B71 /* TGMoreLayout.m in Sources */,
 				84748E5F1EF3789800831016 /* MyIntegralViewController.m in Sources */,
+				84C32E541EFCF6B700373BC5 /* AddPhotoImageItem.m in Sources */,
 				84AABEE31EE6AF41001AA7C0 /* BaseViewController.m in Sources */,
 				84AABE541EE6A003001AA7C0 /* UILabel+FlickerNumber.m in Sources */,
 				22B905621EECFE1C00ED8B71 /* NewsViewModel.m in Sources */,
@@ -2820,6 +2853,7 @@
 				22B905581EECF86600ED8B71 /* NewsTableViewCell.m in Sources */,
 				84AABDCF1EE69F76001AA7C0 /* UIViewController+LewPopupViewController.m in Sources */,
 				22B9053D1EEC4B5400ED8B71 /* TGSementBarVC.m in Sources */,
+				84C32E5A1EFD124000373BC5 /* AddImageAndContentView.m in Sources */,
 				226BDF831EE6859D009D2A3F /* main.m in Sources */,
 				84AABEE01EE6AF41001AA7C0 /* BaseIndexViewController.m in Sources */,
 				845862641EE68A7100AF52B3 /* UserInfoObj.m in Sources */,

@@ -16,7 +16,7 @@
 #import "ActivityContentTableViewCell.h"
 #import "ActivityBrokeViewTableViewCell.h"
 
-@interface ActivityViewController ()<UITableViewDelegate,UITableViewDataSource,JZLCycleViewDelegate>{
+@interface ActivityViewController ()<UITableViewDelegate,UITableViewDataSource,JZLCycleViewDelegate,WriteInfoViewDelegate>{
     
     NSMutableArray * dataArr;
     NSMutableArray * bannerArr;
@@ -46,7 +46,7 @@
     dataArr = [NSMutableArray array];
     [self getColumnData];
     bannerArr = [NSMutableArray array];
-    cellheight = 120;
+    cellheight = 140;
     baoliaoCellheight = 260;
     tableViewHeight = 160;
     if (UI_IS_IPHONE6) {
@@ -128,35 +128,37 @@
         [cell addSubview:_cycleView];
         return cell;
     }else{
-        
         if (indexPath.row == 0) {
             ActivityBrokeViewTableViewCell * firstCell = [tableView dequeueReusableCellWithIdentifier:@"ActivityBrokeViewTableViewCell" forIndexPath:indexPath];
             firstCell.columnInfoM = dataArr[indexPath.row];
+            firstCell.vc = self;
             __weak typeof (self) weakSelf = self;
             firstCell.activityBrokeViewTableViewHeight = ^(NSInteger height) {
                 baoliaoCellheight = height;
-                NSIndexPath * indexP = [NSIndexPath indexPathForRow:0 inSection:1];
-                [weakSelf.tableView reloadRowsAtIndexPaths:@[indexP] withRowAnimation:UITableViewRowAnimationAutomatic];
+                [weakSelf.tableView beginUpdates];
+                [weakSelf.tableView endUpdates];
             };
             return firstCell;
         }
         
         self.cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityContentTableViewCell" forIndexPath:indexPath];
         self.cell.columnInfoM = dataArr[indexPath.row];
-        __weak typeof (self) weakSelf = self;
-        self.cell.activityContentTableViewHeight = ^(NSInteger height, NSNumber *colmunId) {
-            cellheight = height;
-            if ([colmunId integerValue] == 9) {
-                NSIndexPath * indexP = [NSIndexPath indexPathForRow:1 inSection:1];
-                [weakSelf.tableView reloadRowsAtIndexPaths:@[indexP] withRowAnimation:UITableViewRowAnimationAutomatic];
-            }else if ([colmunId integerValue] == 10){
-                NSIndexPath * indexP = [NSIndexPath indexPathForRow:2 inSection:1];
-                [weakSelf.tableView reloadRowsAtIndexPaths:@[indexP] withRowAnimation:UITableViewRowAnimationAutomatic];
-            }else if ([colmunId integerValue] == 11){
-                NSIndexPath * indexP = [NSIndexPath indexPathForRow:3 inSection:1];
-                [weakSelf.tableView reloadRowsAtIndexPaths:@[indexP] withRowAnimation:UITableViewRowAnimationAutomatic];
-            }
-        };
+//        __weak typeof (self) weakSelf = self;
+//        self.cell.activityContentTableViewHeight = ^(NSInteger height, NSNumber *colmunId) {
+//            cellheight = height;
+////            [weakSelf.tableView beginUpdates];
+////            [weakSelf.tableView endUpdates];
+////            if ([colmunId integerValue] == 9) {
+////                NSIndexPath * indexP = [NSIndexPath indexPathForRow:1 inSection:1];
+////                [weakSelf.tableView reloadRowsAtIndexPaths:@[indexP] withRowAnimation:UITableViewRowAnimationAutomatic];
+////            }else if ([colmunId integerValue] == 10){
+////                NSIndexPath * indexP = [NSIndexPath indexPathForRow:2 inSection:1];
+////                [weakSelf.tableView reloadRowsAtIndexPaths:@[indexP] withRowAnimation:UITableViewRowAnimationAutomatic];
+////            }else if ([colmunId integerValue] == 11){
+////                NSIndexPath * indexP = [NSIndexPath indexPathForRow:3 inSection:1];
+////                [weakSelf.tableView reloadRowsAtIndexPaths:@[indexP] withRowAnimation:UITableViewRowAnimationAutomatic];
+////            }
+//        };
         return self.cell;
     }
 }
@@ -164,14 +166,14 @@
     
     
     
+    
+    
 
 }
-
 #pragma mark - 录播图点击
 //代理跳转
 - (void)selectItemAtIndex:(NSInteger)index {
     NSLog(@"%ld",index);
-    
     
     
 }
