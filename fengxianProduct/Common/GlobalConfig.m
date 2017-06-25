@@ -46,6 +46,12 @@ NSString * const FX_LivesColumnInfo    =   @"livesColumnInfo";
 NSString * const FX_ActivtyColumnInfo    =   @"activtyColumnInfo";
 NSString * const FX_SearchHistory    =   @"SearchHistory";
 
+NSString * const FX_UploadImageArr    =   @"UploadImageArr";
+
+
+
+
+
 
 
 //邀请码

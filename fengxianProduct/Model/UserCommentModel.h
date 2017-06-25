@@ -20,6 +20,7 @@
 
 @end
 
+
 @interface UserCommentListModel : JSONModel
 
 @property (nonatomic,strong)NSNumber * total;

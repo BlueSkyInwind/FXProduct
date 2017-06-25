@@ -12,11 +12,15 @@
 #import "NewsTableViewCell.h"
 #import "PhotoViewController.h"
 #import "DetailViewController.h"
+
+
 @implementation MyCollectTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.selectedDeleteBtn.hidden = YES;
+    self.timeLabelLeftCons.constant = 10;
     [self configureView];
 }
 
@@ -26,9 +30,36 @@
     if ([_newsListInfo.CommType isEqualToString:@"8"]) {
         self.titleLabel.text = @"新闻";
     }
+    isCanDelete = NO;
     self.timeLabel.text = _newsListInfo.Time;
     [self.contentTableView reloadData];
+    if (_isDelete) {
+        self.selectedDeleteBtn.hidden = NO;
+        self.timeLabelLeftCons.constant = 30;
+    }else{
+        self.selectedDeleteBtn.hidden = YES;
+        self.timeLabelLeftCons.constant = 10;
+    }
+    if (isCanDelete) {
+        [self.selectedDeleteBtn setBackgroundImage:[UIImage imageNamed:@"collect_Seleted_Delete"] forState:UIControlStateNormal];
+    }else{
+        [self.selectedDeleteBtn setBackgroundImage:[UIImage imageNamed:@"collect_unseleted_Delete"] forState:UIControlStateNormal];
+    }
 }
+
+- (IBAction)seletedDeleteBtnClick:(id)sender {
+    isCanDelete = !isCanDelete;
+    if (isCanDelete) {
+        [self.selectedDeleteBtn setBackgroundImage:[UIImage imageNamed:@"collect_Seleted_Delete"] forState:UIControlStateNormal];
+    }else{
+        [self.selectedDeleteBtn setBackgroundImage:[UIImage imageNamed:@"collect_unseleted_Delete"] forState:UIControlStateNormal];
+    }
+    UIButton * button = (UIButton *)sender;
+    if (self.selectedBtn) {
+        self.selectedBtn(button.tag,isCanDelete);
+    }
+}
+
 -(void)layoutSubviews{
     [super layoutSubviews];
 

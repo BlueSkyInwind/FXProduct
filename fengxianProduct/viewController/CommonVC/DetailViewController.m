@@ -102,14 +102,15 @@
 
 #pragma mark - 底部tab点击代理 时间
 -(void)commentButtonClick{
-    if (![[ShareConfig share] isPresentLoginVC:self]) {
-        return;
+
+   
+    if ([[ShareConfig share] isPresentLoginVC:self]) {
+        CommentDetailViewController * commentDetailVC = [[CommentDetailViewController alloc]init];
+        commentDetailVC.detailModel = self.detailModel;
+        commentDetailVC.detailID = self.detailID;
+        [self.navigationController pushViewController:commentDetailVC animated:YES];
     }
-    CommentDetailViewController * commentDetailVC = [[CommentDetailViewController alloc]init];
-    commentDetailVC.detailModel = self.detailModel;
-    commentDetailVC.detailID = self.detailID;
-    [self.navigationController pushViewController:commentDetailVC animated:YES];
-    
+
 }
 - (void)spotButtonClick{
     if (![[ShareConfig share] isPresentLoginVC:self]) {

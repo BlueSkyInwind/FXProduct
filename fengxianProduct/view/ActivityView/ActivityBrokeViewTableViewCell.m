@@ -8,9 +8,12 @@
 
 #import "ActivityBrokeViewTableViewCell.h"
 #import "MoreViewModel.h"
+#import "ActivityViewModel.h"
 @interface ActivityBrokeViewTableViewCell()<WriteInfoViewDelegate>{
     
-    
+    NSString * vedioUrl;
+    NSString * imageUrl;
+    NSString * typeStr;
 
 }
 @end
@@ -40,32 +43,37 @@
 }
 
 - (IBAction)baoliaoBtnClick:(id)sender {
-    isBaoliao = !isBaoliao;
-    if (isContribute) {
-        isContribute = !isContribute;
-        [self.contributeBtn setBackgroundColor:kUIColorFromRGB(0x5e5e5e)];
+    if ([[ShareConfig share] isPresentLoginVC:self.vc]) {
+        isBaoliao = !isBaoliao;
+        if (isContribute) {
+            isContribute = !isContribute;
+            [self.contributeBtn setBackgroundColor:kUIColorFromRGB(0x5e5e5e)];
+        }
+        if (isBaoliao) {
+            [self.baoliaoBtn setBackgroundColor:UI_MAIN_COLOR];
+            [self loadWriteInfoView:1];
+        }else{
+            [self.baoliaoBtn setBackgroundColor:kUIColorFromRGB(0x5e5e5e)];
+            [self removeWriteInfoView];
+        }
     }
-    if (isBaoliao) {
-        [self.baoliaoBtn setBackgroundColor:UI_MAIN_COLOR];
-        [self loadWriteInfoView:1];
-    }else{
-        [self.baoliaoBtn setBackgroundColor:kUIColorFromRGB(0x5e5e5e)];
-        [self removeWriteInfoView];
-    }
+
 }
 - (IBAction)contributeBtnClick:(id)sender {
-    
-    isContribute = !isContribute;
-    if (isBaoliao) {
-        isBaoliao = !isBaoliao;
-        [self.baoliaoBtn setBackgroundColor:kUIColorFromRGB(0x5e5e5e)];
-    }
-    if (isContribute) {
-        [self.contributeBtn setBackgroundColor:UI_MAIN_COLOR];
-        [self loadWriteInfoView:2];
-    }else{
-        [self.contributeBtn setBackgroundColor:kUIColorFromRGB(0x5e5e5e)];
-        [self removeWriteInfoView];
+  
+    if ([[ShareConfig share] isPresentLoginVC:self.vc]) {
+        isContribute = !isContribute;
+        if (isBaoliao) {
+            isBaoliao = !isBaoliao;
+            [self.baoliaoBtn setBackgroundColor:kUIColorFromRGB(0x5e5e5e)];
+        }
+        if (isContribute) {
+            [self.contributeBtn setBackgroundColor:UI_MAIN_COLOR];
+            [self loadWriteInfoView:2];
+        }else{
+            [self.contributeBtn setBackgroundColor:kUIColorFromRGB(0x5e5e5e)];
+            [self removeWriteInfoView];
+        }
     }
 }
 
@@ -79,6 +87,9 @@
     if (self.writeInfoView) {
         if (type == 1) {
             self.writeInfoView.contributeView.hidden= YES;
+            self.writeInfoView.contributeType = 1;
+            [self.writeInfoView removeImageDisplaySubView];
+            [self.writeInfoView initAddImageView];
         }else{
             self.writeInfoView.contributeView.hidden= NO;
         }
@@ -94,14 +105,24 @@
         make.left.equalTo(self.mas_left);
         make.bottom.equalTo(self.mas_bottom);
     }];
+    __weak typeof (self) weakSelf = self;
+    self.writeInfoView.writeInfoViewHeight = ^(float height) {
+        if (weakSelf.activityBrokeViewTableViewHeight) {
+            weakSelf.activityBrokeViewTableViewHeight(620 + height);
+        }
+    };
+    self.writeInfoView.Type = ^(NSInteger type) {
+        typeStr = [NSString stringWithFormat:@"%ld",(long)type];
+    };
     
     if (type == 1) {
         self.writeInfoView.contributeView.hidden= YES;
     }else{
         self.writeInfoView.contributeView.hidden= NO;
     }
+    
     if (self.activityBrokeViewTableViewHeight) {
-        self.activityBrokeViewTableViewHeight(610);
+        self.activityBrokeViewTableViewHeight(620);
     }
 }
 -(void)removeWriteInfoView{
@@ -114,24 +135,53 @@
 }
 #pragma mrak - WriteInfoViewDelegate
 -(void)submitButtonClick{
+    ActivityViewModel * activityVM = [[ActivityViewModel alloc]init];
+    [activityVM setBlockWithReturnBlock:^(id returnValue) {
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        if ([returnMsg.returnCode intValue] == 1) {
+            [[NSFileManager defaultManager] removeItemAtPath:saveIamgeUrlPath error:nil];
+            [[NSFileManager defaultManager] removeItemAtPath:saveIamgePath error:nil];
+        }
+    } WithFaileBlock:^{
+        
+    }];
     
-    
-    
-    
+    if (isBaoliao) {
+        typeStr = @"0";
+    }
+    imageUrl = @"";
+    NSMutableArray * array = [[NSArray arrayWithContentsOfFile:saveIamgeUrlPath] mutableCopy];
+    if (array) {
+        for (NSString * str in array) {
+            imageUrl = [imageUrl stringByAppendingFormat:@"%@:;",str];
+        }
+    }
+    [activityVM uploadUserWriteInfo:self.writeInfoView.titleTextField.text content:self.writeInfoView.contentTextView.text type:typeStr imageStr:imageUrl MP4:vedioUrl];
 }
 -(void)submitImageClick{
     __weak typeof (self) weakSelf = self;
     [[CameraHelper shareManager]obtainController:self.vc isVedio:NO userSeletedImage:^(UIImage *userImage, NSData *userImageData, NSString * userimageName) {
         [self uploadAvatar:@{userimageName : userImageData} finsh:^(bool isSuccess,NSString * contentUrlStr) {
-            [weakSelf.writeInfoView Addbutton:userImageData];
+            [weakSelf saveIamgeUrl:contentUrlStr];
+            [weakSelf.writeInfoView addUploadImageView:userImageData];
         }];
     }];
+}
+-(void)saveIamgeUrl:(NSString *)imageUrlStr{
+    
+    NSMutableArray * array = [[NSArray arrayWithContentsOfFile:saveIamgeUrlPath] mutableCopy];
+    if (!array) {
+        array = [NSMutableArray array];
+    }
+    [array addObject:imageUrlStr];
+    [array writeToFile:saveIamgeUrlPath atomically:YES];
 }
 
 -(void)submitVedioClick{
     __weak typeof (self) weakSelf = self;
     [[CameraHelper shareManager]obtainController:self.vc isVedio:YES userSeletedImage:^(UIImage *userImage, NSData *userImageData, NSString * userimageName) {
         [self uploadAvatar:@{userimageName : userImageData} finsh:^(bool isSuccess,NSString * contentUrlStr) {
+            vedioUrl = contentUrlStr;
             [weakSelf.writeInfoView.vedioClickBtn setBackgroundImage:userImage forState:UIControlStateNormal];
         }];
     }];

@@ -57,6 +57,26 @@
  @param pageSize 页数
  */
 -(void)fatchUserCollectInfo:(NSString *)type pageSize:(int)pageSize;
+/**
+ 获取用户的爆料信息
 
+ @param pageSize 页数
+ */
+-(void)fatchUserBrokeInfoPageSize:(int)pageSize;
+
+/**
+ 获取用户的系统消息
+
+ @param type 类型
+ @param pageSize 页数
+ */
+-(void)fatchUserMessageInfo:(NSString *)type pageSize:(int)pageSize;
+/**
+ 获取评论消息
+
+ @param type 类型
+ @param pageSize 页数
+ */
+-(void)fatchUserCommentMessageInfo:(NSString *)type pageSize:(int)pageSize;
 
 @end

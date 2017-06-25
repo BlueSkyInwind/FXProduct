@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="268"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="268"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="267.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4z8-Ek-TuM">
@@ -55,34 +55,45 @@
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hx5-cC-XmF">
-                                        <rect key="frame" x="5" y="39" width="300" height="1"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hx5-cC-XmF">
+                                        <rect key="frame" x="5" y="39" width="304" height="1"/>
                                         <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="Wmk-yq-3xg"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="hx5-cC-XmF" secondAttribute="bottom" id="3D6-Ad-bCw"/>
                                     <constraint firstAttribute="height" constant="40" id="8Se-1d-Zsv"/>
+                                    <constraint firstItem="hx5-cC-XmF" firstAttribute="leading" secondItem="sO2-la-rC6" secondAttribute="leading" constant="5" id="Kc3-VY-hGS"/>
+                                    <constraint firstAttribute="trailing" secondItem="hx5-cC-XmF" secondAttribute="trailing" constant="5" id="aMg-3k-Yiw"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="klm-86-3HD">
                                 <rect key="frame" x="0.0" y="42" width="314" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9T3-xt-AUD">
-                                        <rect key="frame" x="107.5" y="5" width="45" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9T3-xt-AUD">
+                                        <rect key="frame" x="104.5" y="5" width="45" height="30"/>
                                         <color key="backgroundColor" red="0.36862745098039218" green="0.36862745098039218" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="LNh-lo-ZZ1"/>
+                                            <constraint firstAttribute="width" constant="45" id="gIJ-1B-H7A"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="爆料"/>
                                         <connections>
                                             <action selector="baoliaoBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="haM-xO-xJZ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFw-nv-Wlc">
-                                        <rect key="frame" x="167.5" y="5" width="45" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFw-nv-Wlc">
+                                        <rect key="frame" x="164.5" y="5" width="45" height="30"/>
                                         <color key="backgroundColor" red="0.36862745098039218" green="0.36862745098039218" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="W7f-Gr-I0A"/>
+                                            <constraint firstAttribute="width" constant="45" id="oiW-VM-oni"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="投稿"/>
                                         <connections>
@@ -92,7 +103,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="9T3-xt-AUD" firstAttribute="centerY" secondItem="klm-86-3HD" secondAttribute="centerY" id="Cdj-Nq-oY5"/>
+                                    <constraint firstItem="nFw-nv-Wlc" firstAttribute="centerY" secondItem="klm-86-3HD" secondAttribute="centerY" id="K25-qk-ZqX"/>
                                     <constraint firstAttribute="height" constant="40" id="dx0-Qi-dm8"/>
+                                    <constraint firstItem="nFw-nv-Wlc" firstAttribute="centerX" secondItem="klm-86-3HD" secondAttribute="centerX" constant="30" id="oIN-UH-xwx"/>
+                                    <constraint firstItem="9T3-xt-AUD" firstAttribute="centerX" secondItem="klm-86-3HD" secondAttribute="centerX" constant="-30" id="uxe-wc-Tyr"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Activity_baoliaotai_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="abp-E3-epT">

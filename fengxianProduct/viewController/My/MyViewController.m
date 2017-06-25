@@ -20,6 +20,9 @@
 #import "IntegralViewModel.h"
 #import "integralModel.h"
 #import "MyCollectViewController.h"
+#import "MyBrokeViewController.h"
+#import "MyMessageViewController.h"
+
 
 @interface MyViewController ()<UITableViewDelegate,UITableViewDataSource,MoreNavViewDelegate>{
     
@@ -230,13 +233,17 @@
 }
 -(void)DiscloseViewCilck{
     
-    
-    
+    if ([[ShareConfig share] isPresentLoginVC:self]) {
+        MyBrokeViewController * myBrokeVC = [[MyBrokeViewController  alloc]init];
+        [self.navigationController pushViewController:myBrokeVC animated:YES];
+    }
 }
 -(void)EmailViewCilck{
     
-    
-    
+    if ([[ShareConfig share] isPresentLoginVC:self]) {
+        MyMessageViewController * myMessageVC = [[MyMessageViewController  alloc]init];
+        [self.navigationController pushViewController:myMessageVC animated:YES];
+    }
 }
 -(void)SignInViewCilck{
     

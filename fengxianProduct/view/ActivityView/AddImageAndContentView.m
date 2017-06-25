@@ -18,7 +18,7 @@
     _aIndex = aIndex;
     NSMutableArray * array = [[NSArray arrayWithContentsOfFile:saveIamgePath] mutableCopy];
     if (array && array.count != 0) {
-        [self.contentBtn setBackgroundImage:[self obtainImage:array.count - 1] forState:UIControlStateNormal];
+        [self.contentBtn setBackgroundImage:[self obtainImage:aIndex] forState:UIControlStateNormal];
     }
 }
 

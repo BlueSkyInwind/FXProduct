@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-03-23 12:12" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NyP-RS-2Tz">
-                                <rect key="frame" x="187" y="12" width="123" height="17"/>
+                                <rect key="frame" x="167" y="12" width="123" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="TVe-dq-fsF"/>
                                     <constraint firstAttribute="width" constant="123" id="gfV-Y8-XZh"/>
@@ -41,23 +41,36 @@
                                 <color key="textColor" red="0.36862745098039218" green="0.36862745098039218" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="32w-a4-39k">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news_tabbar_Icon_selected" translatesAutoresizingMaskIntoConstraints="NO" id="32w-a4-39k">
                                 <rect key="frame" x="10" y="9.5" width="21" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="GOs-aZ-5tc"/>
                                     <constraint firstAttribute="width" constant="21" id="GPb-9m-wSj"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VF4-XY-Zj4">
+                                <rect key="frame" x="302" y="12.5" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="Hby-nE-ngU"/>
+                                    <constraint firstAttribute="height" constant="15" id="zGu-AE-b22"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="collect_unseleted_Delete"/>
+                                <connections>
+                                    <action selector="seletedDeleteBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eze-QB-mgx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="NyP-RS-2Tz" firstAttribute="centerY" secondItem="8ca-M4-LC7" secondAttribute="centerY" id="2EX-dK-R3T"/>
                             <constraint firstItem="32w-a4-39k" firstAttribute="leading" secondItem="8ca-M4-LC7" secondAttribute="leading" constant="10" id="2aF-AF-Me6"/>
                             <constraint firstItem="XPN-ER-IW4" firstAttribute="leading" secondItem="32w-a4-39k" secondAttribute="trailing" constant="5" id="5NU-le-wXv"/>
+                            <constraint firstAttribute="trailing" secondItem="VF4-XY-Zj4" secondAttribute="trailing" constant="3" id="EDW-2p-3CU"/>
                             <constraint firstItem="32w-a4-39k" firstAttribute="centerY" secondItem="8ca-M4-LC7" secondAttribute="centerY" id="ObO-1y-97W"/>
                             <constraint firstAttribute="height" constant="40" id="W8U-iw-goI"/>
+                            <constraint firstItem="VF4-XY-Zj4" firstAttribute="centerY" secondItem="8ca-M4-LC7" secondAttribute="centerY" id="eeR-tJ-bog"/>
                             <constraint firstItem="XPN-ER-IW4" firstAttribute="centerY" secondItem="8ca-M4-LC7" secondAttribute="centerY" id="g6t-7l-0pF"/>
-                            <constraint firstAttribute="trailing" secondItem="NyP-RS-2Tz" secondAttribute="trailing" constant="10" id="h5v-u3-55o"/>
+                            <constraint firstAttribute="trailing" secondItem="NyP-RS-2Tz" secondAttribute="trailing" constant="30" id="h5v-u3-55o"/>
                         </constraints>
                     </view>
                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AHX-PJ-tb5">
@@ -77,11 +90,17 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="contentTableView" destination="AHX-PJ-tb5" id="Dz1-zP-Ao6"/>
+                <outlet property="selectedDeleteBtn" destination="VF4-XY-Zj4" id="wGl-mB-4wm"/>
                 <outlet property="timeLabel" destination="NyP-RS-2Tz" id="10d-Ra-nw8"/>
+                <outlet property="timeLabelLeftCons" destination="h5v-u3-55o" id="3fJ-Ay-YPh"/>
                 <outlet property="titileImage" destination="32w-a4-39k" id="Jsv-PI-CNw"/>
                 <outlet property="titleLabel" destination="XPN-ER-IW4" id="Niw-QF-6Ce"/>
             </connections>
             <point key="canvasLocation" x="34" y="85"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="collect_unseleted_Delete" width="13" height="13"/>
+        <image name="news_tabbar_Icon_selected" width="22" height="22"/>
+    </resources>
 </document>

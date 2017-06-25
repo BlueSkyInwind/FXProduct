@@ -16,4 +16,14 @@
     
 }
 
+-(void)setIntegralGoodsM:(integralGoodsModel *)integralGoodsM{
+    _integralGoodsM = integralGoodsM;
+    
+    [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:integralGoodsM.Image] placeholderImage:[UIImage imageNamed:@"news_placeholder_Icon_1"] options:SDWebImageRefreshCached];
+    self.goodsTitleLabel.text = integralGoodsM.Title;
+    self.goodsPrice.text = [NSString stringWithFormat:@"%@积分",integralGoodsM.Integral];
+    self.goodsNumLabel.text = [NSString stringWithFormat:@"剩余%@",integralGoodsM.Num];
+    
+}
+
 @end

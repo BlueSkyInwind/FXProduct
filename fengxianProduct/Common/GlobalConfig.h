@@ -33,6 +33,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #define saveIamgePath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"saveIamge.txt"]
 
+#define saveIamgeUrlPath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"saveIamgeUrl.txt"]
 
 #define _view_width    self.view.frame.size.width
 #define _view_height   self.view.frame.size.height
@@ -49,7 +50,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define UI_MAIN_COLOR [UIColor colorWithRed:1/255.0 green:122/255.0 blue:179/255.0 alpha:1]
 
 
-#define KCharacterNumber @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@"
+#define KCharacterNumber @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@."
 
 #define CSM ((CameraHelper *)[CameraHelper shareManager])
 
@@ -87,6 +88,11 @@ UIKIT_EXTERN NSString * const FX_ActivtyColumnInfo;
 
 //用户搜索历史
 UIKIT_EXTERN NSString * const FX_SearchHistory;
+//上传图片数组
+UIKIT_EXTERN NSString * const FX_UploadImageArr;
+
+
+
 
 //邀请码
 UIKIT_EXTERN NSString * const kInvitationCode;

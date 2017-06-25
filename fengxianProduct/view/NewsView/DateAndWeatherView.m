@@ -35,7 +35,7 @@
 //    NSInteger year=[comps year];
     NSInteger month = [comps month];
     NSInteger day = [comps day];
-        self.dateLabel.text = [NSString stringWithFormat:@"%ld月%ld日    %@",(long)month,(long)day,[arrWeek objectAtIndex:week]];
+        self.dateLabel.text = [NSString stringWithFormat:@"%ld月%ld日    %@",(long)month,(long)day,[arrWeek objectAtIndex:week - 1]];
 }
 
 

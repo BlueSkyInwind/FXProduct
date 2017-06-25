@@ -53,6 +53,23 @@
 		229520E11EF8301000FA2351 /* CommonBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229520E01EF8301000FA2351 /* CommonBottomView.xib */; };
 		229520E41EF8395F00FA2351 /* CommentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229520E31EF8395F00FA2351 /* CommentDetailViewController.m */; };
 		229C467D1EFABE6200932533 /* PopCommentInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C467C1EFABE6200932533 /* PopCommentInput.m */; };
+		229C46801EFF4F1B00932533 /* ActivityPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C467F1EFF4F1B00932533 /* ActivityPopView.m */; };
+		229C46821EFF4F2B00932533 /* ActivityPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229C46811EFF4F2B00932533 /* ActivityPopView.xib */; };
+		229C46851EFF9BEF00932533 /* ActivityViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C46841EFF9BEF00932533 /* ActivityViewModel.m */; };
+		229C46881EFF9DA200932533 /* NewsParamModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C46871EFF9DA200932533 /* NewsParamModel.m */; };
+		229C468B1EFFDECE00932533 /* MoreBottomDeleteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C468A1EFFDECE00932533 /* MoreBottomDeleteView.m */; };
+		229C468D1EFFDEDB00932533 /* MoreBottomDeleteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229C468C1EFFDEDB00932533 /* MoreBottomDeleteView.xib */; };
+		229C46911EFFEFD100932533 /* MyBaoliaoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C468F1EFFEFD100932533 /* MyBaoliaoTableViewCell.m */; };
+		229C46921EFFEFD100932533 /* MyBaoliaoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229C46901EFFEFD100932533 /* MyBaoliaoTableViewCell.xib */; };
+		229C46951EFFF4D200932533 /* BrokeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C46941EFFF4D200932533 /* BrokeModel.m */; };
+		229C46991F0004D700932533 /* SystemMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C46981F0004D700932533 /* SystemMessageViewController.m */; };
+		229C469C1F00051700932533 /* CommentMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C469B1F00051700932533 /* CommentMessageViewController.m */; };
+		229C46A01F00129100932533 /* SystemMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C469E1F00129100932533 /* SystemMessageTableViewCell.m */; };
+		229C46A11F00129100932533 /* SystemMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229C469F1F00129100932533 /* SystemMessageTableViewCell.xib */; };
+		229C46A51F0012B200932533 /* CommentMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C46A31F0012B200932533 /* CommentMessageTableViewCell.m */; };
+		229C46A61F0012B200932533 /* CommentMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229C46A41F0012B200932533 /* CommentMessageTableViewCell.xib */; };
+		229C46A91F001A0700932533 /* SystemMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C46A81F001A0700932533 /* SystemMessageModel.m */; };
+		229C46AC1F00259D00932533 /* CommentMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C46AB1F00259D00932533 /* CommentMessageModel.m */; };
 		22B9050A1EEBD03C00ED8B71 /* InvationRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905091EEBD03C00ED8B71 /* InvationRegisterView.m */; };
 		22B9050D1EEBEA3100ED8B71 /* SignAndCollectMdoel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9050C1EEBEA3100ED8B71 /* SignAndCollectMdoel.m */; };
 		22B905101EEC1DB800ED8B71 /* MySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9050F1EEC1DB800ED8B71 /* MySettingViewController.m */; };
@@ -449,6 +466,35 @@
 		229520E31EF8395F00FA2351 /* CommentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentDetailViewController.m; sourceTree = "<group>"; };
 		229C467B1EFABE6200932533 /* PopCommentInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopCommentInput.h; sourceTree = "<group>"; };
 		229C467C1EFABE6200932533 /* PopCommentInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopCommentInput.m; sourceTree = "<group>"; };
+		229C467E1EFF4F1B00932533 /* ActivityPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityPopView.h; sourceTree = "<group>"; };
+		229C467F1EFF4F1B00932533 /* ActivityPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityPopView.m; sourceTree = "<group>"; };
+		229C46811EFF4F2B00932533 /* ActivityPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityPopView.xib; sourceTree = "<group>"; };
+		229C46831EFF9BEF00932533 /* ActivityViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewModel.h; sourceTree = "<group>"; };
+		229C46841EFF9BEF00932533 /* ActivityViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewModel.m; sourceTree = "<group>"; };
+		229C46861EFF9DA200932533 /* NewsParamModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsParamModel.h; sourceTree = "<group>"; };
+		229C46871EFF9DA200932533 /* NewsParamModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsParamModel.m; sourceTree = "<group>"; };
+		229C46891EFFDECE00932533 /* MoreBottomDeleteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreBottomDeleteView.h; sourceTree = "<group>"; };
+		229C468A1EFFDECE00932533 /* MoreBottomDeleteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreBottomDeleteView.m; sourceTree = "<group>"; };
+		229C468C1EFFDEDB00932533 /* MoreBottomDeleteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreBottomDeleteView.xib; sourceTree = "<group>"; };
+		229C468E1EFFEFD100932533 /* MyBaoliaoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBaoliaoTableViewCell.h; sourceTree = "<group>"; };
+		229C468F1EFFEFD100932533 /* MyBaoliaoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBaoliaoTableViewCell.m; sourceTree = "<group>"; };
+		229C46901EFFEFD100932533 /* MyBaoliaoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyBaoliaoTableViewCell.xib; sourceTree = "<group>"; };
+		229C46931EFFF4D200932533 /* BrokeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrokeModel.h; sourceTree = "<group>"; };
+		229C46941EFFF4D200932533 /* BrokeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrokeModel.m; sourceTree = "<group>"; };
+		229C46971F0004D700932533 /* SystemMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemMessageViewController.h; sourceTree = "<group>"; };
+		229C46981F0004D700932533 /* SystemMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemMessageViewController.m; sourceTree = "<group>"; };
+		229C469A1F00051700932533 /* CommentMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentMessageViewController.h; sourceTree = "<group>"; };
+		229C469B1F00051700932533 /* CommentMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentMessageViewController.m; sourceTree = "<group>"; };
+		229C469D1F00129100932533 /* SystemMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemMessageTableViewCell.h; sourceTree = "<group>"; };
+		229C469E1F00129100932533 /* SystemMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemMessageTableViewCell.m; sourceTree = "<group>"; };
+		229C469F1F00129100932533 /* SystemMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemMessageTableViewCell.xib; sourceTree = "<group>"; };
+		229C46A21F0012B200932533 /* CommentMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentMessageTableViewCell.h; sourceTree = "<group>"; };
+		229C46A31F0012B200932533 /* CommentMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentMessageTableViewCell.m; sourceTree = "<group>"; };
+		229C46A41F0012B200932533 /* CommentMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentMessageTableViewCell.xib; sourceTree = "<group>"; };
+		229C46A71F001A0700932533 /* SystemMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemMessageModel.h; sourceTree = "<group>"; };
+		229C46A81F001A0700932533 /* SystemMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemMessageModel.m; sourceTree = "<group>"; };
+		229C46AA1F00259D00932533 /* CommentMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentMessageModel.h; sourceTree = "<group>"; };
+		229C46AB1F00259D00932533 /* CommentMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentMessageModel.m; sourceTree = "<group>"; };
 		22B905081EEBD03C00ED8B71 /* InvationRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvationRegisterView.h; sourceTree = "<group>"; };
 		22B905091EEBD03C00ED8B71 /* InvationRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvationRegisterView.m; sourceTree = "<group>"; };
 		22B9050B1EEBEA3100ED8B71 /* SignAndCollectMdoel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignAndCollectMdoel.h; sourceTree = "<group>"; };
@@ -1078,6 +1124,9 @@
 				84C32E581EFD124000373BC5 /* AddImageAndContentView.h */,
 				84C32E591EFD124000373BC5 /* AddImageAndContentView.m */,
 				84C32E5D1EFD363200373BC5 /* AddImageAndContentView.xib */,
+				229C467E1EFF4F1B00932533 /* ActivityPopView.h */,
+				229C467F1EFF4F1B00932533 /* ActivityPopView.m */,
+				229C46811EFF4F2B00932533 /* ActivityPopView.xib */,
 			);
 			path = ActivityView;
 			sourceTree = "<group>";
@@ -1258,6 +1307,17 @@
 			path = DetailsView;
 			sourceTree = "<group>";
 		};
+		229C46961F00048A00932533 /* messageDetail */ = {
+			isa = PBXGroup;
+			children = (
+				229C46971F0004D700932533 /* SystemMessageViewController.h */,
+				229C46981F0004D700932533 /* SystemMessageViewController.m */,
+				229C469A1F00051700932533 /* CommentMessageViewController.h */,
+				229C469B1F00051700932533 /* CommentMessageViewController.m */,
+			);
+			path = messageDetail;
+			sourceTree = "<group>";
+		};
 		22B905191EEC4B5400ED8B71 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -1415,6 +1475,18 @@
 				849FDDFA1EFBC6DC002159F9 /* MyCollectTableViewCell.h */,
 				849FDDFB1EFBC6DC002159F9 /* MyCollectTableViewCell.m */,
 				849FDDFC1EFBC6DC002159F9 /* MyCollectTableViewCell.xib */,
+				229C468E1EFFEFD100932533 /* MyBaoliaoTableViewCell.h */,
+				229C468F1EFFEFD100932533 /* MyBaoliaoTableViewCell.m */,
+				229C46901EFFEFD100932533 /* MyBaoliaoTableViewCell.xib */,
+				229C46891EFFDECE00932533 /* MoreBottomDeleteView.h */,
+				229C468A1EFFDECE00932533 /* MoreBottomDeleteView.m */,
+				229C468C1EFFDEDB00932533 /* MoreBottomDeleteView.xib */,
+				229C469D1F00129100932533 /* SystemMessageTableViewCell.h */,
+				229C469E1F00129100932533 /* SystemMessageTableViewCell.m */,
+				229C469F1F00129100932533 /* SystemMessageTableViewCell.xib */,
+				229C46A21F0012B200932533 /* CommentMessageTableViewCell.h */,
+				229C46A31F0012B200932533 /* CommentMessageTableViewCell.m */,
+				229C46A41F0012B200932533 /* CommentMessageTableViewCell.xib */,
 			);
 			path = moreView;
 			sourceTree = "<group>";
@@ -1661,6 +1733,8 @@
 				84BDC8541EF2715A006F4DDE /* FeedbackViewModel.m */,
 				229520C91EF65E5800FA2351 /* IntegralViewModel.h */,
 				229520CA1EF65E5800FA2351 /* IntegralViewModel.m */,
+				229C46831EFF9BEF00932533 /* ActivityViewModel.h */,
+				229C46841EFF9BEF00932533 /* ActivityViewModel.m */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -2328,6 +2402,7 @@
 				849FDDF51EFBC670002159F9 /* MyMessageViewController.h */,
 				849FDDF61EFBC670002159F9 /* MyMessageViewController.m */,
 				849FDDF71EFBC670002159F9 /* MyMessageViewController.xib */,
+				229C46961F00048A00932533 /* messageDetail */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -2401,6 +2476,14 @@
 				840D00001EF7DB0200709337 /* PhotoModel.m */,
 				849FDDFF1EFBCF51002159F9 /* CollectModel.h */,
 				849FDE001EFBCF51002159F9 /* CollectModel.m */,
+				229C46931EFFF4D200932533 /* BrokeModel.h */,
+				229C46941EFFF4D200932533 /* BrokeModel.m */,
+				229C46A71F001A0700932533 /* SystemMessageModel.h */,
+				229C46A81F001A0700932533 /* SystemMessageModel.m */,
+				229C46AA1F00259D00932533 /* CommentMessageModel.h */,
+				229C46AB1F00259D00932533 /* CommentMessageModel.m */,
+				229C46861EFF9DA200932533 /* NewsParamModel.h */,
+				229C46871EFF9DA200932533 /* NewsParamModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2589,9 +2672,11 @@
 				8439A4811EEE320E002ADF1B /* NewsTwoTableViewCell.xib in Resources */,
 				847649491EF0E2F1004BEF4E /* AddColumnTableViewCell.xib in Resources */,
 				84BDC84E1EF26C27006F4DDE /* FeedbackViewController.xib in Resources */,
+				229C46921EFFEFD100932533 /* MyBaoliaoTableViewCell.xib in Resources */,
 				8431F3451EE8FD9C00295A18 /* MoreNavView.xib in Resources */,
 				221A51191EE99BCD00A543C0 /* UserInfoTableViewCell.xib in Resources */,
 				84C32E5E1EFD363200373BC5 /* AddImageAndContentView.xib in Resources */,
+				229C46A11F00129100932533 /* SystemMessageTableViewCell.xib in Resources */,
 				8440D6C81EEFB28F00C59B2C /* SearchHistoryTableViewCell.xib in Resources */,
 				84748E691EF3A78D00831016 /* IntegralGoodsCollectionViewCell.xib in Resources */,
 				8440D6DA1EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.xib in Resources */,
@@ -2610,6 +2695,7 @@
 				84375A451EF9052A008D2455 /* CommentInputView.xib in Resources */,
 				22B905591EECF86600ED8B71 /* NewsTableViewCell.xib in Resources */,
 				84375A8C1EF92BFB008D2455 /* pause@2x.png in Resources */,
+				229C46821EFF4F2B00932533 /* ActivityPopView.xib in Resources */,
 				8439A47C1EEE2BA2002ADF1B /* NewsMultipleTableViewCell.xib in Resources */,
 				8431F34A1EE917DF00295A18 /* MoreTableViewCell.xib in Resources */,
 				840DFFF61EF7A6E400709337 /* CommentTableViewCell.xib in Resources */,
@@ -2619,6 +2705,7 @@
 				226143331EE83E9400193487 /* scanLine@2x.png in Resources */,
 				226143351EE83E9400193487 /* scanscanBg.png in Resources */,
 				2261430A1EE6E2A500193487 /* launch_Image3.gif in Resources */,
+				229C46A61F0012B200932533 /* CommentMessageTableViewCell.xib in Resources */,
 				226143141EE6E35100193487 /* LaunchViewController.xib in Resources */,
 				226BDF8C1EE6859D009D2A3F /* Main.storyboard in Resources */,
 				226143341EE83E9400193487 /* scanLine@3x.png in Resources */,
@@ -2629,6 +2716,7 @@
 				221A51231EEADCF800A543C0 /* PickerSelectView.xib in Resources */,
 				229520D61EF6BD0100FA2351 /* DetailHeaderView.xib in Resources */,
 				84AABDD11EE69F76001AA7C0 /* HMScanner.bundle in Resources */,
+				229C468D1EFFDEDB00932533 /* MoreBottomDeleteView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2716,6 +2804,7 @@
 				84BDC85F1EF28587006F4DDE /* MyFeekbackTableViewCell.m in Sources */,
 				84BDC8581EF27967006F4DDE /* MyFeedbackViewController.m in Sources */,
 				226BDF861EE6859D009D2A3F /* AppDelegate.m in Sources */,
+				229C46911EFFEFD100932533 /* MyBaoliaoTableViewCell.m in Sources */,
 				2207B4621EF193F200EF8036 /* ActivityContentTableViewCell.m in Sources */,
 				8440D6D31EEFCD4200C59B2C /* ColumnCollectionHeader.m in Sources */,
 				84AABEC11EE6A035001AA7C0 /* CGGeometryAdditions.m in Sources */,
@@ -2743,6 +2832,7 @@
 				22B9054C1EEC4F4B00ED8B71 /* SubViewController.m in Sources */,
 				84AABEC91EE6A035001AA7C0 /* LOTLayer.m in Sources */,
 				84AABED11EE6A035001AA7C0 /* LOTShapeTransform.m in Sources */,
+				229C46881EFF9DA200932533 /* NewsParamModel.m in Sources */,
 				84AABED41EE6A035001AA7C0 /* LOTAnimationView.m in Sources */,
 				84375A7D1EF929F3008D2455 /* SBControlView.m in Sources */,
 				229520CE1EF65EF900FA2351 /* integralModel.m in Sources */,
@@ -2752,6 +2842,7 @@
 				8440D6D91EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.m in Sources */,
 				84375A7C1EF929F3008D2455 /* SBPlayer.m in Sources */,
 				22B905101EEC1DB800ED8B71 /* MySettingViewController.m in Sources */,
+				229C46991F0004D700932533 /* SystemMessageViewController.m in Sources */,
 				84AABEB21EE6A035001AA7C0 /* LOTEllipseShapeLayer.m in Sources */,
 				226143181EE6EDC400193487 /* RegisterViewController.m in Sources */,
 				84AABEBB1EE6A035001AA7C0 /* LOTAnimatableNumberValue.m in Sources */,
@@ -2788,6 +2879,7 @@
 				84AABE4F1EE6A003001AA7C0 /* UIImage+Color.m in Sources */,
 				84AABE531EE6A003001AA7C0 /* UIImage+Water.m in Sources */,
 				22B9050D1EEBEA3100ED8B71 /* SignAndCollectMdoel.m in Sources */,
+				229C46A91F001A0700932533 /* SystemMessageModel.m in Sources */,
 				84AABDFD1EE69F76001AA7C0 /* YYLabel.m in Sources */,
 				226143241EE8370700193487 /* AgreementViewModel.m in Sources */,
 				22B9056E1EED95E300ED8B71 /* JZLCollectionViewCell.m in Sources */,
@@ -2818,6 +2910,7 @@
 				84AABE421EE6A003001AA7C0 /* NSString+File.m in Sources */,
 				84AABEC71EE6A035001AA7C0 /* UIColor.m in Sources */,
 				229520D21EF6BCE300FA2351 /* DetailHeaderView.m in Sources */,
+				229C46951EFFF4D200932533 /* BrokeModel.m in Sources */,
 				84AABDE31EE69F76001AA7C0 /* YYCache.m in Sources */,
 				84AABE461EE6A003001AA7C0 /* NSArray+Extend.m in Sources */,
 				22B9050A1EEBD03C00ED8B71 /* InvationRegisterView.m in Sources */,
@@ -2858,6 +2951,7 @@
 				84AABEE01EE6AF41001AA7C0 /* BaseIndexViewController.m in Sources */,
 				845862641EE68A7100AF52B3 /* UserInfoObj.m in Sources */,
 				84AABEB91EE6A035001AA7C0 /* LOTAnimatableBoundsValue.m in Sources */,
+				229C46801EFF4F1B00932533 /* ActivityPopView.m in Sources */,
 				84AABEC51EE6A035001AA7C0 /* NSValue+Compat.m in Sources */,
 				84748E681EF3A78D00831016 /* IntegralGoodsCollectionViewCell.m in Sources */,
 				84AABDC71EE69F76001AA7C0 /* Model.m in Sources */,
@@ -2870,9 +2964,12 @@
 				84AABEC81EE6A035001AA7C0 /* LOTComposition.m in Sources */,
 				8458625D1EE68A7100AF52B3 /* NSDictionary+NilSafe.m in Sources */,
 				84BDC85B1EF282E2006F4DDE /* UserCommentModel.m in Sources */,
+				229C469C1F00051700932533 /* CommentMessageViewController.m in Sources */,
 				84D248401EE8014900937D28 /* RegisterViewModel.m in Sources */,
 				8458624D1EE68A7100AF52B3 /* ContactClass.m in Sources */,
+				229C468B1EFFDECE00932533 /* MoreBottomDeleteView.m in Sources */,
 				84375A431EF90520008D2455 /* CommentInputView.m in Sources */,
+				229C46851EFF9BEF00932533 /* ActivityViewModel.m in Sources */,
 				84AABDF61EE69F76001AA7C0 /* NSParagraphStyle+YYText.m in Sources */,
 				84AABDEB1EE69F76001AA7C0 /* YYTextKeyboardManager.m in Sources */,
 				84BDC8551EF2715A006F4DDE /* FeedbackViewModel.m in Sources */,
@@ -2899,6 +2996,7 @@
 				84AABDE01EE69F76001AA7C0 /* UIViewController+KNSemiModal.m in Sources */,
 				849FDDF41EFBC640002159F9 /* MyBrokeViewController.m in Sources */,
 				84AABE431EE6A003001AA7C0 /* CoreArchive.m in Sources */,
+				229C46A01F00129100932533 /* SystemMessageTableViewCell.m in Sources */,
 				84AABDDB1EE69F76001AA7C0 /* TADotView.m in Sources */,
 				84AABDE91EE69F76001AA7C0 /* YYTextEffectWindow.m in Sources */,
 				8458625B1EE68A7100AF52B3 /* GetUserIP.m in Sources */,
@@ -2919,6 +3017,7 @@
 				8458625C1EE68A7100AF52B3 /* NSData+YYAdd.m in Sources */,
 				84AABEEB1EE6B251001AA7C0 /* NewsViewController.m in Sources */,
 				8439A4881EEE9F45002ADF1B /* userSourceModel.m in Sources */,
+				229C46A51F0012B200932533 /* CommentMessageTableViewCell.m in Sources */,
 				22B905721EEEEDF600ED8B71 /* SearchBarViewController.m in Sources */,
 				8440D6C11EEF8D0000C59B2C /* ClearSearchHistoryView.m in Sources */,
 				847649481EF0E2F1004BEF4E /* AddColumnTableViewCell.m in Sources */,
@@ -2934,6 +3033,7 @@
 				84AABDD81EE69F76001AA7C0 /* UIViewController+RTRootNavigationController.m in Sources */,
 				22B905541EEC5A1300ED8B71 /* DateAndWeatherView.m in Sources */,
 				845862601EE68A7100AF52B3 /* NSString+YYAdd.m in Sources */,
+				229C46AC1F00259D00932533 /* CommentMessageModel.m in Sources */,
 				845862581EE68A7100AF52B3 /* ShareConfig.m in Sources */,
 				84AABEB41EE6A035001AA7C0 /* LOTLayerView.m in Sources */,
 				84AABE571EE6A003001AA7C0 /* UIWindow+Launch.m in Sources */,

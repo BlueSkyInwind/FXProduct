@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="111" id="KGk-i7-Jjw" customClass="CommentMessageTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="110.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0e-4g-i7M">
+                        <rect key="frame" x="8" y="8" width="196" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="0Yo-5n-gBH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.0039215686274509803" green="0.47843137254901957" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Og-xq-3WD">
+                        <rect key="frame" x="299" y="13" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="15" id="Flu-lK-bmv"/>
+                            <constraint firstAttribute="height" constant="15" id="gcu-Ul-RAn"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="collect_unseleted_Delete"/>
+                        <connections>
+                            <action selector="seletedDeleteBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="qtu-bJ-UBx"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oN0-eF-kjx">
+                        <rect key="frame" x="8" y="36" width="294" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="hW7-bA-wVh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-2-23 12:21" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jn-x0-oBA">
+                        <rect key="frame" x="194" y="10" width="100" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="hwz-7A-dtp"/>
+                            <constraint firstAttribute="width" constant="100" id="qqj-at-x3z"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0g-y8-lHg">
+                        <rect key="frame" x="5" y="62" width="305" height="35"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hsc-RH-UxI">
+                                <rect key="frame" x="5" y="2" width="295" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Hsc-RH-UxI" firstAttribute="leading" secondItem="p0g-y8-lHg" secondAttribute="leading" constant="5" id="5KY-Dt-opA"/>
+                            <constraint firstAttribute="trailing" secondItem="Hsc-RH-UxI" secondAttribute="trailing" constant="5" id="DAb-eD-qHV"/>
+                            <constraint firstAttribute="height" constant="35" id="feD-gb-36Z"/>
+                            <constraint firstAttribute="bottom" secondItem="Hsc-RH-UxI" secondAttribute="bottom" constant="2" id="fva-34-Gl3"/>
+                            <constraint firstItem="Hsc-RH-UxI" firstAttribute="top" secondItem="p0g-y8-lHg" secondAttribute="top" constant="2" id="k2i-7H-Fwp"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="4Og-xq-3WD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="041-Ty-GIz"/>
+                    <constraint firstItem="c0e-4g-i7M" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="2kH-xr-aSY"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="1jn-x0-oBA" secondAttribute="trailing" constant="18" id="6zf-IV-fSG"/>
+                    <constraint firstItem="oN0-eF-kjx" firstAttribute="top" secondItem="1jn-x0-oBA" secondAttribute="bottom" constant="5" id="BPK-0m-lmh"/>
+                    <constraint firstItem="p0g-y8-lHg" firstAttribute="top" secondItem="oN0-eF-kjx" secondAttribute="bottom" constant="5" id="CNZ-hB-Jqy"/>
+                    <constraint firstItem="4Og-xq-3WD" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="2" id="SpF-27-Ple"/>
+                    <constraint firstAttribute="trailing" secondItem="p0g-y8-lHg" secondAttribute="trailing" constant="10" id="THK-ST-c3z"/>
+                    <constraint firstItem="p0g-y8-lHg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="UkU-en-SQy"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="oN0-eF-kjx" secondAttribute="trailing" constant="10" id="evy-ir-YSB"/>
+                    <constraint firstItem="1jn-x0-oBA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="f2l-Xn-uQg"/>
+                    <constraint firstItem="c0e-4g-i7M" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="fkp-OF-QgM"/>
+                    <constraint firstItem="1jn-x0-oBA" firstAttribute="leading" secondItem="c0e-4g-i7M" secondAttribute="trailing" constant="-10" id="n4E-ln-rs8"/>
+                    <constraint firstItem="oN0-eF-kjx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="vWE-pT-P8Q"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="myCommentLabel" destination="Hsc-RH-UxI" id="DmY-pV-LnR"/>
+                <outlet property="myCommentView" destination="p0g-y8-lHg" id="IYc-uG-kHq"/>
+                <outlet property="replayContentLabel" destination="oN0-eF-kjx" id="XCH-bE-AdX"/>
+                <outlet property="seletedDeleteBtn" destination="4Og-xq-3WD" id="WHi-ga-HiU"/>
+                <outlet property="timeLabel" destination="1jn-x0-oBA" id="GL5-Uk-XC4"/>
+                <outlet property="timeLabelLeftCons" destination="6zf-IV-fSG" id="ipN-Do-DKo"/>
+                <outlet property="titleLabel" destination="c0e-4g-i7M" id="zgy-Rf-wZy"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="69.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="collect_unseleted_Delete" width="13" height="13"/>
+    </resources>
+</document>

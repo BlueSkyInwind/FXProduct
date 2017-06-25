@@ -12,6 +12,9 @@
 #import "userSourceModel.h"
 #import "UserCommentModel.h"
 #import "CollectModel.h"
+#import "BrokeModel.h"
+#import "SystemMessageModel.h"
+#import "CommentMessageModel.h"
 @implementation MoreViewModel
 
 /**
@@ -179,6 +182,60 @@
     }];
 }
 
+-(void)fatchUserBrokeInfoPageSize:(int)pageSize{
+    
+    //http://infx2.echaokj.cn/ajax/My/MyReport.ashx?Species=&AccountId=6&PageSize=1
+    NSString * baseUrl = [NSString stringWithFormat:@"%@My/MyReport.ashx?Species=&AccountId=%@&PageSize=%d",_main_url,[Utility sharedUtility].userInfo.ID,pageSize];
+    
+    [[FXNetworkManager sharedNetWorkManager]POSTHideIndicatorWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            BrokeModel * brokeModel = [[BrokeModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
+            self.returnBlock(brokeModel);
+        }
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+}
+
+
+-(void)fatchUserMessageInfo:(NSString *)type pageSize:(int)pageSize{
+    
+    //http://infx2.echaokj.cn/ajax/My/CommentType.ashx?type=0&AccountId=6&PageSize=1
+    NSString * baseUrl = [NSString stringWithFormat:@"%@My/CommentType.ashx?type=%@&AccountId=%@&PageSize=%d",_main_url,type,[Utility sharedUtility].userInfo.ID,pageSize];
+    
+    [[FXNetworkManager sharedNetWorkManager]POSTHideIndicatorWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            SystemMessageModel * systemMessageModel = [[SystemMessageModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
+            self.returnBlock(systemMessageModel);
+        }
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+}
+
+-(void)fatchUserCommentMessageInfo:(NSString *)type pageSize:(int)pageSize{
+    
+    //http://infx2.echaokj.cn/ajax/My/CommentType.ashx?type=0&AccountId=6&PageSize=1
+    NSString * baseUrl = [NSString stringWithFormat:@"%@My/CommentType.ashx?type=%@&AccountId=%@&PageSize=%d",_main_url,type,[Utility sharedUtility].userInfo.ID,pageSize];
+    
+    [[FXNetworkManager sharedNetWorkManager]POSTHideIndicatorWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            CommentMessageModel * commentMessageModel = [[CommentMessageModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
+            self.returnBlock(commentMessageModel);
+        }
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+}
 
 
 @end

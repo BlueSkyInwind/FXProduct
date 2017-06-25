@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AddImageAndContentView">
+        <view autoresizesSubviews="NO" contentMode="scaleToFill" id="iN0-l3-epB" customClass="AddImageAndContentView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -25,12 +25,6 @@
                         <action selector="contentBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Frz-Ty-VhU"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QV3-k6-aT5">
-                    <rect key="frame" x="82" y="10" width="283" height="60"/>
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Delete_Image_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="80K-J7-jCn">
                     <rect key="frame" x="65" y="0.0" width="15" height="15"/>
                     <constraints>
@@ -38,6 +32,12 @@
                         <constraint firstAttribute="width" constant="15" id="ZnQ-kz-I6R"/>
                     </constraints>
                 </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="图片说明：" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QV3-k6-aT5">
+                    <rect key="frame" x="82" y="10" width="283" height="60"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -45,7 +45,6 @@
                 <constraint firstAttribute="bottom" secondItem="UOz-rO-AEq" secondAttribute="bottom" constant="7" id="82d-Fs-VnN"/>
                 <constraint firstAttribute="trailing" secondItem="QV3-k6-aT5" secondAttribute="trailing" constant="10" id="9L4-Gs-aWt"/>
                 <constraint firstItem="QV3-k6-aT5" firstAttribute="leading" secondItem="UOz-rO-AEq" secondAttribute="trailing" constant="10" id="EQN-Hh-hTh"/>
-                <constraint firstItem="UOz-rO-AEq" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="EeN-c6-Jjp"/>
                 <constraint firstItem="UOz-rO-AEq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="OnT-8F-eBa"/>
                 <constraint firstItem="80K-J7-jCn" firstAttribute="leading" secondItem="UOz-rO-AEq" secondAttribute="trailing" constant="-7" id="YS6-JH-wMP"/>
                 <constraint firstAttribute="bottom" secondItem="QV3-k6-aT5" secondAttribute="bottom" constant="10" id="kN7-Zj-1Io"/>

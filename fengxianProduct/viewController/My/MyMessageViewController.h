@@ -10,6 +10,13 @@
 
 @interface MyMessageViewController : BaseViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *sysTemBtn;
+
+@property (weak, nonatomic) IBOutlet UIButton *commentBtn;
+
+@property (weak, nonatomic) IBOutlet UIView *sysTemView;
+@property (weak, nonatomic) IBOutlet UIView *commentView;
+@property (weak, nonatomic) IBOutlet UIView *headerBackView;
 
 
 @end
