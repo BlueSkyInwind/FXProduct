@@ -11,3 +11,6 @@
 @implementation IntegralDetailModel
 
 @end
+@implementation IntegralDetailListModel
+
+@end

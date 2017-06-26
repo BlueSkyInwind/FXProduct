@@ -70,6 +70,9 @@
 		229C46A61F0012B200932533 /* CommentMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229C46A41F0012B200932533 /* CommentMessageTableViewCell.xib */; };
 		229C46A91F001A0700932533 /* SystemMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C46A81F001A0700932533 /* SystemMessageModel.m */; };
 		229C46AC1F00259D00932533 /* CommentMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C46AB1F00259D00932533 /* CommentMessageModel.m */; };
+		229C46B01F01768D00932533 /* MarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C46AF1F01768D00932533 /* MarqueeLabel.m */; };
+		229C46B31F01770400932533 /* NoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229C46B21F01770400932533 /* NoticeView.m */; };
+		229C46B71F01775C00932533 /* NoticeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229C46B61F01775C00932533 /* NoticeView.xib */; };
 		22B9050A1EEBD03C00ED8B71 /* InvationRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905091EEBD03C00ED8B71 /* InvationRegisterView.m */; };
 		22B9050D1EEBEA3100ED8B71 /* SignAndCollectMdoel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9050C1EEBEA3100ED8B71 /* SignAndCollectMdoel.m */; };
 		22B905101EEC1DB800ED8B71 /* MySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9050F1EEC1DB800ED8B71 /* MySettingViewController.m */; };
@@ -500,6 +503,11 @@
 		229C46A81F001A0700932533 /* SystemMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemMessageModel.m; sourceTree = "<group>"; };
 		229C46AA1F00259D00932533 /* CommentMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentMessageModel.h; sourceTree = "<group>"; };
 		229C46AB1F00259D00932533 /* CommentMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentMessageModel.m; sourceTree = "<group>"; };
+		229C46AE1F01768D00932533 /* MarqueeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarqueeLabel.h; sourceTree = "<group>"; };
+		229C46AF1F01768D00932533 /* MarqueeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarqueeLabel.m; sourceTree = "<group>"; };
+		229C46B11F01770300932533 /* NoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeView.h; sourceTree = "<group>"; };
+		229C46B21F01770400932533 /* NoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeView.m; sourceTree = "<group>"; };
+		229C46B61F01775C00932533 /* NoticeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoticeView.xib; sourceTree = "<group>"; };
 		22B905081EEBD03C00ED8B71 /* InvationRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvationRegisterView.h; sourceTree = "<group>"; };
 		22B905091EEBD03C00ED8B71 /* InvationRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvationRegisterView.m; sourceTree = "<group>"; };
 		22B9050B1EEBEA3100ED8B71 /* SignAndCollectMdoel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignAndCollectMdoel.h; sourceTree = "<group>"; };
@@ -1332,6 +1340,15 @@
 			path = messageDetail;
 			sourceTree = "<group>";
 		};
+		229C46AD1F01766500932533 /* MarqueeLabel */ = {
+			isa = PBXGroup;
+			children = (
+				229C46AE1F01768D00932533 /* MarqueeLabel.h */,
+				229C46AF1F01768D00932533 /* MarqueeLabel.m */,
+			);
+			path = MarqueeLabel;
+			sourceTree = "<group>";
+		};
 		22B905191EEC4B5400ED8B71 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -1433,6 +1450,9 @@
 				8440D6BF1EEF8D0000C59B2C /* ClearSearchHistoryView.h */,
 				8440D6C01EEF8D0000C59B2C /* ClearSearchHistoryView.m */,
 				8440D6C21EEF8D3500C59B2C /* ClearSearchHistoryView.xib */,
+				229C46B11F01770300932533 /* NoticeView.h */,
+				229C46B21F01770400932533 /* NoticeView.m */,
+				229C46B61F01775C00932533 /* NoticeView.xib */,
 			);
 			path = NewsView;
 			sourceTree = "<group>";
@@ -1759,6 +1779,7 @@
 		84AABC5E1EE69F76001AA7C0 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				229C46AD1F01766500932533 /* MarqueeLabel */,
 				84C32E511EFCF6B700373BC5 /* AddPhotos */,
 				84375A741EF9299F008D2455 /* SBPlayer */,
 				84BDC84F1EF26CE7006F4DDE /* XXTextView */,
@@ -2696,6 +2717,7 @@
 				847649491EF0E2F1004BEF4E /* AddColumnTableViewCell.xib in Resources */,
 				84BDC84E1EF26C27006F4DDE /* FeedbackViewController.xib in Resources */,
 				229C46921EFFEFD100932533 /* MyBaoliaoTableViewCell.xib in Resources */,
+				229C46B71F01775C00932533 /* NoticeView.xib in Resources */,
 				84AB8A371F0127BD00BA9149 /* MyIntegralListTableViewCell.xib in Resources */,
 				8431F3451EE8FD9C00295A18 /* MoreNavView.xib in Resources */,
 				221A51191EE99BCD00A543C0 /* UserInfoTableViewCell.xib in Resources */,
@@ -2788,7 +2810,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -2908,6 +2930,7 @@
 				226143241EE8370700193487 /* AgreementViewModel.m in Sources */,
 				22B9056E1EED95E300ED8B71 /* JZLCollectionViewCell.m in Sources */,
 				848F3B731EFA73FC00FD6702 /* CommentModel.m in Sources */,
+				229C46B01F01768D00932533 /* MarqueeLabel.m in Sources */,
 				8476494D1EF0E309004BEF4E /* LivesContentTableViewCell.m in Sources */,
 				84AABDE51EE69F76001AA7C0 /* YYKVStorage.m in Sources */,
 				8431F3491EE917DF00295A18 /* MoreTableViewCell.m in Sources */,
@@ -3011,6 +3034,7 @@
 				84AABE441EE6A003001AA7C0 /* CALayer+Anim.m in Sources */,
 				84AABEBA1EE6A035001AA7C0 /* LOTAnimatableColorValue.m in Sources */,
 				84AABDCD1EE69F76001AA7C0 /* LewPopupViewAnimationSlide.m in Sources */,
+				229C46B31F01770400932533 /* NoticeView.m in Sources */,
 				229C467D1EFABE6200932533 /* PopCommentInput.m in Sources */,
 				226143381EE83EA800193487 /* lhScanQCodeViewController.m in Sources */,
 				84AABDDE1EE69F76001AA7C0 /* SDCycleScrollView.m in Sources */,

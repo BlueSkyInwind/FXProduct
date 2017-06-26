@@ -86,6 +86,14 @@
  */
 - (void)fatchCommentListNewsID:(NSString *)number  ComID:(NSString *)comID  type:(NSString *)type pageSize:(int)page numberOfPage:(int)numberOfPage;
 
+/**
+ 获取公告
+ */
+-(void)obatainUserNotice;
+/**
+ 关闭公告
+ */
+-(void)closeUserNotice;
 
 
 

@@ -5,6 +5,8 @@
 
 
 NSString * const _main_url  =   @"http://infx2.echaokj.cn/ajax/";
+NSString * const _AppDownload_url  =   @"http://infx.fengxiannet.com/infengxian/b.htm";
+
 
 
 NSString * const PLATFORM = @"1";                   //平台

@@ -27,6 +27,9 @@
     self.vdieoBtn.hidden = YES;
     [self.titleImage sd_setImageWithURL:[NSURL URLWithString:self.newsList.Image1] placeholderImage:[UIImage imageNamed:@"news_placeholder_Icon_1" ]options:SDWebImageRefreshCached];
     self.titleLabel.text = self.newsList.Title;
+    if ([self.newsList.Source isEqualToString:@"原创"]) {
+        self.titleLocation.textColor = [UIColor redColor];
+    }
     self.titleLocation.text = self.newsList.Source;
     self.titleType.text = self.newsList.Column;
     self.visitorNum.text = [NSString stringWithFormat:@"%@",self.newsList.Num];

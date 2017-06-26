@@ -26,15 +26,17 @@
 
 -(void)integralDetailTap{
     
-    
-    
-    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(integralDetailClick)]) {
+        [self.delegate integralDetailClick];
+    }
+
 }
 -(void)convertDetailTap{
     
-    
-    
-    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(integralConvertDetailClick)]) {
+        [self.delegate integralConvertDetailClick];
+    }
+
 }
 
 - (IBAction)backBtnCilck:(id)sender {

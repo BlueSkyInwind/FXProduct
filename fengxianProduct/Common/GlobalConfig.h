@@ -57,6 +57,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 UIKIT_EXTERN NSString * const _main_url;
 
+UIKIT_EXTERN NSString * const _AppDownload_url;
 
 UIKIT_EXTERN NSString * const PLATFORM;                 //平台
 UIKIT_EXTERN NSString * const Devcode;      //开发码

@@ -13,6 +13,7 @@
 #import "IntegralViewModel.h"
 #import "AgreementViewModel.h"
 #import "FXWebViewController.h"
+#import "MyIntegralListViewController.h"
 
 @interface MyIntegralViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,MyIntegralHeaderCollectionViewCellDelegate>{
     
@@ -89,6 +90,18 @@
     
 }
 
+-(void)integralDetailClick{
+    
+    MyIntegralListViewController * myIntegralListVC = [[MyIntegralListViewController alloc]init];
+    [self.navigationController pushViewController:myIntegralListVC animated:YES];
+
+}
+-(void)integralConvertDetailClick{
+    
+    
+    
+}
+
 #pragma mark ---- UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -154,7 +167,8 @@
     }else if (indexPath.section == 1){
         return (CGSize){_k_w,60};
     }else{
-        return (CGSize){130,130};
+         
+        return (CGSize){_k_w/2 - 20,_k_w/2 - 20};
     }
 }
 

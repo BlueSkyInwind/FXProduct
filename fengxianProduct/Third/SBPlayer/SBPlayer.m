@@ -263,14 +263,14 @@ static NSInteger count = 0;
         case UIInterfaceOrientationPortrait:
         {
             _isFullScreen = NO;
-            [[self getCurrentVC].view addSubview:self];
-            //删除UIView animate可以去除横竖屏切换过渡动画
-            [UIView animateKeyframesWithDuration:kTransitionTime delay:0 options:UIViewKeyframeAnimationOptionCalculationModeLinear animations:^{
-                if (self.oldConstriants) {
-                    [[self getCurrentVC].view addConstraints:self.oldConstriants];
-                }
-                [self layoutIfNeeded];
-            } completion:nil];
+//            [[self getCurrentVC].view addSubview:self];
+//            //删除UIView animate可以去除横竖屏切换过渡动画
+//            [UIView animateKeyframesWithDuration:kTransitionTime delay:0 options:UIViewKeyframeAnimationOptionCalculationModeLinear animations:^{
+//                if (self.oldConstriants) {
+//                    [[self getCurrentVC].view addConstraints:self.oldConstriants];
+//                }
+//                [self layoutIfNeeded];
+//            } completion:nil];
         }
             break;
         case UIInterfaceOrientationUnknown:

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "UserQrcodeShareView.h"
+
+
+
+
 @interface InvationRegisterView : UIView<UserQrcodeShareViewDelegate>
 
 

@@ -27,6 +27,8 @@
     
     float commentInputViewHeight;
     
+    UIImage * shareImage;
+    
 }
 
 @property (nonatomic,strong)DetailHeaderView * detailHeaderView;
@@ -66,6 +68,16 @@
         }
     }];
 }
+-(void)viewWillDisappear:(BOOL)animated{
+//    self.player
+    
+}
+-(void)dealloc{
+    [self.player removeFromSuperview];
+    self.player = nil;
+}
+
+
 #pragma mark - 网络请求
 -(void)obtainCollectAndSpotStatus{
     
@@ -88,6 +100,21 @@
     }];
     [newViewM fatchNewsCollectAndSpotStatusID:[NSString stringWithFormat:@"%@",self.detailID] type:@"8"];
 }
+-(void)getShareImage{
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSData * data = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:self.detailModel.Images]];
+        UIImage *image = [[UIImage alloc]initWithData:data];
+        if (data != nil) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //在这里做UI操作(UI操作都要放在主线程中执行)
+                shareImage = [image copy];
+            });
+        }
+        
+    });
+}
+
 
 -(void)obtainDetail:(void(^)(BOOL isSuccess))finish{
     
@@ -188,6 +215,7 @@
 #pragma mark - 新闻详情布局
 -(void)configureView{
     
+    [self getShareImage];
     _backScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_h - 40)];
     _backScrollView.backgroundColor = [UIColor whiteColor];
     self.backScrollView.contentSize = CGSizeMake(_k_w, _k_h);
@@ -205,6 +233,9 @@
     self.detailHeaderView.titleLabel.text = self.detailModel.Title;
     self.detailHeaderView.timeLabel.text = self.detailModel.Time;
     self.detailHeaderView.autherLabel.text = self.detailModel.Auther;
+    if ([self.detailModel.Source isEqualToString:@"原创"]) {
+        self.detailHeaderView.sourceLabel.textColor = [UIColor redColor];
+    }
     self.detailHeaderView.sourceLabel.text = self.detailModel.Source;
     self.detailHeaderView.userInteractionEnabled = YES;
     [_backScrollView addSubview:self.detailHeaderView];
@@ -220,6 +251,7 @@
     if ([self.Species integerValue] == 3) {
         //添加视频播放发的视图
         [self initVedioPalyView];
+        
         _contentWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 365, _k_w, _k_h)];
     }else{
         _contentWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 154, _k_w, _k_h)];
@@ -255,24 +287,19 @@
 }
 -(void)initVedioPalyView{
     
-    _vedioPlayerView = [[UIView alloc]initWithFrame:CGRectMake(0, 165, _k_w, 200)];
-    _vedioPlayerView.backgroundColor = [UIColor blackColor];
-    [_backScrollView addSubview:_vedioPlayerView];
+//    _vedioPlayerView = [[UIView alloc]initWithFrame:CGRectMake(0, 165, _k_w, 200)];
+//    _vedioPlayerView.backgroundColor = [UIColor blackColor];
+//    [_backScrollView addSubview:_vedioPlayerView];
     self.player = [[SBPlayer alloc]initWithUrl:[NSURL URLWithString:self.detailModel.MP4]];
     //设置标题
-    self.player.frame = CGRectMake(0, 0, _vedioPlayerView.frame.size.width, _vedioPlayerView.frame.size.height);
+    self.player.frame = CGRectMake(0, 165, _k_w, 200);
     [self.player setTitle:@""];
     //设置播放器背景颜色
     self.player.backgroundColor = [UIColor blackColor];
     //设置播放器填充模式 默认SBLayerVideoGravityResizeAspectFill，可以不添加此语句
     self.player.mode = SBLayerVideoGravityResize;
     //添加播放器到视图
-    [self.vedioPlayerView addSubview:self.player];
-//    [self.player mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.right.left.mas_equalTo(self.vedioPlayerView);
-//        make.top.mas_equalTo(self.vedioPlayerView.mas_top);
-//        make.height.mas_equalTo(self.vedioPlayerView.mas_height);
-//    }];
+    [_backScrollView addSubview:self.player];
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
@@ -281,7 +308,7 @@
     frame.size.height = documentHeight + 10;
     webView.frame = frame;
     if ([self.Species integerValue] == 3) {
-        self.detailButtomView.frame = CGRectMake(0, _contentWebView.frame.size.height + 354, _k_w, commentViewHieight);
+        self.detailButtomView.frame = CGRectMake(0, _contentWebView.frame.size.height + 364, _k_w, commentViewHieight);
         self.backScrollView.contentSize = CGSizeMake(_k_w, 390 + documentHeight + 30 + commentViewHieight);
     }else{
         self.detailButtomView.frame = CGRectMake(0, _contentWebView.frame.size.height + 154, _k_w, commentViewHieight);
@@ -316,7 +343,11 @@
 //分享函数
 -(void)shareContent:(NSString*)urlStr Title:(NSString *)title
 {
-    NSArray *imageArr = @[[UIImage imageNamed:@"logo_share"]];
+    if (!shareImage) {
+        shareImage = [UIImage imageNamed:@"logo_share"];
+    }
+     NSArray *imageArr = @[shareImage];
+  
     if (imageArr) {
         NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
         [shareParams SSDKSetupShareParamsByText:@""

@@ -39,12 +39,13 @@
         commentInputViewHeight = 150;
     }
     dataArr = [NSMutableArray array];
-    if (_detailModel) {
-        dataArr = [_detailModel.rows mutableCopy];
-    }else{
-        [self requestCommentListInfo];
-    }
-    
+//    if (_detailModel) {
+//        dataArr = [_detailModel.rows mutableCopy];
+//    }else{
+//        [self requestCommentListInfo];
+//    }
+    [self requestCommentListInfo];
+
     [self configureView];
     [self setupMJRefreshTableView];
 }
@@ -64,7 +65,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     DetailCommentModel * detailCommentM = dataArr[indexPath.row];
-    float height = [Tool heightForText:detailCommentM.Conten width:_k_w - 40 font:15];
+    float height = [Tool heightForText:detailCommentM.Conten width:_k_w - 40 font:15] + 10;
 
     //小编回复
     commentCellHieight = 60 + height;
@@ -84,10 +85,10 @@
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    CommentTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CommentTableViewCell" forIndexPath:indexPath];
-    if (!cell) {
-        cell = [[CommentTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CommentTableViewCell"];
-    }
+   __weak CommentTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CommentTableViewCell" forIndexPath:indexPath];
+//    if (!cell) {
+//        cell = [[CommentTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CommentTableViewCell"];
+//    }
     __block DetailCommentModel *detailCommentModel = dataArr[indexPath.row];
     cell.detailCommentModel = dataArr[indexPath.row];
     cell.commentEventClick = ^(UITapGestureRecognizer *tap) {
@@ -97,7 +98,9 @@
         [popComment showCommentView];
     };
     cell.spotEventClick = ^(UITapGestureRecognizer *tap) {
-        [self requestSpot:detailCommentModel.ID];
+        [self requestSpot:detailCommentModel.ID spotNum:^(NSString *spotText) {
+            cell.commentNum.text = [NSString stringWithFormat:@"%@",spotText];
+        }];
     };
     return cell;
 }
@@ -105,18 +108,13 @@
     return 0.1;
 }
 
--(void)requestSpot:(NSString *)commentId{
+-(void)requestSpot:(NSString *)commentId spotNum:(void(^)(NSString * spotText))spotNum{
     NewsViewModel * newViewM = [[NewsViewModel alloc]init];
     [newViewM setBlockWithReturnBlock:^(id returnValue) {
         ReturnMsgBaseClass * returnMsg = returnValue;
         if ([returnMsg.returnCode intValue] == 1) {
             NSString * number = (NSString *)returnMsg.msg;
-            if ([number integerValue] == 1) {
-                [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"点赞成功"];
-                
-            }else if ([number integerValue] == 2){
-                [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"取消点赞"];
-            }
+            spotNum(number);
         }
     } WithFaileBlock:^{
         

@@ -37,6 +37,10 @@
 }
 
 -(void)setDetailCommentModel:(DetailCommentModel *)detailCommentModel{
+    
+    self.secondComentViewHeight.constant = 0;
+    self.secondComentView.hidden = YES;
+    self.redactReply.hidden = YES;
     _detailCommentModel = detailCommentModel;
     [self setNeedsLayout];
 }
@@ -46,13 +50,14 @@
     self.accountName.text = _detailCommentModel.Name;
     self.commentTime.text = _detailCommentModel.Time;
     self.accountLabel.text = _detailCommentModel.Conten;
-   self.accoutContentHeight.constant =  [Tool heightForText:_detailCommentModel.Conten width:self.accountLabel.frame.size.width font:14];
+   self.accoutContentHeight.constant =  [Tool heightForText:_detailCommentModel.Conten width:_k_w - 40 font:14] + 10;
     self.commentNum.text = _detailCommentModel.ThumbNum;
     self.spotNum.text = _detailCommentModel.CommentNum;
+    
     if (_detailCommentModel.Reply != nil || [_detailCommentModel.Reply  isEqualToString:@""]) {
         self.redactReply.hidden = NO;
         self.redactReply.text = [NSString stringWithFormat:@"【小编回复】%@",_detailCommentModel.Reply];
-        self.redactReplyHeight.constant =  [Tool heightForText:_detailCommentModel.Reply width:self.redactReply.frame.size.width font:14];
+        self.redactReplyHeight.constant =  [Tool heightForText:self.redactReply.text width:_k_w - 40 font:14] + 10;
     }else{
         self.redactReply.hidden = YES;
     }

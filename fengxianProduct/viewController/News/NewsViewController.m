@@ -14,6 +14,7 @@
 #import "NewsViewModel.h"
 #import "SearchBarViewController.h"
 #import "DateAndWeatherView.h"
+#import "NoticeView.h"
 
 @interface NewsViewController (){
     
@@ -23,6 +24,7 @@
 
 @property (nonatomic, strong) TGSementBarVC *segmentBarVC;
 @property (nonatomic, strong) DateAndWeatherView * dateAndWeatherView;
+@property (nonatomic, strong) NoticeView * noticeView;
 
 @end
 
@@ -63,6 +65,19 @@
         make.right.equalTo(self.view.mas_right).with.offset(0);
         make.top.equalTo(self.view.mas_top).with.offset(64);
         make.height.equalTo(@30);
+    }];
+    
+    __weak typeof (self) weakSelf = self;
+    [self obtainNoticeInfo:^(BOOL isSuccess, NSString *resultStr) {
+        weakSelf.noticeView = [[NSBundle mainBundle]loadNibNamed:@"NoticeView" owner:self options:nil].lastObject;
+        weakSelf.noticeView.scrollLabel.text = resultStr;
+        weakSelf.noticeView.closeNoticeView = ^(UIButton *button) {
+            [weakSelf.noticeView removeFromSuperview];
+        };
+        [weakSelf.dateAndWeatherView addSubview:self.noticeView];
+        [weakSelf.noticeView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(weakSelf.dateAndWeatherView);
+        }];
     }];
 
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -133,6 +148,26 @@
     }];
     [newsVM fatchWeatherInfo];
 }
+
+-(void)obtainNoticeInfo:(void(^)(BOOL isSuccess,NSString * resultStr))finish{
+    if (![Utility sharedUtility].loginFlage) {
+        return;
+    }
+    
+    NewsViewModel * newsVM = [[NewsViewModel alloc]init];
+    [newsVM setBlockWithReturnBlock:^(id returnValue) {
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        if ([returnMsg.returnCode integerValue] == 1) {
+            NSString * str = returnMsg.result[@"Title"];
+            finish(YES,str);
+        }
+    } WithFaileBlock:^{
+        
+    }];
+    [newsVM obatainUserNotice];
+
+}
+
 #pragma mark - 点击事件
 -(void)moreColumnClick{
     
