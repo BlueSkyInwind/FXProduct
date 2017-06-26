@@ -18,7 +18,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    [Tool setCornerWithoutRadius:self.backView borderColor:[UIColor grayColor]];
+    [Tool setCornerWithoutRadius:self.backView borderColor:kUIColorFromRGB(0xc0c0c0)];
     self.updateListNumLabel.layer.cornerRadius = self.updateListNumLabel.frame.size.width;
     self.updateListNumLabel.clipsToBounds = YES;
     self.updateListNumLabel.hidden = YES;
@@ -42,7 +42,6 @@
 }
 
 - (IBAction)moreBtnClick:(id)sender {
-    
     if (self.moreButtonCilck) {
         self.moreButtonCilck(sender);
     }

@@ -23,9 +23,8 @@
 @property (nonatomic,strong)NSString<Optional> * Conten;
 @property (nonatomic,strong)NSString<Optional> * Time;
 @property (nonatomic,strong)NSString<Optional> * Type;
-@property (nonatomic,strong)NSString<Optional> * ID;
-@property (nonatomic,strong)NSNumber<Optional> * ComID;
-
+@property (nonatomic,strong)NSNumber<Optional> * ID;
+@property (nonatomic,strong)NSString<Optional> * ComID;
 
 @end
 

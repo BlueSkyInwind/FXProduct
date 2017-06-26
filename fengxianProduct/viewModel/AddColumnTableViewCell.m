@@ -13,7 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    [Tool setCornerWithoutRadius:self.backView borderColor:[UIColor grayColor]];
+    [Tool setCornerWithoutRadius:self.backView borderColor:kUIColorFromRGB(0xc0c0c0)];
 
      UITapGestureRecognizer * tap1 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(columnViewOneClick)];
     [self.columnViewOne addGestureRecognizer:tap1];
@@ -95,21 +95,21 @@
         self.columnViewTwoLabel.textColor = UI_MAIN_COLOR;
     }
 }
+
 -(void)columnViewThreeClick{
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(columnViewThreeTap)]) {
         [self.delegate columnViewThreeTap];
         self.columnViewThreeLabel.textColor = UI_MAIN_COLOR;
     }
-    
 }
+
 -(void)columnViewFourClick{
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(columnViewFourTap)]) {
         [self.delegate columnViewFourTap];
         self.columnViewFourLabel.textColor = UI_MAIN_COLOR;
     }
-    
 }
 
 

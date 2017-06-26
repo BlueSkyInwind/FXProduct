@@ -18,6 +18,15 @@
  @param numberOfPage 每页数量
  */
 - (void)fatchNewsInfoID:(NSString *)number pageSize:(int)page numberOfPage:(int)numberOfPage;
+
+/**
+ 新闻详情状态
+
+ @param number id
+ @param type 类型
+ */
+- (void)fatchNewsCollectAndSpotStatusID:(NSString *)number type:(NSString *)type;
+
 /**
  新闻搜索接口
 
@@ -75,7 +84,9 @@
  @param page 页数
  @param numberOfPage 每页个数
  */
-- (void)fatchCommentListNewsID:(NSString *)number  type:(NSString *)type pageSize:(int)page numberOfPage:(int)numberOfPage;
+- (void)fatchCommentListNewsID:(NSString *)number  ComID:(NSString *)comID  type:(NSString *)type pageSize:(int)page numberOfPage:(int)numberOfPage;
+
+
 
 
 @end

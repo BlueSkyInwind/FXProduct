@@ -214,7 +214,7 @@
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
         make.bottom.equalTo(self.view.mas_bottom);
-        make.height.equalTo(@40);
+        make.height.equalTo(@50);
     }];
 }
 

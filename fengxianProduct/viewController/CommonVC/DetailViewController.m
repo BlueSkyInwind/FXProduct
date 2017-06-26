@@ -19,6 +19,7 @@
 #import "SBPlayer.h"
 #import "CommentInputView.h"
 #import "PopCommentInput.h"
+#import "NewsDetailStatusModel.h"
 @interface DetailViewController ()<WKScriptMessageHandler,WKNavigationDelegate,WKUIDelegate,UIWebViewDelegate,CommonBottomViewDelegate,DetailButtomViewDelegate,UITextViewDelegate>{
     NSMutableArray * commenArray;
     
@@ -60,11 +61,34 @@
     __weak typeof (self) weakSelf = self;
     [self obtainDetail:^(BOOL isSuccess) {
         if (isSuccess) {
+            [weakSelf obtainCollectAndSpotStatus];
             [weakSelf configureView];
         }
     }];
 }
 #pragma mark - 网络请求
+-(void)obtainCollectAndSpotStatus{
+    
+    NewsViewModel * newViewM = [[NewsViewModel alloc]init];
+    [newViewM setBlockWithReturnBlock:^(id returnValue) {
+        NewsDetailStatusModel * newsDetailStatusModel  = returnValue;
+        if ([newsDetailStatusModel.Collections boolValue]) {
+            [self.commonBottomView.collectBtn setBackgroundImage:[UIImage imageNamed:@"Collect_Icon_blue"] forState:UIControlStateNormal];
+        }else{
+            [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"Collect_Icon_gray"] forState:UIControlStateNormal];
+        }
+        
+        if ([newsDetailStatusModel.Thumbs boolValue]) {
+            [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"Dianzan_blue"] forState:UIControlStateNormal];
+        }else{
+            [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"Dianzan_gray"] forState:UIControlStateNormal];
+        }
+    } WithFaileBlock:^{
+        
+    }];
+    [newViewM fatchNewsCollectAndSpotStatusID:[NSString stringWithFormat:@"%@",self.detailID] type:@"8"];
+}
+
 -(void)obtainDetail:(void(^)(BOOL isSuccess))finish{
     
     NewsViewModel * newViewM = [[NewsViewModel alloc]init];
@@ -103,14 +127,16 @@
 #pragma mark - 底部tab点击代理 时间
 -(void)commentButtonClick{
 
-   
     if ([[ShareConfig share] isPresentLoginVC:self]) {
+        if (self.detailModel.rows.count == 0 || !self.detailModel.rows) {
+            [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"该新闻尚无评论"];
+            return;
+        }
         CommentDetailViewController * commentDetailVC = [[CommentDetailViewController alloc]init];
         commentDetailVC.detailModel = self.detailModel;
         commentDetailVC.detailID = self.detailID;
         [self.navigationController pushViewController:commentDetailVC animated:YES];
     }
-
 }
 - (void)spotButtonClick{
     if (![[ShareConfig share] isPresentLoginVC:self]) {
@@ -234,7 +260,7 @@
     [_backScrollView addSubview:_vedioPlayerView];
     self.player = [[SBPlayer alloc]initWithUrl:[NSURL URLWithString:self.detailModel.MP4]];
     //设置标题
-//    self.player.frame = CGRectMake(0, 0, _vedioPlayerView.frame.size.width, _vedioPlayerView.frame.size.height);
+    self.player.frame = CGRectMake(0, 0, _vedioPlayerView.frame.size.width, _vedioPlayerView.frame.size.height);
     [self.player setTitle:@""];
     //设置播放器背景颜色
     self.player.backgroundColor = [UIColor blackColor];
@@ -242,11 +268,11 @@
     self.player.mode = SBLayerVideoGravityResize;
     //添加播放器到视图
     [self.vedioPlayerView addSubview:self.player];
-    [self.player mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.left.mas_equalTo(self.vedioPlayerView);
-        make.top.mas_equalTo(self.vedioPlayerView.mas_top);
-        make.height.mas_equalTo(self.vedioPlayerView.mas_height);
-    }];
+//    [self.player mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.right.left.mas_equalTo(self.vedioPlayerView);
+//        make.top.mas_equalTo(self.vedioPlayerView.mas_top);
+//        make.height.mas_equalTo(self.vedioPlayerView.mas_height);
+//    }];
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{

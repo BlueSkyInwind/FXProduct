@@ -101,7 +101,8 @@
     
     CommentMessageDetailModel * commentMessageDetailM = _dataArr[indexPath.row];
     CommentDetailViewController * commentDetailVC = [[CommentDetailViewController alloc]init];
-    commentDetailVC.detailID = commentMessageDetailM.ComID;
+    commentDetailVC.detailID = commentMessageDetailM.ID;
+    commentDetailVC.comID= commentMessageDetailM.ComID;
     [self.navigationController pushViewController:commentDetailVC animated:YES];
  
 }
@@ -196,7 +197,7 @@
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
         make.bottom.equalTo(self.view.mas_bottom);
-        make.height.equalTo(@40);
+        make.height.equalTo(@50);
     }];
 }
 

@@ -13,5 +13,6 @@
 
 @property (nonatomic,strong)DetailModel * detailModel;
 @property (nonatomic,strong)NSNumber * detailID;
+@property (nonatomic,strong)NSString  * comID;
 
 @end

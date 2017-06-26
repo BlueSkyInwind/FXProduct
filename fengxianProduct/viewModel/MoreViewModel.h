@@ -79,4 +79,13 @@
  */
 -(void)fatchUserCommentMessageInfo:(NSString *)type pageSize:(int)pageSize;
 
+/**
+ 我的积分详情
+
+ @param type 类型
+ @param pageSize 页数
+ */
+-(void)fatchUserIntegralDetailInfo:(NSString *)type pageSize:(int)pageSize;
+
+
 @end

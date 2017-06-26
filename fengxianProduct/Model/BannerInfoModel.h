@@ -9,21 +9,20 @@
 #import <JSONModel/JSONModel.h>
 @protocol BannerInfoModel
 
-@end
 
+
+@end
 @interface BannerInfoModel : JSONModel
 
 @property (nonatomic,strong)NSNumber * NewID;
 @property(nonatomic,strong)NSString * Title;
 @property(nonatomic,strong)NSNumber * Type;
 @property(nonatomic,strong)NSString * Image;
-
 @end
 
 @interface BannerListModel : JSONModel
 
 @property (nonatomic,strong)NSArray<BannerInfoModel> * rows;
-
 
 @end
 

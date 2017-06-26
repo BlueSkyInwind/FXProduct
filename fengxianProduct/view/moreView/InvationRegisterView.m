@@ -27,7 +27,6 @@
     [viewController lew_presentPopupView:invationRV animation:[LewPopupViewAnimationSpring new] backgroundClickable:NO dismissed:^{
         
     }];
-
 }
 
 -(instancetype)initWithFrame:(CGRect)frame{
@@ -59,8 +58,6 @@
 
 }
 -(void)invationCodeClick{
-    
-    
     
     
     

@@ -116,6 +116,7 @@
     [self.commonBottomView.shareBtn setBackgroundImage: [[UIImage imageNamed:@"Comment_List_Icon"] imageWithTintColor:[UIColor whiteColor]] forState:UIControlStateNormal];
     [self.commonBottomView.commentImageView setImage:[[UIImage imageNamed:@"comment_click_ICon"] imageWithTintColor:[UIColor whiteColor]]];
     self.commonBottomView.defaultLabel.textColor = [UIColor whiteColor];
+    [self.commonBottomView.commentImageView setImage:[UIImage imageNamed:@"comment_click_ICon_black"]];
     [self.view addSubview:self.commonBottomView];
     
 }

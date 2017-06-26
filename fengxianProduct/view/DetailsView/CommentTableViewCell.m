@@ -58,6 +58,7 @@
     }
     DetailCommentModel *detailCommentModel2 = [[DetailCommentModel alloc]initWithDictionary:_detailCommentModel.lower error:nil];
     if ([detailCommentModel2.success integerValue] == 1) {
+        self.secondComentView.hidden = NO;
         self.secondComentViewHeight.constant = 85;
         self.secondName.text = detailCommentModel2.Name;
         self.secondTime.text = detailCommentModel2.Time;

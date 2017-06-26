@@ -62,9 +62,12 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"CommentTableViewCell" bundle:nil] forCellReuseIdentifier:@"CommentTableViewCell"];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     DetailCommentModel * detailCommentM = dataArr[indexPath.row];
+    float height = [Tool heightForText:detailCommentM.Conten width:_k_w - 40 font:15];
+
     //小编回复
-    commentCellHieight = 90;
+    commentCellHieight = 60 + height;
     if (detailCommentM.Reply) {
         commentCellHieight  += 60;
     }
@@ -98,6 +101,9 @@
     };
     return cell;
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.1;
+}
 
 -(void)requestSpot:(NSString *)commentId{
     NewsViewModel * newViewM = [[NewsViewModel alloc]init];
@@ -105,10 +111,10 @@
         ReturnMsgBaseClass * returnMsg = returnValue;
         if ([returnMsg.returnCode intValue] == 1) {
             NSString * number = (NSString *)returnMsg.msg;
-            if ([number isEqualToString:@"1"]) {
+            if ([number integerValue] == 1) {
                 [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"点赞成功"];
                 
-            }else if ([number isEqualToString:@"2"]){
+            }else if ([number integerValue] == 2){
                 [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"取消点赞"];
             }
         }
@@ -168,7 +174,10 @@
     } WithFaileBlock:^{
         
     }];
-    [newsVM fatchCommentListNewsID:[NSString stringWithFormat:@"%@",self.detailID] type:@"8" pageSize:pages numberOfPage:10];
+    if (self.comID == nil) {
+        self.comID = @"0";
+    }
+    [newsVM fatchCommentListNewsID:[NSString stringWithFormat:@"%@",self.detailID]  ComID:self.comID  type:@"8" pageSize:pages numberOfPage:10];
 }
 
 - (void)didReceiveMemoryWarning {

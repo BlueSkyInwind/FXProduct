@@ -199,6 +199,7 @@
 		849FDDFD1EFBC6DC002159F9 /* MyCollectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FDDFB1EFBC6DC002159F9 /* MyCollectTableViewCell.m */; };
 		849FDDFE1EFBC6DC002159F9 /* MyCollectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849FDDFC1EFBC6DC002159F9 /* MyCollectTableViewCell.xib */; };
 		849FDE011EFBCF51002159F9 /* CollectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849FDE001EFBCF51002159F9 /* CollectModel.m */; };
+		84A635091F00CAB600146A8A /* NewsDetailStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A635081F00CAB600146A8A /* NewsDetailStatusModel.m */; };
 		84AABC231EE69672001AA7C0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AABC221EE69672001AA7C0 /* libz.tbd */; };
 		84AABC251EE696FC001AA7C0 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AABC241EE696FC001AA7C0 /* libstdc++.6.0.9.tbd */; };
 		84AABC271EE6970D001AA7C0 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84AABC261EE6970D001AA7C0 /* AddressBook.framework */; };
@@ -353,6 +354,10 @@
 		84AABEFB1EE6B44E001AA7C0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AABEF91EE6B44E001AA7C0 /* LoginViewController.m */; };
 		84AABEFC1EE6B44E001AA7C0 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AABEFA1EE6B44E001AA7C0 /* LoginViewController.xib */; };
 		84AABEFF1EE6BD81001AA7C0 /* InitialSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AABEFE1EE6BD81001AA7C0 /* InitialSetting.m */; };
+		84AB8A2F1F0120D100BA9149 /* IntegralDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AB8A2E1F0120D100BA9149 /* IntegralDetailModel.m */; };
+		84AB8A321F01279300BA9149 /* MyIntegralListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AB8A311F01279300BA9149 /* MyIntegralListViewController.m */; };
+		84AB8A361F0127BD00BA9149 /* MyIntegralListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AB8A341F0127BD00BA9149 /* MyIntegralListTableViewCell.m */; };
+		84AB8A371F0127BD00BA9149 /* MyIntegralListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AB8A351F0127BD00BA9149 /* MyIntegralListTableViewCell.xib */; };
 		84BDC84D1EF26C27006F4DDE /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BDC84B1EF26C27006F4DDE /* FeedbackViewController.m */; };
 		84BDC84E1EF26C27006F4DDE /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BDC84C1EF26C27006F4DDE /* FeedbackViewController.xib */; };
 		84BDC8521EF26CE7006F4DDE /* XXTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BDC8511EF26CE7006F4DDE /* XXTextView.m */; };
@@ -727,6 +732,8 @@
 		849FDDFC1EFBC6DC002159F9 /* MyCollectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectTableViewCell.xib; sourceTree = "<group>"; };
 		849FDDFF1EFBCF51002159F9 /* CollectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectModel.h; sourceTree = "<group>"; };
 		849FDE001EFBCF51002159F9 /* CollectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectModel.m; sourceTree = "<group>"; };
+		84A635071F00CAB600146A8A /* NewsDetailStatusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailStatusModel.h; sourceTree = "<group>"; };
+		84A635081F00CAB600146A8A /* NewsDetailStatusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailStatusModel.m; sourceTree = "<group>"; };
 		84AABC221EE69672001AA7C0 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		84AABC241EE696FC001AA7C0 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		84AABC261EE6970D001AA7C0 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -1014,6 +1021,13 @@
 		84AABEFA1EE6B44E001AA7C0 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		84AABEFD1EE6BD81001AA7C0 /* InitialSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialSetting.h; sourceTree = "<group>"; };
 		84AABEFE1EE6BD81001AA7C0 /* InitialSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialSetting.m; sourceTree = "<group>"; };
+		84AB8A2D1F0120D100BA9149 /* IntegralDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegralDetailModel.h; sourceTree = "<group>"; };
+		84AB8A2E1F0120D100BA9149 /* IntegralDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegralDetailModel.m; sourceTree = "<group>"; };
+		84AB8A301F01279300BA9149 /* MyIntegralListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyIntegralListViewController.h; sourceTree = "<group>"; };
+		84AB8A311F01279300BA9149 /* MyIntegralListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIntegralListViewController.m; sourceTree = "<group>"; };
+		84AB8A331F0127BD00BA9149 /* MyIntegralListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyIntegralListTableViewCell.h; sourceTree = "<group>"; };
+		84AB8A341F0127BD00BA9149 /* MyIntegralListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyIntegralListTableViewCell.m; sourceTree = "<group>"; };
+		84AB8A351F0127BD00BA9149 /* MyIntegralListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyIntegralListTableViewCell.xib; sourceTree = "<group>"; };
 		84BDC84A1EF26C27006F4DDE /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
 		84BDC84B1EF26C27006F4DDE /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 		84BDC84C1EF26C27006F4DDE /* FeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewController.xib; sourceTree = "<group>"; };
@@ -1487,6 +1501,9 @@
 				229C46A21F0012B200932533 /* CommentMessageTableViewCell.h */,
 				229C46A31F0012B200932533 /* CommentMessageTableViewCell.m */,
 				229C46A41F0012B200932533 /* CommentMessageTableViewCell.xib */,
+				84AB8A331F0127BD00BA9149 /* MyIntegralListTableViewCell.h */,
+				84AB8A341F0127BD00BA9149 /* MyIntegralListTableViewCell.m */,
+				84AB8A351F0127BD00BA9149 /* MyIntegralListTableViewCell.xib */,
 			);
 			path = moreView;
 			sourceTree = "<group>";
@@ -2395,6 +2412,8 @@
 				84BDC8571EF27967006F4DDE /* MyFeedbackViewController.m */,
 				84748E5D1EF3789800831016 /* MyIntegralViewController.h */,
 				84748E5E1EF3789800831016 /* MyIntegralViewController.m */,
+				84AB8A301F01279300BA9149 /* MyIntegralListViewController.h */,
+				84AB8A311F01279300BA9149 /* MyIntegralListViewController.m */,
 				849FDDEF1EFBC5D7002159F9 /* MyCollectViewController.h */,
 				849FDDF01EFBC5D7002159F9 /* MyCollectViewController.m */,
 				849FDDF21EFBC640002159F9 /* MyBrokeViewController.h */,
@@ -2460,6 +2479,8 @@
 				22B9055E1EECFAB600ED8B71 /* BannerInfoModel.m */,
 				22B905631EECFF7900ED8B71 /* NewsListModel.h */,
 				22B905641EECFF7900ED8B71 /* NewsListModel.m */,
+				84A635071F00CAB600146A8A /* NewsDetailStatusModel.h */,
+				84A635081F00CAB600146A8A /* NewsDetailStatusModel.m */,
 				22B905661EED070300ED8B71 /* ColumnModel.h */,
 				22B905671EED070300ED8B71 /* ColumnModel.m */,
 				8439A4861EEE9F45002ADF1B /* userSourceModel.h */,
@@ -2484,6 +2505,8 @@
 				229C46AB1F00259D00932533 /* CommentMessageModel.m */,
 				229C46861EFF9DA200932533 /* NewsParamModel.h */,
 				229C46871EFF9DA200932533 /* NewsParamModel.m */,
+				84AB8A2D1F0120D100BA9149 /* IntegralDetailModel.h */,
+				84AB8A2E1F0120D100BA9149 /* IntegralDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2673,6 +2696,7 @@
 				847649491EF0E2F1004BEF4E /* AddColumnTableViewCell.xib in Resources */,
 				84BDC84E1EF26C27006F4DDE /* FeedbackViewController.xib in Resources */,
 				229C46921EFFEFD100932533 /* MyBaoliaoTableViewCell.xib in Resources */,
+				84AB8A371F0127BD00BA9149 /* MyIntegralListTableViewCell.xib in Resources */,
 				8431F3451EE8FD9C00295A18 /* MoreNavView.xib in Resources */,
 				221A51191EE99BCD00A543C0 /* UserInfoTableViewCell.xib in Resources */,
 				84C32E5E1EFD363200373BC5 /* AddImageAndContentView.xib in Resources */,
@@ -2764,7 +2788,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -2978,6 +3002,7 @@
 				8440D6DD1EEFD8FA00C59B2C /* ColumnViewModel.m in Sources */,
 				84AABDD91EE69F76001AA7C0 /* TAAbstractDotView.m in Sources */,
 				84AABDCA1EE69F76001AA7C0 /* LewPopupBackgroundView.m in Sources */,
+				84AB8A2F1F0120D100BA9149 /* IntegralDetailModel.m in Sources */,
 				84AABE481EE6A003001AA7C0 /* NSObject+Extend.m in Sources */,
 				84AABE501EE6A003001AA7C0 /* UIImage+Cut.m in Sources */,
 				84AABDD41EE69F76001AA7C0 /* HMScannerController.m in Sources */,
@@ -3028,11 +3053,13 @@
 				221A51221EEADCF800A543C0 /* PickerSelectView.m in Sources */,
 				84AABDF51EE69F76001AA7C0 /* NSAttributedString+YYText.m in Sources */,
 				84AABEEE1EE6B264001AA7C0 /* LivesViewController.m in Sources */,
+				84AB8A321F01279300BA9149 /* MyIntegralListViewController.m in Sources */,
 				22B905181EEC282000ED8B71 /* ClearCacheTool.m in Sources */,
 				840DFFF51EF7A6E400709337 /* CommentTableViewCell.m in Sources */,
 				84AABDD81EE69F76001AA7C0 /* UIViewController+RTRootNavigationController.m in Sources */,
 				22B905541EEC5A1300ED8B71 /* DateAndWeatherView.m in Sources */,
 				845862601EE68A7100AF52B3 /* NSString+YYAdd.m in Sources */,
+				84AB8A361F0127BD00BA9149 /* MyIntegralListTableViewCell.m in Sources */,
 				229C46AC1F00259D00932533 /* CommentMessageModel.m in Sources */,
 				845862581EE68A7100AF52B3 /* ShareConfig.m in Sources */,
 				84AABEB41EE6A035001AA7C0 /* LOTLayerView.m in Sources */,
@@ -3050,6 +3077,7 @@
 				2261431D1EE6EF8300193487 /* YX_TextField.m in Sources */,
 				22B905141EEC1E4500ED8B71 /* MySettingTableViewCell.m in Sources */,
 				84AABE521EE6A003001AA7C0 /* UIImage+FixOrientation.m in Sources */,
+				84A635091F00CAB600146A8A /* NewsDetailStatusModel.m in Sources */,
 				845862561EE68A7100AF52B3 /* NSString+MD5Encrypt.m in Sources */,
 				8458624C1EE68A7100AF52B3 /* AddressClass.m in Sources */,
 				84AABDE61EE69F76001AA7C0 /* YYMemoryCache.m in Sources */,

@@ -12,6 +12,8 @@
 #import "DetailModel.h"
 #import "PhotoModel.h"
 #import "CommentModel.h"
+#import "NewsDetailStatusModel.h"
+
 @implementation NewsViewModel
 
 
@@ -34,7 +36,25 @@
     }];
     
 }
-
+- (void)fatchNewsCollectAndSpotStatusID:(NSString *)number type:(NSString *)type{
+    
+    //http://infx2.echaokj.cn/ajax/inter/UserToSel2.ashx?AccountId=13&NewID=70&type=8
+    
+    NSString * baseUrl = [NSString stringWithFormat:@"%@inter/UserToSel2.ashx?AccountId=%@&NewID=%@&type=%@",_main_url,[Utility sharedUtility].userInfo.ID,number,type];
+    
+    [[FXNetworkManager sharedNetWorkManager]POSTWithNetworkStatusURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            NewsDetailStatusModel * newsDetailStatusModel = [[NewsDetailStatusModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
+            self.returnBlock(newsDetailStatusModel);
+        }
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+    
+}
 
 - (void)uploadColumnListType:(NSString *)number Column:(NSString *)Column{
     
@@ -186,11 +206,11 @@
     }];
 }
 
-- (void)fatchCommentListNewsID:(NSString *)number  type:(NSString *)type pageSize:(int)page numberOfPage:(int)numberOfPage{
+- (void)fatchCommentListNewsID:(NSString *)number  ComID:(NSString *)comID  type:(NSString *)type pageSize:(int)page numberOfPage:(int)numberOfPage{
     
     //http://infx2.echaokj.cn/ajax/Home/CommList.ashx?id=3114&type=8&PageSize=1&PageCount=10
     
-    NSString * baseUrl = [NSString stringWithFormat:@"%@Home/CommList.ashx?id=%@&type=%@&PageSize=%d&PageCount=%d",_main_url,number,type,page,numberOfPage];
+    NSString * baseUrl = [NSString stringWithFormat:@"%@Home/CommList.ashx?id=%@&ComID=%@&type=%@&PageSize=%d&PageCount=%d",_main_url,number,comID,type,page,numberOfPage];
     
     [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
