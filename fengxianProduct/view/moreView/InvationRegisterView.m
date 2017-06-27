@@ -8,7 +8,8 @@
 
 #import "InvationRegisterView.h"
 #import "LewPopupViewController.h"
-
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKUI/ShareSDKUI.h>
 @interface InvationRegisterView(){
 }
 
@@ -59,9 +60,41 @@
 }
 -(void)invationCodeClick{
     
-    
-    
+    [self shareContent:_AppDownload_url Title:@"下载“IN奉贤”"];
 }
+
+//分享函数
+-(void)shareContent:(NSString*)urlStr Title:(NSString *)title
+{
+ 
+    NSArray *imageArr = @[self.userQrcodeShareView.qrCodeImage.image];
+    NSString * str = [NSString stringWithFormat:@"安装注册输入邀请码：%@",self.userQrcodeShareView.invationCodeLabel.text];
+    if (imageArr) {
+        NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+        [shareParams SSDKSetupShareParamsByText:str
+                                         images:imageArr
+                                            url:[NSURL URLWithString:urlStr]
+                                          title:title
+                                           type:SSDKContentTypeAuto];
+        [shareParams SSDKEnableUseClientShare];
+        [ShareSDK showShareActionSheet:nil
+                                 items:nil
+                           shareParams:shareParams
+                   onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
+                       switch (state) {
+                           case SSDKResponseStateSuccess:
+                               [[MBPAlertView sharedMBPTextView] showTextOnly:self.superVC.view message:@"分享成功"];
+                               break;
+                               
+                           case SSDKResponseStateFail:
+                               [[MBPAlertView sharedMBPTextView] showTextOnly:self.superVC.view message:@"分享失败"];
+                           default:
+                               break;
+                       }
+                   }];
+    }
+}
+
 
 
 /*

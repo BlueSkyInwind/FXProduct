@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyIntegralListViewController : UIViewController
+@interface MyIntegralListViewController : BaseViewController
+
+
+
 
 @end

@@ -25,6 +25,8 @@
     
     BOOL isDispaly;
     
+    UIImage * shareImage;
+    
 }
 @property (nonatomic,strong)PhotoModel * photoModel;
 @property (nonatomic,strong)ExplainView * explainView;
@@ -257,6 +259,9 @@
         imageView.clipsToBounds = YES;
 //        [imageView sd_setImageWithURL:[NSURL URLWithString:photoDetailM.Image] placeholderImage:[UIImage imageNamed:@"news_placeholder_Icon_1" ] options:SDWebImageRefreshCached];
         [self loadImageWithUrl:photoDetailM.Image imageView:imageView completed:^(UIImage *image) {
+            if (i == 0) {
+                shareImage = [image copy];
+            }
             imageView.image = image;
             imageView.frame =  CGRectMake(0, 0, _k_w, _k_w * image.size.height / image.size.width);
             imageView.userInteractionEnabled = YES;
@@ -278,7 +283,10 @@
 //分享函数
 -(void)shareContent:(NSString*)urlStr Title:(NSString *)title
 {
-    NSArray *imageArr = @[[UIImage imageNamed:@"logo_share"]];
+    if (!shareImage) {
+        shareImage = [UIImage imageNamed:@"logo_share"];
+    }
+    NSArray *imageArr = @[shareImage];
     if (imageArr) {
         NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
         [shareParams SSDKSetupShareParamsByText:@""

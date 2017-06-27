@@ -12,6 +12,8 @@
 
 -(void)backButtonCilck;
 -(void)integralButtonCilck;
+-(void)integralDetailClick;
+-(void)integralConvertDetailClick;
 
 
 @end

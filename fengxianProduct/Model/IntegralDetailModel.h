@@ -8,8 +8,8 @@
 
 #import <JSONModel/JSONModel.h>
 
-@protocol IntegralDetailListModel <NSObject>
 
+@protocol IntegralDetailListModel <NSObject>
 
 @end
 
@@ -26,6 +26,6 @@
 
 @property (nonatomic,strong)NSNumber * total;
 @property (nonatomic,strong)NSNumber * Next;
-@property (nonatomic,strong)NSArray<IntegralDetailListModel>  * rows;
+@property (nonatomic,strong)NSArray<IntegralDetailListModel> * rows;
 
 @end

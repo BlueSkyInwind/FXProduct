@@ -19,4 +19,5 @@
 
 @property (strong,nonatomic) integralGoodsModel * integralGoodsM;
 
+
 @end
