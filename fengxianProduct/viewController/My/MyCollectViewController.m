@@ -29,6 +29,7 @@
 @property (nonatomic,strong)NSMutableArray * deleteArr;
 
 
+
 @end
 
 @implementation MyCollectViewController
@@ -160,7 +161,6 @@
     }];
     NSString * deleteStr = @"";
     for (NewsListInfo * newsListI in self.deleteArr) {
-        
         deleteStr = [deleteStr stringByAppendingFormat:@"%@:%@,",newsListI.CommType,newsListI.ID];
     }
     deleteStr = [deleteStr substringToIndex:deleteStr.length - 1];
@@ -187,7 +187,6 @@
     });
     pages = 1;
     [self requestCollectListInfo];
-    
 }
 
 -(void)footerRereshing

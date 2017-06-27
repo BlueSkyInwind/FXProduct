@@ -15,16 +15,20 @@
 #import "BannerInfoModel.h"
 #import "ActivityContentTableViewCell.h"
 #import "ActivityBrokeViewTableViewCell.h"
+#import "LiveMoreViewController.h"
 
 @interface ActivityViewController ()<UITableViewDelegate,UITableViewDataSource,JZLCycleViewDelegate,WriteInfoViewDelegate>{
     
     NSMutableArray * dataArr;
     NSMutableArray * bannerArr;
-    
+    NSMutableArray * columnInfoArr;
     
     NewsListModel * newsListModel;
     
-    NSInteger cellheight;
+    NSInteger VoteCellheight;
+    NSInteger answerCellheight;
+    NSInteger welfareCellheight;
+
     NSInteger baoliaoCellheight;
 
     NSInteger  tableViewHeight;
@@ -33,7 +37,7 @@
 }
 @property (nonatomic,strong)UITableView * tableView;
 @property (nonatomic,strong)JZLCycleView * cycleView;
-@property (nonatomic,strong)ActivityContentTableViewCell * cell;
+//@property (nonatomic,strong)ActivityContentTableViewCell * cell;
 
 @end
 
@@ -46,7 +50,10 @@
     dataArr = [NSMutableArray array];
     [self getColumnData];
     bannerArr = [NSMutableArray array];
-    cellheight = 140;
+    VoteCellheight = 40;
+    answerCellheight = 40;
+    welfareCellheight = 40;
+
     baoliaoCellheight = 260;
     tableViewHeight = 160;
     if (UI_IS_IPHONE6) {
@@ -78,7 +85,7 @@
         make.edges.equalTo(self.view);
     }];
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"ActivityContentTableViewCell" bundle:nil] forCellReuseIdentifier:@"ActivityContentTableViewCell"];
+ 
     [self.tableView registerNib:[UINib nibWithNibName:@"ActivityBrokeViewTableViewCell" bundle:nil] forCellReuseIdentifier:@"ActivityBrokeViewTableViewCell"];
 
 }
@@ -94,8 +101,13 @@
         case 1:{
             if (indexPath.row == 0) {
                 return baoliaoCellheight;
+            }else if (indexPath.row == 1){
+                return VoteCellheight;
+            }else if (indexPath.row == 2){
+                return answerCellheight;
+            }else if (indexPath.row == 3){
+                return welfareCellheight;
             }
-            return cellheight;
         }
             break;
         default:
@@ -128,6 +140,7 @@
         [cell addSubview:_cycleView];
         return cell;
     }else{
+        
         if (indexPath.row == 0) {
             ActivityBrokeViewTableViewCell * firstCell = [tableView dequeueReusableCellWithIdentifier:@"ActivityBrokeViewTableViewCell" forIndexPath:indexPath];
             firstCell.columnInfoM = dataArr[indexPath.row];
@@ -140,41 +153,34 @@
             };
             return firstCell;
         }
-        
-        self.cell = [tableView dequeueReusableCellWithIdentifier:@"ActivityContentTableViewCell" forIndexPath:indexPath];
-        self.cell.columnInfoM = dataArr[indexPath.row];
-//        __weak typeof (self) weakSelf = self;
-//        self.cell.activityContentTableViewHeight = ^(NSInteger height, NSNumber *colmunId) {
-//            cellheight = height;
-////            [weakSelf.tableView beginUpdates];
-////            [weakSelf.tableView endUpdates];
-////            if ([colmunId integerValue] == 9) {
-////                NSIndexPath * indexP = [NSIndexPath indexPathForRow:1 inSection:1];
-////                [weakSelf.tableView reloadRowsAtIndexPaths:@[indexP] withRowAnimation:UITableViewRowAnimationAutomatic];
-////            }else if ([colmunId integerValue] == 10){
-////                NSIndexPath * indexP = [NSIndexPath indexPathForRow:2 inSection:1];
-////                [weakSelf.tableView reloadRowsAtIndexPaths:@[indexP] withRowAnimation:UITableViewRowAnimationAutomatic];
-////            }else if ([colmunId integerValue] == 11){
-////                NSIndexPath * indexP = [NSIndexPath indexPathForRow:3 inSection:1];
-////                [weakSelf.tableView reloadRowsAtIndexPaths:@[indexP] withRowAnimation:UITableViewRowAnimationAutomatic];
-////            }
-//        };
-        return self.cell;
+        NSString * cellStr = [NSString stringWithFormat:@"ActivityContentTableViewCell%ld%ld",(long)indexPath.row,(long)indexPath.section];
+        [self.tableView registerNib:[UINib nibWithNibName:@"ActivityContentTableViewCell" bundle:nil] forCellReuseIdentifier:cellStr];
+        ActivityContentTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellStr forIndexPath:indexPath];
+        if (!cell) {
+            cell = [[ActivityContentTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellStr];
+        }
+        cell.currentVC = self;
+        cell.dataArr = [columnInfoArr mutableCopy];
+        cell.columnInfoM = dataArr[indexPath.row];
+        cell.moreButtonCilck = ^(UIButton *button) {
+            LiveMoreViewController * liveMoreVC = [[LiveMoreViewController alloc]init];
+            ColumnInfoModel *columnInfoM = dataArr[indexPath.row - 1];
+            liveMoreVC.columnID = [columnInfoM.ColumnID integerValue];
+            liveMoreVC.columnInfoModel = columnInfoM;
+            [self.navigationController pushViewController:liveMoreVC animated:YES];
+        };
+        return cell;
     }
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
     
-    
-    
-
 }
 #pragma mark - 录播图点击
 //代理跳转
 - (void)selectItemAtIndex:(NSInteger)index {
     NSLog(@"%ld",index);
-    
     
 }
 #pragma mark - 数据请求
@@ -186,11 +192,91 @@
         bannerArr = [bannerList.rows mutableCopy];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
         [self.tableView.mj_header endRefreshing];
+        
     } WithFaileBlock:^{
         
     }];
     [bannerVM fatchBannerInfoID:@"3"];
 }
+
+-(void)requestVoteListInfo:(NSNumber *)Id{
+
+    NewsViewModel * newsVM = [[NewsViewModel alloc]init];
+    [newsVM setBlockWithReturnBlock:^(id returnValue) {
+        //缓存数据
+        NewsListModel * newsListM = returnValue;
+        NSMutableArray * tempArr = [newsListM.rows mutableCopy];
+        if (!tempArr || tempArr.count == 0 ) {
+            VoteCellheight = 40;
+        }else{
+            VoteCellheight = 160;
+        }
+     
+        __weak typeof (self) wealSelf = self;
+        NewsListInfo * newsList = tempArr.firstObject;
+        columnInfoArr = [NSMutableArray arrayWithObjects:newsList, nil];
+        
+        [Utility sharedUtility].voteListModel = newsListM;
+        NSIndexPath * indexPath = [NSIndexPath indexPathForRow:1 inSection:1];
+        [wealSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+ 
+    } WithFaileBlock:^{
+        
+    }];
+    [newsVM fatchNewsInfoID:[NSString stringWithFormat:@"%@",Id] pageSize:1 numberOfPage:1];
+}
+-(void)requestAnswerListInfo:(NSNumber *)Id{
+    
+    NewsViewModel * newsVM = [[NewsViewModel alloc]init];
+    [newsVM setBlockWithReturnBlock:^(id returnValue) {
+        //缓存数据
+        NewsListModel * newsListM = returnValue;
+        NSMutableArray * tempArr = [newsListM.rows mutableCopy];
+        if (!tempArr || tempArr.count == 0 ) {
+            answerCellheight = 40;
+        }else{
+            answerCellheight = 160;
+        }
+        
+        __weak typeof (self) wealSelf = self;
+        NewsListInfo * newsList = tempArr.firstObject;
+        columnInfoArr = [NSMutableArray arrayWithObjects:newsList, nil];
+        
+        [Utility sharedUtility].answerListModel = newsListM;
+        NSIndexPath * indexPath = [NSIndexPath indexPathForRow:2 inSection:1];
+        [wealSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+
+    } WithFaileBlock:^{
+        
+    }];
+    [newsVM fatchNewsInfoID:[NSString stringWithFormat:@"%@",Id] pageSize:1 numberOfPage:1];
+}
+-(void)requestwelfareListInfo:(NSNumber *)Id{
+    
+    NewsViewModel * newsVM = [[NewsViewModel alloc]init];
+    [newsVM setBlockWithReturnBlock:^(id returnValue) {
+        //缓存数据
+        NewsListModel * newsListM = returnValue;
+        NSMutableArray * tempArr = [newsListM.rows mutableCopy];
+        if (!tempArr || tempArr.count == 0 ) {
+            welfareCellheight = 40;
+        }else{
+            welfareCellheight = 160;
+        }
+        __weak typeof (self) wealSelf = self;
+        NewsListInfo * newsList = tempArr.firstObject;
+        columnInfoArr = [NSMutableArray arrayWithObjects:newsList, nil];
+        
+        [Utility sharedUtility].welfareListModel = newsListM;
+        NSIndexPath * indexPath = [NSIndexPath indexPathForRow:3 inSection:1];
+        [wealSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+    } WithFaileBlock:^{
+        
+    }];
+    [newsVM fatchNewsInfoID:[NSString stringWithFormat:@"%@",Id] pageSize:1 numberOfPage:1];
+}
+
 
 #pragma mark ----------设置列表的可刷新性----------
 -(void)setupMJRefreshTableView
@@ -207,7 +293,9 @@
         [self.tableView.mj_header endRefreshing];
     });
     [self requestBannerInfo];
-    
+    [self requestVoteListInfo:@(9)];
+    [self requestAnswerListInfo:@(10)];
+    [self requestwelfareListInfo:@(11)];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

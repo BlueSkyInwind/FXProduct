@@ -23,6 +23,23 @@
  */
 -(void)uploadUserWriteInfo:(NSString *)title content:(NSString *)content type:(NSString *)type imageStr:(NSString *)imageStr MP4:(NSString *)mp4Str;
 
+/**
+ 投票接口
+
+ @param page 页数
+ @param numberOfPage 每页数量
+ */
+- (void)fatchVoteInfopageSize:(int)page numberOfPage:(int)numberOfPage;
+
+/**
+  问答列表接口
+
+ @param page 页数
+ @param numberOfPage 每页数量
+ */
+- (void)fatchAnswerInfopageSize:(int)page numberOfPage:(int)numberOfPage;
+
+
 
 
 

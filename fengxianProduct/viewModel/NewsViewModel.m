@@ -16,10 +16,9 @@
 
 @implementation NewsViewModel
 
-
 - (void)fatchNewsInfoID:(NSString *)number pageSize:(int)page numberOfPage:(int)numberOfPage{
     
-    //http://infx2.echaokj.cn/ajax/Home/NewList.ashx?ColumnID=1&PageSize=1&PageCount=10
+    //http://infx2.echaokj.cn/ajax/Home/NewList.ashx?ColumnID=11&PageSize=1&PageCount=10
     
     NSString * baseUrl = [NSString stringWithFormat:@"%@Home/NewList.ashx?ColumnID=%@&PageSize=%d&PageCount=%d",_main_url,number,page,numberOfPage];
     
@@ -34,8 +33,8 @@
         [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
         [self faileBlock];
     }];
-    
 }
+
 - (void)fatchNewsCollectAndSpotStatusID:(NSString *)number type:(NSString *)type{
     
     //http://infx2.echaokj.cn/ajax/inter/UserToSel2.ashx?AccountId=13&NewID=70&type=8

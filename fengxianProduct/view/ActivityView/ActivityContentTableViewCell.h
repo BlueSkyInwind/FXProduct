@@ -31,6 +31,7 @@ typedef void (^ActivityContentTableViewHeight)(NSInteger  height ,NSNumber * col
 @property (nonatomic,strong)NSMutableArray * dataArr;
 
 @property (nonatomic,strong)ColumnInfoModel * columnInfoM;
+@property (strong,nonatomic)UIViewController * currentVC;
 
 @property (copy,nonatomic)MoreButtonClick moreButtonCilck;
 @property (copy,nonatomic)ActivityContentTableViewHeight activityContentTableViewHeight;

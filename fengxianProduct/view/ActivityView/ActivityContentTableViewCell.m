@@ -12,6 +12,8 @@
 #import "NewsTableViewCell.h"
 #import "NewsViewModel.h"
 #import "ActivityBrokeViewTableViewCell.h"
+#import "PhotoViewController.h"
+#import "DetailViewController.h"
 
 @implementation ActivityContentTableViewCell
 
@@ -91,15 +93,38 @@
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    
-    
+    if ([_columnInfoM.ColumnID intValue] == 11) {
+        NewsListInfo * newsList = self.dataArr[indexPath.row];
+        if ([newsList.Species integerValue] == 2) {
+            PhotoViewController *photoVC = [[PhotoViewController alloc]init];
+            photoVC.detailID = newsList.ID;
+            photoVC.Species =  newsList.Species;
+            [_currentVC.navigationController pushViewController:photoVC animated:YES];
+        }else{
+            DetailViewController *detailVC = [[DetailViewController alloc]init];
+            detailVC.detailID = newsList.ID;
+            detailVC.Species =  newsList.Species;
+            [_currentVC.navigationController pushViewController:detailVC animated:YES];
+        }
+    }else{
+        
+    }
 }
+
 -(void)setColumnInfoM:(ColumnInfoModel *)columnInfoM{
     _columnInfoM= nil;
     _columnInfoM = columnInfoM;
-    self.titleLabel.text = columnInfoM.Title;
+    [self layoutIfNeeded];
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    self.titleLabel.text = _columnInfoM.Title;
+    
+    if (self.dataArr) {
+        [self.contentTableView reloadData];
+        return;
+    }
     //缓存数据
     if([_columnInfoM.ColumnID intValue] == 9){
         self.dataArr =  [[Utility sharedUtility].voteListModel.rows mutableCopy];
@@ -108,13 +133,9 @@
     }else if([_columnInfoM.ColumnID intValue] ==11){
         self.dataArr =  [[Utility sharedUtility].welfareListModel.rows mutableCopy];
     }
-    [self requestNewsListInfo:_columnInfoM.ColumnID];
+    [self.contentTableView reloadData];
 }
 
--(void)layoutSubviews{
-    [super layoutSubviews];
-
-}
 #pragma mrak - 数据请求
 -(void)requestNewsListInfo:(NSNumber *)Id{
     if (self.dataArr) {
