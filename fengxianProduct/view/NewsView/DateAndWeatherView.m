@@ -42,7 +42,7 @@
 -(void)loadWeatherView{
     //http://i.tianqi.com/index.php?c=code&id=52&icon=1&num=3&py=fengxian
     [self.weatherView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://i.tianqi.com/index.php?c=code&id=52&icon=1&num=3&py=fengxian"]]];
-    [self.weatherView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[3].style.backgroundColor='#5E5E5E'"];
+    [self.weatherView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body').style.background-color='#5E5E5E'"];
 
 }
 - (IBAction)weatherBtnClick:(id)sender {
