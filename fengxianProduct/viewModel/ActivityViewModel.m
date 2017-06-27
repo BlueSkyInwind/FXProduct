@@ -46,6 +46,42 @@
 }
 
 
+- (void)fatchVoteInfopageSize:(int)page numberOfPage:(int)numberOfPage{
+    
+    //http://infx2.echaokj.cn/ajax/Act/ActivityList.ashx?PageSize=1&PageCount=10
+    
+    NSString * baseUrl = [NSString stringWithFormat:@"%@Act/ActivityList.ashx?PageSize=%d&PageCount=%d",_main_url,page,numberOfPage];
+    [[FXNetworkManager sharedNetWorkManager]POSTWithNetworkStatusURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            
+            self.returnBlock(returnMsg);
+        }
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+}
+
+- (void)fatchAnswerInfopageSize:(int)page numberOfPage:(int)numberOfPage{
+    
+    //http://infx2.echaokj.cn/ajax/Act/AnswerList.ashx?PageSize=1&PageCount=10
+    
+    NSString * baseUrl = [NSString stringWithFormat:@"%@Act/AnswerList.ashx?PageSize=%d&PageCount=%D",_main_url,page,numberOfPage];
+    [[FXNetworkManager sharedNetWorkManager]POSTWithNetworkStatusURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            
+            self.returnBlock(returnMsg);
+        }
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+}
+
 
 
 
