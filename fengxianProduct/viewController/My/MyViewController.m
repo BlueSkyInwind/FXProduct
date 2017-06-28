@@ -130,7 +130,9 @@
             cell.moreCellIcon.image = [UIImage imageNamed:imageArr[indexPath.row]];
             cell.titleIabel.text = titleArr[indexPath.row];
             cell.subTitleLabel.hidden = NO;
-            cell.subTitleLabel.text = [NSString stringWithFormat:@"%@",accountIntegralM.Integral];
+            if (accountIntegralM.Integral) {
+                cell.subTitleLabel.text = [NSString stringWithFormat:@"%@",accountIntegralM.Integral];
+            }
         }
             break;
         case 1:{

@@ -51,7 +51,25 @@
     //http://infx2.echaokj.cn/ajax/Act/ActivityList.ashx?PageSize=1&PageCount=10
     
     NSString * baseUrl = [NSString stringWithFormat:@"%@Act/ActivityList.ashx?PageSize=%d&PageCount=%d",_main_url,page,numberOfPage];
-    [[FXNetworkManager sharedNetWorkManager]POSTWithNetworkStatusURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+    [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            
+            self.returnBlock(returnMsg);
+        }
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+}
+- (void)fatchVoteDetailInfoID:(NSString *)ID {
+    
+    
+    //http://infx2.echaokj.cn/ajax/Act/VoteList.ashx?Id=4&AccountId=20
+    
+    NSString * baseUrl = [NSString stringWithFormat:@"%@Act/VoteList.ashx?Id=%@&AccountId=%@",_main_url,ID,[Utility sharedUtility].userInfo.ID];
+    [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
         if ([returnMsg.returnCode intValue] == 1) {
             
@@ -64,12 +82,28 @@
     }];
 }
 
+-(void)requestAddVote:(NSString *)voteCon{
+    
+    //http://infx2.echaokj.cn/ajax/Act/VoteAdd.ashx?Vote=4,5&AccountId=20
+    NSString * baseUrl = [NSString stringWithFormat:@"%@Act/VoteAdd.ashx?Vote=%@&AccountId=%@",_main_url,voteCon,[Utility sharedUtility].userInfo.ID];
+    [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            
+            self.returnBlock(returnMsg);
+        }
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+}
 - (void)fatchAnswerInfopageSize:(int)page numberOfPage:(int)numberOfPage{
     
     //http://infx2.echaokj.cn/ajax/Act/AnswerList.ashx?PageSize=1&PageCount=10
     
     NSString * baseUrl = [NSString stringWithFormat:@"%@Act/AnswerList.ashx?PageSize=%d&PageCount=%D",_main_url,page,numberOfPage];
-    [[FXNetworkManager sharedNetWorkManager]POSTWithNetworkStatusURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+    [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
         if ([returnMsg.returnCode intValue] == 1) {
             
@@ -83,6 +117,44 @@
 }
 
 
+
+
+
+- (void)fatchAnswerDEtailInfoID:(NSString *)ID{
+    
+    //http://infx2.echaokj.cn/ajax/Surrvey/SurrveyDetail.ashx?id=4&AccountId=20
+    
+    NSString * baseUrl = [NSString stringWithFormat:@"%@Surrvey/SurrveyDetail.ashx?id=%@&AccountId=%@",_main_url,ID,[Utility sharedUtility].userInfo.ID];
+    [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            
+            self.returnBlock(returnMsg);
+        }
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+}
+
+- (void)frequestAddAnswerDEtailInfoID:(NSString *)ID answerCon:(NSString *)answerCon{
+    
+    //http://infx2.echaokj.cn/ajax/Surrvey/SurrveyToUser.ashx?id=1&Answer=填空内容;4;0:1:3&AccountId=20
+    
+    NSString * baseUrl = [NSString stringWithFormat:@"%@Surrvey/SurrveyToUser.ashx?id=%@&Answer=%@&AccountId=%@",_main_url,ID,answerCon,[Utility sharedUtility].userInfo.ID];
+    [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            
+            self.returnBlock(returnMsg);
+        }
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+}
 
 
 @end

@@ -32,12 +32,44 @@
 - (void)fatchVoteInfopageSize:(int)page numberOfPage:(int)numberOfPage;
 
 /**
+ 获取投票详情
+
+ @param ID id
+ */
+- (void)fatchVoteDetailInfoID:(NSString *)ID;
+
+/**
+ 新增投票
+
+ @param voteCon 投票内容
+ */
+-(void)requestAddVote:(NSString *)voteCon;
+
+
+/**
   问答列表接口
 
  @param page 页数
  @param numberOfPage 每页数量
  */
 - (void)fatchAnswerInfopageSize:(int)page numberOfPage:(int)numberOfPage;
+
+
+/**
+ 答题详情
+
+ @param ID ID
+ */
+- (void)fatchAnswerDEtailInfoID:(NSString *)ID;
+
+/**
+ 新增答题
+
+ @param ID id
+ @param answerCon 内容
+ */
+- (void)frequestAddAnswerDEtailInfoID:(NSString *)ID answerCon:(NSString *)answerCon;
+
 
 
 

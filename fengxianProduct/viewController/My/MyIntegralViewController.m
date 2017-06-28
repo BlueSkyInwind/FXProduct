@@ -154,11 +154,12 @@
     
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    integralGoodsModel * integralGoods = dataArray[indexPath.row];
-    GoodsDetailViewController * goodDetailVC = [[GoodsDetailViewController alloc]init];
-    goodDetailVC.goodsId = [NSString stringWithFormat:@"%@",integralGoods.ID];
-    [self.navigationController pushViewController:goodDetailVC animated:YES];
-    
+    if (indexPath.section == 2) {
+        integralGoodsModel * integralGoods = dataArray[indexPath.row];
+        GoodsDetailViewController * goodDetailVC = [[GoodsDetailViewController alloc]init];
+        goodDetailVC.goodsId = [NSString stringWithFormat:@"%@",integralGoods.ID];
+        [self.navigationController pushViewController:goodDetailVC animated:YES];
+    }
 }
 
 #pragma mark ---- UICollectionViewDelegateFlowLayout

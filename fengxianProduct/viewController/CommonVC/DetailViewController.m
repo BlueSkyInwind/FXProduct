@@ -80,7 +80,9 @@
 
 #pragma mark - 网络请求
 -(void)obtainCollectAndSpotStatus{
-    
+    if (![Utility sharedUtility].loginFlage) {
+        return ;
+    }
     NewsViewModel * newViewM = [[NewsViewModel alloc]init];
     [newViewM setBlockWithReturnBlock:^(id returnValue) {
         NewsDetailStatusModel * newsDetailStatusModel  = returnValue;
@@ -184,7 +186,7 @@
             if ([str isEqualToString:@"收藏成功！"] ) {
                 [self.commonBottomView.collectBtn setBackgroundImage:[UIImage imageNamed:@"Collect_Icon_blue"] forState:UIControlStateNormal];
             }else if([str isEqualToString:@"取消收藏成功！"]){
-                [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"Collect_Icon_gray"] forState:UIControlStateNormal];
+                [self.commonBottomView.collectBtn setBackgroundImage:[UIImage imageNamed:@"Collect_Icon_gray"] forState:UIControlStateNormal];
             }
         }
     } WithFaileBlock:^{

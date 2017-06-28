@@ -21,7 +21,7 @@
  @param placeHolder 默认提示语
  @param userInputContent 用户输入
  */
--(void)presentAlertTextfield:(UIViewController *)vc placeHolder:(NSString *)placeHolder userInputContent:(void(^)(NSString * resultStr))userInputContent;
+-(void)presentAlertTextfield:(UIViewController *)vc title:(NSString *)title placeHolder:(NSString *)placeHolder userInputContent:(void(^)(NSString * resultStr))userInputContent;
 
 
 + (void)configDefaultShare;

@@ -25,7 +25,10 @@
     
     self.atlasLabel.hidden = YES;
     self.vdieoBtn.hidden = YES;
+    
     [self.titleImage sd_setImageWithURL:[NSURL URLWithString:self.newsList.Image1] placeholderImage:[UIImage imageNamed:@"news_placeholder_Icon_1" ]options:SDWebImageRefreshCached];
+//    [self.titleImage sd_setImageWithURL:[NSURL URLWithString:self.newsList.Image1]];
+    
     self.titleLabel.text = self.newsList.Title;
     if ([self.newsList.Source isEqualToString:@"原创"]) {
         self.titleLocation.textColor = [UIColor redColor];

@@ -16,6 +16,7 @@
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKUI/ShareSDKUI.h>
 #import "UIImage+Color.h"
+#import "NewsDetailStatusModel.h"
 
 @interface PhotoViewController ()<UIScrollViewDelegate,CommonBottomViewDelegate>{
     
@@ -54,6 +55,7 @@
     __weak typeof (self) weakSelf = self;
     [self obtainDetail:^(BOOL isSuccess) {
         if (isSuccess) {
+            [weakSelf obtainCollectAndSpotStatus];
             [weakSelf configureView];
         }
     }];
@@ -63,6 +65,31 @@
     if ([self.delegate respondsToSelector:@selector(delegatePhotoArray:)]) {
         [self.delegate delegatePhotoArray:self.photoArray];
     }
+}
+#pragma mark - 网络请求
+-(void)obtainCollectAndSpotStatus{
+    
+    if (![Utility sharedUtility].loginFlage) {
+        return ;
+    }
+    NewsViewModel * newViewM = [[NewsViewModel alloc]init];
+    [newViewM setBlockWithReturnBlock:^(id returnValue) {
+        NewsDetailStatusModel * newsDetailStatusModel  = returnValue;
+        if ([newsDetailStatusModel.Collections boolValue]) {
+            [self.commonBottomView.collectBtn setBackgroundImage:[UIImage imageNamed:@"Collect_Icon_blue"] forState:UIControlStateNormal];
+        }else{
+            [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"Collect_Icon_gray"] forState:UIControlStateNormal];
+        }
+        
+        if ([newsDetailStatusModel.Thumbs boolValue]) {
+            [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"Dianzan_blue"] forState:UIControlStateNormal];
+        }else{
+            [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"Dianzan_gray"] forState:UIControlStateNormal];
+        }
+    } WithFaileBlock:^{
+        
+    }];
+    [newViewM fatchNewsCollectAndSpotStatusID:[NSString stringWithFormat:@"%@",self.detailID] type:@"8"];
 }
 -(void)obtainDetail:(void(^)(BOOL isSuccess))finish{
     
@@ -77,6 +104,7 @@
     }];
     [newViewM fatchPhotoDeatailInfoID:[NSString stringWithFormat:@"%@",self.detailID]];
 }
+
 -(void)configureView
 {
     backScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_h - 64)];

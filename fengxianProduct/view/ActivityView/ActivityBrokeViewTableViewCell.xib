@@ -24,10 +24,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sO2-la-rC6">
                                 <rect key="frame" x="0.0" y="0.0" width="314" height="40"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ctR-vO-4pT">
-                                        <rect key="frame" x="3" y="15" width="10" height="10"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ab4-8d-iIr">
                                         <rect key="frame" x="18" y="11.5" width="50" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -62,6 +58,10 @@
                                             <constraint firstAttribute="height" constant="1" id="Wmk-yq-3xg"/>
                                         </constraints>
                                     </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Activity_Broke_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="ctR-vO-4pT">
+                                        <rect key="frame" x="0.0" y="13" width="15" height="15"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -152,6 +152,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="Activity_Broke_Icon" width="16" height="16"/>
         <image name="Activity_baoliaotai_Icon" width="280" height="160"/>
         <image name="more_Left_gray_Icon" width="21" height="21"/>
     </resources>

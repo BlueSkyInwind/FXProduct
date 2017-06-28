@@ -58,7 +58,9 @@
 }
 -(void)goSignInViewCilck{
     if ([Utility sharedUtility].isSign) {
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"今天已签到！"];
+//        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"今天已签到！"];
+        [self userSign];
+
     }else{
         [self userSign];
     }

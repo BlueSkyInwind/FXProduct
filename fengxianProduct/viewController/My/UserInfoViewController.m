@@ -218,7 +218,7 @@
                 }
                     break;
                 case 2:{
-                    [[ShareConfig share]presentAlertTextfield:self placeHolder:@"请输入昵称" userInputContent:^(NSString *resultStr) {
+                    [[ShareConfig share]presentAlertTextfield:self title:@"请输入昵称" placeHolder:@"请输入昵称" userInputContent:^(NSString *resultStr) {
                         if (resultStr != nil && ![resultStr isEqualToString:@""]) {
                             [contentArr[indexPath.section] replaceObjectAtIndex:indexPath.row withObject:resultStr];
                             [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
@@ -239,7 +239,7 @@
         case 1:{
             if (indexPath.row == 0) {
                 
-                [[ShareConfig share]presentAlertTextfield:self placeHolder:@"请输入手机号" userInputContent:^(NSString *resultStr) {
+                [[ShareConfig share]presentAlertTextfield:self title:@"请输入手机号" placeHolder:@"请输入手机号" userInputContent:^(NSString *resultStr) {
                     if ([Tool isMobileNumber:resultStr]) {
                          [contentArr[indexPath.section] replaceObjectAtIndex:indexPath.row withObject:resultStr];
                         [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
@@ -248,7 +248,7 @@
                     }
                 }];
             }else if(indexPath.row == 1){
-                [[ShareConfig share]presentAlertTextfield:self placeHolder:@"请输入邮箱" userInputContent:^(NSString *resultStr) {
+                [[ShareConfig share]presentAlertTextfield:self title:@"请输入邮箱" placeHolder:@"请输入邮箱" userInputContent:^(NSString *resultStr) {
                     if (resultStr != nil && ![resultStr isEqualToString:@""]) {
                         [contentArr[indexPath.section] replaceObjectAtIndex:indexPath.row withObject:resultStr];
                         [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
@@ -268,7 +268,7 @@
                 PVType = birPickerView;
 
             }else{
-                [[ShareConfig share]presentAlertTextfield:self placeHolder:@"请输入地址" userInputContent:^(NSString *resultStr) {
+                [[ShareConfig share]presentAlertTextfield:self title:@"请输入地址" placeHolder:@"请输入地址" userInputContent:^(NSString *resultStr) {
                     if (resultStr != nil && ![resultStr isEqualToString:@""]) {
                         [contentArr[indexPath.section] replaceObjectAtIndex:indexPath.row withObject:resultStr];
                         [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
