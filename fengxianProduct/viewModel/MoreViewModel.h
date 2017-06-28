@@ -93,6 +93,14 @@
  @param goodsId 商品id
  */
 -(void)fatchGoodsDetailInfo:(NSString *)goodsId;
+/**
+ 用户商品兑换
+
+ @param goodsId 产品型号样式ID
+ @param address  地址
+ */
+-(void)exchangeGoodsTypeId:(NSString *)goodsId address:(NSString *)address;
+
 
 
 @end

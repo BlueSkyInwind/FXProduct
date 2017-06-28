@@ -14,21 +14,31 @@
     [super awakeFromNib];
     UITapGestureRecognizer * tap= [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(closeTap)];
     [self.closeImageView addGestureRecognizer:tap];
-    
     self.sureBtn.layer.cornerRadius = 2;
     self.sureBtn.clipsToBounds = YES;
+    for (UIButton * button in self.typeButton) {
+        button.hidden = YES;
+    }
 }
+
 -(void)closeTap{
-    
-    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(closeEventClick)]) {
+        [self.delegate closeEventClick];
+    }
 }
 
 - (IBAction)sureBtnClick:(id)sender {
-    
-    
-    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(sureExchangeClick)]) {
+        [self.delegate sureExchangeClick];
+    }
 }
 
+- (IBAction)typeButtonClick:(id)sender {
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(goodsTypeButtonClick:)]) {
+        [self.delegate goodsTypeButtonClick:sender];
+    }
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

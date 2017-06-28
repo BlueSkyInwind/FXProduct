@@ -300,6 +300,7 @@
     self.player.mode = SBLayerVideoGravityResize;
     //添加播放器到视图
     [_backScrollView addSubview:self.player];
+    
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{

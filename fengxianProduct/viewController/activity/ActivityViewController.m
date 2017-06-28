@@ -50,6 +50,8 @@
     dataArr = [NSMutableArray array];
     [self getColumnData];
     bannerArr = [NSMutableArray array];
+    [self.tabBarController.tabBar.items objectAtIndex:2].badgeValue =nil;
+
     VoteCellheight = 40;
     answerCellheight = 40;
     welfareCellheight = 40;
@@ -68,7 +70,7 @@
             ColumnInfoModel * infoModel = (ColumnInfoModel *)obj;
             if ([infoModel.According intValue] == 1) {
                 [dataArr addObject:infoModel];
-            }
+            } 
         }];
     }
 }
@@ -85,7 +87,6 @@
         make.edges.equalTo(self.view);
     }];
     
- 
     [self.tableView registerNib:[UINib nibWithNibName:@"ActivityBrokeViewTableViewCell" bundle:nil] forCellReuseIdentifier:@"ActivityBrokeViewTableViewCell"];
 
 }
@@ -164,7 +165,7 @@
         cell.columnInfoM = dataArr[indexPath.row];
         cell.moreButtonCilck = ^(UIButton *button) {
             LiveMoreViewController * liveMoreVC = [[LiveMoreViewController alloc]init];
-            ColumnInfoModel *columnInfoM = dataArr[indexPath.row - 1];
+            ColumnInfoModel *columnInfoM = dataArr[indexPath.row];
             liveMoreVC.columnID = [columnInfoM.ColumnID integerValue];
             liveMoreVC.columnInfoModel = columnInfoM;
             [self.navigationController pushViewController:liveMoreVC animated:YES];
@@ -181,6 +182,7 @@
 //代理跳转
 - (void)selectItemAtIndex:(NSInteger)index {
     NSLog(@"%ld",index);
+    
     
 }
 #pragma mark - 数据请求

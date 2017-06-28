@@ -22,7 +22,7 @@
 #import "MyCollectViewController.h"
 #import "MyBrokeViewController.h"
 #import "MyMessageViewController.h"
-
+#import "SignAndCollectMdoel.h"
 
 @interface MyViewController ()<UITableViewDelegate,UITableViewDataSource,MoreNavViewDelegate>{
     
@@ -51,10 +51,6 @@
     titleArr = @[@"积分兑换",@"我的反馈",@"我的设置"];
     dataArray = [NSMutableArray array];
     
-    if ([Utility sharedUtility].loginFlage) {
-        [self obtainSignStatus];
-     
-    }
     [self configureView];
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -63,6 +59,8 @@
     if ([Utility sharedUtility].loginFlage) {
         [self obtainIntegral:^(integralModel *integralModel) {
         }];
+        [self obtainSignStatus];
+
     }
     [self.moreHeaderView configureViewImage:[Utility sharedUtility].userInfo.Images AccountID:[Utility sharedUtility].userInfo.Code userNickName:[Utility sharedUtility].userInfo.Name];
     
@@ -121,7 +119,6 @@
     return imageArr.count;
     
 }
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     MoreTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MoreTableViewCell"];
@@ -248,17 +245,20 @@
 -(void)SignInViewCilck{
     
     
-    
 }
-
 -(void)obtainSignStatus{
     
     MoreViewModel * moreVM = [[MoreViewModel alloc]init];
     [moreVM setBlockWithReturnBlock:^(id returnValue) {
-        ReturnMsgBaseClass * returnMsg = returnValue;
-        if ([returnMsg.returnCode intValue] == 1) {
-            [self.tableView reloadData];
+            SignAndCollectMdoel * signModel  = returnValue;
+        if ([signModel.Send integerValue] == 0) {
+            if ([signModel.Send intValue] == 0) {
+                return;
+            }
+            self.moreNavView.emailBadgeNum.hidden = NO;
+            self.moreNavView.emailBadgeNum.text = [NSString stringWithFormat:@"%@",signModel.Send];
         }
+        [self.tableView reloadData];
     } WithFaileBlock:^{
         
     }];
@@ -268,6 +268,7 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
 }
 - (BOOL)prefersStatusBarHidden{
     return YES;

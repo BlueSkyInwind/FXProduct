@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LiveMessageModel.h"
 
 typedef void (^MoreButtonClick)(UIButton * button);
 typedef void (^LivesContentTableViewHeight)(NSInteger  height);
@@ -25,6 +26,8 @@ typedef void (^LivesContentTableViewHeight)(NSInteger  height);
 @property (nonatomic,strong)NSMutableArray * dataArr;
 
 @property (nonatomic,strong)ColumnInfoModel * columnInfoM;
+
+@property (nonatomic,strong)LivebadgeModel * livebadgeModel;
 
 @property (copy,nonatomic)MoreButtonClick moreButtonCilck;
 @property (strong,nonatomic)UIViewController * currentVC;

@@ -141,11 +141,13 @@
         if ([returnMsg.returnCode intValue] == 1) {
             [[NSFileManager defaultManager] removeItemAtPath:saveIamgeUrlPath error:nil];
             [[NSFileManager defaultManager] removeItemAtPath:saveIamgePath error:nil];
+            [self.contributeBtn setBackgroundColor:kUIColorFromRGB(0x5e5e5e)];
+            [self.baoliaoBtn setBackgroundColor:kUIColorFromRGB(0x5e5e5e)];
+            [self removeWriteInfoView];
         }
     } WithFaileBlock:^{
         
     }];
-    
     if (isBaoliao) {
         typeStr = @"0";
     }

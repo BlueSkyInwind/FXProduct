@@ -49,7 +49,6 @@
         
         //父类指针指向子类对象
         UIViewController *viewController = [[vc alloc]init];
-        
         BaseNavigationViewController *nc = [[BaseNavigationViewController alloc]initWithRootViewController:viewController];
         viewController.navigationItem.title = [titleArr objectAtIndex:i];
         //        UITabBarItem *item = [[UITabBarItem alloc]initWithTitle:[titleArr objectAtIndex:i] image:nil selectedImage:nil];
@@ -57,6 +56,8 @@
         [ncArr addObject:nc];
     }
     self.viewControllers = ncArr;
+    
+ 
 }
 
 //设置tabbar的图标

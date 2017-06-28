@@ -118,11 +118,11 @@
             DLog(@"获取成功");
             SignAndCollectMdoel * signModel = [[SignAndCollectMdoel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
             [Utility sharedUtility].isSign = signModel.Sign;
-            
+            self.returnBlock(signModel);
+
         }else{
             
         }
-        self.returnBlock(returnMsg);
     } failure:^(EnumServerStatus status, id object) {
         NSError * error = object;
         [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
@@ -276,6 +276,30 @@
         [self faileBlock];
     }];
 }
+
+-(void)exchangeGoodsTypeId:(NSString *)goodsId address:(NSString *)address{
+    
+    //http://infx2.echaokj.cn/ajax/My/Exchange.ashx?AccountId=6&sid=1&Address=地址
+    
+    NSString * baseUrl = [NSString stringWithFormat:@"%@My/Exchange.ashx?AccountId=%@&sid=%@&Address=%@",_main_url,[Utility sharedUtility].userInfo.ID,goodsId,address];
+    
+    [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+  
+        }else{
+            [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:(NSString *)returnMsg.msg];
+        }
+        self.returnBlock(returnMsg);
+
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+}
+
+
 
 
 @end

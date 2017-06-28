@@ -19,15 +19,18 @@
 #import "LiveMoreViewController.h"
 #import "PhotoViewController.h"
 #import "DetailViewController.h"
+#import "LiveViewModel.h"
+#import "LiveMessageModel.h"
 
 @interface LivesViewController ()<UITableViewDelegate,UITableViewDataSource,JZLCycleViewDelegate,AddColumnTableViewCellDelegate>{
     NSMutableArray * dataArr;
     NSMutableArray * bannerArr;
-    
+    NSMutableArray * badgeArr;
+
     NewsListModel * newsListModel;
     
     NSInteger  tableViewHeight;
-    
+    LiveMessageModel * liveMessageModel;
 }
 @property (nonatomic,strong)UITableView * tableView;
 @property (nonatomic,strong)JZLCycleView * cycleView;
@@ -41,13 +44,18 @@
     self.view.backgroundColor = [UIColor whiteColor];
     dataArr = [NSMutableArray array];
     bannerArr = [NSMutableArray array];
+    [self.tabBarController.tabBar.items objectAtIndex:1].badgeValue =nil;
     tableViewHeight = 160;
     if (UI_IS_IPHONE6) {
         tableViewHeight = 200;
     }
     
     [self getColumnData];
+    
     [self configureView];
+    [self obtainColumnBadgeValue:^(BOOL isSuccess) {
+        
+    }];
     [self setupMJRefreshTableView];
 }
 
@@ -61,7 +69,6 @@
         }];
     }
 }
-
 -(void)configureView{
     
     self.tableView = [[UITableView alloc]init];
@@ -130,6 +137,9 @@
     }else{
         
         LivesContentTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"LivesContentTableViewCell" forIndexPath:indexPath];
+        if (badgeArr && badgeArr.count != 0) {
+            cell.livebadgeModel = badgeArr[indexPath.row - 1];
+        }
         cell.columnInfoM = dataArr[indexPath.row - 1];
         cell.currentVC = self;
         __weak typeof (self) weakSelf = self;
@@ -185,6 +195,20 @@
         
     }];
     [bannerVM fatchBannerInfoID:@"2"];
+}
+-(void)obtainColumnBadgeValue:(void(^)(BOOL isSuccess))finish{
+    LiveViewModel * liveViewModel = [[LiveViewModel alloc]init];
+    [liveViewModel setBlockWithReturnBlock:^(id returnValue) {
+        
+        liveMessageModel = returnValue;
+        badgeArr  = [liveMessageModel.news mutableCopy];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+        finish(YES);
+        
+    } WithFaileBlock:^{
+        
+    }];
+    [liveViewModel fatchLivesColumnBadgeValue];
 }
 -(void)columnViewOneTap{
     

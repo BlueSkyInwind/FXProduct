@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIView *signInView;
 
 @property (weak, nonatomic) IBOutlet UILabel *signLabel;
+@property (weak, nonatomic) IBOutlet UILabel *emailBadgeNum;
 
 
 @property (assign , nonatomic)id<MoreNavViewDelegate>delegate;

@@ -99,7 +99,10 @@
     _columnInfoM= nil;
     _columnInfoM = columnInfoM;
     self.titleLabel.text = columnInfoM.Title;
-    
+    if (self.livebadgeModel && [self.livebadgeModel.Count intValue] != 0) {
+        self.updateListNumLabel.hidden = NO;
+        self.updateListNumLabel.text = [NSString stringWithFormat:@"%@",self.livebadgeModel.Count];
+    }
     //缓存数据
     if ([_columnInfoM.ColumnID intValue] == 4) {
         self.dataArr =  [[Utility sharedUtility].liveListModel.rows mutableCopy];
@@ -165,7 +168,6 @@
     }
     return cellHeight;
 }
-
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

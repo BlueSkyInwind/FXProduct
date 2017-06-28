@@ -53,7 +53,24 @@
     [self getNewsWeather];
 
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(moreColumnClick) name:@"NewsMoreBtnClick" object:nil];
+ 
+    [self setTabBarBadgeValue];
+}
+-(void)setTabBarBadgeValue{
     
+    UITabBarItem * item=[self.tabBarController.tabBar.items objectAtIndex:0];
+    if ( [[Utility sharedUtility].userInfo.ColumnNew intValue] != 0) {
+        item.badgeValue= [Utility sharedUtility].userInfo.ColumnNew;
+    }
+    UITabBarItem * item1=[self.tabBarController.tabBar.items objectAtIndex:1];
+    if ( [[Utility sharedUtility].userInfo.ColumnLife intValue] != 0) {
+        item1.badgeValue= [Utility sharedUtility].userInfo.ColumnLife;
+    }
+    UITabBarItem * item2=[self.tabBarController.tabBar.items objectAtIndex:2];
+    if ( [[Utility sharedUtility].userInfo.ColumnAct intValue] != 0){
+        item2.badgeValue= [Utility sharedUtility].userInfo.ColumnAct;
+    }
+
 }
 -(void)configureView{
     

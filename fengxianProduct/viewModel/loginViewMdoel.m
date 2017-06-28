@@ -29,7 +29,6 @@
             if ( [Utility sharedUtility].userInfo.ID != nil || ![[Utility sharedUtility].userInfo.ID isEqualToString:@""]) {
                 [Tool saveUserDefaul:@"1" Key:kLoginFlag];
                 [Tool saveUserDefaul:[object objectForKey:@"result"] Key:FX_AccountID];
-                
             }
         }else{
             
