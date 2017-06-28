@@ -87,5 +87,12 @@
  */
 -(void)fatchUserIntegralDetailInfo:(NSString *)type pageSize:(int)pageSize;
 
+/**
+ 商品详情页
+
+ @param goodsId 商品id
+ */
+-(void)fatchGoodsDetailInfo:(NSString *)goodsId;
+
 
 @end
