@@ -181,7 +181,7 @@
     [moreVM setBlockWithReturnBlock:^(id returnValue) {
         ReturnMsgBaseClass * returnMsg  = returnValue;
         if ([returnMsg.returnCode intValue] == 1) {
-            
+            [self removeGoodsExchangeView];
         }else{
             [self removeGoodsExchangeView];
         }

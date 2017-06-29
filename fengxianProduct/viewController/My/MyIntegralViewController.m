@@ -15,7 +15,6 @@
 #import "FXWebViewController.h"
 #import "MyIntegralListViewController.h"
 #import "GoodsDetailViewController.h"
-#import "GoodsExchangeViewController.h"
 #import "IntegralExchangeListViewController.h"
 
 
