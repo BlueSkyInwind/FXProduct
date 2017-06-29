@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "NewsListModel.h"
+#import "FLAnimatedImageView.h"
+
 @interface NewsTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *titleImage;
+@property (weak, nonatomic) IBOutlet FLAnimatedImageView *titleImage;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 

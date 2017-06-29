@@ -399,6 +399,11 @@
 		84D2483A1EE7D44A00937D28 /* ReturnMsgBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D248391EE7D44A00937D28 /* ReturnMsgBaseClass.m */; };
 		84D2483D1EE7FB7700937D28 /* SMSViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2483C1EE7FB7700937D28 /* SMSViewModel.m */; };
 		84D248401EE8014900937D28 /* RegisterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2483F1EE8014900937D28 /* RegisterViewModel.m */; };
+		84FBACBE1F04FC5C0016EFBC /* LuckyDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FBACBC1F04FC5C0016EFBC /* LuckyDrawViewController.m */; };
+		84FBACBF1F04FC5C0016EFBC /* LuckyDrawViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FBACBD1F04FC5C0016EFBC /* LuckyDrawViewController.xib */; };
+		84FBACC21F0511A60016EFBC /* LaunchImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FBACC11F0511A60016EFBC /* LaunchImageModel.m */; };
+		84FBACC51F0514210016EFBC /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FBACC41F0514210016EFBC /* GuideViewController.m */; };
+		84FBACC81F051DA50016EFBC /* IntegralExchangeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FBACC71F051DA50016EFBC /* IntegralExchangeListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1117,6 +1122,15 @@
 		84D2483C1EE7FB7700937D28 /* SMSViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSViewModel.m; sourceTree = "<group>"; };
 		84D2483E1EE8014900937D28 /* RegisterViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewModel.h; sourceTree = "<group>"; };
 		84D2483F1EE8014900937D28 /* RegisterViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewModel.m; sourceTree = "<group>"; };
+		84FBACBB1F04FC5C0016EFBC /* LuckyDrawViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LuckyDrawViewController.h; sourceTree = "<group>"; };
+		84FBACBC1F04FC5C0016EFBC /* LuckyDrawViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LuckyDrawViewController.m; sourceTree = "<group>"; };
+		84FBACBD1F04FC5C0016EFBC /* LuckyDrawViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LuckyDrawViewController.xib; sourceTree = "<group>"; };
+		84FBACC01F0511A60016EFBC /* LaunchImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchImageModel.h; sourceTree = "<group>"; };
+		84FBACC11F0511A60016EFBC /* LaunchImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchImageModel.m; sourceTree = "<group>"; };
+		84FBACC31F0514210016EFBC /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideViewController.h; sourceTree = "<group>"; };
+		84FBACC41F0514210016EFBC /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
+		84FBACC61F051DA50016EFBC /* IntegralExchangeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegralExchangeListViewController.h; sourceTree = "<group>"; };
+		84FBACC71F051DA50016EFBC /* IntegralExchangeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegralExchangeListViewController.m; sourceTree = "<group>"; };
 		E477D3E950B213F05A541012 /* Pods-fengxianProduct.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fengxianProduct.release.xcconfig"; path = "Pods/Target Support Files/Pods-fengxianProduct/Pods-fengxianProduct.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1242,6 +1256,8 @@
 				226143101EE6E35100193487 /* LaunchViewController.h */,
 				226143111EE6E35100193487 /* LaunchViewController.m */,
 				226143121EE6E35100193487 /* LaunchViewController.xib */,
+				84FBACC31F0514210016EFBC /* GuideViewController.h */,
+				84FBACC41F0514210016EFBC /* GuideViewController.m */,
 			);
 			path = launch;
 			sourceTree = "<group>";
@@ -2516,8 +2532,13 @@
 				84748E5E1EF3789800831016 /* MyIntegralViewController.m */,
 				84AB8A301F01279300BA9149 /* MyIntegralListViewController.h */,
 				84AB8A311F01279300BA9149 /* MyIntegralListViewController.m */,
+				84FBACC61F051DA50016EFBC /* IntegralExchangeListViewController.h */,
+				84FBACC71F051DA50016EFBC /* IntegralExchangeListViewController.m */,
 				22648A711F02A381002BD716 /* GoodsDetailViewController.h */,
 				22648A721F02A381002BD716 /* GoodsDetailViewController.m */,
+				84FBACBB1F04FC5C0016EFBC /* LuckyDrawViewController.h */,
+				84FBACBC1F04FC5C0016EFBC /* LuckyDrawViewController.m */,
+				84FBACBD1F04FC5C0016EFBC /* LuckyDrawViewController.xib */,
 				849FDDEF1EFBC5D7002159F9 /* MyCollectViewController.h */,
 				849FDDF01EFBC5D7002159F9 /* MyCollectViewController.m */,
 				849FDDF21EFBC640002159F9 /* MyBrokeViewController.h */,
@@ -2615,6 +2636,8 @@
 				22648A801F02AFFE002BD716 /* GoodsDetailModel.m */,
 				8466A2C11F03A203007A7632 /* LiveMessageModel.h */,
 				8466A2C21F03A203007A7632 /* LiveMessageModel.m */,
+				84FBACC01F0511A60016EFBC /* LaunchImageModel.h */,
+				84FBACC11F0511A60016EFBC /* LaunchImageModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2736,8 +2759,8 @@
 				TargetAttributes = {
 					226BDF7D1EE6859D009D2A3F = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = VNXSPJQ3S4;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = WB5UAUH8M2;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -2814,6 +2837,7 @@
 				229C46A11F00129100932533 /* SystemMessageTableViewCell.xib in Resources */,
 				8440D6C81EEFB28F00C59B2C /* SearchHistoryTableViewCell.xib in Resources */,
 				84748E691EF3A78D00831016 /* IntegralGoodsCollectionViewCell.xib in Resources */,
+				84FBACBF1F04FC5C0016EFBC /* LuckyDrawViewController.xib in Resources */,
 				8440D6DA1EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.xib in Resources */,
 				22B905151EEC1E4500ED8B71 /* MySettingTableViewCell.xib in Resources */,
 				2261430B1EE6E2A500193487 /* launch_Image4.gif in Resources */,
@@ -2903,7 +2927,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -2940,6 +2964,7 @@
 				84AABDD51EE69F76001AA7C0 /* HMScannerMaskView.m in Sources */,
 				84AABEBD1EE6A035001AA7C0 /* LOTAnimatableScaleValue.m in Sources */,
 				84AABED21EE6A035001AA7C0 /* LOTShapeTrimPath.m in Sources */,
+				84FBACBE1F04FC5C0016EFBC /* LuckyDrawViewController.m in Sources */,
 				84BDC85F1EF28587006F4DDE /* MyFeekbackTableViewCell.m in Sources */,
 				84BDC8581EF27967006F4DDE /* MyFeedbackViewController.m in Sources */,
 				226BDF861EE6859D009D2A3F /* AppDelegate.m in Sources */,
@@ -2956,6 +2981,7 @@
 				84AABDDC1EE69F76001AA7C0 /* TAPageControl.m in Sources */,
 				229520DF1EF82FF200FA2351 /* CommonBottomView.m in Sources */,
 				8431F34D1EE9330200295A18 /* MoreViewModel.m in Sources */,
+				84FBACC81F051DA50016EFBC /* IntegralExchangeListViewController.m in Sources */,
 				84AABDDF1EE69F76001AA7C0 /* UIView+SDExtension.m in Sources */,
 				84C32E571EFD11E500373BC5 /* AddIamgeView.m in Sources */,
 				84D2483D1EE7FB7700937D28 /* SMSViewModel.m in Sources */,
@@ -3093,6 +3119,7 @@
 				84C32E5A1EFD124000373BC5 /* AddImageAndContentView.m in Sources */,
 				226BDF831EE6859D009D2A3F /* main.m in Sources */,
 				84AABEE01EE6AF41001AA7C0 /* BaseIndexViewController.m in Sources */,
+				84FBACC51F0514210016EFBC /* GuideViewController.m in Sources */,
 				845862641EE68A7100AF52B3 /* UserInfoObj.m in Sources */,
 				84AABEB91EE6A035001AA7C0 /* LOTAnimatableBoundsValue.m in Sources */,
 				229C46801EFF4F1B00932533 /* ActivityPopView.m in Sources */,
@@ -3182,6 +3209,7 @@
 				84AABEEE1EE6B264001AA7C0 /* LivesViewController.m in Sources */,
 				84AB8A321F01279300BA9149 /* MyIntegralListViewController.m in Sources */,
 				22B905181EEC282000ED8B71 /* ClearCacheTool.m in Sources */,
+				84FBACC21F0511A60016EFBC /* LaunchImageModel.m in Sources */,
 				840DFFF51EF7A6E400709337 /* CommentTableViewCell.m in Sources */,
 				84AABDD81EE69F76001AA7C0 /* UIViewController+RTRootNavigationController.m in Sources */,
 				22B905541EEC5A1300ED8B71 /* DateAndWeatherView.m in Sources */,
@@ -3364,8 +3392,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = fengxianProduct/fengxianProduct.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = VNXSPJQ3S4;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = WB5UAUH8M2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3388,8 +3416,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.echao.question299;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "45b8ba69-7b23-4633-8ab9-9fc6cd705e3c";
-				PROVISIONING_PROFILE_SPECIFIER = FXPro;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -3400,8 +3428,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = fengxianProduct/fengxianProduct.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = VNXSPJQ3S4;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = WB5UAUH8M2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3424,8 +3452,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.echao.question299;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "45b8ba69-7b23-4633-8ab9-9fc6cd705e3c";
-				PROVISIONING_PROFILE_SPECIFIER = FXPro;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -86,6 +86,52 @@ static ShareConfig * shareConfig = nil;
     
 }
 
+/**
+ 弹出框
+
+ @param title 标题
+ @param content 内容
+ @param vc 当前视图
+ @param sureClick 确定
+ @param cancelClick 取消
+ */
+-(void)presentAlertTitle:(NSString *)title content:(NSString *)content VC:(UIViewController *)vc sureClick:(void(^)(NSString * resultStr))sureClick cancelClick:(void(^)(NSString * resultStr))cancelClick{
+    
+    UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction * sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        sureClick(@"确定");
+    }];
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        cancelClick(@"取消");
+    }];
+    
+    [alertVC addAction:cancelAction];
+    [alertVC addAction:sureAction];
+    [vc presentViewController:alertVC animated:YES completion:nil];
+    
+}
+- (UIViewController *)topViewController{
+    return [self topViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+}
+
+- (UIViewController *)topViewController:(UIViewController *)rootViewController
+{
+    if (rootViewController.presentedViewController == nil) {
+        return rootViewController;
+    }
+    if ([rootViewController.presentedViewController isMemberOfClass:[UINavigationController class]]) {
+        UINavigationController * navigationController = (UINavigationController *)rootViewController.presentedViewController;
+        UIViewController *lastViewController = [[navigationController viewControllers] lastObject];
+        return [self topViewController:lastViewController];
+    }
+    
+    UIViewController *presentedViewController = (UIViewController *)rootViewController.presentedViewController;
+    return [self topViewController:presentedViewController];
+}
+
 -(void)updateUserData{
     
     if (![Utility sharedUtility].loginFlage) {

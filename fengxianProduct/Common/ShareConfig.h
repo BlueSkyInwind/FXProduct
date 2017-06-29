@@ -23,6 +23,18 @@
  */
 -(void)presentAlertTextfield:(UIViewController *)vc title:(NSString *)title placeHolder:(NSString *)placeHolder userInputContent:(void(^)(NSString * resultStr))userInputContent;
 
+/**
+ 弹出框
+ 
+ @param title 标题
+ @param content 内容
+ @param vc 当前视图
+ @param sureClick 确定
+ @param cancelClick 取消
+ */
+-(void)presentAlertTitle:(NSString *)title content:(NSString *)content VC:(UIViewController *)vc sureClick:(void(^)(NSString * resultStr))sureClick cancelClick:(void(^)(NSString * resultStr))cancelClick;
+
+- (UIViewController *)topViewController;
 
 + (void)configDefaultShare;
 

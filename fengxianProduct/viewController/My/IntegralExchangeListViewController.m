@@ -1,19 +1,18 @@
 //
-//  MyIntegralListViewController.m
+//  IntegralExchangeListViewController.m
 //  fengxianProduct
 //
-//  Created by admin on 2017/6/26.
+//  Created by admin on 2017/6/29.
 //  Copyright © 2017年 Wangyongxin. All rights reserved.
 //
 
-#import "MyIntegralListViewController.h"
-#import "MyIntegralListTableViewCell.h"
+#import "IntegralExchangeListViewController.h"
 #import "IntegralDetailModel.h"
+#import "MyIntegralListTableViewCell.h"
 #import "MoreViewModel.h"
 
-@interface MyIntegralListViewController ()<UITableViewDelegate,UITableViewDataSource>{
+@interface IntegralExchangeListViewController ()<UITableViewDelegate,UITableViewDataSource>{
     NSMutableArray * dataArr;
-    
     IntegralDetailModel * integralDetailModel;
     int  pages;
     
@@ -22,12 +21,12 @@
 
 @end
 
-@implementation MyIntegralListViewController
+@implementation IntegralExchangeListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"积分明细";
+    self.navigationItem.title = @"兑换记录";
     [self addBackItem];
     self.view.backgroundColor = [UIColor redColor];
     pages = 1;
@@ -37,23 +36,24 @@
     [self requestNewsListInfo];
     [self setupMJRefreshTableView];
 }
+
 -(void)configureView{
     
     self.tableView = [[UITableView alloc]init];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor whiteColor];
-//    self.tableView.separatorStyle =  UITableViewCellSeparatorStyleNone;
+    //    self.tableView.separatorStyle =  UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"MyIntegralListTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyIntegralListTableViewCell"];
-
+    
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    
     return 50;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -100,7 +100,7 @@
     } WithFaileBlock:^{
         
     }];
-    [moreViewModel fatchUserIntegralDetailInfo:@"5" pageSize:pages];
+    [moreViewModel fatchUserExchangeIntegralInfo:@"5" pageSize:pages];
 }
 
 #pragma mark ----------设置列表的可刷新性----------
@@ -141,6 +141,7 @@
     pages += 1;
     [self requestNewsListInfo];
 }
+
 
 
 - (void)didReceiveMemoryWarning {

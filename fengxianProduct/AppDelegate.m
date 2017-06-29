@@ -10,7 +10,7 @@
 #import "LaunchViewController.h"
 #import "LoginViewController.h"
 //#import "InitialSetting.h"
-
+#import "MyMessageViewController.h"
 #import "JPUSHService.h"
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
@@ -19,11 +19,11 @@
 #import <AdSupport/AdSupport.h>
 
 
-
 AppDelegate *app = nil;
 
-@interface AppDelegate ()<JPUSHRegisterDelegate>
-
+@interface AppDelegate ()<JPUSHRegisterDelegate>{
+    id currentVC;
+}
 
 @end
 
@@ -42,6 +42,7 @@ AppDelegate *app = nil;
     [self monitorNetworkState];
     //shareSDK
     [ShareConfig configDefaultShare];
+    //推送
     [self initJPush:launchOptions];
     
     [self performSelector:@selector(enter) withObject:self afterDelay:4];
@@ -84,7 +85,6 @@ AppDelegate *app = nil;
     NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
     [defaultCenter addObserver:self selector:@selector(networkDidReceiveMessage:) name:kJPFNetworkDidReceiveMessageNotification object:nil];
 
-    
 }
 
 - (void)monitorNetworkState
@@ -112,6 +112,7 @@ AppDelegate *app = nil;
     [mgr startMonitoring];
 }
 - (void)networkDidReceiveMessage:(NSNotification *)notification {
+    
     NSDictionary * userInfo = [notification userInfo];
     NSString *content = [userInfo valueForKey:@"content"];
     NSDictionary *extras = [userInfo valueForKey:@"extras"];
@@ -153,6 +154,24 @@ AppDelegate *app = nil;
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
     // Required, iOS 7 Support
+    if (application.applicationState == UIApplicationStateActive ){
+        currentVC = [[ShareConfig share]topViewController];
+        if ([currentVC isKindOfClass:[BaseTabBarViewController class]]) {
+            BaseTabBarViewController * baseTabVC = currentVC;
+            BaseNavigationViewController * BaseNavigationVC = baseTabVC.selectedViewController;
+            MyMessageViewController * myMessageVC= [[MyMessageViewController alloc]init];
+            [BaseNavigationVC pushViewController:myMessageVC animated:YES];
+            NSLog(@"%@",baseTabVC.selectedViewController);
+        }
+        NSLog(@"%@",currentVC);
+ 
+    }else if(application.applicationState == UIApplicationStateBackground){
+        
+        
+    }else if(application.applicationState == UIApplicationStateInactive){
+        
+        
+    }
     [JPUSHService handleRemoteNotification:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
 }

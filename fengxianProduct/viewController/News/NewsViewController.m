@@ -60,7 +60,7 @@
     
     UITabBarItem * item=[self.tabBarController.tabBar.items objectAtIndex:0];
     if ( [[Utility sharedUtility].userInfo.ColumnNew intValue] != 0) {
-        item.badgeValue= [Utility sharedUtility].userInfo.ColumnNew;
+//        item.badgeValue= [Utility sharedUtility].userInfo.ColumnNew;
     }
     UITabBarItem * item1=[self.tabBarController.tabBar.items objectAtIndex:1];
     if ( [[Utility sharedUtility].userInfo.ColumnLife intValue] != 0) {

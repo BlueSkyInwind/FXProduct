@@ -148,6 +148,7 @@
             [button setBackgroundImage:[UIImage imageNamed:@"Goods_Type_Icon"] forState:UIControlStateNormal];
         }
     }
+    
     if (goodDetailModel.rows || goodDetailModel.rows.count != 0) {
         goodTypeModel = goodDetailModel.rows[0];
     }
@@ -161,7 +162,6 @@
         self.goodExchangeView = nil;
         self.makeView = nil;
     } completion:^(BOOL finished) {
-        
     }];
 }
 -(void)closeEventClick{

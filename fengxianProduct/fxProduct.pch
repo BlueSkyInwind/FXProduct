@@ -37,6 +37,8 @@
 #import "UIColor+Extend.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDWebImage/UIButton+WebCache.h>
+#import <FLAnimatedImage/FLAnimatedImageView.h>
+#import <FLAnimatedImage/FLAnimatedImage.h>
 #import <MJRefresh/MJRefresh.h>
 #import <YYModel/YYModel.h>
 #import "YYCache.h"

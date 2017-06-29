@@ -282,23 +282,39 @@
     for (int i = 0; i < self.photoArray.count; i++) {
         PhotoDetailModel * photoDetailM = self.photoArray[i];
         [self.explainArray addObject:photoDetailM.Cont];
-       __block UIImageView * imageView = [[UIImageView alloc]init];
+       __block FLAnimatedImageView * imageView = [[FLAnimatedImageView alloc]init];
         imageView.contentMode =UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
-//        [imageView sd_setImageWithURL:[NSURL URLWithString:photoDetailM.Image] placeholderImage:[UIImage imageNamed:@"news_placeholder_Icon_1" ] options:SDWebImageRefreshCached];
-        [self loadImageWithUrl:photoDetailM.Image imageView:imageView completed:^(UIImage *image) {
-            if (i == 0) {
-                shareImage = [image copy];
-            }
-            imageView.image = image;
-            imageView.frame =  CGRectMake(0, 0, _k_w, _k_w * image.size.height / image.size.width);
-            imageView.userInteractionEnabled = YES;
-            imageView.center = CGPointMake(_k_w / 2  + (_k_w) * i, (_k_h - 64) / 2);
-            [backScrollView addSubview:imageView];
-        }];
+        if ([photoDetailM.Image hasSuffix:@".gif"]) {
+            imageView.image = [UIImage imageNamed:@"news_placeholder_Icon_1" ];
+            [[SDWebImageManager sharedManager] loadImageWithURL:[NSURL URLWithString:photoDetailM.Image]  options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+                
+            } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+                if (i == 0) {
+                    shareImage = [image copy];
+                }
+                imageView.image = nil;
+                imageView.animatedImage = [FLAnimatedImage animatedImageWithGIFData:data];
+                imageView.frame =  CGRectMake(0, 0, _k_w, _k_w * image.size.height / image.size.width);
+                imageView.userInteractionEnabled = YES;
+                imageView.center = CGPointMake(_k_w / 2  + (_k_w) * i, (_k_h - 64) / 2);
+                [backScrollView addSubview:imageView];
+            }];
+        }else{
+            [self loadImageWithUrl:photoDetailM.Image imageView:imageView completed:^(UIImage *image) {
+                if (i == 0) {
+                    shareImage = [image copy];
+                }                 imageView.image = image;
+                imageView.frame =  CGRectMake(0, 0, _k_w, _k_w * image.size.height / image.size.width);
+                imageView.userInteractionEnabled = YES;
+                imageView.center = CGPointMake(_k_w / 2  + (_k_w) * i, (_k_h - 64) / 2);
+                [backScrollView addSubview:imageView];
+            }];
+        }
     }
 }
 -(void)loadImageWithUrl:(NSString *)str imageView:(UIImageView *)imageView completed:(void(^)(UIImage * image))completedLoad{
+    
     [imageView sd_setImageWithURL:[NSURL URLWithString:str]
                  placeholderImage:[UIImage imageNamed:@"news_placeholder_Icon_1" ]
                           options:SDWebImageAvoidAutoSetImage // 下载完成后不要自动设置image
@@ -307,6 +323,8 @@
                                     completedLoad(image);
                                 });
                         }];
+    
+    
 }
 //分享函数
 -(void)shareContent:(NSString*)urlStr Title:(NSString *)title

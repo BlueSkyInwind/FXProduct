@@ -25,9 +25,18 @@
     
     self.atlasLabel.hidden = YES;
     self.vdieoBtn.hidden = YES;
-    
-    [self.titleImage sd_setImageWithURL:[NSURL URLWithString:self.newsList.Image1] placeholderImage:[UIImage imageNamed:@"news_placeholder_Icon_1" ]options:SDWebImageRefreshCached];
-//    [self.titleImage sd_setImageWithURL:[NSURL URLWithString:self.newsList.Image1]];
+
+    if ([self.newsList.Image1 hasSuffix:@".gif"]) {
+        self.titleImage.image = [UIImage imageNamed:@"news_placeholder_Icon_1" ];
+        [[SDWebImageManager sharedManager] loadImageWithURL:[NSURL URLWithString:self.newsList.Image1]  options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+            
+        } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+            self.titleImage.image = nil;
+            self.titleImage.animatedImage  = [FLAnimatedImage animatedImageWithGIFData:data];
+        }];
+    }else{
+        [self.titleImage sd_setImageWithURL:[NSURL URLWithString:self.newsList.Image1] placeholderImage:[UIImage imageNamed:@"news_placeholder_Icon_1" ]options:SDWebImageRefreshCached];
+    }
     
     self.titleLabel.text = self.newsList.Title;
     if ([self.newsList.Source isEqualToString:@"原创"]) {

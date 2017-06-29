@@ -259,6 +259,24 @@
         [self faileBlock];
     }];
 }
+-(void)obtainLaunchImage{
+    //http://infx2.echaokj.cn/ajax/AppBanner/AppBannerImgList.ashx
+    NSString * baseUrl = [NSString stringWithFormat:@"%@AppBanner/AppBannerImgList.ashx",_main_url];
+    
+    [[FXNetworkManager sharedNetWorkManager]POSTHideIndicatorWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            
+        }
+        self.returnBlock(returnMsg);
+
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+}
+
 
 
 @end

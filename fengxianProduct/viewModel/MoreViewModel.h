@@ -86,6 +86,14 @@
  @param pageSize 页数
  */
 -(void)fatchUserIntegralDetailInfo:(NSString *)type pageSize:(int)pageSize;
+/**
+ 我的兑换记录
+
+ @param type 类型
+ @param pageSize    页数
+ */
+-(void)fatchUserExchangeIntegralInfo:(NSString *)type pageSize:(int)pageSize;
+
 
 /**
  商品详情页
