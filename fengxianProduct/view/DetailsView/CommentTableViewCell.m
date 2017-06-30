@@ -7,7 +7,7 @@
 //
 
 #import "CommentTableViewCell.h"
-
+#import "NewsViewModel.h"
 @implementation CommentTableViewCell
 
 - (void)awakeFromNib {
@@ -31,11 +31,24 @@
     }
 }
 -(void)spotTapClick:(UITapGestureRecognizer *)tap{
+    [self requestSpot:self.detailCommentModel.ID];
     if (self.spotEventClick ) {
         self.spotEventClick(tap);
     }
 }
-
+-(void)requestSpot:(NSString *)commentId{
+    NewsViewModel * newViewM = [[NewsViewModel alloc]init];
+    [newViewM setBlockWithReturnBlock:^(id returnValue) {
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        if ([returnMsg.returnCode intValue] == 1) {
+            NSString * number = (NSString *)returnMsg.msg;
+            self.commentNum.text = [NSString stringWithFormat:@"%@",number];
+        }
+    } WithFaileBlock:^{
+        
+    }];
+    [newViewM fatchCommentSpotStatus:commentId];
+}
 -(void)setDetailCommentModel:(DetailCommentModel *)detailCommentModel{
     
     self.secondComentViewHeight.constant = 0;

@@ -7,6 +7,9 @@
 //
 
 #import "ActivityViewModel.h"
+#import "VoteListModel.h"
+#import "AnswerListModel.h"
+#import "VoteDetailModel.h"
 
 @implementation ActivityViewModel
 
@@ -54,8 +57,8 @@
     [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
         if ([returnMsg.returnCode intValue] == 1) {
-            
-            self.returnBlock(returnMsg);
+            NewsListModel * newsListM = [[NewsListModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
+            self.returnBlock(newsListM);
         }
     } failure:^(EnumServerStatus status, id object) {
         NSError * error = object;
@@ -72,8 +75,8 @@
     [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
         if ([returnMsg.returnCode intValue] == 1) {
-            
-            self.returnBlock(returnMsg);
+            VoteDetailModel * voteDetailM = [[VoteDetailModel alloc] initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
+            self.returnBlock(voteDetailM);
         }
     } failure:^(EnumServerStatus status, id object) {
         NSError * error = object;
@@ -106,8 +109,8 @@
     [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
         if ([returnMsg.returnCode intValue] == 1) {
-            
-            self.returnBlock(returnMsg);
+            NewsListModel * newsListM = [[NewsListModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
+            self.returnBlock(newsListM);
         }
     } failure:^(EnumServerStatus status, id object) {
         NSError * error = object;
@@ -115,9 +118,6 @@
         [self faileBlock];
     }];
 }
-
-
-
 
 
 - (void)fatchAnswerDEtailInfoID:(NSString *)ID{

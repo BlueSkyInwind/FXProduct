@@ -10,6 +10,8 @@
 #import "UserInfoObj.h"
 #import "ColumnModel.h"
 #import "NewsListModel.h"
+#import "VoteListModel.h"
+#import "AnswerListModel.h"
 @interface Utility : NSObject
 
 

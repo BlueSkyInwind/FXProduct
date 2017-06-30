@@ -57,6 +57,13 @@
 		22899C131F03FF310014DECD /* VoteSecondCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22899C111F03FF310014DECD /* VoteSecondCollectionViewCell.xib */; };
 		22899C181F040A840014DECD /* jcore-ios-1.1.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22899C151F040A840014DECD /* jcore-ios-1.1.3.a */; };
 		22899C191F040A840014DECD /* jpush-ios-3.0.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22899C161F040A840014DECD /* jpush-ios-3.0.5.a */; };
+		22899C1C1F053F940014DECD /* VoteListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22899C1B1F053F940014DECD /* VoteListModel.m */; };
+		22899C1F1F0542AB0014DECD /* AnswerListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22899C1E1F0542AB0014DECD /* AnswerListModel.m */; };
+		22899C231F0550750014DECD /* ActivityMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22899C211F0550750014DECD /* ActivityMoreViewController.m */; };
+		22899C241F0550750014DECD /* ActivityMoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22899C221F0550750014DECD /* ActivityMoreViewController.xib */; };
+		22899C271F05588E0014DECD /* VoteDetailFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22899C261F05588E0014DECD /* VoteDetailFirstViewController.m */; };
+		22899C2A1F055CAD0014DECD /* VoteDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22899C291F055CAD0014DECD /* VoteDetailModel.m */; };
+		22899C2D1F0569740014DECD /* VoteDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22899C2C1F0569740014DECD /* VoteDetailView.m */; };
 		229520CB1EF65E5800FA2351 /* IntegralViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 229520CA1EF65E5800FA2351 /* IntegralViewModel.m */; };
 		229520CE1EF65EF900FA2351 /* integralModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 229520CD1EF65EF900FA2351 /* integralModel.m */; };
 		229520D21EF6BCE300FA2351 /* DetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229520D11EF6BCE300FA2351 /* DetailHeaderView.m */; };
@@ -502,6 +509,19 @@
 		22899C151F040A840014DECD /* jcore-ios-1.1.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jcore-ios-1.1.3.a"; sourceTree = "<group>"; };
 		22899C161F040A840014DECD /* jpush-ios-3.0.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.0.5.a"; sourceTree = "<group>"; };
 		22899C171F040A840014DECD /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		22899C1A1F053F940014DECD /* VoteListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteListModel.h; sourceTree = "<group>"; };
+		22899C1B1F053F940014DECD /* VoteListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteListModel.m; sourceTree = "<group>"; };
+		22899C1D1F0542AB0014DECD /* AnswerListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerListModel.h; sourceTree = "<group>"; };
+		22899C1E1F0542AB0014DECD /* AnswerListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerListModel.m; sourceTree = "<group>"; };
+		22899C201F0550750014DECD /* ActivityMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityMoreViewController.h; sourceTree = "<group>"; };
+		22899C211F0550750014DECD /* ActivityMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityMoreViewController.m; sourceTree = "<group>"; };
+		22899C221F0550750014DECD /* ActivityMoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityMoreViewController.xib; sourceTree = "<group>"; };
+		22899C251F05588E0014DECD /* VoteDetailFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteDetailFirstViewController.h; sourceTree = "<group>"; };
+		22899C261F05588E0014DECD /* VoteDetailFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteDetailFirstViewController.m; sourceTree = "<group>"; };
+		22899C281F055CAD0014DECD /* VoteDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteDetailModel.h; sourceTree = "<group>"; };
+		22899C291F055CAD0014DECD /* VoteDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteDetailModel.m; sourceTree = "<group>"; };
+		22899C2B1F0569740014DECD /* VoteDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteDetailView.h; sourceTree = "<group>"; };
+		22899C2C1F0569740014DECD /* VoteDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteDetailView.m; sourceTree = "<group>"; };
 		229520C91EF65E5800FA2351 /* IntegralViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegralViewModel.h; sourceTree = "<group>"; };
 		229520CA1EF65E5800FA2351 /* IntegralViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegralViewModel.m; sourceTree = "<group>"; };
 		229520CC1EF65EF900FA2351 /* integralModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = integralModel.h; sourceTree = "<group>"; };
@@ -1222,6 +1242,8 @@
 				22899C0A1F03F3610014DECD /* VoteThirdTableViewCell.h */,
 				22899C0B1F03F3610014DECD /* VoteThirdTableViewCell.m */,
 				22899C0C1F03F3610014DECD /* VoteThirdTableViewCell.xib */,
+				22899C2B1F0569740014DECD /* VoteDetailView.h */,
+				22899C2C1F0569740014DECD /* VoteDetailView.m */,
 			);
 			path = ActivityView;
 			sourceTree = "<group>";
@@ -2510,6 +2532,11 @@
 			children = (
 				84AABEEF1EE6B277001AA7C0 /* ActivityViewController.h */,
 				84AABEF01EE6B277001AA7C0 /* ActivityViewController.m */,
+				22899C201F0550750014DECD /* ActivityMoreViewController.h */,
+				22899C211F0550750014DECD /* ActivityMoreViewController.m */,
+				22899C221F0550750014DECD /* ActivityMoreViewController.xib */,
+				22899C251F05588E0014DECD /* VoteDetailFirstViewController.h */,
+				22899C261F05588E0014DECD /* VoteDetailFirstViewController.m */,
 			);
 			path = activity;
 			sourceTree = "<group>";
@@ -2638,6 +2665,12 @@
 				8466A2C21F03A203007A7632 /* LiveMessageModel.m */,
 				84FBACC01F0511A60016EFBC /* LaunchImageModel.h */,
 				84FBACC11F0511A60016EFBC /* LaunchImageModel.m */,
+				22899C1A1F053F940014DECD /* VoteListModel.h */,
+				22899C1B1F053F940014DECD /* VoteListModel.m */,
+				22899C1D1F0542AB0014DECD /* AnswerListModel.h */,
+				22899C1E1F0542AB0014DECD /* AnswerListModel.m */,
+				22899C281F055CAD0014DECD /* VoteDetailModel.h */,
+				22899C291F055CAD0014DECD /* VoteDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2874,6 +2907,7 @@
 				2261432F1EE83E9400193487 /* lightNormal.png in Resources */,
 				2207B4651EF2C70300EF8036 /* WriteInfoView.xib in Resources */,
 				226143301EE83E9400193487 /* lightSelect.png in Resources */,
+				22899C241F0550750014DECD /* ActivityMoreViewController.xib in Resources */,
 				840DFFF11EF7A0DF00709337 /* DetailButtomView.xib in Resources */,
 				221A51231EEADCF800A543C0 /* PickerSelectView.xib in Resources */,
 				229520D61EF6BD0100FA2351 /* DetailHeaderView.xib in Resources */,
@@ -2927,7 +2961,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -2991,6 +3025,7 @@
 				84AABEB11EE6A035001AA7C0 /* LOTAnimatableLayer.m in Sources */,
 				84AABDD61EE69F76001AA7C0 /* HMScannerViewController.m in Sources */,
 				22648A731F02A381002BD716 /* GoodsDetailViewController.m in Sources */,
+				22899C271F05588E0014DECD /* VoteDetailFirstViewController.m in Sources */,
 				84AABEBC1EE6A035001AA7C0 /* LOTAnimatablePointValue.m in Sources */,
 				22B905681EED070300ED8B71 /* ColumnModel.m in Sources */,
 				840DFFF91EF7CFBC00709337 /* PhotoViewController.m in Sources */,
@@ -3006,6 +3041,7 @@
 				84AABED31EE6A035001AA7C0 /* LOTAnimationTransitionController.m in Sources */,
 				849FDDF11EFBC5D7002159F9 /* MyCollectViewController.m in Sources */,
 				8440D6D91EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.m in Sources */,
+				22899C231F0550750014DECD /* ActivityMoreViewController.m in Sources */,
 				84375A7C1EF929F3008D2455 /* SBPlayer.m in Sources */,
 				22B905101EEC1DB800ED8B71 /* MySettingViewController.m in Sources */,
 				229C46991F0004D700932533 /* SystemMessageViewController.m in Sources */,
@@ -3028,6 +3064,7 @@
 				849FDE011EFBCF51002159F9 /* CollectModel.m in Sources */,
 				8458624B1EE68A7100AF52B3 /* NSString+AES.m in Sources */,
 				840D00011EF7DB0200709337 /* PhotoModel.m in Sources */,
+				22899C2A1F055CAD0014DECD /* VoteDetailModel.m in Sources */,
 				84AABECC1EE6A035001AA7C0 /* LOTShapeFill.m in Sources */,
 				22648A7B1F02AB4C002BD716 /* GoodsContentView.m in Sources */,
 				84AABDF11EE69F76001AA7C0 /* YYTextAttribute.m in Sources */,
@@ -3107,6 +3144,7 @@
 				84AABEB81EE6A035001AA7C0 /* LOTStrokeShapeLayer.m in Sources */,
 				84AABDF01EE69F76001AA7C0 /* YYTextArchiver.m in Sources */,
 				845862621EE68A7100AF52B3 /* UIDevice+YYAdd.m in Sources */,
+				22899C1C1F053F940014DECD /* VoteListModel.m in Sources */,
 				84375A7E1EF929F3008D2455 /* SBPauseOrPlayView.m in Sources */,
 				22B905341EEC4B5400ED8B71 /* TGCarouselImageManager.m in Sources */,
 				22B905651EECFF7900ED8B71 /* NewsListModel.m in Sources */,
@@ -3137,6 +3175,7 @@
 				84BDC85B1EF282E2006F4DDE /* UserCommentModel.m in Sources */,
 				229C469C1F00051700932533 /* CommentMessageViewController.m in Sources */,
 				84D248401EE8014900937D28 /* RegisterViewModel.m in Sources */,
+				22899C2D1F0569740014DECD /* VoteDetailView.m in Sources */,
 				8458624D1EE68A7100AF52B3 /* ContactClass.m in Sources */,
 				229C468B1EFFDECE00932533 /* MoreBottomDeleteView.m in Sources */,
 				84375A431EF90520008D2455 /* CommentInputView.m in Sources */,
@@ -3203,6 +3242,7 @@
 				221A51181EE99BCD00A543C0 /* UserInfoTableViewCell.m in Sources */,
 				84AABDC61EE69F76001AA7C0 /* MLBlackTransition.m in Sources */,
 				8466A2C01F039F9A007A7632 /* LiveViewModel.m in Sources */,
+				22899C1F1F0542AB0014DECD /* AnswerListModel.m in Sources */,
 				221A51221EEADCF800A543C0 /* PickerSelectView.m in Sources */,
 				84AABDF51EE69F76001AA7C0 /* NSAttributedString+YYText.m in Sources */,
 				22648A811F02AFFE002BD716 /* GoodsDetailModel.m in Sources */,

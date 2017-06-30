@@ -16,6 +16,10 @@
 #import "ActivityContentTableViewCell.h"
 #import "ActivityBrokeViewTableViewCell.h"
 #import "LiveMoreViewController.h"
+#import "ActivityViewModel.h"
+#import "VoteListModel.h"
+#import "AnswerListModel.h"
+#import "ActivityMoreViewController.h"
 
 @interface ActivityViewController ()<UITableViewDelegate,UITableViewDataSource,JZLCycleViewDelegate,WriteInfoViewDelegate>{
     
@@ -50,6 +54,7 @@
     dataArr = [NSMutableArray array];
     [self getColumnData];
     bannerArr = [NSMutableArray array];
+    columnInfoArr = [NSMutableArray arrayWithObjects:@[],@[],@[], nil];
     [self.tabBarController.tabBar.items objectAtIndex:2].badgeValue =nil;
 
     VoteCellheight = 40;
@@ -154,6 +159,8 @@
             };
             return firstCell;
         }
+        
+        
         NSString * cellStr = [NSString stringWithFormat:@"ActivityContentTableViewCell%ld%ld",(long)indexPath.row,(long)indexPath.section];
         [self.tableView registerNib:[UINib nibWithNibName:@"ActivityContentTableViewCell" bundle:nil] forCellReuseIdentifier:cellStr];
         ActivityContentTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellStr forIndexPath:indexPath];
@@ -161,14 +168,24 @@
             cell = [[ActivityContentTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellStr];
         }
         cell.currentVC = self;
-        cell.dataArr = [columnInfoArr mutableCopy];
+        if (columnInfoArr.count != 0) {
+            cell.dataArr = columnInfoArr[indexPath.row - 1];
+        }
         cell.columnInfoM = dataArr[indexPath.row];
         cell.moreButtonCilck = ^(UIButton *button) {
-            LiveMoreViewController * liveMoreVC = [[LiveMoreViewController alloc]init];
             ColumnInfoModel *columnInfoM = dataArr[indexPath.row];
-            liveMoreVC.columnID = [columnInfoM.ColumnID integerValue];
-            liveMoreVC.columnInfoModel = columnInfoM;
-            [self.navigationController pushViewController:liveMoreVC animated:YES];
+
+            if ([columnInfoM.ColumnID integerValue] == 1) {
+                LiveMoreViewController * liveMoreVC = [[LiveMoreViewController alloc]init];
+                liveMoreVC.columnID = [columnInfoM.ColumnID integerValue];
+                liveMoreVC.columnInfoModel = columnInfoM;
+                [self.navigationController pushViewController:liveMoreVC animated:YES];
+            }else{
+                ActivityMoreViewController * activityMoreVC = [[ActivityMoreViewController alloc]init];
+                activityMoreVC.columnID = [columnInfoM.ColumnID integerValue];
+                activityMoreVC.columnInfoModel = columnInfoM;
+                [self.navigationController pushViewController:activityMoreVC animated:YES];
+            }
         };
         return cell;
     }
@@ -203,8 +220,8 @@
 
 -(void)requestVoteListInfo:(NSNumber *)Id{
 
-    NewsViewModel * newsVM = [[NewsViewModel alloc]init];
-    [newsVM setBlockWithReturnBlock:^(id returnValue) {
+    ActivityViewModel * activityVM = [[ActivityViewModel alloc]init];
+    [activityVM setBlockWithReturnBlock:^(id returnValue) {
         //缓存数据
         NewsListModel * newsListM = returnValue;
         NSMutableArray * tempArr = [newsListM.rows mutableCopy];
@@ -213,10 +230,10 @@
         }else{
             VoteCellheight = 160;
         }
-     
+
         __weak typeof (self) wealSelf = self;
-        NewsListInfo * newsList = tempArr.firstObject;
-        columnInfoArr = [NSMutableArray arrayWithObjects:newsList, nil];
+        
+        [columnInfoArr insertObject:tempArr atIndex:0];
         
         [Utility sharedUtility].voteListModel = newsListM;
         NSIndexPath * indexPath = [NSIndexPath indexPathForRow:1 inSection:1];
@@ -225,12 +242,13 @@
     } WithFaileBlock:^{
         
     }];
-    [newsVM fatchNewsInfoID:[NSString stringWithFormat:@"%@",Id] pageSize:1 numberOfPage:1];
+    [activityVM fatchVoteInfopageSize:1 numberOfPage:1];
 }
+
 -(void)requestAnswerListInfo:(NSNumber *)Id{
     
-    NewsViewModel * newsVM = [[NewsViewModel alloc]init];
-    [newsVM setBlockWithReturnBlock:^(id returnValue) {
+    ActivityViewModel * activityVM = [[ActivityViewModel alloc]init];
+    [activityVM setBlockWithReturnBlock:^(id returnValue) {
         //缓存数据
         NewsListModel * newsListM = returnValue;
         NSMutableArray * tempArr = [newsListM.rows mutableCopy];
@@ -241,8 +259,7 @@
         }
         
         __weak typeof (self) wealSelf = self;
-        NewsListInfo * newsList = tempArr.firstObject;
-        columnInfoArr = [NSMutableArray arrayWithObjects:newsList, nil];
+        [columnInfoArr insertObject:tempArr atIndex:1];
         
         [Utility sharedUtility].answerListModel = newsListM;
         NSIndexPath * indexPath = [NSIndexPath indexPathForRow:2 inSection:1];
@@ -251,7 +268,8 @@
     } WithFaileBlock:^{
         
     }];
-    [newsVM fatchNewsInfoID:[NSString stringWithFormat:@"%@",Id] pageSize:1 numberOfPage:1];
+    [activityVM fatchAnswerInfopageSize:1 numberOfPage:1];
+    
 }
 -(void)requestwelfareListInfo:(NSNumber *)Id{
     
@@ -267,7 +285,7 @@
         }
         __weak typeof (self) wealSelf = self;
         NewsListInfo * newsList = tempArr.firstObject;
-        columnInfoArr = [NSMutableArray arrayWithObjects:newsList, nil];
+        [columnInfoArr insertObject:tempArr atIndex:2];
         
         [Utility sharedUtility].welfareListModel = newsListM;
         NSIndexPath * indexPath = [NSIndexPath indexPathForRow:3 inSection:1];

@@ -54,7 +54,7 @@
         [popComment showCommentView];
     };
     cell.spotEventClick = ^(UITapGestureRecognizer *tap) {
-        [self requestSpot:self.detailCommentModel.ID];
+//        [self requestSpot:self.detailCommentModel.ID];
     };
 
     return cell;
@@ -65,12 +65,7 @@
         ReturnMsgBaseClass * returnMsg = returnValue;
         if ([returnMsg.returnCode intValue] == 1) {
             NSString * number = (NSString *)returnMsg.msg;
-            if ([number isEqualToString:@"1"]) {
-                [[MBPAlertView sharedMBPTextView] showTextOnly:self message:@"点赞成功"];
-                
-            }else if ([number isEqualToString:@"2"]){
-                [[MBPAlertView sharedMBPTextView] showTextOnly:self message:@"取消点赞"];
-            }
+            self.spotNum.text = [NSString stringWithFormat:@"%@",number];
         }
     } WithFaileBlock:^{
         

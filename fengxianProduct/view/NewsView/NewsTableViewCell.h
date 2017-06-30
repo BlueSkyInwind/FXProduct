@@ -24,6 +24,13 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *atlasLabel;
 @property (weak, nonatomic) IBOutlet UIButton *vdieoBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *commentImage;
+
+@property (weak, nonatomic) IBOutlet UIImageView *visitorImage;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *visitorImageLeftCons;
+
+
 
 @property (strong ,nonatomic)NewsListInfo * newsList;
 

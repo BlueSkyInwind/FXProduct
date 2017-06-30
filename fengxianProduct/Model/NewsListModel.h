@@ -24,6 +24,7 @@
 @property (nonatomic,strong)NSString<Optional> * Title;
 @property (nonatomic,strong)NSString<Optional> * Introduce;
 @property (nonatomic,strong)NSNumber<Optional> * Species;
+@property (nonatomic,strong)NSString<Optional> * Image;
 @property (nonatomic,strong)NSString<Optional> * Image1;
 @property (nonatomic,strong)NSString<Optional> * Image2;
 @property (nonatomic,strong)NSString<Optional> * Image3;

@@ -25,17 +25,24 @@
     
     self.atlasLabel.hidden = YES;
     self.vdieoBtn.hidden = YES;
-
-    if ([self.newsList.Image1 hasSuffix:@".gif"]) {
+    
+    NSString * imageStr;
+    if (!self.newsList.Image1) {
+        imageStr = self.newsList.Image;
+    }else{
+        imageStr = self.newsList.Image1;
+    }
+    
+    if ([imageStr hasSuffix:@".gif"]) {
         self.titleImage.image = [UIImage imageNamed:@"news_placeholder_Icon_1" ];
-        [[SDWebImageManager sharedManager] loadImageWithURL:[NSURL URLWithString:self.newsList.Image1]  options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+        [[SDWebImageManager sharedManager] loadImageWithURL:[NSURL URLWithString:imageStr]  options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
             
         } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
             self.titleImage.image = nil;
             self.titleImage.animatedImage  = [FLAnimatedImage animatedImageWithGIFData:data];
         }];
     }else{
-        [self.titleImage sd_setImageWithURL:[NSURL URLWithString:self.newsList.Image1] placeholderImage:[UIImage imageNamed:@"news_placeholder_Icon_1" ]options:SDWebImageRefreshCached];
+        [self.titleImage sd_setImageWithURL:[NSURL URLWithString:imageStr] placeholderImage:[UIImage imageNamed:@"news_placeholder_Icon_1" ]options:SDWebImageRefreshCached];
     }
     
     self.titleLabel.text = self.newsList.Title;
@@ -45,12 +52,25 @@
     self.titleLocation.text = self.newsList.Source;
     self.titleType.text = self.newsList.Column;
     self.visitorNum.text = [NSString stringWithFormat:@"%@",self.newsList.Num];
+    
+    if (!self.newsList.PLNum) {
+        self.commentNum.hidden = YES;
+        self.commentImage.hidden = YES;
+        self.visitorImageLeftCons.constant = 38;
+    }else{
+        self.commentNum.hidden = NO;
+        self.commentImage.hidden = NO;
+        self.visitorImageLeftCons.constant = 0;
+    }
+    
     self.commentNum.text = [NSString stringWithFormat:@"%@",self.newsList.PLNum];
     if ([self.newsList.Species integerValue] == 2) {
         self.atlasLabel.hidden = NO;
     }else if ([self.newsList.Species integerValue] == 3){
         self.vdieoBtn.hidden = NO;
     }
+    
+    
 }
 
 -(void)configureViewTitleImage:(NSString *)imageName titleLabel:(NSString *)title titleLocation:(NSString *)Location titleType:(NSString *)type visitorNum:(NSString *)visitor commentNum:(NSString *)comment imageType:(NSInteger)imageType{

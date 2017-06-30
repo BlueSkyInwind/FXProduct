@@ -298,8 +298,9 @@
     //http://infx2.echaokj.cn/ajax/My/Exchange.ashx?AccountId=6&sid=1&Address=地址
     
     NSString * baseUrl = [NSString stringWithFormat:@"%@My/Exchange.ashx?AccountId=%@&sid=%@&Address=%@",_main_url,[Utility sharedUtility].userInfo.ID,goodsId,address];
-    
-    [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+    NSString *newUrl = [baseUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+    [[FXNetworkManager sharedNetWorkManager]POSTWithURL:newUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
         if ([returnMsg.returnCode intValue] == 1) {
   

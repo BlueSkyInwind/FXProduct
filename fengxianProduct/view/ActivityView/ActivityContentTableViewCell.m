@@ -63,7 +63,7 @@
     }else if ([newsList.Seat intValue] == 4){
         return 140;
     }
-    return 90;
+    return 100;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -92,6 +92,7 @@
     cell.newsList = newsList;
     return cell;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if ([_columnInfoM.ColumnID intValue] == 11) {
         NewsListInfo * newsList = self.dataArr[indexPath.row];
