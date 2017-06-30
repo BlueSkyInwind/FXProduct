@@ -53,6 +53,7 @@
 #import "ReturnMsgBaseClass.h"
 #import "ShareConfig.h"
 #import "CameraHelper.h"
+#import "JPUSHService.h"
 #endif
 
 #endif

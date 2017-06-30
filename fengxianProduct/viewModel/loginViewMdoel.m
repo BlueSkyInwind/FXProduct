@@ -8,7 +8,8 @@
 
 #import "loginViewMdoel.h"
 #import "UserInfoObj.h"
-
+#import "NewsViewModel.h"
+#import "JPUSHService.h"
 @implementation loginViewMdoel
 
 - (void)fatchLoginMoblieNumber:(NSString *)number password:(NSString *)password{
@@ -30,6 +31,8 @@
                 [Tool saveUserDefaul:@"1" Key:kLoginFlag];
                 [Tool saveUserDefaul:[object objectForKey:@"result"] Key:FX_AccountID];
             }
+            NewsViewModel * newVM = [[NewsViewModel alloc]init ];
+            [newVM uploadPushID:[JPUSHService registrationID]];
         }else{
             
         }

@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *percentLabel;
 @property (weak, nonatomic) IBOutlet UIProgressView *voteProgressiew;
 
+@property (assign,nonatomic)NSInteger number;
+@property (assign,nonatomic)NSNumber * voteNumber;
 
 @property (nonatomic,strong)VoteRowsModel * voteRowsM;
 

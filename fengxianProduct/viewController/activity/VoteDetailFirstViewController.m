@@ -12,10 +12,16 @@
 #import "VoteFirstTableViewCell.h"
 #import "VoteSecondCollectionViewCell.h"
 #import "VoteThirdTableViewCell.h"
+#import "VoteDetailView.h"
+#import "VoteDetailSecondView.h"
 
+@interface VoteDetailFirstViewController ()<UITableViewDelegate,UITableViewDataSource>{
+    
+    VoteDetailModel * voteDetailModel;
 
-@interface VoteDetailFirstViewController ()<UITableViewDelegate,UITableViewDataSource>
-
+}
+@property (nonatomic,strong)VoteDetailView * voteDetailView;
+@property (nonatomic,strong)VoteDetailSecondView * voteDetailSecondView;
 
 @property (nonatomic,strong)UITableView * tableView;
 @end
@@ -25,9 +31,47 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.title = self.voteTitle;
+    [self addBackItem];
+    __weak typeof (self) weakSelf = self;
+    [self requestAnswerListInfo:^(BOOL isSuccess) {
+        [weakSelf configureView];
+    }];
+}
+-(void)configureView{
     
+    if ([voteDetailModel.Type integerValue] == 1) {
+        [self addVoteDetailView:voteDetailModel];
+    }else if ([voteDetailModel.Type integerValue] == 2){
+        [self addSecondVoteDetailView:voteDetailModel];
+    }else if ([voteDetailModel.Type integerValue] == 3){
+        [self addVoteDetailView:voteDetailModel];
+    }
+}
+-(void)addVoteDetailView:( VoteDetailModel *)voteDetailM{
+    _voteDetailView = [[VoteDetailView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_h)];
+    _voteDetailView.voteDetailModel = voteDetailModel;
+    [self.view addSubview:_voteDetailView];
+}
+-(void)addSecondVoteDetailView:( VoteDetailModel *)voteDetailM{
+ 
+    _voteDetailSecondView = [[VoteDetailSecondView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_h)];
+    _voteDetailSecondView.voteDetailModel = voteDetailModel;
+    [self.view addSubview:_voteDetailSecondView];
     
 }
+#pragma mark - 网络请求
+-(void)requestAnswerListInfo:(void(^)(BOOL isSuccess))finish{
+    ActivityViewModel * activityVM = [[ActivityViewModel alloc]init];
+    [activityVM setBlockWithReturnBlock:^(id returnValue) {
+        voteDetailModel = returnValue;
+        finish(YES);
+    } WithFaileBlock:^{
+        
+    }];
+    [activityVM fatchVoteDetailInfoID:self.voteID];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

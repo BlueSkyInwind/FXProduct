@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "VoteDetailModel.h"
-@interface VoteFirstTableViewCell : UITableViewCell
+@interface VoteFirstTableViewCell : UITableViewCell{
+    
+    
+}
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
@@ -17,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *voteNumLabel;
 
 @property (weak, nonatomic) IBOutlet UIProgressView *voteProgressView;
+
+@property (assign,nonatomic)NSInteger number;
+@property (assign,nonatomic)NSNumber * voteNum;
 
 @property (nonatomic,strong)VoteRowsModel * voteRowsM;
 @end

@@ -137,6 +137,7 @@
 		840DFFF91EF7CFBC00709337 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840DFFF81EF7CFBC00709337 /* PhotoViewController.m */; };
 		840DFFFC1EF7D2BC00709337 /* ExplainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840DFFFB1EF7D2BC00709337 /* ExplainView.m */; };
 		840DFFFE1EF7D2CB00709337 /* ExplainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840DFFFD1EF7D2CB00709337 /* ExplainView.xib */; };
+		841417681F05FD1700D5219E /* VoteDetailSecondView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841417671F05FD1700D5219E /* VoteDetailSecondView.m */; };
 		8431F33E1EE8E3EE00295A18 /* MoreHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8431F33D1EE8E3EE00295A18 /* MoreHeaderView.m */; };
 		8431F3401EE8E40900295A18 /* MoreHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8431F33F1EE8E40900295A18 /* MoreHeaderView.xib */; };
 		8431F3431EE8FD7700295A18 /* MoreNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8431F3421EE8FD7700295A18 /* MoreNavView.m */; };
@@ -653,6 +654,8 @@
 		840DFFFB1EF7D2BC00709337 /* ExplainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExplainView.m; sourceTree = "<group>"; };
 		840DFFFD1EF7D2CB00709337 /* ExplainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExplainView.xib; sourceTree = "<group>"; };
 		840DFFFF1EF7DB0200709337 /* PhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoModel.h; sourceTree = "<group>"; };
+		841417661F05FD1700D5219E /* VoteDetailSecondView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteDetailSecondView.h; sourceTree = "<group>"; };
+		841417671F05FD1700D5219E /* VoteDetailSecondView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteDetailSecondView.m; sourceTree = "<group>"; };
 		8431F33C1EE8E3EE00295A18 /* MoreHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreHeaderView.h; sourceTree = "<group>"; };
 		8431F33D1EE8E3EE00295A18 /* MoreHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreHeaderView.m; sourceTree = "<group>"; };
 		8431F33F1EE8E40900295A18 /* MoreHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreHeaderView.xib; sourceTree = "<group>"; };
@@ -1244,6 +1247,8 @@
 				22899C0C1F03F3610014DECD /* VoteThirdTableViewCell.xib */,
 				22899C2B1F0569740014DECD /* VoteDetailView.h */,
 				22899C2C1F0569740014DECD /* VoteDetailView.m */,
+				841417661F05FD1700D5219E /* VoteDetailSecondView.h */,
+				841417671F05FD1700D5219E /* VoteDetailSecondView.m */,
 			);
 			path = ActivityView;
 			sourceTree = "<group>";
@@ -2961,7 +2966,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -3231,6 +3236,7 @@
 				84AABDF31EE69F76001AA7C0 /* YYTextRubyAnnotation.m in Sources */,
 				84AABE471EE6A003001AA7C0 /* NSDate+Extend.m in Sources */,
 				8458625C1EE68A7100AF52B3 /* NSData+YYAdd.m in Sources */,
+				841417681F05FD1700D5219E /* VoteDetailSecondView.m in Sources */,
 				84AABEEB1EE6B251001AA7C0 /* NewsViewController.m in Sources */,
 				8439A4881EEE9F45002ADF1B /* userSourceModel.m in Sources */,
 				229C46A51F0012B200932533 /* CommentMessageTableViewCell.m in Sources */,

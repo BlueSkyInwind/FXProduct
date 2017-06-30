@@ -16,6 +16,22 @@
 
 @implementation NewsViewModel
 
+-(void)uploadPushID:(NSString *)pushId{
+    
+    NSString * baseUrl = [NSString stringWithFormat:@"%@inter/UserPush.ashx?id=%@&Push=%@",_main_url,[Utility sharedUtility].userInfo.ID,pushId];
+    [[FXNetworkManager sharedNetWorkManager]POSTWithNetworkStatusURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+     
+        }
+//        self.returnBlock(returnMsg);
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+//        [self faileBlock];
+    }];
+}
+
 - (void)fatchNewsInfoID:(NSString *)number pageSize:(int)page numberOfPage:(int)numberOfPage{
     
     //http://infx2.echaokj.cn/ajax/Home/NewList.ashx?ColumnID=11&PageSize=1&PageCount=10

@@ -20,7 +20,7 @@
 #import "VoteListModel.h"
 #import "AnswerListModel.h"
 #import "ActivityMoreViewController.h"
-
+#import "VoteDetailFirstViewController.h"
 @interface ActivityViewController ()<UITableViewDelegate,UITableViewDataSource,JZLCycleViewDelegate,WriteInfoViewDelegate>{
     
     NSMutableArray * dataArr;
@@ -181,10 +181,12 @@
                 liveMoreVC.columnInfoModel = columnInfoM;
                 [self.navigationController pushViewController:liveMoreVC animated:YES];
             }else{
-                ActivityMoreViewController * activityMoreVC = [[ActivityMoreViewController alloc]init];
-                activityMoreVC.columnID = [columnInfoM.ColumnID integerValue];
-                activityMoreVC.columnInfoModel = columnInfoM;
-                [self.navigationController pushViewController:activityMoreVC animated:YES];
+                if ([[ShareConfig share] isPresentLoginVC:self]) {
+                    ActivityMoreViewController * activityMoreVC = [[ActivityMoreViewController alloc]init];
+                    activityMoreVC.columnID = [columnInfoM.ColumnID integerValue];
+                    activityMoreVC.columnInfoModel = columnInfoM;
+                    [self.navigationController pushViewController:activityMoreVC animated:YES];
+                }
             }
         };
         return cell;
@@ -296,8 +298,6 @@
     }];
     [newsVM fatchNewsInfoID:[NSString stringWithFormat:@"%@",Id] pageSize:1 numberOfPage:1];
 }
-
-
 #pragma mark ----------设置列表的可刷新性----------
 -(void)setupMJRefreshTableView
 {

@@ -9,6 +9,12 @@
 #import "ViewModelClass.h"
 
 @interface NewsViewModel : ViewModelClass
+/**
+ 上传PushID
+
+ @param pushId PushId
+ */
+-(void)uploadPushID:(NSString *)pushId;
 
 /**
  获取新闻列表信息

@@ -90,7 +90,10 @@
         detailVC.Species =  newsList.Species;
         [self.navigationController pushViewController:detailVC animated:YES];
     }
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     
+    return 0.1;
 }
 #pragma mark - 数据请求
 

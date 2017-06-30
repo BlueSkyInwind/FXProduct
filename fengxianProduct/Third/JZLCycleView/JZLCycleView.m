@@ -233,9 +233,6 @@
             [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.imageArray.count inSection:0] atScrollPosition:0 animated:NO];
         }
     }
-
-    
-    
 }
 //停止滚动时打开定时器
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
@@ -243,10 +240,7 @@
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     self.index = (NSInteger)(scrollView.contentOffset.x / scrollView.bounds.size.width);
-    
 }
-
-
 
 
 
@@ -266,8 +260,6 @@
     }else {
         [self addTimer];
     }
-    
-    
 }
 
 - (void)setImageUrlArray:(NSMutableArray *)imageUrlArray {

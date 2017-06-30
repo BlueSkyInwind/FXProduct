@@ -14,6 +14,7 @@
 #import "ActivityBrokeViewTableViewCell.h"
 #import "PhotoViewController.h"
 #import "DetailViewController.h"
+#import "VoteDetailFirstViewController.h"
 
 @implementation ActivityContentTableViewCell
 
@@ -108,7 +109,13 @@
             [_currentVC.navigationController pushViewController:detailVC animated:YES];
         }
     }else{
-        
+        if ([[ShareConfig share] isPresentLoginVC:_currentVC]) {
+            NewsListInfo * newsList = self.dataArr[indexPath.row];
+            VoteDetailFirstViewController * voteDetailVC  = [[VoteDetailFirstViewController alloc]init];
+            voteDetailVC.voteID = [NSString stringWithFormat:@"%@",newsList.ID];
+            voteDetailVC.voteTitle = newsList.Title;
+            [_currentVC.navigationController pushViewController:voteDetailVC animated:YES];
+        }
     }
 }
 

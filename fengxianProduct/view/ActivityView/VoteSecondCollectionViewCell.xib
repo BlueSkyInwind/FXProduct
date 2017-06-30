@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -40,7 +40,7 @@
                             <constraint firstAttribute="height" constant="15" id="ge0-Iw-La3"/>
                             <constraint firstAttribute="width" constant="15" id="ybL-tf-UmY"/>
                         </constraints>
-                        <state key="normal" image="collect_Seleted_Delete"/>
+                        <state key="normal" image="tick_unSelected_Icon"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JsK-aG-SL5">
                         <rect key="frame" x="5" y="106" width="106" height="21"/>
@@ -51,11 +51,11 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QSf-Ia-Iau">
-                        <rect key="frame" x="5" y="127" width="15" height="15"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poll_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="QSf-Ia-Iau">
+                        <rect key="frame" x="5" y="127" width="13" height="12"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="15" id="Pww-YO-WSS"/>
-                            <constraint firstAttribute="height" constant="15" id="vGo-gM-2SN"/>
+                            <constraint firstAttribute="width" constant="13" id="Pww-YO-WSS"/>
+                            <constraint firstAttribute="height" constant="12" id="vGo-gM-2SN"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IjW-7e-K4E">
@@ -75,14 +75,14 @@
                 <constraint firstItem="QSf-Ia-Iau" firstAttribute="leading" secondItem="JsK-aG-SL5" secondAttribute="leading" id="B9t-D0-nFV"/>
                 <constraint firstAttribute="trailing" secondItem="efA-JQ-qAO" secondAttribute="trailing" id="Bzm-5u-fzH"/>
                 <constraint firstAttribute="trailing" secondItem="JsK-aG-SL5" secondAttribute="trailing" constant="13" id="QY6-EV-Nia"/>
-                <constraint firstItem="IjW-7e-K4E" firstAttribute="leading" secondItem="QSf-Ia-Iau" secondAttribute="trailing" constant="5" id="XpH-2W-BI8"/>
+                <constraint firstItem="IjW-7e-K4E" firstAttribute="leading" secondItem="QSf-Ia-Iau" secondAttribute="trailing" constant="7" id="XpH-2W-BI8"/>
                 <constraint firstItem="ooR-GQ-rPs" firstAttribute="leading" secondItem="egD-8F-eO7" secondAttribute="trailing" constant="3" id="Z0p-kK-AbS"/>
                 <constraint firstAttribute="trailing" secondItem="IjW-7e-K4E" secondAttribute="trailing" constant="13" id="dH7-Tv-txW"/>
                 <constraint firstItem="egD-8F-eO7" firstAttribute="top" secondItem="efA-JQ-qAO" secondAttribute="bottom" constant="5" id="k2o-qA-Emg"/>
                 <constraint firstItem="JsK-aG-SL5" firstAttribute="leading" secondItem="egD-8F-eO7" secondAttribute="leading" id="kQJ-kI-Xuf"/>
                 <constraint firstItem="efA-JQ-qAO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lFX-kB-Tx6"/>
                 <constraint firstItem="egD-8F-eO7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="neQ-1T-4tx"/>
-                <constraint firstItem="IjW-7e-K4E" firstAttribute="centerY" secondItem="QSf-Ia-Iau" secondAttribute="centerY" id="rNz-RI-fwB"/>
+                <constraint firstItem="IjW-7e-K4E" firstAttribute="centerY" secondItem="QSf-Ia-Iau" secondAttribute="centerY" constant="1.5" id="rNz-RI-fwB"/>
                 <constraint firstAttribute="trailing" secondItem="egD-8F-eO7" secondAttribute="trailing" constant="23" id="rUI-mM-Ftv"/>
                 <constraint firstItem="QSf-Ia-Iau" firstAttribute="top" secondItem="JsK-aG-SL5" secondAttribute="bottom" id="srE-zV-pjx"/>
                 <constraint firstItem="ooR-GQ-rPs" firstAttribute="top" secondItem="efA-JQ-qAO" secondAttribute="bottom" constant="5" id="uvR-J9-OSU"/>
@@ -100,6 +100,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="collect_Seleted_Delete" width="13" height="12"/>
+        <image name="poll_Icon" width="9" height="9"/>
+        <image name="tick_unSelected_Icon" width="23" height="23"/>
     </resources>
 </document>

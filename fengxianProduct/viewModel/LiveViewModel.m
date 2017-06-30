@@ -15,7 +15,11 @@
     
     //http://infx2.echaokj.cn/ajax/Home/NewList.ashx?ColumnID=11&PageSize=1&PageCount=10
     
-    NSString * baseUrl = [NSString stringWithFormat:@"%@Life/LifesList2.ashx?Column=5,6,7,8&AccountId=%@",_main_url,[Utility sharedUtility].userInfo.ID];
+    NSString * accountId = [Utility sharedUtility].userInfo.ID;
+    if ([Utility sharedUtility].userInfo.ID == nil) {
+        accountId = @"0";
+    }
+    NSString * baseUrl = [NSString stringWithFormat:@"%@Life/LifesList2.ashx?Column=5,6,7,8&AccountId=%@",_main_url,accountId];
     
     [[FXNetworkManager sharedNetWorkManager]POSTWithNetworkStatusURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];

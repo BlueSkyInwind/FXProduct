@@ -31,10 +31,11 @@
     config.preferences.javaScriptEnabled = true;
     config.preferences.javaScriptCanOpenWindowsAutomatically = true;
     config.userContentController = [[WKUserContentController alloc] init];
-
+    
     _webView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:config];
     _webView.navigationDelegate = self;
     _webView.UIDelegate = self;
+    _webView.scrollView.bouncesZoom = NO;
     _webView.scrollView.contentSize = self.view.bounds.size;
     DLog(@"%@  --- %@",NSStringFromCGRect(_webView.frame),NSStringFromCGSize(_webView.scrollView.contentSize));
     [self.view addSubview:_webView];
@@ -46,8 +47,6 @@
     }
     
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[_urlStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]]]];
-
-    
 }
 
 - (void)addBackItem
@@ -77,31 +76,6 @@
     }
 }
 
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
-{
-    if (object == _webView && [keyPath isEqualToString:@"estimatedProgress"]) {
-        CGFloat newprogress = [[change objectForKey:NSKeyValueChangeNewKey] doubleValue];
-        if (newprogress == 1) {
-            progressView.hidden = YES;
-            [progressView setProgress:0 animated:NO];
-        }else {
-            progressView.hidden = NO;
-            [progressView setProgress:newprogress animated:YES];
-        }
-    }
-    
-    if (object == _webView && [keyPath isEqualToString:@"title"]) {
-        //        NSString *title = [[change objectForKey:NSKeyValueChangeNewKey] stringValue];
-        NSString *title = _webView.title;
-        if (title) {
-            self.navigationItem.title = title;
-        }
-    }
-    
-    if (object == _webView && [keyPath isEqualToString:@"URL"]) {
-        DLog(@"%@",_webView.URL.absoluteString);
-    }
-}
 
 -(void)createProUI
 {
@@ -122,11 +96,9 @@
 #pragma mark -WKNavigationDelegate
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
 {
-    
     NSURLRequest *request = navigationAction.request;
     NSLog(@"=========%@",request.URL.absoluteString);
     decisionHandler(WKNavigationActionPolicyAllow);
-        
 }
 
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation
@@ -146,7 +118,11 @@
 {
     
 }
-
+// WKNavigationDelegate 页面加载完成之后调用
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+    //修改字体大小 300%
+    [ webView evaluateJavaScript:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '200%'" completionHandler:nil];
+}
 
 #pragma mark -WKUIDelegate
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler

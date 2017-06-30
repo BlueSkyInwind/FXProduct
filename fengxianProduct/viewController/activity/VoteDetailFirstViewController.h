@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VoteDetailFirstViewController : UIViewController
+@interface VoteDetailFirstViewController : BaseViewController
+
+@property (nonatomic,strong)NSString * voteID;
+@property (nonatomic,strong)NSString * voteTitle;
 
 @end

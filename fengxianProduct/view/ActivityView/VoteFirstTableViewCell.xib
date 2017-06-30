@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="VoteFirstTableViewCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="VoteFirstTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -41,32 +41,45 @@
                             <constraint firstAttribute="width" constant="20" id="JcC-2A-nCT"/>
                             <constraint firstAttribute="height" constant="20" id="PC4-ml-Kac"/>
                         </constraints>
-                        <state key="normal" image="collect_Seleted_Delete"/>
+                        <state key="normal" image="tick_unSelected_Icon"/>
+                        <connections>
+                            <action selector="selectedBtnCilck:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="iTp-0O-LHg"/>
+                        </connections>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qo3-NQ-o4Q">
-                        <rect key="frame" x="247" y="30" width="15" height="15"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poll_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Qo3-NQ-o4Q">
+                        <rect key="frame" x="247" y="30" width="13" height="12"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="15" id="iEk-43-8JP"/>
-                            <constraint firstAttribute="width" constant="15" id="j40-kT-XO1"/>
+                            <constraint firstAttribute="height" constant="12" id="iEk-43-8JP"/>
+                            <constraint firstAttribute="width" constant="13" id="j40-kT-XO1"/>
                         </constraints>
                     </imageView>
                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="s1J-z9-cy2">
                         <rect key="frame" x="13" y="39" width="226" height="2"/>
                     </progressView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g06-p0-5K1">
+                        <rect key="frame" x="0.0" y="49" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="5sk-h4-cdp"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="g06-p0-5K1" secondAttribute="trailing" id="3rc-d3-yKf"/>
                     <constraint firstItem="s1J-z9-cy2" firstAttribute="top" secondItem="bm7-Ju-xam" secondAttribute="bottom" constant="12.5" id="BWI-oa-KLF"/>
                     <constraint firstItem="bm7-Ju-xam" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="G81-UF-BeZ"/>
                     <constraint firstItem="s1J-z9-cy2" firstAttribute="leading" secondItem="bm7-Ju-xam" secondAttribute="leading" id="HR8-24-ayd"/>
                     <constraint firstAttribute="trailing" secondItem="t6B-RC-QMo" secondAttribute="trailing" constant="5" id="IEF-ka-1zR"/>
                     <constraint firstItem="t6B-RC-QMo" firstAttribute="top" secondItem="bm7-Ju-xam" secondAttribute="top" id="INw-vL-cis"/>
-                    <constraint firstItem="Qo3-NQ-o4Q" firstAttribute="centerY" secondItem="3t7-sw-jMQ" secondAttribute="centerY" id="JTK-R1-5TO"/>
+                    <constraint firstItem="Qo3-NQ-o4Q" firstAttribute="centerY" secondItem="3t7-sw-jMQ" secondAttribute="centerY" constant="-1.5" id="JTK-R1-5TO"/>
+                    <constraint firstAttribute="bottom" secondItem="g06-p0-5K1" secondAttribute="bottom" id="Uj5-ID-IbY"/>
                     <constraint firstAttribute="bottomMargin" secondItem="bm7-Ju-xam" secondAttribute="bottom" constant="15" id="XNo-CM-0mi"/>
+                    <constraint firstItem="g06-p0-5K1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Ztf-oN-5Hv"/>
                     <constraint firstItem="Qo3-NQ-o4Q" firstAttribute="leading" secondItem="s1J-z9-cy2" secondAttribute="trailing" constant="8" id="d2R-lN-wNP"/>
                     <constraint firstAttribute="trailing" secondItem="3t7-sw-jMQ" secondAttribute="trailing" constant="5" id="fA1-56-BiA"/>
                     <constraint firstItem="bm7-Ju-xam" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="iyI-fv-qQP"/>
                     <constraint firstAttribute="bottom" secondItem="3t7-sw-jMQ" secondAttribute="bottom" constant="2" id="j8M-IS-97l"/>
-                    <constraint firstItem="3t7-sw-jMQ" firstAttribute="leading" secondItem="Qo3-NQ-o4Q" secondAttribute="trailing" id="nRA-hP-z38"/>
+                    <constraint firstItem="3t7-sw-jMQ" firstAttribute="leading" secondItem="Qo3-NQ-o4Q" secondAttribute="trailing" constant="2" id="nRA-hP-z38"/>
                     <constraint firstAttribute="trailingMargin" secondItem="bm7-Ju-xam" secondAttribute="trailing" constant="28" id="wPr-dP-foa"/>
                 </constraints>
             </tableViewCellContentView>
@@ -79,6 +92,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="collect_Seleted_Delete" width="13" height="12"/>
+        <image name="poll_Icon" width="9" height="9"/>
+        <image name="tick_unSelected_Icon" width="23" height="23"/>
     </resources>
 </document>

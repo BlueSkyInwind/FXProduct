@@ -14,7 +14,7 @@
 #import "MyViewController.h"
 #import "LoginViewController.h"
 #import "AppDelegate.h"
-
+#import "NewsViewModel.h"
 @interface BaseTabBarViewController () <UITabBarControllerDelegate>
 
 @end
@@ -30,6 +30,11 @@
     [[ShareConfig share]obtainActicityColumnInfo];
 
     [self setTabbarCon];
+    
+    if ([Utility sharedUtility].loginFlage) {
+        NewsViewModel * newVM = [[NewsViewModel alloc]init ];
+        [newVM uploadPushID:[JPUSHService registrationID]];
+    }
     self.delegate = self;
 }
 

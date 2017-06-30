@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "VoteDetailModel.h"
 @interface VoteSecondCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
@@ -18,5 +18,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *seletedButton;
 
+@property (assign,nonatomic)NSInteger number;
+@property (assign,nonatomic)NSNumber * voteNumber;
 
+@property (nonatomic,strong)VoteRowsModel * voteRowsM;
 @end
