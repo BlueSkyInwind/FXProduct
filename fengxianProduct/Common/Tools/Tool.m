@@ -263,7 +263,7 @@
 }
 
 //设置沙盒
-+ (void)saveUserDefaul:(NSString *)content Key:(NSString *)key;
++ (void)saveUserDefaul:(id)content Key:(NSString *)key;
 {
     [[NSUserDefaults standardUserDefaults] setObject:content forKey:key];
     [[NSUserDefaults standardUserDefaults] synchronize];

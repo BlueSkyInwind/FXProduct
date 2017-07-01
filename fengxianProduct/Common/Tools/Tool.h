@@ -53,7 +53,7 @@
 + (NSString *)objextToJSON:(id)param;
 
 //设置沙盒
-+ (void)saveUserDefaul:(NSString *)content Key:(NSString *)key;
++ (void)saveUserDefaul:(id)content Key:(NSString *)key;
 + (id)getContentWithKey:(NSString *)key;
 
 

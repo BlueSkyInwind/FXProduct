@@ -41,7 +41,8 @@
     [loginVM setBlockWithReturnBlock:^(id returnValue) {
         ReturnMsgBaseClass * returnMsg = returnValue;
         if ([returnMsg.returnCode intValue] == 1) {
-            
+            NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+            [Tool saveUserDefaul:dic Key:FX_CommentTimeInfo];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self dismissViewControllerAnimated:YES completion:^{
                     ((AppDelegate *)[UIApplication sharedApplication].delegate).btb.selectedIndex = 0;

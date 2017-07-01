@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AwardView">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="integral_award_red_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="UVN-Hh-k08">
+                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zzu-D5-2sI">
+                    <rect key="frame" x="18" y="3" width="114" height="114"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Zzu-D5-2sI" secondAttribute="height" multiplier="1:1" id="8cR-AK-ykJ"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqR-xg-WbF">
+                    <rect key="frame" x="56.5" y="121" width="37.5" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Zu2-EO-D5a"/>
+                        <constraint firstAttribute="width" constant="37.5" id="uac-KK-4I2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="UVN-Hh-k08" secondAttribute="bottom" id="5o5-KV-07p"/>
+                <constraint firstItem="Zzu-D5-2sI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="18" id="A9V-lq-leu"/>
+                <constraint firstItem="dqR-xg-WbF" firstAttribute="top" secondItem="Zzu-D5-2sI" secondAttribute="bottom" constant="4" id="FXC-6Y-uoc"/>
+                <constraint firstAttribute="trailing" secondItem="UVN-Hh-k08" secondAttribute="trailing" id="SXb-Rj-cAB"/>
+                <constraint firstAttribute="trailing" secondItem="Zzu-D5-2sI" secondAttribute="trailing" constant="18" id="ZsJ-0B-YsW"/>
+                <constraint firstItem="UVN-Hh-k08" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ouB-Nq-PEM"/>
+                <constraint firstItem="dqR-xg-WbF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="pCn-eS-pUZ"/>
+                <constraint firstItem="Zzu-D5-2sI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="3" id="rBO-me-aQt"/>
+                <constraint firstItem="UVN-Hh-k08" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ziU-vM-i2q"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="GoodNumberLabel" destination="dqR-xg-WbF" id="dtj-Mz-dsW"/>
+                <outlet property="GoodsImageView" destination="Zzu-D5-2sI" id="xnP-fY-ghI"/>
+                <outlet property="backImageView" destination="UVN-Hh-k08" id="GgH-Lo-WIo"/>
+            </connections>
+            <point key="canvasLocation" x="-79" y="-270"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="integral_award_red_Icon" width="86" height="86"/>
+    </resources>
+</document>

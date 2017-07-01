@@ -44,6 +44,8 @@
 //    }else{
 //        [self requestCommentListInfo];
 //    }
+
+    
     [self requestCommentListInfo];
 
     [self configureView];
@@ -163,6 +165,10 @@
         if (pages == 1) {
             [dataArr removeAllObjects];
         }
+        NSMutableDictionary * dic = [[Tool getContentWithKey:FX_CommentTimeInfo] mutableCopy];
+        [dic setObject:commentModel.LastReplyTime forKey:[NSString stringWithFormat:@"%@",self.detailID]];
+        [Tool saveUserDefaul:dic Key:FX_CommentTimeInfo];
+        
         NSMutableArray * tempArr = [commentModel.rows mutableCopy];
         [dataArr addObjectsFromArray:tempArr];
         [self.tableView reloadData];

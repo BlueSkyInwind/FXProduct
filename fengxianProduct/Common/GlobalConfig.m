@@ -43,6 +43,7 @@ NSString * const kUserPass     =   @"userPass";
 NSString * const FX_AccountID     =    @"accountID";
 //登陆标识
 NSString * const kLoginFlag    =   @"loginFlag";
+NSString * const FX_CommentTimeInfo    =   @"commentTimeInfo";
 NSString * const FX_ColumnInfo    =   @"ColumnInfo";
 NSString * const FX_LivesColumnInfo    =   @"livesColumnInfo";
 NSString * const FX_ActivtyColumnInfo    =   @"activtyColumnInfo";

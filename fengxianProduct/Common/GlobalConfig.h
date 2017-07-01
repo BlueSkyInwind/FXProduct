@@ -82,6 +82,9 @@ UIKIT_EXTERN NSString * const FX_AccountID;
 
 //登陆标识
 UIKIT_EXTERN NSString * const kLoginFlag;
+UIKIT_EXTERN NSString * const FX_CommentTimeInfo;
+
+
 //用户栏目信息
 UIKIT_EXTERN NSString * const FX_ColumnInfo;
 UIKIT_EXTERN NSString * const FX_LivesColumnInfo;

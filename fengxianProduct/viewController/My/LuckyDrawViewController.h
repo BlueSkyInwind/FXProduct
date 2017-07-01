@@ -10,4 +10,10 @@
 
 @interface LuckyDrawViewController : BaseViewController
 
+@property (weak, nonatomic) IBOutlet UIView *awardBackView;
+
+@property (weak, nonatomic) IBOutlet UILabel *integralNum;
+
+@property (weak, nonatomic) IBOutlet UIView *beginAwardView;
+
 @end

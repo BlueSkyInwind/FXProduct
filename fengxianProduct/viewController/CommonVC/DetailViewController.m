@@ -72,6 +72,21 @@
 //    self.player
     
 }
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self commentUnreadStatus];
+}
+-(void)commentUnreadStatus{
+    NSMutableDictionary * dic = [[Tool getContentWithKey:FX_CommentTimeInfo] mutableCopy];
+    if (dic) {
+        NSString * str = [dic objectForKey:[NSString stringWithFormat:@"%@",self.detailID]];
+        if ([str isEqualToString:self.detailModel.LastReplyTime]) {
+            self.commonBottomView.CommentViewIcon.hidden = YES;
+        }else{
+            self.commonBottomView.CommentViewIcon.hidden = NO;
+        }
+    }
+}
 -(void)dealloc{
     [self.player removeFromSuperview];
     self.player = nil;
@@ -218,6 +233,7 @@
 -(void)configureView{
     
     [self getShareImage];
+
     _backScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_h - 40)];
     _backScrollView.backgroundColor = [UIColor whiteColor];
     self.backScrollView.contentSize = CGSizeMake(_k_w, _k_h);
@@ -229,6 +245,8 @@
     self.commonBottomView.frame = CGRectMake(0, _k_h - 40, _k_w, 40);
     self.commonBottomView.delegate = self;
     [self.view addSubview:self.commonBottomView];
+    
+    [self commentUnreadStatus];
 
     self.detailHeaderView = [[NSBundle mainBundle]loadNibNamed:@"DetailHeaderView" owner:self options:nil].lastObject;
     self.detailHeaderView.frame = CGRectMake(0, 64, _k_w, 90);

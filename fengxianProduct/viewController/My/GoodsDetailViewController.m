@@ -132,7 +132,7 @@
     [self.view addSubview:_makeView];
     
     self.goodExchangeView = [[NSBundle mainBundle]loadNibNamed:@"GoodsExchangeView" owner:self options:nil].lastObject;
-    self.goodExchangeView.frame = CGRectMake(0, _k_h -200, _k_w, 200);
+    self.goodExchangeView.frame = CGRectMake(0, _k_h -200 - 64, _k_w, 200);
     self.goodExchangeView.goodTitle.text = goodDetailModel.Title;
     self.goodExchangeView.goodIntegral.text = goodDetailModel.Integral;
     self.goodExchangeView.delegate= self;

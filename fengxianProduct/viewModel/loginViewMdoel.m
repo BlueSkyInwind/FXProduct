@@ -27,7 +27,7 @@
             UserInfoObj * userInfo = [[UserInfoObj alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
             [Utility sharedUtility].userInfo = userInfo;
             [Utility sharedUtility].loginFlage = YES;
-            if ( [Utility sharedUtility].userInfo.ID != nil || ![[Utility sharedUtility].userInfo.ID isEqualToString:@""]) {
+            if ([Utility sharedUtility].userInfo.ID != nil || ![[Utility sharedUtility].userInfo.ID isEqualToString:@""]) {
                 [Tool saveUserDefaul:@"1" Key:kLoginFlag];
                 [Tool saveUserDefaul:[object objectForKey:@"result"] Key:FX_AccountID];
             }

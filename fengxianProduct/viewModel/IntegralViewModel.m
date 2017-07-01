@@ -8,6 +8,8 @@
 
 #import "IntegralViewModel.h"
 #import "integralModel.h"
+#import "AwardModel.h"
+
 @implementation IntegralViewModel
 
 - (void)fatchAccountIntegral{
@@ -29,6 +31,26 @@
     }];
     
 }
+
+-(void)requestAwardGoodsInfo{
+    
+    //http://infx2.echaokj.cn/ajax/Basic/LuckyList.ashx?AccountId=13
+    NSString * baseUrl = [NSString stringWithFormat:@"%@Basic/LuckyList.ashx?AccountId=%@",_main_url,[Utility sharedUtility].userInfo.ID];
+    [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            AwardModel * awardModel = [[AwardModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
+            self.returnBlock(awardModel);
+
+        }
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+}
+
+
 
 
 

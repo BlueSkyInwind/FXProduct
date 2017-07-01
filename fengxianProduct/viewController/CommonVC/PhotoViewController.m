@@ -69,6 +69,9 @@
         [self.delegate delegatePhotoArray:self.photoArray];
     }
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [self commentUnreadStatus];
+}
 #pragma mark - 网络请求
 -(void)obtainCollectAndSpotStatus{
     
@@ -107,7 +110,17 @@
     }];
     [newViewM fatchPhotoDeatailInfoID:[NSString stringWithFormat:@"%@",self.detailID]];
 }
-
+-(void)commentUnreadStatus{
+    NSMutableDictionary * dic = [[Tool getContentWithKey:FX_CommentTimeInfo] mutableCopy];
+    if (dic) {
+        NSString * str = [dic objectForKey:[NSString stringWithFormat:@"%@",self.detailID]];
+        if ([str isEqualToString:self.photoModel.LastReplyTime]) {
+            self.commonBottomView.CommentViewIcon.hidden = YES;
+        }else{
+            self.commonBottomView.CommentViewIcon.hidden = NO;
+        }
+    }
+}
 -(void)configureView
 {
     backScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_h - 64)];
@@ -127,8 +140,8 @@
     
     self.pageControl=[[UIPageControl alloc] init];
     self.pageControl.backgroundColor=[UIColor clearColor];
-    [self.pageControl setBounds:CGRectMake(0, 0,200, 100)];
-    [self.pageControl setCenter:CGPointMake(_k_w/2,_k_h/2+200.0)];
+    [self.pageControl setBounds:CGRectMake(0, 0,0, 0)];
+    [self.pageControl setCenter:CGPointMake(_k_w,_k_h)];
     self.pageControl.numberOfPages=[self.photoArray count];
     self.pageControl.currentPage=0;
     [self.pageControl addTarget:self action:@selector(switchPage:) forControlEvents:UIControlEventValueChanged];
@@ -146,11 +159,11 @@
     [self.commonBottomView.collectBtn setBackgroundImage: [[UIImage imageNamed:@"Collect_Icon_gray"] imageWithTintColor:[UIColor whiteColor]] forState:UIControlStateNormal];
     [self.commonBottomView.spotBtn setBackgroundImage: [[UIImage imageNamed:@"tab_dianzan_Icon_gray"] imageWithTintColor:[UIColor whiteColor]] forState:UIControlStateNormal];
     [self.commonBottomView.shareBtn setBackgroundImage: [[UIImage imageNamed:@"share_Icon"] imageWithTintColor:[UIColor whiteColor]] forState:UIControlStateNormal];
-    [self.commonBottomView.shareBtn setBackgroundImage: [[UIImage imageNamed:@"Comment_List_Icon"] imageWithTintColor:[UIColor whiteColor]] forState:UIControlStateNormal];
     [self.commonBottomView.commentImageView setImage:[[UIImage imageNamed:@"comment_click_ICon"] imageWithTintColor:[UIColor whiteColor]]];
     self.commonBottomView.defaultLabel.textColor = [UIColor whiteColor];
     [self.commonBottomView.commentImageView setImage:[UIImage imageNamed:@"comment_click_ICon_black"]];
     [self.view addSubview:self.commonBottomView];
+    [self commentUnreadStatus];
     
 }
 -(void)addExplainView{

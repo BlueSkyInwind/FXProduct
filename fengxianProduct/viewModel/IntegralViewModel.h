@@ -16,5 +16,9 @@
  */
 - (void)fatchAccountIntegral;
 
+/**
+ 获取用户积分愁啊几个页面
+ */
+-(void)requestAwardGoodsInfo;
 
 @end
