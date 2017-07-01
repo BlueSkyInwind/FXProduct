@@ -175,7 +175,7 @@
         cell.moreButtonCilck = ^(UIButton *button) {
             ColumnInfoModel *columnInfoM = dataArr[indexPath.row];
 
-            if ([columnInfoM.ColumnID integerValue] == 1) {
+            if ([columnInfoM.ColumnID integerValue] == 11) {
                 LiveMoreViewController * liveMoreVC = [[LiveMoreViewController alloc]init];
                 liveMoreVC.columnID = [columnInfoM.ColumnID integerValue];
                 liveMoreVC.columnInfoModel = columnInfoM;
@@ -235,7 +235,7 @@
 
         __weak typeof (self) wealSelf = self;
         
-        [columnInfoArr insertObject:tempArr atIndex:0];
+        [columnInfoArr replaceObjectAtIndex:0 withObject:tempArr];
         
         [Utility sharedUtility].voteListModel = newsListM;
         NSIndexPath * indexPath = [NSIndexPath indexPathForRow:1 inSection:1];
@@ -259,10 +259,8 @@
         }else{
             answerCellheight = 160;
         }
-        
         __weak typeof (self) wealSelf = self;
-        [columnInfoArr insertObject:tempArr atIndex:1];
-        
+        [columnInfoArr replaceObjectAtIndex:1 withObject:tempArr];
         [Utility sharedUtility].answerListModel = newsListM;
         NSIndexPath * indexPath = [NSIndexPath indexPathForRow:2 inSection:1];
         [wealSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -287,7 +285,7 @@
         }
         __weak typeof (self) wealSelf = self;
         NewsListInfo * newsList = tempArr.firstObject;
-        [columnInfoArr insertObject:tempArr atIndex:2];
+        [columnInfoArr replaceObjectAtIndex:2 withObject:tempArr];
         
         [Utility sharedUtility].welfareListModel = newsListM;
         NSIndexPath * indexPath = [NSIndexPath indexPathForRow:3 inSection:1];

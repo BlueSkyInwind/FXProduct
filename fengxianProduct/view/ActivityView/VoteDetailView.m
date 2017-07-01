@@ -16,8 +16,10 @@
 @interface VoteDetailView()<UITableViewDelegate,UITableViewDataSource,WKNavigationDelegate>{
     
     NSMutableArray * dataArr;
-    
     float IntroductionHeight;
+    
+    NSMutableArray * voteChooseArr;
+
 }
 
 
@@ -29,27 +31,28 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
+        [self configureView];
+        voteChooseArr = [NSMutableArray array];
     }
     return self;
 }
+
 -(void)setVoteDetailModel:(VoteDetailModel *)voteDetailModel{
     _voteDetailModel = voteDetailModel;
     IntroductionHeight = [Tool heightForText:_voteDetailModel.Introduction width:_k_w font:15] + 15;
     dataArr = [_voteDetailModel.rows mutableCopy];
-    [self configureView];
+    [self.tableView reloadData];
 }
 
 -(void)configureView{
     
-    self.tableView = [[UITableView alloc]init];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_h - 64)];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self addSubview:self.tableView];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self);
-    }];
+
     
     [self.tableView registerNib:[UINib nibWithNibName:@"VoteFirstTableViewCell" bundle:nil] forCellReuseIdentifier:@"VoteFirstTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"VoteThirdTableViewCell" bundle:nil] forCellReuseIdentifier:@"VoteThirdTableViewCell"];
@@ -102,6 +105,7 @@
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell1"];
         }
          UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, _k_w, IntroductionHeight)];
+        webView.userInteractionEnabled = NO;
         [webView loadHTMLString:_voteDetailModel.Introduction baseURL:nil];
         [cell.contentView addSubview:webView];
         return cell;
@@ -109,13 +113,30 @@
         VoteRowsModel * voteRowsM = dataArr[indexPath.row];
         if ([self.voteDetailModel.Type intValue] == 1) {
             VoteFirstTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"VoteFirstTableViewCell" forIndexPath:indexPath];
+            cell.number = indexPath.row + 1;
             cell.voteNum =  _voteDetailModel.VoteNum;
             cell.voteRowsM = voteRowsM;
+            cell.votechoose = ^(BOOL isSelected) {
+                if (isSelected) {
+                    
+                    [voteChooseArr addObject:voteRowsM.ID];
+                }else{
+                    [voteChooseArr removeObject:voteRowsM.ID];
+                }
+            };
             return cell;
         }else if ([self.voteDetailModel.Type intValue] == 3){
             VoteThirdTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"VoteThirdTableViewCell" forIndexPath:indexPath];
             cell.voteNumber =  _voteDetailModel.VoteNum;
             cell.voteRowsM = voteRowsM;
+            cell.votechoose = ^(BOOL isSelected) {
+                if (isSelected) {
+                    
+                    [voteChooseArr addObject:voteRowsM.ID];
+                }else{
+                    [voteChooseArr removeObject:voteRowsM.ID];
+                }
+            };
             return cell;
         }
    
@@ -124,6 +145,7 @@
         if (!cell) {
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell2"];
         }
+        cell.selectionStyle= UITableViewCellSelectionStyleNone;
         UIButton * applyButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [applyButton setTitle:@"投 票" forState:UIControlStateNormal];
         [applyButton setTintColor:[UIColor whiteColor]];
@@ -153,7 +175,33 @@
 
 -(void)applyButtonCilck:(id)sender{
     
-    
+    ActivityViewModel * activityVM = [[ActivityViewModel alloc]init];
+    [activityVM setBlockWithReturnBlock:^(id returnValue) {
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        if ([returnMsg.returnCode integerValue] == 1) {
+            if (self.requestVoteStatus) {
+                self.requestVoteStatus(YES);
+            }
+        }else{
+            [[MBPAlertView sharedMBPTextView] showTextOnly:self message:(NSString *)returnMsg.msg];
+            if (self.requestVoteStatus) {
+                self.requestVoteStatus(NO);
+            }
+        }
+    } WithFaileBlock:^{
+        
+    }];
+    if (voteChooseArr.count == 0) {
+        [[MBPAlertView sharedMBPTextView] showTextOnly:self message:@"请选择投票！"];
+        return;
+    }
+    NSString * conStr = voteChooseArr.firstObject;
+    for (int i = 1; i < voteChooseArr.count; i++) {
+        NSString * ID = voteChooseArr[i];
+        [conStr stringByAppendingFormat:@",%@",ID];
+    }
+        
+    [activityVM requestAddVote:conStr];
     
 }
 

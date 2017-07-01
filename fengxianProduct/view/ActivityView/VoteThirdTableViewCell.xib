@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mYi-52-yAK">
@@ -93,7 +93,6 @@
                     <constraint firstItem="IHS-tG-vj9" firstAttribute="centerY" secondItem="JbS-TR-4Kk" secondAttribute="centerY" id="Em7-Uj-bQt"/>
                     <constraint firstItem="JbS-TR-4Kk" firstAttribute="leading" secondItem="IHS-tG-vj9" secondAttribute="trailing" constant="8" id="Inb-2c-wlO"/>
                     <constraint firstAttribute="trailing" secondItem="OHl-Qa-eXd" secondAttribute="trailing" id="YuV-af-VBo"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="mYi-52-yAK" secondAttribute="trailing" constant="249" id="ad0-Nv-gfX"/>
                     <constraint firstAttribute="trailingMargin" secondItem="dcY-sP-EOG" secondAttribute="trailing" id="c6g-yV-sLP"/>
                     <constraint firstItem="din-IN-h7d" firstAttribute="leading" secondItem="mYi-52-yAK" secondAttribute="trailing" constant="-55" id="daI-4h-rzP"/>
                     <constraint firstItem="09z-8W-FT1" firstAttribute="leading" secondItem="din-IN-h7d" secondAttribute="trailing" constant="20" id="eV1-Yu-aRV"/>

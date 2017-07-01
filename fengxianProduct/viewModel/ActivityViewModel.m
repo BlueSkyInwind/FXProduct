@@ -10,6 +10,7 @@
 #import "VoteListModel.h"
 #import "AnswerListModel.h"
 #import "VoteDetailModel.h"
+#import "AnswerDetailModel.h"
 
 @implementation ActivityViewModel
 
@@ -93,8 +94,9 @@
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
         if ([returnMsg.returnCode intValue] == 1) {
             
-            self.returnBlock(returnMsg);
         }
+        self.returnBlock(returnMsg);
+
     } failure:^(EnumServerStatus status, id object) {
         NSError * error = object;
         [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
@@ -127,9 +129,12 @@
     NSString * baseUrl = [NSString stringWithFormat:@"%@Surrvey/SurrveyDetail.ashx?id=%@&AccountId=%@",_main_url,ID,[Utility sharedUtility].userInfo.ID];
     [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if (returnMsg.msg) {
+            [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:(NSString *)returnMsg.msg];
+        }
         if ([returnMsg.returnCode intValue] == 1) {
-            
-            self.returnBlock(returnMsg);
+            AnswerDetailModel * answerDetailM = [[AnswerDetailModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
+            self.returnBlock(answerDetailM);
         }
     } failure:^(EnumServerStatus status, id object) {
         NSError * error = object;
@@ -143,7 +148,9 @@
     //http://infx2.echaokj.cn/ajax/Surrvey/SurrveyToUser.ashx?id=1&Answer=填空内容;4;0:1:3&AccountId=20
     
     NSString * baseUrl = [NSString stringWithFormat:@"%@Surrvey/SurrveyToUser.ashx?id=%@&Answer=%@&AccountId=%@",_main_url,ID,answerCon,[Utility sharedUtility].userInfo.ID];
-    [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+    NSString *newUrl = [baseUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+    [[FXNetworkManager sharedNetWorkManager]POSTWithURL:newUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
         if ([returnMsg.returnCode intValue] == 1) {
             

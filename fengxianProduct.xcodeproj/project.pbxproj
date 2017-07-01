@@ -64,6 +64,17 @@
 		22899C271F05588E0014DECD /* VoteDetailFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22899C261F05588E0014DECD /* VoteDetailFirstViewController.m */; };
 		22899C2A1F055CAD0014DECD /* VoteDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22899C291F055CAD0014DECD /* VoteDetailModel.m */; };
 		22899C2D1F0569740014DECD /* VoteDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22899C2C1F0569740014DECD /* VoteDetailView.m */; };
+		22899C311F0747380014DECD /* GapFillingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22899C2F1F0747380014DECD /* GapFillingTableViewCell.m */; };
+		22899C321F0747380014DECD /* GapFillingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22899C301F0747380014DECD /* GapFillingTableViewCell.xib */; };
+		22899C361F074A7E0014DECD /* SingleChooseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22899C341F074A7E0014DECD /* SingleChooseTableViewCell.m */; };
+		22899C371F074A7E0014DECD /* SingleChooseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22899C351F074A7E0014DECD /* SingleChooseTableViewCell.xib */; };
+		22899C3B1F074AB30014DECD /* MultipleChooseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22899C391F074AB30014DECD /* MultipleChooseTableViewCell.m */; };
+		22899C3C1F074AB30014DECD /* MultipleChooseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22899C3A1F074AB30014DECD /* MultipleChooseTableViewCell.xib */; };
+		22899C441F074C430014DECD /* AnswerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22899C431F074C430014DECD /* AnswerDetailViewController.m */; };
+		22899C471F074D2D0014DECD /* AnswerDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22899C461F074D2D0014DECD /* AnswerDetailModel.m */; };
+		22899C4A1F0752420014DECD /* AnswerDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22899C491F0752420014DECD /* AnswerDetailView.m */; };
+		22899C4D1F0776D20014DECD /* ChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22899C4C1F0776D20014DECD /* ChooseView.m */; };
+		22899C4F1F0776E10014DECD /* ChooseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22899C4E1F0776E10014DECD /* ChooseView.xib */; };
 		229520CB1EF65E5800FA2351 /* IntegralViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 229520CA1EF65E5800FA2351 /* IntegralViewModel.m */; };
 		229520CE1EF65EF900FA2351 /* integralModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 229520CD1EF65EF900FA2351 /* integralModel.m */; };
 		229520D21EF6BCE300FA2351 /* DetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229520D11EF6BCE300FA2351 /* DetailHeaderView.m */; };
@@ -523,6 +534,24 @@
 		22899C291F055CAD0014DECD /* VoteDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteDetailModel.m; sourceTree = "<group>"; };
 		22899C2B1F0569740014DECD /* VoteDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteDetailView.h; sourceTree = "<group>"; };
 		22899C2C1F0569740014DECD /* VoteDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteDetailView.m; sourceTree = "<group>"; };
+		22899C2E1F0747380014DECD /* GapFillingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GapFillingTableViewCell.h; sourceTree = "<group>"; };
+		22899C2F1F0747380014DECD /* GapFillingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GapFillingTableViewCell.m; sourceTree = "<group>"; };
+		22899C301F0747380014DECD /* GapFillingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GapFillingTableViewCell.xib; sourceTree = "<group>"; };
+		22899C331F074A7E0014DECD /* SingleChooseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChooseTableViewCell.h; sourceTree = "<group>"; };
+		22899C341F074A7E0014DECD /* SingleChooseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleChooseTableViewCell.m; sourceTree = "<group>"; };
+		22899C351F074A7E0014DECD /* SingleChooseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleChooseTableViewCell.xib; sourceTree = "<group>"; };
+		22899C381F074AB30014DECD /* MultipleChooseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleChooseTableViewCell.h; sourceTree = "<group>"; };
+		22899C391F074AB30014DECD /* MultipleChooseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleChooseTableViewCell.m; sourceTree = "<group>"; };
+		22899C3A1F074AB30014DECD /* MultipleChooseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultipleChooseTableViewCell.xib; sourceTree = "<group>"; };
+		22899C421F074C430014DECD /* AnswerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerDetailViewController.h; sourceTree = "<group>"; };
+		22899C431F074C430014DECD /* AnswerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerDetailViewController.m; sourceTree = "<group>"; };
+		22899C451F074D2D0014DECD /* AnswerDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerDetailModel.h; sourceTree = "<group>"; };
+		22899C461F074D2D0014DECD /* AnswerDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerDetailModel.m; sourceTree = "<group>"; };
+		22899C481F0752420014DECD /* AnswerDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerDetailView.h; sourceTree = "<group>"; };
+		22899C491F0752420014DECD /* AnswerDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerDetailView.m; sourceTree = "<group>"; };
+		22899C4B1F0776D20014DECD /* ChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseView.h; sourceTree = "<group>"; };
+		22899C4C1F0776D20014DECD /* ChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseView.m; sourceTree = "<group>"; };
+		22899C4E1F0776E10014DECD /* ChooseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseView.xib; sourceTree = "<group>"; };
 		229520C91EF65E5800FA2351 /* IntegralViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegralViewModel.h; sourceTree = "<group>"; };
 		229520CA1EF65E5800FA2351 /* IntegralViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegralViewModel.m; sourceTree = "<group>"; };
 		229520CC1EF65EF900FA2351 /* integralModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = integralModel.h; sourceTree = "<group>"; };
@@ -1249,6 +1278,20 @@
 				22899C2C1F0569740014DECD /* VoteDetailView.m */,
 				841417661F05FD1700D5219E /* VoteDetailSecondView.h */,
 				841417671F05FD1700D5219E /* VoteDetailSecondView.m */,
+				22899C2E1F0747380014DECD /* GapFillingTableViewCell.h */,
+				22899C2F1F0747380014DECD /* GapFillingTableViewCell.m */,
+				22899C301F0747380014DECD /* GapFillingTableViewCell.xib */,
+				22899C331F074A7E0014DECD /* SingleChooseTableViewCell.h */,
+				22899C341F074A7E0014DECD /* SingleChooseTableViewCell.m */,
+				22899C351F074A7E0014DECD /* SingleChooseTableViewCell.xib */,
+				22899C381F074AB30014DECD /* MultipleChooseTableViewCell.h */,
+				22899C391F074AB30014DECD /* MultipleChooseTableViewCell.m */,
+				22899C3A1F074AB30014DECD /* MultipleChooseTableViewCell.xib */,
+				22899C4B1F0776D20014DECD /* ChooseView.h */,
+				22899C4C1F0776D20014DECD /* ChooseView.m */,
+				22899C4E1F0776E10014DECD /* ChooseView.xib */,
+				22899C481F0752420014DECD /* AnswerDetailView.h */,
+				22899C491F0752420014DECD /* AnswerDetailView.m */,
 			);
 			path = ActivityView;
 			sourceTree = "<group>";
@@ -2542,6 +2585,8 @@
 				22899C221F0550750014DECD /* ActivityMoreViewController.xib */,
 				22899C251F05588E0014DECD /* VoteDetailFirstViewController.h */,
 				22899C261F05588E0014DECD /* VoteDetailFirstViewController.m */,
+				22899C421F074C430014DECD /* AnswerDetailViewController.h */,
+				22899C431F074C430014DECD /* AnswerDetailViewController.m */,
 			);
 			path = activity;
 			sourceTree = "<group>";
@@ -2676,6 +2721,8 @@
 				22899C1E1F0542AB0014DECD /* AnswerListModel.m */,
 				22899C281F055CAD0014DECD /* VoteDetailModel.h */,
 				22899C291F055CAD0014DECD /* VoteDetailModel.m */,
+				22899C451F074D2D0014DECD /* AnswerDetailModel.h */,
+				22899C461F074D2D0014DECD /* AnswerDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2874,12 +2921,14 @@
 				84C32E5E1EFD363200373BC5 /* AddImageAndContentView.xib in Resources */,
 				229C46A11F00129100932533 /* SystemMessageTableViewCell.xib in Resources */,
 				8440D6C81EEFB28F00C59B2C /* SearchHistoryTableViewCell.xib in Resources */,
+				22899C3C1F074AB30014DECD /* MultipleChooseTableViewCell.xib in Resources */,
 				84748E691EF3A78D00831016 /* IntegralGoodsCollectionViewCell.xib in Resources */,
 				84FBACBF1F04FC5C0016EFBC /* LuckyDrawViewController.xib in Resources */,
 				8440D6DA1EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.xib in Resources */,
 				22B905151EEC1E4500ED8B71 /* MySettingTableViewCell.xib in Resources */,
 				2261430B1EE6E2A500193487 /* launch_Image4.gif in Resources */,
 				84748E6E1EF3BEE600831016 /* IntegralAwardCollectionViewCell.xib in Resources */,
+				22899C321F0747380014DECD /* GapFillingTableViewCell.xib in Resources */,
 				8440D6D51EEFCD5400C59B2C /* ColumnCollectionHeader.xib in Resources */,
 				84375A891EF92BFB008D2455 /* play.png in Resources */,
 				84375A8A1EF92BFB008D2455 /* play@2x.png in Resources */,
@@ -2898,8 +2947,10 @@
 				8431F34A1EE917DF00295A18 /* MoreTableViewCell.xib in Resources */,
 				840DFFF61EF7A6E400709337 /* CommentTableViewCell.xib in Resources */,
 				226143091EE6E2A500193487 /* launch_Image2.gif in Resources */,
+				22899C4F1F0776E10014DECD /* ChooseView.xib in Resources */,
 				84748E641EF37C2F00831016 /* MyIntegralHeaderCollectionViewCell.xib in Resources */,
 				22899C131F03FF310014DECD /* VoteSecondCollectionViewCell.xib in Resources */,
+				22899C371F074A7E0014DECD /* SingleChooseTableViewCell.xib in Resources */,
 				226143081EE6E2A500193487 /* launch_Image1.gif in Resources */,
 				226143331EE83E9400193487 /* scanLine@2x.png in Resources */,
 				226143351EE83E9400193487 /* scanscanBg.png in Resources */,
@@ -2966,7 +3017,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -3015,6 +3066,7 @@
 				84AABE451EE6A003001AA7C0 /* CALayer+Transition.m in Sources */,
 				84AABE021EE69FEF001AA7C0 /* Aspects.m in Sources */,
 				84AABEFF1EE6BD81001AA7C0 /* InitialSetting.m in Sources */,
+				22899C4D1F0776D20014DECD /* ChooseView.m in Sources */,
 				84AABE4D1EE6A003001AA7C0 /* UIDevice+Extend.m in Sources */,
 				840DFFFC1EF7D2BC00709337 /* ExplainView.m in Sources */,
 				84AABDDC1EE69F76001AA7C0 /* TAPageControl.m in Sources */,
@@ -3031,6 +3083,7 @@
 				84AABDD61EE69F76001AA7C0 /* HMScannerViewController.m in Sources */,
 				22648A731F02A381002BD716 /* GoodsDetailViewController.m in Sources */,
 				22899C271F05588E0014DECD /* VoteDetailFirstViewController.m in Sources */,
+				22899C471F074D2D0014DECD /* AnswerDetailModel.m in Sources */,
 				84AABEBC1EE6A035001AA7C0 /* LOTAnimatablePointValue.m in Sources */,
 				22B905681EED070300ED8B71 /* ColumnModel.m in Sources */,
 				840DFFF91EF7CFBC00709337 /* PhotoViewController.m in Sources */,
@@ -3163,6 +3216,7 @@
 				226BDF831EE6859D009D2A3F /* main.m in Sources */,
 				84AABEE01EE6AF41001AA7C0 /* BaseIndexViewController.m in Sources */,
 				84FBACC51F0514210016EFBC /* GuideViewController.m in Sources */,
+				22899C4A1F0752420014DECD /* AnswerDetailView.m in Sources */,
 				845862641EE68A7100AF52B3 /* UserInfoObj.m in Sources */,
 				84AABEB91EE6A035001AA7C0 /* LOTAnimatableBoundsValue.m in Sources */,
 				229C46801EFF4F1B00932533 /* ActivityPopView.m in Sources */,
@@ -3175,6 +3229,7 @@
 				8439A4801EEE320E002ADF1B /* NewsTwoTableViewCell.m in Sources */,
 				84AABE4B1EE6A003001AA7C0 /* UIBarButtonItem+Extend.m in Sources */,
 				84BDC8681EF29C93006F4DDE /* WriteInfoView.m in Sources */,
+				22899C3B1F074AB30014DECD /* MultipleChooseTableViewCell.m in Sources */,
 				84AABEC81EE6A035001AA7C0 /* LOTComposition.m in Sources */,
 				8458625D1EE68A7100AF52B3 /* NSDictionary+NilSafe.m in Sources */,
 				84BDC85B1EF282E2006F4DDE /* UserCommentModel.m in Sources */,
@@ -3199,6 +3254,7 @@
 				84AABE501EE6A003001AA7C0 /* UIImage+Cut.m in Sources */,
 				84AABDD41EE69F76001AA7C0 /* HMScannerController.m in Sources */,
 				22B9056F1EED95E300ED8B71 /* JZLCycleView.m in Sources */,
+				22899C441F074C430014DECD /* AnswerDetailViewController.m in Sources */,
 				84AABE4E1EE6A003001AA7C0 /* UIFont+Extend.m in Sources */,
 				84AABE441EE6A003001AA7C0 /* CALayer+Anim.m in Sources */,
 				84AABEBA1EE6A035001AA7C0 /* LOTAnimatableColorValue.m in Sources */,
@@ -3208,6 +3264,7 @@
 				226143381EE83EA800193487 /* lhScanQCodeViewController.m in Sources */,
 				84AABDDE1EE69F76001AA7C0 /* SDCycleScrollView.m in Sources */,
 				84AABDCB1EE69F76001AA7C0 /* LewPopupViewAnimationDrop.m in Sources */,
+				22899C311F0747380014DECD /* GapFillingTableViewCell.m in Sources */,
 				8458624E1EE68A7100AF52B3 /* HHAlertViewCust.m in Sources */,
 				22B905371EEC4B5400ED8B71 /* TGMoreCell.m in Sources */,
 				22648A841F02BD0D002BD716 /* GoodsExchangeView.m in Sources */,
@@ -3232,6 +3289,7 @@
 				84AABECD1EE6A035001AA7C0 /* LOTShapeGroup.m in Sources */,
 				84AABEE21EE6AF41001AA7C0 /* BaseTabBarViewController.m in Sources */,
 				22648A761F02A4F1002BD716 /* GoodDetailHeaderView.m in Sources */,
+				22899C361F074A7E0014DECD /* SingleChooseTableViewCell.m in Sources */,
 				845862521EE68A7100AF52B3 /* EmptyUserData.m in Sources */,
 				84AABDF31EE69F76001AA7C0 /* YYTextRubyAnnotation.m in Sources */,
 				84AABE471EE6A003001AA7C0 /* NSDate+Extend.m in Sources */,

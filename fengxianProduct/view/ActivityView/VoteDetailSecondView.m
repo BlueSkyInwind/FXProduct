@@ -84,12 +84,10 @@
         return cell;
     }else if (indexPath.section == 1){
         UICollectionViewCell * cell1 = [_integalCollectionView dequeueReusableCellWithReuseIdentifier:@"cell1" forIndexPath:indexPath];
-        UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, _k_w, IntroductionHeight)];
-        label.numberOfLines = 0;
-        label.textAlignment = NSTextAlignmentLeft;
-        label.font = [UIFont systemFontOfSize:15];
-        label.text = _voteDetailModel.Introduction;
-        [cell1.contentView addSubview:label];
+        UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, _k_w, IntroductionHeight)];
+        webView.userInteractionEnabled = NO;
+        [webView loadHTMLString:_voteDetailModel.Introduction baseURL:nil];
+        [cell1.contentView addSubview:webView];
         return cell1;
     }else{
         VoteRowsModel * voteRowsM = dataArr[indexPath.row];

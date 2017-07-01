@@ -14,7 +14,8 @@
 #import "DetailViewController.h"
 #import "PhotoViewController.h"
 #import "ActivityViewModel.h"
-
+#import "VoteDetailFirstViewController.h"
+#import "AnswerDetailViewController.h"
 @interface ActivityMoreViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
     NSMutableArray * dataArr;
@@ -79,16 +80,17 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NewsListInfo * newsList = dataArr[indexPath.row];
-    if ([newsList.Species integerValue] == 2) {
-        PhotoViewController *photoVC = [[PhotoViewController alloc]init];
-        photoVC.detailID = newsList.ID;
-        photoVC.Species =  newsList.Species;
-        [self.navigationController pushViewController:photoVC animated:YES];
-    }else{
-        DetailViewController *detailVC = [[DetailViewController alloc]init];
-        detailVC.detailID = newsList.ID;
-        detailVC.Species =  newsList.Species;
-        [self.navigationController pushViewController:detailVC animated:YES];
+
+    if (self.columnID == 9) {
+        VoteDetailFirstViewController * voteDetailVC  = [[VoteDetailFirstViewController alloc]init];
+        voteDetailVC.voteID = [NSString stringWithFormat:@"%@",newsList.ID];
+        voteDetailVC.voteTitle = newsList.Title;
+        [self.navigationController pushViewController:voteDetailVC animated:YES];
+    }else if (self.columnID == 10){
+        AnswerDetailViewController * answerDetailVC  = [[AnswerDetailViewController alloc]init];
+        answerDetailVC.answerID = [NSString stringWithFormat:@"%@",newsList.ID];
+        answerDetailVC.answerTitle = newsList.Title;
+        [self.navigationController pushViewController:answerDetailVC animated:YES];
     }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{

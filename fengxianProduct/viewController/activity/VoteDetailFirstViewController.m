@@ -33,6 +33,8 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = self.voteTitle;
     [self addBackItem];
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.translucent = NO;
     __weak typeof (self) weakSelf = self;
     [self requestAnswerListInfo:^(BOOL isSuccess) {
         [weakSelf configureView];
@@ -49,8 +51,14 @@
     }
 }
 -(void)addVoteDetailView:( VoteDetailModel *)voteDetailM{
-    _voteDetailView = [[VoteDetailView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_h)];
+    _voteDetailView = [[VoteDetailView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_h - 64)];
+    __weak typeof (self) weakSelf = self;
     _voteDetailView.voteDetailModel = voteDetailModel;
+    _voteDetailView.requestVoteStatus = ^(BOOL isSuccess) {
+        if (isSuccess == YES) {
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        }
+    };
     [self.view addSubview:_voteDetailView];
 }
 -(void)addSecondVoteDetailView:( VoteDetailModel *)voteDetailM{

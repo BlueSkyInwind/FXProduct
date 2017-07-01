@@ -15,7 +15,7 @@
 #import "PhotoViewController.h"
 #import "DetailViewController.h"
 #import "VoteDetailFirstViewController.h"
-
+#import "AnswerDetailViewController.h"
 @implementation ActivityContentTableViewCell
 
 - (void)awakeFromNib {
@@ -108,13 +108,21 @@
             detailVC.Species =  newsList.Species;
             [_currentVC.navigationController pushViewController:detailVC animated:YES];
         }
-    }else{
+    }else if ([_columnInfoM.ColumnID intValue] == 9){
         if ([[ShareConfig share] isPresentLoginVC:_currentVC]) {
             NewsListInfo * newsList = self.dataArr[indexPath.row];
             VoteDetailFirstViewController * voteDetailVC  = [[VoteDetailFirstViewController alloc]init];
             voteDetailVC.voteID = [NSString stringWithFormat:@"%@",newsList.ID];
             voteDetailVC.voteTitle = newsList.Title;
             [_currentVC.navigationController pushViewController:voteDetailVC animated:YES];
+        }
+    }else if ([_columnInfoM.ColumnID intValue] == 10){
+        if ([[ShareConfig share] isPresentLoginVC:_currentVC]) {
+            NewsListInfo * newsList = self.dataArr[indexPath.row];
+            AnswerDetailViewController * answerDetailVC  = [[AnswerDetailViewController alloc]init];
+            answerDetailVC.answerID = [NSString stringWithFormat:@"%@",newsList.ID];
+            answerDetailVC.answerTitle = newsList.Title;
+            [_currentVC.navigationController pushViewController:answerDetailVC animated:YES];
         }
     }
 }

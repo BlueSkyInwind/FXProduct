@@ -13,6 +13,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    isSelected = NO;
+
     self.voteProgressiew.transform = CGAffineTransformMakeScale(1.0f,2.0f);
     self.voteProgressiew.layer.cornerRadius = 1;
     self.voteProgressiew.clipsToBounds = YES;
@@ -20,6 +22,7 @@
 }
 
 -(void)setVoteRowsM:(VoteRowsModel *)voteRowsM{
+    isSelected = NO;
     _voteRowsM = voteRowsM;
     [self layoutIfNeeded];
 }
@@ -34,6 +37,15 @@
     self.voteProgressiew.progress = [_voteRowsM.Num floatValue] / [self.voteNumber floatValue];
 }
 - (IBAction)seletedBtnClick:(id)sender {
+    isSelected = !isSelected;
+    if (isSelected) {
+        [self.seletButton setImage:[UIImage imageNamed:@"tick_Selected_Icon"] forState:UIControlStateNormal];
+    }else{
+        [self.seletButton setImage:[UIImage imageNamed:@"tick_unSelected_Icon"] forState:UIControlStateNormal];
+    }
+    if (self.votechoose) {
+        self.votechoose(isSelected);
+    }
 }
 
 

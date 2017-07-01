@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "VoteDetailModel.h"
+
+typedef void (^VoteChoose)(BOOL isSelected);
 @interface VoteFirstTableViewCell : UITableViewCell{
-    
+    BOOL isSelected;
     
 }
 
@@ -25,4 +27,6 @@
 @property (assign,nonatomic)NSNumber * voteNum;
 
 @property (nonatomic,strong)VoteRowsModel * voteRowsM;
+
+@property (nonatomic,copy)VoteChoose votechoose;
 @end

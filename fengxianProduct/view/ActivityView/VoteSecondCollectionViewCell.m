@@ -18,7 +18,6 @@
     _voteRowsM = voteRowsM;
     [self layoutIfNeeded];
 
-
 }
 -(void)layoutSubviews{
     [super layoutSubviews];
