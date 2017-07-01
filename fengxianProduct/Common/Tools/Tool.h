@@ -89,4 +89,9 @@
  */
 + (CGFloat)heightForText:(NSString *)text width:(CGFloat)width font:(CGFloat)size;
 
+/*
+ *  当前程序的版本号
+ */
++(NSString *)version;
+
 @end

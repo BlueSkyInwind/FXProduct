@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "VoteDetailModel.h"
-@interface VoteSecondCollectionViewCell : UICollectionViewCell
+typedef void (^VoteChoose)(BOOL isSelected);
+
+@interface VoteSecondCollectionViewCell : UICollectionViewCell{
+    BOOL isSelected;
+    
+}
 
 @property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
 @property (weak, nonatomic) IBOutlet UILabel *voteObjectLabel;
@@ -21,5 +26,8 @@
 @property (assign,nonatomic)NSInteger number;
 @property (assign,nonatomic)NSNumber * voteNumber;
 
+@property (nonatomic,copy)VoteChoose votechoose;
 @property (nonatomic,strong)VoteRowsModel * voteRowsM;
+
+
 @end

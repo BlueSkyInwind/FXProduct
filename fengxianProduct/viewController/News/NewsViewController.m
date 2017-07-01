@@ -188,15 +188,16 @@
 #pragma mark - 点击事件
 -(void)moreColumnClick{
     
-    MyColumnViewController * myColumnVC = [[MyColumnViewController alloc]init];
-    myColumnVC.columnType = @"1";
-    myColumnVC.dataArr =  [[Utility sharedUtility].columnModel.rows mutableCopy];
-    __weak typeof (self) weakSelf = self;
-    myColumnVC.columnResult = ^(NSMutableArray *resultArr) {
-         [weakSelf getDataOfSegmentBarVC:resultArr];
-    };
-    [self.navigationController pushViewController:myColumnVC animated:YES];
-    
+    if ([[ShareConfig share] isPresentLoginVC:self]) {
+        MyColumnViewController * myColumnVC = [[MyColumnViewController alloc]init];
+        myColumnVC.columnType = @"1";
+        myColumnVC.dataArr =  [[Utility sharedUtility].columnModel.rows mutableCopy];
+        __weak typeof (self) weakSelf = self;
+        myColumnVC.columnResult = ^(NSMutableArray *resultArr) {
+            [weakSelf getDataOfSegmentBarVC:resultArr];
+        };
+        [self.navigationController pushViewController:myColumnVC animated:YES];
+    }
 }
 -(void)GosearchViewContrller{
     //可以加动画

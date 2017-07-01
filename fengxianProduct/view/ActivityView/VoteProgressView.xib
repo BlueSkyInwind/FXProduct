@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="VoteProgressView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZsM-fI-Osz">
+                    <rect key="frame" x="8" y="7" width="68" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="68" id="8Ca-Ca-IZr"/>
+                        <constraint firstAttribute="height" constant="21" id="ZjR-l3-yjQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="LTu-uu-Mbx">
+                    <rect key="frame" x="79" y="16.5" width="213" height="2"/>
+                </progressView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%(100)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMp-xE-POO">
+                    <rect key="frame" x="295" y="7" width="75" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="75" id="0K6-6O-mWH"/>
+                        <constraint firstAttribute="height" constant="21" id="XID-IB-pAV"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="SMp-xE-POO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="2Nl-6I-mGs"/>
+                <constraint firstItem="LTu-uu-Mbx" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="30F-LS-4zj"/>
+                <constraint firstItem="ZsM-fI-Osz" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="8D5-qX-TNq"/>
+                <constraint firstItem="SMp-xE-POO" firstAttribute="leading" secondItem="LTu-uu-Mbx" secondAttribute="trailing" constant="3" id="MKj-wK-RgX"/>
+                <constraint firstItem="LTu-uu-Mbx" firstAttribute="leading" secondItem="ZsM-fI-Osz" secondAttribute="trailing" constant="3" id="OcQ-5D-BdM"/>
+                <constraint firstAttribute="trailing" secondItem="SMp-xE-POO" secondAttribute="trailing" constant="5" id="jLp-I1-8kd"/>
+                <constraint firstItem="ZsM-fI-Osz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="lc6-e5-ObP"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="percentLabel" destination="SMp-xE-POO" id="Ie9-zR-3qa"/>
+                <outlet property="progressView" destination="LTu-uu-Mbx" id="mM0-MQ-M1r"/>
+                <outlet property="titleLabel" destination="ZsM-fI-Osz" id="4ry-Jy-X8G"/>
+                <outlet property="titleWidth" destination="8Ca-Ca-IZr" id="GN7-eP-4MC"/>
+            </connections>
+            <point key="canvasLocation" x="34.5" y="-262.5"/>
+        </view>
+    </objects>
+</document>

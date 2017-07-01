@@ -11,6 +11,7 @@
 @interface GuideViewController : UIViewController
 + (instancetype)newGuideVCWithModels:(NSArray *)models enterBlock:(void(^)())enterBlock;
 
++(BOOL)canShowNewFeature;
 
 
 @end

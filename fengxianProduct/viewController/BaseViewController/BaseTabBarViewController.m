@@ -25,7 +25,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [[ShareConfig share]obtainNewsColumnInfo];
     [[ShareConfig share]obtainLivesColumnInfo];
     [[ShareConfig share]obtainActicityColumnInfo];
 

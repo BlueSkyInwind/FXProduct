@@ -15,6 +15,7 @@
 #import "VoteDetailView.h"
 #import "VoteDetailSecondView.h"
 
+
 @interface VoteDetailFirstViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
     VoteDetailModel * voteDetailModel;

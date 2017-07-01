@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "LaunchViewController.h"
 #import "LoginViewController.h"
+#import "GuideViewController.h"
+
 //#import "InitialSetting.h"
 #import "MyMessageViewController.h"
 #import "JPUSHService.h"
@@ -31,7 +33,9 @@ AppDelegate *app = nil;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     // Override point for customization after application launch.
+    app = self;
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -46,19 +50,24 @@ AppDelegate *app = nil;
     [self initJPush:launchOptions];
     
     [self performSelector:@selector(enter) withObject:self afterDelay:4];
-//   [self enter];
-    app = self;
 
-    
-    
     return YES;
 }
 
 -(void)enter{
     
-    self.btb = [[BaseTabBarViewController alloc]init];
-    self.window.rootViewController = self.btb;
-
+    BOOL isFirst = [GuideViewController canShowNewFeature];
+    
+    if (isFirst && self.guideImageArr) {
+        self.window.rootViewController = [GuideViewController newGuideVCWithModels:[_guideImageArr copy] enterBlock:^{
+            self.btb = [[BaseTabBarViewController alloc]init];
+            self.window.rootViewController = self.btb;
+        }];
+    } else {
+        self.btb = [[BaseTabBarViewController alloc]init];
+        self.window.rootViewController = self.btb;
+    }
+    
 //    LoginViewController * loginVc = [[LoginViewController alloc]init];
 //    BaseNavigationViewController *nav = [[BaseNavigationViewController alloc]initWithRootViewController:loginVc];
 //    nav.transitioningDelegate = self;

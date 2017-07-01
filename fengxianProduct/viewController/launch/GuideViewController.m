@@ -63,24 +63,9 @@ NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
     NSMutableArray *tmpArr = [NSMutableArray array];
     for (int i = 0; i < _imageArr.count; i++) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * _k_w, 0, _k_w, _k_h)];
-        imageView.image = [UIImage imageNamed:[_imageArr objectAtIndex:i]];
+        [imageView sd_setImageWithURL:[_imageArr objectAtIndex:i]];
         [tmpArr addObject:imageView];
-        if (i == _imageArr.count - 1) {
-            imageView.userInteractionEnabled = true;
-            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            [btn setBackgroundImage:[UIImage imageNamed:@"icon-guideBtn"] forState:UIControlStateNormal];
-            [btn setTitle:@"立即体验" forState:UIControlStateNormal];
-            [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            [btn addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
-            [imageView addSubview:btn];
-            DLog(@"%f,%f",_k_h,_k_w);
-            [btn mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.height.equalTo(@51);
-                make.left.equalTo(@80);
-                make.right.equalTo(@(-80));
-                make.bottom.equalTo(imageView.mas_bottom).offset(-30);
-            }];
-        }
+    
         [self.scrollView addSubview:imageView];
     }
     
@@ -89,7 +74,6 @@ NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
 
 - (void)addCustomPage
 {
-    //    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(_k_w/2 -50, _k_h - 150, 100, 50)];
     _pageControl = [[UIPageControl alloc] init];
     _pageControl.pageIndicatorTintColor = hexColorAlpha(42baff, 0.3);
     _pageControl.currentPageIndicatorTintColor = hexColor(42baff);
@@ -104,7 +88,6 @@ NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
 
 - (void)addButton
 {
-    //    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(_k_w/2 - 170, _k_h - 100, 341, 51)];
     UIButton *btn = [[UIButton alloc] init];
     [btn setImage:[UIImage imageNamed:@"guide_icon"] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
@@ -128,14 +111,51 @@ NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
         }];
     }
 }
+-(void)saveVersion{
+    
+    //系统直接读取的版本号
+    NSString *versionValueStringForSystemNow=[Tool version];
+    
+    //保存版本号
+    [[NSUserDefaults standardUserDefaults] setObject:versionValueStringForSystemNow forKey:NewFeatureVersionKey];
+}
 
+
++(BOOL)canShowNewFeature{
+    
+    //系统直接读取的版本号
+    NSString *versionValueStringForSystemNow=[Tool version];
+    
+    //读取本地版本号
+    NSString *versionLocal = [[NSUserDefaults standardUserDefaults] objectForKey:NewFeatureVersionKey];
+    
+    if(versionLocal!=nil && [versionValueStringForSystemNow isEqualToString:versionLocal]){//说明有本地版本记录，且和当前系统版本一致
+        
+        return NO;
+        
+    }else{//无本地版本记录或本地版本记录与当前系统版本不一致
+        
+        //保存
+        [[NSUserDefaults standardUserDefaults] setObject:versionValueStringForSystemNow forKey:NewFeatureVersionKey];
+        
+        return YES;
+    }
+}
 
 #pragma mark --ScrollViewDelegate
-
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     NSInteger page = scrollView.contentOffset.x / _k_w;
     self.pageControl.currentPage = page;
+  
+}
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
+    if (velocity.x < 0) {
+        return;
+    }
+    if (self.pageControl.currentPage+1 == _imageArr.count) {
+        [self click];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

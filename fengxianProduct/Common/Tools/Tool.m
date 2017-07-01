@@ -427,4 +427,14 @@
     CGSize aSize = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:Nil].size;
     return aSize.height;
 }
+/*
+ *  当前程序的版本号
+ */
++(NSString *)version{
+    
+    //系统直接读取的版本号
+    NSString *versionValueStringForSystemNow=[[NSBundle mainBundle].infoDictionary valueForKey:(NSString *)kCFBundleVersionKey];
+    
+    return versionValueStringForSystemNow;
+}
 @end

@@ -236,16 +236,18 @@
 }
 -(void)editBottonCilck{
     
-    MyColumnViewController * myColumnVC = [[MyColumnViewController alloc]init];
-    myColumnVC.columnType = @"2";
-    myColumnVC.dataArr =  [[Utility sharedUtility].livesColumnModel.rows mutableCopy];
-    __weak typeof (self) weakSelf = self;
-    myColumnVC.columnResult = ^(NSMutableArray *resultArr) {
-        dataArr = resultArr;
-        [weakSelf.tableView reloadData];
-        [[ShareConfig share]obtainLivesColumnInfo];
-    };
-    [self.navigationController pushViewController:myColumnVC animated:YES];
+    if ([[ShareConfig share] isPresentLoginVC:self]) {
+        MyColumnViewController * myColumnVC = [[MyColumnViewController alloc]init];
+        myColumnVC.columnType = @"2";
+        myColumnVC.dataArr =  [[Utility sharedUtility].livesColumnModel.rows mutableCopy];
+        __weak typeof (self) weakSelf = self;
+        myColumnVC.columnResult = ^(NSMutableArray *resultArr) {
+            dataArr = resultArr;
+            [weakSelf.tableView reloadData];
+            [[ShareConfig share]obtainLivesColumnInfo];
+        };
+        [self.navigationController pushViewController:myColumnVC animated:YES];
+    }
 }
 #pragma mark ----------设置列表的可刷新性----------
 -(void)setupMJRefreshTableView

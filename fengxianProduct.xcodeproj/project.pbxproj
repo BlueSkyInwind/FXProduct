@@ -75,6 +75,11 @@
 		22899C4A1F0752420014DECD /* AnswerDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22899C491F0752420014DECD /* AnswerDetailView.m */; };
 		22899C4D1F0776D20014DECD /* ChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22899C4C1F0776D20014DECD /* ChooseView.m */; };
 		22899C4F1F0776E10014DECD /* ChooseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22899C4E1F0776E10014DECD /* ChooseView.xib */; };
+		22899C521F07A74E0014DECD /* VoteProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22899C511F07A74E0014DECD /* VoteProgressView.m */; };
+		22899C541F07A7600014DECD /* VoteProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22899C531F07A7600014DECD /* VoteProgressView.xib */; };
+		22899C581F07A93F0014DECD /* VoteProgressCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22899C561F07A93F0014DECD /* VoteProgressCollectionViewCell.m */; };
+		22899C591F07A93F0014DECD /* VoteProgressCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22899C571F07A93F0014DECD /* VoteProgressCollectionViewCell.xib */; };
+		22899C5C1F07B8200014DECD /* GuideModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22899C5B1F07B8200014DECD /* GuideModel.m */; };
 		229520CB1EF65E5800FA2351 /* IntegralViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 229520CA1EF65E5800FA2351 /* IntegralViewModel.m */; };
 		229520CE1EF65EF900FA2351 /* integralModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 229520CD1EF65EF900FA2351 /* integralModel.m */; };
 		229520D21EF6BCE300FA2351 /* DetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 229520D11EF6BCE300FA2351 /* DetailHeaderView.m */; };
@@ -552,6 +557,14 @@
 		22899C4B1F0776D20014DECD /* ChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseView.h; sourceTree = "<group>"; };
 		22899C4C1F0776D20014DECD /* ChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseView.m; sourceTree = "<group>"; };
 		22899C4E1F0776E10014DECD /* ChooseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseView.xib; sourceTree = "<group>"; };
+		22899C501F07A74E0014DECD /* VoteProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteProgressView.h; sourceTree = "<group>"; };
+		22899C511F07A74E0014DECD /* VoteProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteProgressView.m; sourceTree = "<group>"; };
+		22899C531F07A7600014DECD /* VoteProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoteProgressView.xib; sourceTree = "<group>"; };
+		22899C551F07A93F0014DECD /* VoteProgressCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteProgressCollectionViewCell.h; sourceTree = "<group>"; };
+		22899C561F07A93F0014DECD /* VoteProgressCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteProgressCollectionViewCell.m; sourceTree = "<group>"; };
+		22899C571F07A93F0014DECD /* VoteProgressCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoteProgressCollectionViewCell.xib; sourceTree = "<group>"; };
+		22899C5A1F07B8200014DECD /* GuideModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideModel.h; sourceTree = "<group>"; };
+		22899C5B1F07B8200014DECD /* GuideModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideModel.m; sourceTree = "<group>"; };
 		229520C91EF65E5800FA2351 /* IntegralViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegralViewModel.h; sourceTree = "<group>"; };
 		229520CA1EF65E5800FA2351 /* IntegralViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegralViewModel.m; sourceTree = "<group>"; };
 		229520CC1EF65EF900FA2351 /* integralModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = integralModel.h; sourceTree = "<group>"; };
@@ -1271,6 +1284,12 @@
 				22899C0F1F03FF310014DECD /* VoteSecondCollectionViewCell.h */,
 				22899C101F03FF310014DECD /* VoteSecondCollectionViewCell.m */,
 				22899C111F03FF310014DECD /* VoteSecondCollectionViewCell.xib */,
+				22899C551F07A93F0014DECD /* VoteProgressCollectionViewCell.h */,
+				22899C561F07A93F0014DECD /* VoteProgressCollectionViewCell.m */,
+				22899C571F07A93F0014DECD /* VoteProgressCollectionViewCell.xib */,
+				22899C501F07A74E0014DECD /* VoteProgressView.h */,
+				22899C511F07A74E0014DECD /* VoteProgressView.m */,
+				22899C531F07A7600014DECD /* VoteProgressView.xib */,
 				22899C0A1F03F3610014DECD /* VoteThirdTableViewCell.h */,
 				22899C0B1F03F3610014DECD /* VoteThirdTableViewCell.m */,
 				22899C0C1F03F3610014DECD /* VoteThirdTableViewCell.xib */,
@@ -2723,6 +2742,8 @@
 				22899C291F055CAD0014DECD /* VoteDetailModel.m */,
 				22899C451F074D2D0014DECD /* AnswerDetailModel.h */,
 				22899C461F074D2D0014DECD /* AnswerDetailModel.m */,
+				22899C5A1F07B8200014DECD /* GuideModel.h */,
+				22899C5B1F07B8200014DECD /* GuideModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2898,6 +2919,7 @@
 				8440D6D01EEFC41700C59B2C /* CollectionViewCell.xib in Resources */,
 				229520E11EF8301000FA2351 /* CommonBottomView.xib in Resources */,
 				84375A8D1EF92BFB008D2455 /* knob.png in Resources */,
+				22899C541F07A7600014DECD /* VoteProgressView.xib in Resources */,
 				846053B31EEAA41900E1002E /* UserQrcodeShareView.xib in Resources */,
 				8440D6CA1EEFBA9600C59B2C /* DateAndWeatherView.xib in Resources */,
 				8440D6C31EEF8D3500C59B2C /* ClearSearchHistoryView.xib in Resources */,
@@ -2923,6 +2945,7 @@
 				8440D6C81EEFB28F00C59B2C /* SearchHistoryTableViewCell.xib in Resources */,
 				22899C3C1F074AB30014DECD /* MultipleChooseTableViewCell.xib in Resources */,
 				84748E691EF3A78D00831016 /* IntegralGoodsCollectionViewCell.xib in Resources */,
+				22899C591F07A93F0014DECD /* VoteProgressCollectionViewCell.xib in Resources */,
 				84FBACBF1F04FC5C0016EFBC /* LuckyDrawViewController.xib in Resources */,
 				8440D6DA1EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.xib in Resources */,
 				22B905151EEC1E4500ED8B71 /* MySettingTableViewCell.xib in Resources */,
@@ -3065,6 +3088,7 @@
 				22B905491EEC4F3C00ED8B71 /* HomePageViewController.m in Sources */,
 				84AABE451EE6A003001AA7C0 /* CALayer+Transition.m in Sources */,
 				84AABE021EE69FEF001AA7C0 /* Aspects.m in Sources */,
+				22899C521F07A74E0014DECD /* VoteProgressView.m in Sources */,
 				84AABEFF1EE6BD81001AA7C0 /* InitialSetting.m in Sources */,
 				22899C4D1F0776D20014DECD /* ChooseView.m in Sources */,
 				84AABE4D1EE6A003001AA7C0 /* UIDevice+Extend.m in Sources */,
@@ -3105,6 +3129,7 @@
 				229C46991F0004D700932533 /* SystemMessageViewController.m in Sources */,
 				84AABEB21EE6A035001AA7C0 /* LOTEllipseShapeLayer.m in Sources */,
 				226143181EE6EDC400193487 /* RegisterViewController.m in Sources */,
+				22899C581F07A93F0014DECD /* VoteProgressCollectionViewCell.m in Sources */,
 				84AABEBB1EE6A035001AA7C0 /* LOTAnimatableNumberValue.m in Sources */,
 				22B9053A1EEC4B5400ED8B71 /* TGSegmentBar.m in Sources */,
 				847745011EE7AAF900043F25 /* FXNetworkManager.m in Sources */,
@@ -3324,6 +3349,7 @@
 				84AABEB41EE6A035001AA7C0 /* LOTLayerView.m in Sources */,
 				84AABE571EE6A003001AA7C0 /* UIWindow+Launch.m in Sources */,
 				84AABEB31EE6A035001AA7C0 /* LOTGroupLayerView.m in Sources */,
+				22899C5C1F07B8200014DECD /* GuideModel.m in Sources */,
 				8458625A1EE68A7100AF52B3 /* DataWriteAndRead.m in Sources */,
 				845862611EE68A7100AF52B3 /* Tool.m in Sources */,
 				2261433B1EE84B6E00193487 /* ForgetPasswordViewModel.m in Sources */,

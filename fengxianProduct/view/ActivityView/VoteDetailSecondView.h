@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "VoteDetailModel.h"
 
+typedef void(^RequestVoteStatus)(BOOL isSuccess);
 @interface VoteDetailSecondView : UIView
 @property (nonatomic,strong)NSString * voteID;
 @property (nonatomic,strong)NSNumber * voteType;
 @property(nonatomic,strong)VoteDetailModel * voteDetailModel;
+@property (nonatomic,copy)RequestVoteStatus requestVoteStatus;
 
 @end

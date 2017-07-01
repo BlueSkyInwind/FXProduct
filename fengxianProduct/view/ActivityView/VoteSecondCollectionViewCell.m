@@ -14,7 +14,19 @@
     [super awakeFromNib];
     // Initialization code
 }
+- (IBAction)selectedButtonClick:(id)sender {
+    isSelected = !isSelected;
+    if (isSelected) {
+        [self.seletedButton setImage:[UIImage imageNamed:@"tick_Selected_Icon"] forState:UIControlStateNormal];
+    }else{
+        [self.seletedButton setImage:[UIImage imageNamed:@"tick_unSelected_Icon"] forState:UIControlStateNormal];
+    }
+    if (self.votechoose) {
+        self.votechoose(isSelected);
+    }
+}
 -(void)setVoteRowsM:(VoteRowsModel *)voteRowsM{
+    isSelected = NO;
     _voteRowsM = voteRowsM;
     [self layoutIfNeeded];
 
@@ -27,4 +39,9 @@
     self.voteNum.text = [NSString stringWithFormat:@"%@", _voteRowsM.Num];
     
 }
+
+
+
+
+
 @end

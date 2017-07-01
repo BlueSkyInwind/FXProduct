@@ -25,6 +25,8 @@
     NSInteger explainViewHeight;
     
     BOOL isDispaly;
+    BOOL isDispalyAll;
+
     
     UIImage * shareImage;
     
@@ -51,6 +53,7 @@
     self.navigationItem.title = @"新闻详情";
     _selectPhoto = 0;
     isDispaly= YES;
+    isDispalyAll= NO;
     [self addBackItem];
     __weak typeof (self) weakSelf = self;
     [self obtainDetail:^(BOOL isSuccess) {
@@ -152,9 +155,8 @@
 }
 -(void)addExplainView{
     
-    PhotoDetailModel * photoDetailM = self.photoArray[self.selectPhoto];
-    explainViewHeight =  [Tool heightForText:photoDetailM.Cont width:(_k_w - 25) font:14] + 66;
-    
+    explainViewHeight = 80;
+
     if (!self.explainView) {
         self.explainView = [[NSBundle mainBundle]loadNibNamed:@"ExplainView" owner:self options:nil].lastObject;
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(explainViewClick)];
@@ -171,10 +173,22 @@
 }
 -(void)explainViewClick{
     
-    
-    
-    
-    
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        if (isDispaly) {
+            if (isDispalyAll) {
+                [self addExplainView];
+                self.explainView.hidden = NO;
+            }else{
+                PhotoDetailModel * photoDetailM = self.photoArray[self.selectPhoto];
+                explainViewHeight =  [Tool heightForText:photoDetailM.Cont width:(_k_w - 25) font:14] + 66;
+
+                self.explainView.frame = CGRectMake(0, _k_h - explainViewHeight - 44 , _k_w, explainViewHeight);
+            }
+        }
+    } completion:^(BOOL finished) {
+        isDispalyAll = !isDispalyAll;
+    }];
+
 }
 #pragma mark - 底部tab点击代理 时间
 -(void)commentButtonClick{

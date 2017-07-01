@@ -104,7 +104,7 @@
 /**
  获取引导图 
  */
--(void)obtainLaunchImage;
+-(void)obtainGuideImage;
 
 
 @end

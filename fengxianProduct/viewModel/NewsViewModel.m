@@ -13,7 +13,8 @@
 #import "PhotoModel.h"
 #import "CommentModel.h"
 #import "NewsDetailStatusModel.h"
-
+#import "GuideModel.h"
+#import "AppDelegate.h"
 @implementation NewsViewModel
 
 -(void)uploadPushID:(NSString *)pushId{
@@ -275,23 +276,31 @@
         [self faileBlock];
     }];
 }
--(void)obtainLaunchImage{
+-(void)obtainGuideImage{
     //http://infx2.echaokj.cn/ajax/AppBanner/AppBannerImgList.ashx
     NSString * baseUrl = [NSString stringWithFormat:@"%@AppBanner/AppBannerImgList.ashx",_main_url];
     
     [[FXNetworkManager sharedNetWorkManager]POSTHideIndicatorWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
         if ([returnMsg.returnCode intValue] == 1) {
-            
+            GuideModel * guide = [[GuideModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
+            app.guideImageArr = [NSMutableArray array];
+            for (GuideImageModel * guideImageModel in guide.rows) {
+                    [app.guideImageArr addObject:guideImageModel.Image];
+            }
         }
-        self.returnBlock(returnMsg);
-
+//        self.returnBlock(returnMsg);
     } failure:^(EnumServerStatus status, id object) {
-        NSError * error = object;
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
-        [self faileBlock];
+//        NSError * error = object;
+//        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+//        [self faileBlock];
     }];
 }
+
+
+
+
+
 
 
 

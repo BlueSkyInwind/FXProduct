@@ -17,7 +17,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.title = @"积分抽奖";
+    [self addBackItem];
+    self.navigationController.navigationBar.translucent = NO;
+    UIBarButtonItem *barBtn = [[UIBarButtonItem alloc]initWithTitle:@"我的奖品" style:UIBarButtonItemStylePlain target:self action:@selector(myAwardList)];
+    barBtn.tintColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem = barBtn;
 }
+-(void)myAwardList{
+    
+    
+    
+    
+}
+
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

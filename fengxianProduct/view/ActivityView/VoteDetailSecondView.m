@@ -8,12 +8,18 @@
 
 #import "VoteDetailSecondView.h"
 #import "VoteSecondCollectionViewCell.h"
+#import "ActivityViewModel.h"
+#import <WebKit/WebKit.h>
+#import "VoteProgressCollectionViewCell.h"
 
 @interface VoteDetailSecondView ()<UICollectionViewDataSource,UICollectionViewDelegate>{
     
     NSMutableArray * dataArr;
     
     float IntroductionHeight;
+    
+    NSMutableArray * voteChooseArr;
+
     
 }
 @property (nonatomic,strong)UICollectionView * integalCollectionView;
@@ -24,6 +30,8 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
+        [self configureView];
+        voteChooseArr = [NSMutableArray array];
 
     }
     return self;
@@ -32,13 +40,13 @@
     _voteDetailModel = voteDetailModel;
     IntroductionHeight = [Tool heightForText:_voteDetailModel.Introduction width:_k_w font:15] + 15;
     dataArr = [_voteDetailModel.rows mutableCopy];
-    [self configureView];
+    [_integalCollectionView reloadData];
 }
 -(void)configureView{
     
     UICollectionViewFlowLayout  * columnCustomLayout = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
     
-    _integalCollectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:columnCustomLayout];
+    _integalCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, _k_w, _k_h - 64) collectionViewLayout:columnCustomLayout];
     _integalCollectionView.backgroundColor = [UIColor whiteColor];
     _integalCollectionView.dataSource = self;
     _integalCollectionView.delegate = self;
@@ -51,25 +59,29 @@
     [_integalCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
     [_integalCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell1"];
 
+    [_integalCollectionView registerNib:[UINib nibWithNibName:@"VoteProgressCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"VoteProgressCollectionViewCell"];
+
 }
 
 #pragma mark ---- UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 3;
+    return 5;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     if (section == 0) {
         return 1;
-        
     }else if (section == 1){
         return 1;
-        
-    }else{
+    }else if (section == 2){
         return dataArr.count;
+    }else if (section == 3){
+        return 1;
+    }else{
+        return 1;
     }
 }
 
@@ -89,11 +101,40 @@
         [webView loadHTMLString:_voteDetailModel.Introduction baseURL:nil];
         [cell1.contentView addSubview:webView];
         return cell1;
-    }else{
+    }else if(indexPath.section == 2){
         VoteRowsModel * voteRowsM = dataArr[indexPath.row];
         VoteSecondCollectionViewCell *cell3 = [_integalCollectionView dequeueReusableCellWithReuseIdentifier:@"VoteSecondCollectionViewCell" forIndexPath:indexPath];
         cell3.voteRowsM = voteRowsM;
+        cell3.votechoose = ^(BOOL isSelected) {
+            if (isSelected) {
+                
+                [voteChooseArr addObject:voteRowsM.ID];
+            }else{
+                [voteChooseArr removeObject:voteRowsM.ID];
+            }
+        };
         return cell3;
+    }else if(indexPath.section == 3){
+        VoteProgressCollectionViewCell *cell4 = [_integalCollectionView dequeueReusableCellWithReuseIdentifier:@"VoteProgressCollectionViewCell" forIndexPath:indexPath];
+        cell4.voteDetailModel = self.voteDetailModel;
+        return cell4;
+    }else{
+        UICollectionViewCell * cell = [_integalCollectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+        UIButton * applyButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [applyButton setTitle:@"投 票" forState:UIControlStateNormal];
+        [applyButton setTintColor:[UIColor whiteColor]];
+        [applyButton setBackgroundColor:UI_MAIN_COLOR];
+        applyButton.layer.cornerRadius = 8;
+        applyButton.layer.masksToBounds = YES;
+        [applyButton addTarget:self action:@selector(applyButtonCilck:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.contentView addSubview:applyButton];
+        [applyButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(cell.mas_centerY);
+            make.left.equalTo(cell.mas_left).with.offset(_k_w / 3);
+            make.right.equalTo(cell.mas_right).with.offset(_k_w /  (-3));
+            make.height.equalTo(@45);
+        }];
+        return cell;
     }
     return nil;
 }
@@ -118,8 +159,12 @@
         return (CGSize){_k_w,_k_w * 4 / 7};
     }else if (indexPath.section == 1){
         return (CGSize){_k_w,IntroductionHeight};
-    }else{
+    }else if (indexPath.section == 2){
         return (CGSize){_k_w/2 - 20,_k_w/2 - 20};
+    }else if (indexPath.section == 3){
+        return (CGSize){_k_w,150};
+    }else{
+        return (CGSize){_k_w,90};
     }
 }
 
@@ -141,7 +186,37 @@
     return 5.f;
 }
 
-
+-(void)applyButtonCilck:(id)sender{
+    
+    ActivityViewModel * activityVM = [[ActivityViewModel alloc]init];
+    [activityVM setBlockWithReturnBlock:^(id returnValue) {
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        if ([returnMsg.returnCode integerValue] == 1) {
+            if (self.requestVoteStatus) {
+                self.requestVoteStatus(YES);
+            }
+        }else{
+            [[MBPAlertView sharedMBPTextView] showTextOnly:self message:(NSString *)returnMsg.msg];
+            if (self.requestVoteStatus) {
+                self.requestVoteStatus(NO);
+            }
+        }
+    } WithFaileBlock:^{
+        
+    }];
+    if (voteChooseArr.count == 0) {
+        [[MBPAlertView sharedMBPTextView] showTextOnly:self message:@"请选择投票！"];
+        return;
+    }
+    NSString * conStr = voteChooseArr.firstObject;
+    for (int i = 1; i < voteChooseArr.count; i++) {
+        NSString * ID = voteChooseArr[i];
+        [conStr stringByAppendingFormat:@",%@",ID];
+    }
+    
+    [activityVM requestAddVote:conStr];
+    
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

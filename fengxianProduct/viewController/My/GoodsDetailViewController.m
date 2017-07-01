@@ -37,7 +37,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"商品详情";
     [self addBackItem];
-    
+    self.navigationController.navigationBar.translucent = NO;
     __weak typeof (self) weakSelf = self;
     [self fatchGoodsDetail:^(BOOL isSuccess) {
         [weakSelf configureview];

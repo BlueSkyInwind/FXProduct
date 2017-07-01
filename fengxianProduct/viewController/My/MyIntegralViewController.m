@@ -16,6 +16,7 @@
 #import "MyIntegralListViewController.h"
 #import "GoodsDetailViewController.h"
 #import "IntegralExchangeListViewController.h"
+#import "LuckyDrawViewController.h"
 
 
 @interface MyIntegralViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,MyIntegralHeaderCollectionViewCellDelegate>{
@@ -182,6 +183,9 @@
         goodDetailVC.goodsId = [NSString stringWithFormat:@"%@",integralGoods.ID];
         [self.navigationController pushViewController:goodDetailVC animated:YES];
         
+    }else if (indexPath.section == 1){
+        LuckyDrawViewController * luckyDrawVC = [[LuckyDrawViewController alloc]init];
+        [self.navigationController pushViewController:luckyDrawVC animated:YES];
     }
 }
 
