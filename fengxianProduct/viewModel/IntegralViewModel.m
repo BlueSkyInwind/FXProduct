@@ -9,6 +9,7 @@
 #import "IntegralViewModel.h"
 #import "integralModel.h"
 #import "AwardModel.h"
+#import "AwardResultModel.h"
 
 @implementation IntegralViewModel
 
@@ -51,7 +52,22 @@
 }
 
 
-
+-(void)requestAwardGoodsResult{
+    
+    //http://infx2.echaokj.cn/ajax/inter/UserLucky.ashx?AccountId=13
+    NSString * baseUrl = [NSString stringWithFormat:@"%@inter/UserLucky.ashx?AccountId=%@",_main_url,[Utility sharedUtility].userInfo.ID];
+    [[FXNetworkManager sharedNetWorkManager]POSTWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            AwardResultModel * awardResultM = [[AwardResultModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
+        }
+        self.returnBlock(returnMsg);
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+}
 
 
 @end

@@ -98,6 +98,7 @@
     }];
 
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
     self.segmentBarVC.segmentBar.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 35);
     //设置segmentBarVC大小
     self.segmentBarVC.view.frame = CGRectMake(0, 30, _k_w, _k_h - 30);
@@ -117,6 +118,10 @@
             if ([infoModel.According intValue] == 1) {
                 [items addObject:title];
             }
+        }];
+    }else{
+        [[ShareConfig share]obtainNewsColumnInfo:^(BOOL isSuccess) {
+            [self getDataOfSegmentBarVC:[[Utility sharedUtility].columnModel.rows mutableCopy]];
         }];
     }
     NSMutableArray* childVCs = [NSMutableArray array];

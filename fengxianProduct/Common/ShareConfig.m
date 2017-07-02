@@ -44,7 +44,9 @@ static ShareConfig * shareConfig = nil;
             
             LoginViewController *loginView = [LoginViewController new];
             BaseNavigationViewController *nav = [[BaseNavigationViewController alloc]initWithRootViewController:loginView];
-            [vc presentViewController:nav animated:YES completion:nil];
+            app.window.rootViewController = nav;
+
+//            [vc presentViewController:nav animated:YES completion:nil];
             
         }];
         [alertVC addAction:sureAction];
@@ -149,7 +151,7 @@ static ShareConfig * shareConfig = nil;
     
 }
 
--(void)obtainNewsColumnInfo{
+-(void)obtainNewsColumnInfo:(void(^)(BOOL isSuccess))finish{
     
     ColumnViewModel * columnVM = [[ColumnViewModel alloc]init];
     [columnVM setBlockWithReturnBlock:^(id returnValue) {
@@ -157,6 +159,7 @@ static ShareConfig * shareConfig = nil;
         ColumnModel * columnModel = [[ColumnModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
         [Utility sharedUtility].columnModel = columnModel;
         [Tool saveUserDefaul:(NSString *)returnMsg.result Key:FX_ColumnInfo];
+        finish(YES);
     } WithFaileBlock:^{
         
     }];

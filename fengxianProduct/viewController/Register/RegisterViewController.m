@@ -13,6 +13,7 @@
 #import "FXWebViewController.h"
 #import "AgreementViewModel.h"
 #import "lhScanQCodeViewController.h"
+#import "loginViewMdoel.h"
 
 @interface RegisterViewController ()<UITextFieldDelegate>{
     
@@ -120,7 +121,7 @@
         ReturnMsgBaseClass * returnMsg = returnValue;
         if ([returnMsg.returnCode intValue] == 1) {
             //注册成功处理
-            
+            [self userlogin];
         }else{
             [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:(NSString *)returnMsg.msg];
         }
@@ -131,6 +132,32 @@
         [registerVM fatchRegisterMoblieNumber:self.moblieNumber.text verifyCode:self.verificode.text password:self.passwordTextField.text inviteCode:self.invationCode.text];
     }
 }
+-(void)userlogin{
+    
+    loginViewMdoel * loginVM = [[loginViewMdoel alloc]init];
+    [loginVM setBlockWithReturnBlock:^(id returnValue) {
+        ReturnMsgBaseClass * returnMsg = returnValue;
+        if ([returnMsg.returnCode intValue] == 1) {
+            NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+            [Tool saveUserDefaul:dic Key:FX_CommentTimeInfo];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                ((AppDelegate *)[UIApplication sharedApplication].delegate).btb.selectedIndex = 0;
+                app.btb = [[BaseTabBarViewController alloc]init];
+                app.window.rootViewController = app.btb;
+                
+                //                [self dismissViewControllerAnimated:YES completion:^{
+                //                    ((AppDelegate *)[UIApplication sharedApplication].delegate).btb.selectedIndex = 0;
+                //                }];
+            });
+        }else{
+            [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:(NSString *)returnMsg.msg];
+        }
+    } WithFaileBlock:^{
+        
+    }];
+    [loginVM fatchLoginMoblieNumber:self.moblieNumber.text password:self.passwordTextField.text];
+}
+
 -(BOOL)checkInputValue{
     
     if(![Tool isMobileNumber:self.moblieNumber.text]){

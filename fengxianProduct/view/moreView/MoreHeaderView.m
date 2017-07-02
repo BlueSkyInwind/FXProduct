@@ -26,6 +26,9 @@
     [self.userHeaderImageBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:imageUrl] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"user_Icon"] options:SDWebImageRefreshCached];
     
     self.IDLabel.text = [NSString stringWithFormat:@"ID:%@",accountID];
+    if (!accountID) {
+        self.IDLabel.text = [NSString stringWithFormat:@"游客 ID:FFSKP10"];
+    }
     if (nickName == nil) {
         self.nickNameLabel.hidden = YES;
         self.IDleftConstraint.constant = 7;

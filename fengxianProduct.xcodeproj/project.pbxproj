@@ -113,6 +113,9 @@
 		22B53FB81F080FAB003A233B /* AwardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B53FB71F080FAB003A233B /* AwardView.m */; };
 		22B53FBA1F080FB6003A233B /* AwardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B53FB91F080FB6003A233B /* AwardView.xib */; };
 		22B53FBD1F0811B9003A233B /* AwardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B53FBC1F0811B9003A233B /* AwardModel.m */; };
+		22B53FC01F08E715003A233B /* AwardResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B53FBF1F08E715003A233B /* AwardResultModel.m */; };
+		22B53FC31F08EB74003A233B /* AwardResultReminderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B53FC21F08EB74003A233B /* AwardResultReminderView.m */; };
+		22B53FC51F08EB86003A233B /* AwardResultReminderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22B53FC41F08EB86003A233B /* AwardResultReminderView.xib */; };
 		22B9050A1EEBD03C00ED8B71 /* InvationRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B905091EEBD03C00ED8B71 /* InvationRegisterView.m */; };
 		22B9050D1EEBEA3100ED8B71 /* SignAndCollectMdoel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9050C1EEBEA3100ED8B71 /* SignAndCollectMdoel.m */; };
 		22B905101EEC1DB800ED8B71 /* MySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B9050F1EEC1DB800ED8B71 /* MySettingViewController.m */; };
@@ -625,6 +628,11 @@
 		22B53FB91F080FB6003A233B /* AwardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AwardView.xib; sourceTree = "<group>"; };
 		22B53FBB1F0811B9003A233B /* AwardModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwardModel.h; sourceTree = "<group>"; };
 		22B53FBC1F0811B9003A233B /* AwardModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwardModel.m; sourceTree = "<group>"; };
+		22B53FBE1F08E715003A233B /* AwardResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwardResultModel.h; sourceTree = "<group>"; };
+		22B53FBF1F08E715003A233B /* AwardResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwardResultModel.m; sourceTree = "<group>"; };
+		22B53FC11F08EB74003A233B /* AwardResultReminderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwardResultReminderView.h; sourceTree = "<group>"; };
+		22B53FC21F08EB74003A233B /* AwardResultReminderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwardResultReminderView.m; sourceTree = "<group>"; };
+		22B53FC41F08EB86003A233B /* AwardResultReminderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AwardResultReminderView.xib; sourceTree = "<group>"; };
 		22B905081EEBD03C00ED8B71 /* InvationRegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvationRegisterView.h; sourceTree = "<group>"; };
 		22B905091EEBD03C00ED8B71 /* InvationRegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvationRegisterView.m; sourceTree = "<group>"; };
 		22B9050B1EEBEA3100ED8B71 /* SignAndCollectMdoel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignAndCollectMdoel.h; sourceTree = "<group>"; };
@@ -1718,6 +1726,9 @@
 				22B53FB61F080FAB003A233B /* AwardView.h */,
 				22B53FB71F080FAB003A233B /* AwardView.m */,
 				22B53FB91F080FB6003A233B /* AwardView.xib */,
+				22B53FC11F08EB74003A233B /* AwardResultReminderView.h */,
+				22B53FC21F08EB74003A233B /* AwardResultReminderView.m */,
+				22B53FC41F08EB86003A233B /* AwardResultReminderView.xib */,
 			);
 			path = moreView;
 			sourceTree = "<group>";
@@ -2757,6 +2768,8 @@
 				22899C5B1F07B8200014DECD /* GuideModel.m */,
 				22B53FBB1F0811B9003A233B /* AwardModel.h */,
 				22B53FBC1F0811B9003A233B /* AwardModel.m */,
+				22B53FBE1F08E715003A233B /* AwardResultModel.h */,
+				22B53FBF1F08E715003A233B /* AwardResultModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2933,6 +2946,7 @@
 				8440D6D01EEFC41700C59B2C /* CollectionViewCell.xib in Resources */,
 				229520E11EF8301000FA2351 /* CommonBottomView.xib in Resources */,
 				84375A8D1EF92BFB008D2455 /* knob.png in Resources */,
+				22B53FC51F08EB86003A233B /* AwardResultReminderView.xib in Resources */,
 				22899C541F07A7600014DECD /* VoteProgressView.xib in Resources */,
 				846053B31EEAA41900E1002E /* UserQrcodeShareView.xib in Resources */,
 				8440D6CA1EEFBA9600C59B2C /* DateAndWeatherView.xib in Resources */,
@@ -3209,6 +3223,7 @@
 				221A51261EEAE90000A543C0 /* CameraHelper.m in Sources */,
 				84AABDFE1EE69F76001AA7C0 /* YYTextView.m in Sources */,
 				22EAA9261F03F2E900544717 /* VoteFirstTableViewCell.m in Sources */,
+				22B53FC01F08E715003A233B /* AwardResultModel.m in Sources */,
 				84AABECE1EE6A035001AA7C0 /* LOTShapePath.m in Sources */,
 				84AABDD31EE69F76001AA7C0 /* HMScannerBorder.m in Sources */,
 				84AABEC61EE6A035001AA7C0 /* UIBezierPath.m in Sources */,
@@ -3379,6 +3394,7 @@
 				22B905141EEC1E4500ED8B71 /* MySettingTableViewCell.m in Sources */,
 				84AABE521EE6A003001AA7C0 /* UIImage+FixOrientation.m in Sources */,
 				84A635091F00CAB600146A8A /* NewsDetailStatusModel.m in Sources */,
+				22B53FC31F08EB74003A233B /* AwardResultReminderView.m in Sources */,
 				845862561EE68A7100AF52B3 /* NSString+MD5Encrypt.m in Sources */,
 				8458624C1EE68A7100AF52B3 /* AddressClass.m in Sources */,
 				84AABDE61EE69F76001AA7C0 /* YYMemoryCache.m in Sources */,

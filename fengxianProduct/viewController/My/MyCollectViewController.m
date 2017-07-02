@@ -51,6 +51,9 @@
     [self setupMJRefreshTableView];
 }
 -(void)editCollectList{
+    if (!_dataArr || _dataArr.count == 0) {
+        return;
+    }
     
     isEdit = !isEdit;
     [self.tableView reloadData];
@@ -164,6 +167,7 @@
         deleteStr = [deleteStr stringByAppendingFormat:@"%@:%@,",newsListI.CommType,newsListI.ID];
     }
     deleteStr = [deleteStr substringToIndex:deleteStr.length - 1];
+    
     [newViewM fatchCollectAndSpotStatus:@"0" ceteID:deleteStr];
 }
 #pragma mark ----------设置列表的可刷新性----------
@@ -209,6 +213,7 @@
     __weak typeof (self) weakSelf = self;
     _moreBottomDeleteV.bottomDeleteTap = ^(UITapGestureRecognizer *tap) {
         [weakSelf requestDeleteCollect:^(BOOL isSuccess) {
+            
             [weakSelf.dataArr removeObjectsInArray:weakSelf.deleteArr];
             [weakSelf.tableView reloadData];
         }];

@@ -70,7 +70,7 @@
                                 <constraint firstAttribute="height" constant="10" id="Kvc-Vp-h9C"/>
                             </constraints>
                         </imageView>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g1Q-qL-KM6" customClass="YX_TextField">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g1Q-qL-KM6" customClass="YX_TextField">
                             <rect key="frame" x="17" y="2" width="143" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="w1t-bM-rJ3"/>

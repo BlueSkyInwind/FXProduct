@@ -24,6 +24,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if (![Utility sharedUtility].columnModel) {
+//        [[ShareConfig share]obtainNewsColumnInfo:^(BOOL isSuccess) {
+//            
+//        }];
+    }
     
     [[ShareConfig share]obtainLivesColumnInfo];
     [[ShareConfig share]obtainActicityColumnInfo];

@@ -20,5 +20,9 @@
  获取用户积分愁啊几个页面
  */
 -(void)requestAwardGoodsInfo;
+/**
+ 抽奖接口
+ */
+-(void)requestAwardGoodsResult;
 
 @end

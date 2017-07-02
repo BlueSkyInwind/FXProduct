@@ -26,12 +26,12 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqR-xg-WbF">
-                    <rect key="frame" x="56.5" y="121" width="37.5" height="21"/>
+                    <rect key="frame" x="35.5" y="121" width="80" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="Zu2-EO-D5a"/>
-                        <constraint firstAttribute="width" constant="37.5" id="uac-KK-4I2"/>
+                        <constraint firstAttribute="width" constant="80" id="uac-KK-4I2"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>

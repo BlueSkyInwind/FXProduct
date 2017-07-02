@@ -27,7 +27,9 @@
     // Do any additional setup after loading the view from its nib.
     // 设定位置和大小
     [self obtainGuideImage];
-    [[ShareConfig share]obtainNewsColumnInfo];
+    [[ShareConfig share]obtainNewsColumnInfo:^(BOOL isSuccess) {
+        
+    }];
 
     CGRect frame = CGRectMake(0,0,[UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height);
     CGSize launchSize = [UIImage imageNamed:@"launch_Image3.gif"].size;

@@ -12,6 +12,7 @@
 #import "PickerSelectView.h"
 #import "MoreViewModel.h"
 #import "InvationRegisterView.h"
+#import "AppDelegate.h"
 @interface UserInfoViewController ()<UITableViewDelegate,UITableViewDataSource,PickerselectViewDelegate>{
     
     NSArray * titleArr;
@@ -187,15 +188,18 @@
                 cell.contentImageView.hidden = NO;
                 cell.contentImageView.image = [UIImage imageNamed:contentArr[indexPath.section][indexPath.row]];
             }else{
+                cell.contentImageView.hidden = YES;
                 cell.contentLabel.text = contentArr[indexPath.section][indexPath.row];
             }
         }
             break;
         case 1:{
+            cell.contentImageView.hidden = YES;
             cell.contentLabel.text = contentArr[indexPath.section][indexPath.row];
         }
             break;
         case 2:{
+            cell.contentImageView.hidden = YES;
             cell.contentLabel.text = contentArr[indexPath.section][indexPath.row];
         }
             break;
@@ -300,9 +304,11 @@
     
     LoginViewController *loginView = [[LoginViewController alloc]init];
     BaseNavigationViewController *nav = [[BaseNavigationViewController alloc]initWithRootViewController:loginView];
-    [self presentViewController:nav animated:YES completion:^{
-        [EmptyUserData EmptyData];
-    }];
+    [EmptyUserData EmptyData];
+    app.window.rootViewController = nav;
+//    [self presentViewController:nav animated:YES completion:^{
+//        [EmptyUserData EmptyData];
+//    }];
 }
 -(void)popInavationView{
     

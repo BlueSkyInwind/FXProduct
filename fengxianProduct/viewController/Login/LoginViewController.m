@@ -44,9 +44,13 @@
             NSMutableDictionary * dic = [NSMutableDictionary dictionary];
             [Tool saveUserDefaul:dic Key:FX_CommentTimeInfo];
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self dismissViewControllerAnimated:YES completion:^{
-                    ((AppDelegate *)[UIApplication sharedApplication].delegate).btb.selectedIndex = 0;
-                }];
+                ((AppDelegate *)[UIApplication sharedApplication].delegate).btb.selectedIndex = 0;
+                app.btb = [[BaseTabBarViewController alloc]init];
+                app.window.rootViewController = app.btb;
+
+//                [self dismissViewControllerAnimated:YES completion:^{
+//                    ((AppDelegate *)[UIApplication sharedApplication].delegate).btb.selectedIndex = 0;
+//                }];
             });
         }else{
             [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:(NSString *)returnMsg.msg];
@@ -70,14 +74,14 @@
     
 }
 - (IBAction)visitorModelCilck:(id)sender {
+
+    app.btb = [[BaseTabBarViewController alloc]init];
+    app.btb.selectedIndex = 0;
+    app.window.rootViewController = app.btb;
     
-//    app.btb = [[BaseTabBarViewController alloc]init];
-//    app.btb.selectedIndex = 0;
-//    app.window.rootViewController = app.btb;
-    
-    [self dismissViewControllerAnimated:YES completion:^{
-        ((AppDelegate *)[UIApplication sharedApplication].delegate).btb.selectedIndex = 0;
-    }];
+//    [self dismissViewControllerAnimated:YES completion:^{
+//        ((AppDelegate *)[UIApplication sharedApplication].delegate).btb.selectedIndex = 0;
+//    }];
 }
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{

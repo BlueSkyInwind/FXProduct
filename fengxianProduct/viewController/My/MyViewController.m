@@ -50,7 +50,6 @@
     imageArr = @[@"More_jifenduihuan",@"More_feedBack",@"More_setting"];
     titleArr = @[@"积分兑换",@"我的反馈",@"我的设置"];
     dataArray = [NSMutableArray array];
-    
     [self configureView];
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -201,6 +200,7 @@
         make.edges.equalTo(view);
     }];
     self.moreNavView = [[NSBundle mainBundle]loadNibNamed:@"MoreNavView" owner:self options:nil].lastObject;
+    self.moreNavView.vc = self;
     self.moreNavView.delegate = self;
     [view addSubview:self.moreNavView];
     [self.moreNavView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -246,6 +246,7 @@
 -(void)SignInViewCilck{
     
     
+
 }
 -(void)obtainSignStatus{
     

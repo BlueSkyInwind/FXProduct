@@ -132,7 +132,9 @@
         if ([returnMsg.returnCode intValue] == 1){
             if ([_columnType intValue] == 1) {
                 [Utility sharedUtility].columnModel.rows = [columnArr mutableCopy];
-                [[ShareConfig share]obtainNewsColumnInfo];
+                [[ShareConfig share]obtainNewsColumnInfo:^(BOOL isSuccess) {
+                    
+                }];
             }else if ([_columnType intValue] == 2){
                 [Utility sharedUtility].livesColumnModel.rows = [columnArr mutableCopy];
                 [[ShareConfig share]obtainLivesColumnInfo];

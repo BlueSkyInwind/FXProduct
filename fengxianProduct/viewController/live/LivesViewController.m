@@ -53,9 +53,6 @@
     [self getColumnData];
     
     [self configureView];
-    [self obtainColumnBadgeValue:^(BOOL isSuccess) {
-        
-    }];
     [self setupMJRefreshTableView];
 }
 
@@ -265,6 +262,10 @@
         [self.tableView.mj_header endRefreshing];
     });
     [self requestBannerInfo];
+    [self obtainColumnBadgeValue:^(BOOL isSuccess) {
+        
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {

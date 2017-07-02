@@ -38,7 +38,7 @@
 
 + (void)configDefaultShare;
 
--(void)obtainNewsColumnInfo;
+-(void)obtainNewsColumnInfo:(void(^)(BOOL isSuccess))finish;
 -(void)obtainLivesColumnInfo;
 -(void)obtainActicityColumnInfo;
 

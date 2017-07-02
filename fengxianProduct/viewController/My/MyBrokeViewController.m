@@ -46,7 +46,9 @@
     [self setupMJRefreshTableView];
 }
 -(void)editCollectList{
-    
+    if (!_dataArr || _dataArr.count == 0) {
+        return;
+    }
     isEdit = !isEdit;
     [self.tableView reloadData];
     if (isEdit) {

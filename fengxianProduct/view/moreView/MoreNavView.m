@@ -57,12 +57,15 @@
     }
 }
 -(void)goSignInViewCilck{
-    if ([Utility sharedUtility].isSign) {
-//        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"今天已签到！"];
-        [self userSign];
-
-    }else{
-        [self userSign];
+    
+    if ([[ShareConfig share] isPresentLoginVC:_vc]) {
+        if ([Utility sharedUtility].isSign) {
+            //        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"今天已签到！"];
+            [self userSign];
+            
+        }else{
+            [self userSign];
+        }
     }
     if (self.delegate && [self.delegate respondsToSelector:@selector(SignInViewCilck)]) {
         [self.delegate SignInViewCilck];
