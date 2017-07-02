@@ -24,9 +24,11 @@
     self.navigationItem.title = @"登录";
     self.userNameTextField.delegate = self;
     self.password.delegate = self;
-    [self addBackItem];
+//    [self addBackItem];
 }
 -(void)viewWillAppear:(BOOL)animated{
+    
+    
     
 }
 
