@@ -187,6 +187,7 @@
 
     [activityVM uploadUserWriteInfo:self.writeInfoView.titleTextField.text content:self.writeInfoView.contentTextView.text type:typeStr imageStr:imageUrl MP4:vedioUrl];
 }
+
 -(void)submitImageClick{
     __weak typeof (self) weakSelf = self;
     [[CameraHelper shareManager]obtainController:self.vc isVedio:NO userSeletedImage:^(UIImage *userImage, NSData *userImageData, NSString * userimageName) {

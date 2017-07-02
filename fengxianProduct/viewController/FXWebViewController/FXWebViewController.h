@@ -14,4 +14,7 @@
 @property (nonatomic, copy)NSString *Content;
 @property (nonatomic, copy)NSString *title;
 
+@property (nonatomic, assign)BOOL isBlowUp;
+
+
 @end

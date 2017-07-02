@@ -21,6 +21,9 @@
 #import "AnswerListModel.h"
 #import "ActivityMoreViewController.h"
 #import "VoteDetailFirstViewController.h"
+#import "PhotoViewController.h"
+#import "DetailViewController.h"
+
 @interface ActivityViewController ()<UITableViewDelegate,UITableViewDataSource,JZLCycleViewDelegate,WriteInfoViewDelegate>{
     
     NSMutableArray * dataArr;
@@ -201,8 +204,7 @@
 //代理跳转
 - (void)selectItemAtIndex:(NSInteger)index {
     NSLog(@"%ld",index);
-    
-    
+
 }
 #pragma mark - 数据请求
 -(void)requestBannerInfo{

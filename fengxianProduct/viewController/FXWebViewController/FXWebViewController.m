@@ -121,7 +121,9 @@
 // WKNavigationDelegate 页面加载完成之后调用
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
     //修改字体大小 300%
-    [ webView evaluateJavaScript:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '200%'" completionHandler:nil];
+    if (!self.isBlowUp) {
+        [webView evaluateJavaScript:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '300%'" completionHandler:nil];
+    }
 }
 
 #pragma mark -WKUIDelegate

@@ -84,7 +84,7 @@
         //删除子文件夹
         [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
         if (error) {
-            return NO;
+//            return NO;
         }
     }
     return YES;

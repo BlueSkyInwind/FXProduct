@@ -52,6 +52,8 @@
     
     FXWebViewController * fxWebVC = [[FXWebViewController alloc]init];
     fxWebVC.urlStr = @"http://wx.weather.com.cn/mweather/101021000.shtml";
+    fxWebVC.isBlowUp = YES;
+    fxWebVC.title = @"天气详情";
     [self.vc.navigationController pushViewController:fxWebVC animated:YES];
     
 }
