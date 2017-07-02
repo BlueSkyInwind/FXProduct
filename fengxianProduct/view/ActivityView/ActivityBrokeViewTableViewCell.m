@@ -139,6 +139,7 @@
     [activityVM setBlockWithReturnBlock:^(id returnValue) {
         ReturnMsgBaseClass * returnMsg = returnValue;
         if ([returnMsg.returnCode intValue] == 1) {
+            [[MBPAlertView sharedMBPTextView] showTextOnly:_vc.view message:@"上传成功！"];
             [[NSFileManager defaultManager] removeItemAtPath:saveIamgeUrlPath error:nil];
             [[NSFileManager defaultManager] removeItemAtPath:saveIamgePath error:nil];
             [self.contributeBtn setBackgroundColor:kUIColorFromRGB(0x5e5e5e)];
@@ -148,17 +149,42 @@
     } WithFaileBlock:^{
         
     }];
+    
     if (isBaoliao) {
         typeStr = @"0";
     }
+    
     imageUrl = @"";
     NSMutableArray * array = [[NSArray arrayWithContentsOfFile:saveIamgeUrlPath] mutableCopy];
+    NSMutableArray * imageTextArray = [[NSArray arrayWithContentsOfFile:saveIamgeExplainPath] mutableCopy];
     if (array) {
-        for (NSString * str in array) {
-            imageUrl = [imageUrl stringByAppendingFormat:@"%@:;",str];
+        
+        if ([typeStr isEqualToString:@"2"]) {
+            for (int i = 0; i < array.count; i++) {
+                NSString * str1 = array[i];
+                NSString * str2 = imageTextArray[i];
+                NSString * str3 = [str2 stringByReplacingOccurrencesOfString:@" " withString:@""];
+                imageUrl = [imageUrl stringByAppendingFormat:@"%@:%@;",str1,str3];
+            }
+        }else{
+            for (NSString * str in array) {
+                imageUrl = [imageUrl stringByAppendingFormat:@"%@;",str];
+            }
         }
     }
     
+    NSString * str1 = [self.writeInfoView.titleTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString * str2 = [self.writeInfoView.contentTextView.text  stringByReplacingOccurrencesOfString:@" " withString:@""];
+
+    if ([str1 isEqualToString:@""]) {
+        [[MBPAlertView sharedMBPTextView] showTextOnly:_vc.view message:@"请输入标题！"];
+        return;
+    }
+    if ([str2 isEqualToString:@""]) {
+        [[MBPAlertView sharedMBPTextView] showTextOnly:_vc.view message:@"请输入内容！"];
+        return;
+    }
+
     [activityVM uploadUserWriteInfo:self.writeInfoView.titleTextField.text content:self.writeInfoView.contentTextView.text type:typeStr imageStr:imageUrl MP4:vedioUrl];
 }
 -(void)submitImageClick{

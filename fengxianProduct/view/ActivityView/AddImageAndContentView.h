@@ -16,7 +16,7 @@
 @end
 
 
-@interface AddImageAndContentView : UIView
+@interface AddImageAndContentView : UIView<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *contentBtn;
 @property (weak, nonatomic) IBOutlet UITextField *imageExplainTextField;

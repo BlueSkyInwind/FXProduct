@@ -145,20 +145,20 @@
     }else{
         IntegralGoodsCollectionViewCell *cell3 = [_integalCollectionView dequeueReusableCellWithReuseIdentifier:@"IntegralGoodsCollectionViewCell" forIndexPath:indexPath];
 
-        CGSize contentSize = self.integalCollectionView.contentSize;
-        if(didAddSperateVerticalLine == NO) {
-            UIView *verticalLine = [[UIView alloc]initWithFrame:CGRectMake(contentSize.width * 0.5 - 0.5, 290, 1, contentSize.height - 8)];
-            verticalLine.backgroundColor = [UIColor lightGrayColor];//colorWithRed:225/225.0f green:227/225.0f blue:233/225.0f alpha:1.0];
-            verticalLine.alpha = 0.35;
-            [self.integalCollectionView addSubview:verticalLine];
-            didAddSperateVerticalLine = YES;
-        }
-        
-        UIView *horizontalLine = [[UIView alloc]initWithFrame:CGRectMake(0, (20 + cell3.frame.size.height) * indexPath.row , contentSize.width, 1)];//每一个cell的framee是 17.00, 10.00, 160.00, 160.00  ,
-        NSLog(@"%ld, =>  %.2f, %.2f, %.2f, %.2f, ", indexPath.row, horizontalLine.frame.origin.x, horizontalLine.frame.origin.y, horizontalLine.frame.size.width, horizontalLine.frame.size.height);
-        horizontalLine.backgroundColor = [UIColor lightGrayColor];
-        horizontalLine.alpha = 0.35;
-        [self.integalCollectionView addSubview:horizontalLine];
+//        CGSize contentSize = self.integalCollectionView.contentSize;
+//        if(didAddSperateVerticalLine == NO) {
+//            UIView *verticalLine = [[UIView alloc]initWithFrame:CGRectMake(contentSize.width * 0.5 - 0.5, 290, 1, contentSize.height - 8)];
+//            verticalLine.backgroundColor = [UIColor lightGrayColor];//colorWithRed:225/225.0f green:227/225.0f blue:233/225.0f alpha:1.0];
+//            verticalLine.alpha = 0.35;
+//            [self.integalCollectionView addSubview:verticalLine];
+//            didAddSperateVerticalLine = YES;
+//        }
+//        
+//        UIView *horizontalLine = [[UIView alloc]initWithFrame:CGRectMake(0, (20 + cell3.frame.size.height) * indexPath.row , contentSize.width, 1)];//每一个cell的framee是 17.00, 10.00, 160.00, 160.00  ,
+//        NSLog(@"%ld, =>  %.2f, %.2f, %.2f, %.2f, ", indexPath.row, horizontalLine.frame.origin.x, horizontalLine.frame.origin.y, horizontalLine.frame.size.width, horizontalLine.frame.size.height);
+//        horizontalLine.backgroundColor = [UIColor lightGrayColor];
+//        horizontalLine.alpha = 0.35;
+//        [self.integalCollectionView addSubview:horizontalLine];
         
         integralGoodsModel * integralGoods = dataArray[indexPath.row];
         cell3.integralGoodsM = integralGoods;

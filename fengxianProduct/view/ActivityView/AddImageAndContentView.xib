@@ -32,8 +32,8 @@
                         <constraint firstAttribute="width" constant="15" id="ZnQ-kz-I6R"/>
                     </constraints>
                 </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="图片说明：" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QV3-k6-aT5">
-                    <rect key="frame" x="82" y="10" width="283" height="60"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="图片说明：" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QV3-k6-aT5">
+                    <rect key="frame" x="82" y="15" width="283" height="50"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
@@ -47,10 +47,10 @@
                 <constraint firstItem="QV3-k6-aT5" firstAttribute="leading" secondItem="UOz-rO-AEq" secondAttribute="trailing" constant="10" id="EQN-Hh-hTh"/>
                 <constraint firstItem="UOz-rO-AEq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="OnT-8F-eBa"/>
                 <constraint firstItem="80K-J7-jCn" firstAttribute="leading" secondItem="UOz-rO-AEq" secondAttribute="trailing" constant="-7" id="YS6-JH-wMP"/>
-                <constraint firstAttribute="bottom" secondItem="QV3-k6-aT5" secondAttribute="bottom" constant="10" id="kN7-Zj-1Io"/>
+                <constraint firstAttribute="bottom" secondItem="QV3-k6-aT5" secondAttribute="bottom" constant="15" id="kN7-Zj-1Io"/>
                 <constraint firstItem="QV3-k6-aT5" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="maR-7H-rO9"/>
                 <constraint firstItem="80K-J7-jCn" firstAttribute="top" secondItem="UOz-rO-AEq" secondAttribute="top" constant="-8" id="tkt-3f-Nzg"/>
-                <constraint firstItem="QV3-k6-aT5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="zVJ-vp-eRO"/>
+                <constraint firstItem="QV3-k6-aT5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="zVJ-vp-eRO"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

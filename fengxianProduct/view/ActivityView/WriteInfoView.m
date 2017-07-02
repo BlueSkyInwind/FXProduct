@@ -77,9 +77,9 @@
         self.writeInfoViewHeight(0);
     }
     
-    if (self.Type) {
-        self.Type(0);
-    }
+//    if (self.Type) {
+//        self.Type(0);
+//    }
     
     [self initSelectedAddImageView];
     
@@ -179,18 +179,21 @@
 -(void)deleteImageView{
     AddIamgeView * item = [photosArr objectAtIndex:deleteRow];
     [photosArr removeObjectAtIndex:deleteRow];
+    [imageArray removeObjectAtIndex:deleteRow];
     NSMutableArray * arr = [[NSArray arrayWithContentsOfFile:saveIamgePath]mutableCopy];
     [arr removeObjectAtIndex:deleteRow];
     [arr writeToFile:saveIamgePath atomically:YES];
     
     NSMutableArray * arr1 = [[NSArray arrayWithContentsOfFile:saveIamgeUrlPath]mutableCopy];
-    [arr1 removeObjectAtIndex:deleteRow];
-    [arr1 writeToFile:saveIamgeUrlPath atomically:YES];
+    if (arr1 && arr1.count != 0) {
+        [arr1 removeObjectAtIndex:deleteRow];
+        [arr1 writeToFile:saveIamgeUrlPath atomically:YES];
+    }
     
     [UIView animateWithDuration:0.2 animations:^{
         CGRect lastFrame = item.frame;
         CGRect curFrame;
-        for (int i = (int)index; i < [photosArr count]; i++) {
+        for (int i = (int)deleteRow; i < [photosArr count]; i++) {
             AddIamgeView * temp = [photosArr objectAtIndex:i];
             curFrame = temp.frame;
             [temp setFrame:lastFrame];
@@ -224,9 +227,9 @@
         self.writeInfoViewHeight(_k_w * 0.18 * num);
     }
     
-    if (self.Type) {
-        self.Type(1);
-    }
+//    if (self.Type) {
+//        self.Type(1);
+//    }
     
     [UIView animateWithDuration:0.3 animations:^{
         [self initSelectedAddImageAndContentView];
@@ -339,6 +342,7 @@
 -(void)deleteContentImageAndContentView{
     AddImageAndContentView * item = [photosArr objectAtIndex:deleteRow];
     [photosArr removeObjectAtIndex:deleteRow];
+    [imageArray removeObjectAtIndex:deleteRow];
     NSMutableArray * arr = [[NSArray arrayWithContentsOfFile:saveIamgePath]mutableCopy];
     [arr removeObjectAtIndex:deleteRow];
     [arr writeToFile:saveIamgePath atomically:YES];
@@ -347,6 +351,13 @@
     [arr1 removeObjectAtIndex:deleteRow];
     [arr1 writeToFile:saveIamgeUrlPath atomically:YES];
     
+    NSMutableArray * arr2 = [[NSArray arrayWithContentsOfFile:saveIamgeExplainPath]mutableCopy];
+    if (arr2) {
+        arr1 = [NSMutableArray arrayWithObjects:@" ",@" ",@" ",@" ",@" ", nil];
+    }
+    [arr2 replaceObjectAtIndex:deleteRow withObject:@" "];
+    [arr2 writeToFile:saveIamgeExplainPath atomically:YES];
+    
     [UIView animateWithDuration:0.2 animations:^{
         self.imageDisplayHeight.constant -= _k_w * 0.18;
         if (self.writeInfoViewHeight) {
@@ -354,7 +365,7 @@
         }
         CGRect lastFrame = item.frame;
         CGRect curFrame;
-        for (int i = (int)index; i < [photosArr count]; i++) {
+        for (int i = (int)deleteRow; i < [photosArr count]; i++) {
             AddImageAndContentView * temp = [photosArr objectAtIndex:i];
             curFrame = temp.frame;
             [temp setFrame:lastFrame];
@@ -390,7 +401,6 @@
     [_activityPopView removeFromSuperview];
     maskView = nil;
     _activityPopView = nil;
-    
 }
 -(void)selectedClickCell:(NSInteger)row{
     
@@ -405,9 +415,7 @@
             
         }
     }else{
-        if (self.Type) {
-            self.Type(_contributeType);
-        }
+      
         if (row == 0) {
             //新闻
             _contributeType = 1;
@@ -424,6 +432,9 @@
                 [self initAddImageAndContentView];
                 self.typeTitleLabel.text = @"行摄";
             }
+        }
+        if (self.Type) {
+            self.Type(_contributeType);
         }
     }
     [self removeActivityPopView];

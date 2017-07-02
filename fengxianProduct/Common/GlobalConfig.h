@@ -35,6 +35,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #define saveIamgeUrlPath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"saveIamgeUrl.txt"]
 
+#define saveIamgeExplainPath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"saveIamgeExplain.txt"]
+
+
 #define _view_width    self.view.frame.size.width
 #define _view_height   self.view.frame.size.height
 #define _k_w           [UIScreen mainScreen].bounds.size.width

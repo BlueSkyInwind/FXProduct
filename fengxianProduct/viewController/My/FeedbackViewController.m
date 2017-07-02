@@ -50,6 +50,7 @@
    NSString * str = [self.contentTextView.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     if ([str isEqualToString:@""]) {
         [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"请输入反馈内容"];
+        return;
     }
     [feedbackVM uploadAccountFeedfackInfo:self.contentTextView.text imageURl:uploadimageURL userNumber:self.contactWayTextField.text];
 }
