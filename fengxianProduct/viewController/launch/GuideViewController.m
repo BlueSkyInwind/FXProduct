@@ -82,7 +82,7 @@ NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
     [_pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(100, 50));
         make.centerX.equalTo(self.view.mas_centerX);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-80);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-40);
     }];
 }
 

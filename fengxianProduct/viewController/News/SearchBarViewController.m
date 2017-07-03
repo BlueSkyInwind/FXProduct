@@ -275,6 +275,8 @@
         if (pages == 1) {
             [dataArr removeAllObjects];
         }
+        isDisplayHistory = NO;
+        tableViewHeight = 0;
         NSMutableArray * tempArr = [newsListModel.rows mutableCopy];
         [dataArr addObjectsFromArray:tempArr];
         [self.tableView reloadData];

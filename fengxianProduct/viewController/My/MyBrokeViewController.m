@@ -52,7 +52,7 @@
     isEdit = !isEdit;
     [self.tableView reloadData];
     if (isEdit) {
-        self.navigationItem.rightBarButtonItem.title = @"取消";
+        self.navigationItem.rightBarButtonItem.title = @"完成";
         [self showBottomDeleteView];
     }else{
         self.navigationItem.rightBarButtonItem.title = @"编辑";
