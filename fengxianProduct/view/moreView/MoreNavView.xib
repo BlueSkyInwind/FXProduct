@@ -96,7 +96,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VVi-0G-x7B">
                     <rect key="frame" x="240" y="0.0" width="80" height="60"/>
                     <subviews>
-                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="More_shoucang" translatesAutoresizingMaskIntoConstraints="NO" id="eGM-UE-qYl">
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sign_Status_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="eGM-UE-qYl">
                             <rect key="frame" x="27.5" y="7.5" width="25" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="25" id="6l1-cF-6ab"/>
@@ -132,7 +132,7 @@
                                 <constraint firstAttribute="width" constant="1" id="ePE-6H-DSi"/>
                             </constraints>
                         </view>
-                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="More_shoucang" translatesAutoresizingMaskIntoConstraints="NO" id="0fL-el-heD">
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="0fL-el-heD">
                             <rect key="frame" x="28" y="7.5" width="25" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="qUL-DX-gGd"/>
@@ -210,5 +210,7 @@
     <resources>
         <image name="More_baoliao" width="21" height="21"/>
         <image name="More_shoucang" width="21" height="21"/>
+        <image name="email_Icon" width="21" height="21"/>
+        <image name="sign_Status_Icon" width="21" height="21"/>
     </resources>
 </document>

@@ -65,7 +65,7 @@
         [self.commentMessageVC.tableView reloadData];
     }
     if (isEdit) {
-        self.navigationItem.rightBarButtonItem.title = @"取消";
+        self.navigationItem.rightBarButtonItem.title = @"完成";
         [self.systemMessageVC showBottomDeleteView];
         [self.commentMessageVC showBottomDeleteView];
 

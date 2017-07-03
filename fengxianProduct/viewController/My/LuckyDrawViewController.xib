@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,17 +20,17 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="integral_award_back_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="X7M-N7-45m">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VO5-gw-ZdO">
-                    <rect key="frame" x="8" y="100" width="359" height="355"/>
+                    <rect key="frame" x="8" y="100" width="304" height="300.5"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="integral_award_View_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="qd1-8q-DtN">
-                            <rect key="frame" x="0.0" y="0.0" width="359" height="355"/>
+                            <rect key="frame" x="0.0" y="0.0" width="304" height="300.5"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -43,10 +43,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ki8-Hd-bA2">
-                    <rect key="frame" x="8" y="607" width="359" height="45"/>
+                    <rect key="frame" x="8" y="508" width="304" height="45"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="integral_award_bottom_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="5zG-c3-og7">
-                            <rect key="frame" x="0.0" y="0.0" width="359" height="45"/>
+                            <rect key="frame" x="0.0" y="0.0" width="304" height="45"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25z-qo-fxY">
                             <rect key="frame" x="4" y="14" width="62" height="17"/>
@@ -58,7 +58,7 @@
                             <state key="normal" title="活动规则" backgroundImage="integral_award_rule_Icon"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击“开始抽奖”，等待滚动框精止" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7R6-Wh-CVW">
-                            <rect key="frame" x="74" y="8" width="277" height="29"/>
+                            <rect key="frame" x="74" y="8" width="222" height="29"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -80,13 +80,13 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Xg-vy-jIG">
-                    <rect key="frame" x="50" y="463" width="275" height="45"/>
+                    <rect key="frame" x="50" y="408.5" width="220" height="45"/>
                     <subviews>
                         <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="integral_award_btn_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="F3A-Bx-WaD">
-                            <rect key="frame" x="0.0" y="0.0" width="275" height="45"/>
+                            <rect key="frame" x="0.0" y="0.0" width="220" height="45"/>
                         </imageView>
                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0积分/次" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIM-gY-RAe">
-                            <rect key="frame" x="113" y="22" width="50" height="21"/>
+                            <rect key="frame" x="85.5" y="22" width="50" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="vn7-d9-oAT"/>
                                 <constraint firstAttribute="height" constant="21" id="wVD-AX-5rl"/>
@@ -96,7 +96,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开始抽奖" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6y-mO-Y62">
-                            <rect key="frame" x="103" y="3" width="70" height="21"/>
+                            <rect key="frame" x="75.5" y="3" width="70" height="21"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="3gM-Ix-plu"/>
                                 <constraint firstAttribute="width" constant="70" id="evN-7v-ZML"/>
