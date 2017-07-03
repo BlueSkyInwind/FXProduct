@@ -25,4 +25,14 @@
  */
 -(void)requestAwardGoodsResult;
 
+
+/**
+ 我的奖品的列表视图
+
+ @param type 类型
+ @param pageSize 页数
+ */
+-(void)fatchUserAwardListInfo:(NSString *)type pageSize:(int)pageSize;
+
+
 @end

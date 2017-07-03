@@ -12,6 +12,7 @@
 #import "IntegralViewModel.h"
 #import "AwardResultModel.h"
 #import "AwardResultReminderView.h"
+#import "MyAwardListViewController.h"
 
 @interface LuckyDrawViewController (){
     AwardModel * awardModel;
@@ -58,9 +59,8 @@
     
 }
 -(void)myAwardList{
-    
-    
-    
+    MyAwardListViewController  * myAwardListVC = [[MyAwardListViewController alloc]init];
+    [self.navigationController pushViewController:myAwardListVC animated:YES];
 }
 
 -(void)configureView{
@@ -158,7 +158,9 @@
     }];
     [integralViewM requestAwardGoodsResult];
 }
-#pragma mark - 
+
+
+#pragma mark -
 -(void)showAwardResultViewTitleLabel:(NSString *)title isSuccess:(BOOL)isSuccess contentStr:(NSString *)contentStr{
     
     maskView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_h)];

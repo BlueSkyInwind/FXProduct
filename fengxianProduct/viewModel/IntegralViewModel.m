@@ -10,6 +10,7 @@
 #import "integralModel.h"
 #import "AwardModel.h"
 #import "AwardResultModel.h"
+#import "MyAwardListModel.h"
 
 @implementation IntegralViewModel
 
@@ -68,6 +69,24 @@
         [self faileBlock];
     }];
 }
+
+-(void)fatchUserAwardListInfo:(NSString *)type pageSize:(int)pageSize{
+    
+    //http://infx2.echaokj.cn/ajax/My/CommentType.ashx?type=0&AccountId=6&PageSize=1
+    NSString * baseUrl = [NSString stringWithFormat:@"%@My/CommentType.ashx?type=%@&AccountId=%@&PageSize=%d",_main_url,type,[Utility sharedUtility].userInfo.ID,pageSize];
+    [[FXNetworkManager sharedNetWorkManager]POSTHideIndicatorWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            MyAwardListModel * myAwardListModel = [[MyAwardListModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
+            self.returnBlock(myAwardListModel);
+        }
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+}
+
 
 
 @end

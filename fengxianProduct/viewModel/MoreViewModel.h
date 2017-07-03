@@ -94,7 +94,6 @@
  */
 -(void)fatchUserExchangeIntegralInfo:(NSString *)type pageSize:(int)pageSize;
 
-
 /**
  商品详情页
 

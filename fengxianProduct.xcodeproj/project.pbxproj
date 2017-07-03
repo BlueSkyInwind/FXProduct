@@ -426,6 +426,10 @@
 		84C32E5A1EFD124000373BC5 /* AddImageAndContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C32E591EFD124000373BC5 /* AddImageAndContentView.m */; };
 		84C32E5C1EFD127B00373BC5 /* AddIamgeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C32E5B1EFD127B00373BC5 /* AddIamgeView.xib */; };
 		84C32E5E1EFD363200373BC5 /* AddImageAndContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C32E5D1EFD363200373BC5 /* AddImageAndContentView.xib */; };
+		84C6D3781F09E07B00BBD376 /* MyAwardListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6D3771F09E07B00BBD376 /* MyAwardListViewController.m */; };
+		84C6D37B1F09E38B00BBD376 /* MyAwardListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6D37A1F09E38B00BBD376 /* MyAwardListModel.m */; };
+		84C6D37F1F09E51900BBD376 /* MyAwardListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C6D37D1F09E51900BBD376 /* MyAwardListTableViewCell.m */; };
+		84C6D3801F09E51900BBD376 /* MyAwardListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C6D37E1F09E51900BBD376 /* MyAwardListTableViewCell.xib */; };
 		84D2483A1EE7D44A00937D28 /* ReturnMsgBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D248391EE7D44A00937D28 /* ReturnMsgBaseClass.m */; };
 		84D2483D1EE7FB7700937D28 /* SMSViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2483C1EE7FB7700937D28 /* SMSViewModel.m */; };
 		84D248401EE8014900937D28 /* RegisterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D2483F1EE8014900937D28 /* RegisterViewModel.m */; };
@@ -1197,6 +1201,13 @@
 		84C32E591EFD124000373BC5 /* AddImageAndContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddImageAndContentView.m; sourceTree = "<group>"; };
 		84C32E5B1EFD127B00373BC5 /* AddIamgeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddIamgeView.xib; sourceTree = "<group>"; };
 		84C32E5D1EFD363200373BC5 /* AddImageAndContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddImageAndContentView.xib; sourceTree = "<group>"; };
+		84C6D3761F09E07B00BBD376 /* MyAwardListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAwardListViewController.h; sourceTree = "<group>"; };
+		84C6D3771F09E07B00BBD376 /* MyAwardListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAwardListViewController.m; sourceTree = "<group>"; };
+		84C6D3791F09E38B00BBD376 /* MyAwardListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAwardListModel.h; sourceTree = "<group>"; };
+		84C6D37A1F09E38B00BBD376 /* MyAwardListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAwardListModel.m; sourceTree = "<group>"; };
+		84C6D37C1F09E51900BBD376 /* MyAwardListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAwardListTableViewCell.h; sourceTree = "<group>"; };
+		84C6D37D1F09E51900BBD376 /* MyAwardListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAwardListTableViewCell.m; sourceTree = "<group>"; };
+		84C6D37E1F09E51900BBD376 /* MyAwardListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyAwardListTableViewCell.xib; sourceTree = "<group>"; };
 		84D248381EE7D44A00937D28 /* ReturnMsgBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReturnMsgBaseClass.h; sourceTree = "<group>"; };
 		84D248391EE7D44A00937D28 /* ReturnMsgBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReturnMsgBaseClass.m; sourceTree = "<group>"; };
 		84D2483B1EE7FB7700937D28 /* SMSViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSViewModel.h; sourceTree = "<group>"; };
@@ -1729,6 +1740,9 @@
 				22B53FC11F08EB74003A233B /* AwardResultReminderView.h */,
 				22B53FC21F08EB74003A233B /* AwardResultReminderView.m */,
 				22B53FC41F08EB86003A233B /* AwardResultReminderView.xib */,
+				84C6D37C1F09E51900BBD376 /* MyAwardListTableViewCell.h */,
+				84C6D37D1F09E51900BBD376 /* MyAwardListTableViewCell.m */,
+				84C6D37E1F09E51900BBD376 /* MyAwardListTableViewCell.xib */,
 			);
 			path = moreView;
 			sourceTree = "<group>";
@@ -2657,6 +2671,8 @@
 				84FBACBB1F04FC5C0016EFBC /* LuckyDrawViewController.h */,
 				84FBACBC1F04FC5C0016EFBC /* LuckyDrawViewController.m */,
 				84FBACBD1F04FC5C0016EFBC /* LuckyDrawViewController.xib */,
+				84C6D3761F09E07B00BBD376 /* MyAwardListViewController.h */,
+				84C6D3771F09E07B00BBD376 /* MyAwardListViewController.m */,
 				849FDDEF1EFBC5D7002159F9 /* MyCollectViewController.h */,
 				849FDDF01EFBC5D7002159F9 /* MyCollectViewController.m */,
 				849FDDF21EFBC640002159F9 /* MyBrokeViewController.h */,
@@ -2770,6 +2786,8 @@
 				22B53FBC1F0811B9003A233B /* AwardModel.m */,
 				22B53FBE1F08E715003A233B /* AwardResultModel.h */,
 				22B53FBF1F08E715003A233B /* AwardResultModel.m */,
+				84C6D3791F09E38B00BBD376 /* MyAwardListModel.h */,
+				84C6D37A1F09E38B00BBD376 /* MyAwardListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2997,6 +3015,7 @@
 				8439A47C1EEE2BA2002ADF1B /* NewsMultipleTableViewCell.xib in Resources */,
 				8431F34A1EE917DF00295A18 /* MoreTableViewCell.xib in Resources */,
 				840DFFF61EF7A6E400709337 /* CommentTableViewCell.xib in Resources */,
+				84C6D3801F09E51900BBD376 /* MyAwardListTableViewCell.xib in Resources */,
 				226143091EE6E2A500193487 /* launch_Image2.gif in Resources */,
 				22899C4F1F0776E10014DECD /* ChooseView.xib in Resources */,
 				84748E641EF37C2F00831016 /* MyIntegralHeaderCollectionViewCell.xib in Resources */,
@@ -3068,7 +3087,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -3239,6 +3258,7 @@
 				84AABDA11EE69F76001AA7C0 /* UIScrollView+EmptyDataSet.m in Sources */,
 				84AABDDD1EE69F76001AA7C0 /* SDCollectionViewCell.m in Sources */,
 				845862511EE68A7100AF52B3 /* DES3Util.m in Sources */,
+				84C6D3781F09E07B00BBD376 /* MyAwardListViewController.m in Sources */,
 				845862541EE68A7100AF52B3 /* GlobalConfig.m in Sources */,
 				845862551EE68A7100AF52B3 /* GTMBase64.m in Sources */,
 				84AABDD71EE69F76001AA7C0 /* RTRootNavigationController.m in Sources */,
@@ -3336,6 +3356,7 @@
 				84AABDEA1EE69F76001AA7C0 /* YYTextInput.m in Sources */,
 				8458625F1EE68A7100AF52B3 /* NSString+Validate.m in Sources */,
 				84AABDFB1EE69F76001AA7C0 /* YYTextUtilities.m in Sources */,
+				84C6D37F1F09E51900BBD376 /* MyAwardListTableViewCell.m in Sources */,
 				8439A47B1EEE2BA2002ADF1B /* NewsMultipleTableViewCell.m in Sources */,
 				84AABDDA1EE69F76001AA7C0 /* TAAnimatedDotView.m in Sources */,
 				846053B11EEAA40E00E1002E /* UserQrcodeShareView.m in Sources */,
@@ -3395,6 +3416,7 @@
 				84AABE521EE6A003001AA7C0 /* UIImage+FixOrientation.m in Sources */,
 				84A635091F00CAB600146A8A /* NewsDetailStatusModel.m in Sources */,
 				22B53FC31F08EB74003A233B /* AwardResultReminderView.m in Sources */,
+				84C6D37B1F09E38B00BBD376 /* MyAwardListModel.m in Sources */,
 				845862561EE68A7100AF52B3 /* NSString+MD5Encrypt.m in Sources */,
 				8458624C1EE68A7100AF52B3 /* AddressClass.m in Sources */,
 				84AABDE61EE69F76001AA7C0 /* YYMemoryCache.m in Sources */,

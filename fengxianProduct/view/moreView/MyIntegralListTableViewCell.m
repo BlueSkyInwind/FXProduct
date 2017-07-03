@@ -7,6 +7,7 @@
 //
 
 #import "MyIntegralListTableViewCell.h"
+
 @implementation MyIntegralListTableViewCell
 
 - (void)awakeFromNib {
