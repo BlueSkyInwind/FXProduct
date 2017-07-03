@@ -18,6 +18,7 @@
     self.redactReply.hidden = YES;
     self.accoutImage.layer.cornerRadius = self.accoutImage.frame.size.width / 2;
     self.accoutImage.clipsToBounds=  YES;
+    self.hotCommentImageView.hidden = YES;
     UITapGestureRecognizer * commentTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(commentTapClick:)];
     [self.commentImageView addGestureRecognizer:commentTap];
     

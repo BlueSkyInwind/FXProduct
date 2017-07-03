@@ -86,6 +86,9 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(columnViewOneTap)]) {
         [self.delegate columnViewOneTap];
         self.columnViewOneLabel.textColor = UI_MAIN_COLOR;
+        self.columnViewTwoLabel.textColor = kUIColorFromRGB(0x5e5e5e);
+        self.columnViewThreeLabel.textColor = kUIColorFromRGB(0x5e5e5e);
+        self.columnViewFourLabel.textColor = kUIColorFromRGB(0x5e5e5e);
     }
 }
 -(void)columnViewTwoClick{
@@ -93,6 +96,9 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(columnViewTwoTap)]) {
         [self.delegate columnViewTwoTap];
         self.columnViewTwoLabel.textColor = UI_MAIN_COLOR;
+        self.columnViewOneLabel.textColor = kUIColorFromRGB(0x5e5e5e);
+        self.columnViewThreeLabel.textColor = kUIColorFromRGB(0x5e5e5e);
+        self.columnViewFourLabel.textColor = kUIColorFromRGB(0x5e5e5e);
     }
 }
 
@@ -101,6 +107,9 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(columnViewThreeTap)]) {
         [self.delegate columnViewThreeTap];
         self.columnViewThreeLabel.textColor = UI_MAIN_COLOR;
+        self.columnViewTwoLabel.textColor = kUIColorFromRGB(0x5e5e5e);
+        self.columnViewOneLabel.textColor = kUIColorFromRGB(0x5e5e5e);
+        self.columnViewFourLabel.textColor = kUIColorFromRGB(0x5e5e5e);
     }
 }
 
@@ -109,6 +118,9 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(columnViewFourTap)]) {
         [self.delegate columnViewFourTap];
         self.columnViewFourLabel.textColor = UI_MAIN_COLOR;
+        self.columnViewThreeLabel.textColor = kUIColorFromRGB(0x5e5e5e);
+        self.columnViewTwoLabel.textColor = kUIColorFromRGB(0x5e5e5e);
+        self.columnViewOneLabel.textColor = kUIColorFromRGB(0x5e5e5e);
     }
 }
 

@@ -24,6 +24,7 @@ typedef void (^VoteChoose)(BOOL isSelected);
 
 @property (weak, nonatomic) IBOutlet UILabel *percentLabel;
 @property (weak, nonatomic) IBOutlet UIProgressView *voteProgressiew;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *voteProgressWidth;
 
 @property (assign,nonatomic)NSInteger number;
 @property (assign,nonatomic)NSNumber * voteNumber;

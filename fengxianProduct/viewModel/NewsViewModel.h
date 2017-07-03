@@ -96,6 +96,11 @@
  获取公告
  */
 -(void)obatainUserNotice;
+
+/**
+ 关闭公告
+ */
+-(void)CloseUserNotice;
 /**
  关闭公告
  */

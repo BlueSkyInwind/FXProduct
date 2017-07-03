@@ -38,6 +38,7 @@
     self.emailBadgeNum.layer.cornerRadius = self.emailBadgeNum.frame.size.width / 2;
     self.emailBadgeNum.clipsToBounds = YES;
     self.emailBadgeNum.hidden = YES;
+    
 }
 -(void)goCollectViewCilck{
     

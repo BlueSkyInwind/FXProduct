@@ -34,6 +34,7 @@ typedef void (^SpotEventClick)(UITapGestureRecognizer * tap);
 @property (weak, nonatomic) IBOutlet UILabel *redactReply;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *accoutContentHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *redactReplyHeight;
+@property (weak, nonatomic) IBOutlet UIImageView *hotCommentImageView;
 
 @property (nonatomic, strong)DetailCommentModel * detailCommentModel;
 @property (nonatomic, copy)CommentEventClick  commentEventClick;

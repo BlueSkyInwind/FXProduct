@@ -93,6 +93,11 @@
 //    }
     __block DetailCommentModel *detailCommentModel = dataArr[indexPath.row];
     cell.detailCommentModel = dataArr[indexPath.row];
+    if (indexPath.row < 3) {
+        cell.hotCommentImageView.hidden = NO;
+    }else{
+        cell.hotCommentImageView.hidden = YES;
+    }
     cell.commentEventClick = ^(UITapGestureRecognizer *tap) {
         PopCommentInput * popComment = [PopCommentInput share];
         popComment.detailID = self.detailID;

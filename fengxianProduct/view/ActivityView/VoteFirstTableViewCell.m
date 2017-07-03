@@ -17,6 +17,7 @@
     self.voteProgressView.transform = CGAffineTransformMakeScale(1.0f,2.0f);
     self.voteProgressView.layer.cornerRadius = 1;
     self.voteProgressView.clipsToBounds = YES;
+    self.voteNumWidth.constant = 15;
 }
 -(void)setVoteRowsM:(VoteRowsModel *)voteRowsM{
     isSelected = NO;
@@ -26,8 +27,9 @@
 -(void)layoutSubviews{
     [super layoutSubviews];
     
-    self.titleLabel.text = [NSString stringWithFormat:@"%ld、%@", (long)self.number,_voteRowsM.Title];
-    self.voteNumLabel.text = [NSString stringWithFormat:@"%@/%@",_voteRowsM.Num,self.voteNum];
+    self.titleLabel.text = [NSString stringWithFormat:@"%ld、%@", (long)self.number,_voteRowsM.Introduction];
+//    self.voteNumLabel.text = [NSString stringWithFormat:@"%@/%@",_voteRowsM.Num,self.voteNum];
+    self.voteNumLabel.text = [NSString stringWithFormat:@"%@",self.voteNum];
     self.voteProgressView.progress = [_voteRowsM.Num floatValue] / [self.voteNum floatValue];
 }
 

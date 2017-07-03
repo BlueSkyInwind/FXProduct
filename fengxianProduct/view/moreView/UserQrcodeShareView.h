@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *invationBtn;
 
 @property (weak, nonatomic) IBOutlet UILabel *explainLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *invationBtnRight;
 
 @property (nonatomic,assign)id<UserQrcodeShareViewDelegate> delegate;
 

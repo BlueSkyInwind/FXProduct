@@ -20,7 +20,7 @@
 @property (nonatomic,strong)NSString<Optional> * Title;
 @property (nonatomic,strong)NSString<Optional> * Num; 
 @property (nonatomic,strong)NSString<Optional> * Image;
-@property (nonatomic,strong)NSString<Optional> * Introduce;
+@property (nonatomic,strong)NSString<Optional> * Introduction;
 
 
 @end

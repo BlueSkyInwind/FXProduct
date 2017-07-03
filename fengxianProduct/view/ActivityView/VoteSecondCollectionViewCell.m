@@ -35,7 +35,7 @@
     [super layoutSubviews];
     [self.titleImageView  sd_setImageWithURL:[NSURL URLWithString:_voteRowsM.Image] placeholderImage:[UIImage imageNamed:@"news_placeholder_Icon_1" ]options:SDWebImageRefreshCached];
     self.voteObjectLabel.text = _voteRowsM.Title;
-    self.location.text = _voteRowsM.Introduce;
+    self.location.text = _voteRowsM.Introduction;
     self.voteNum.text = [NSString stringWithFormat:@"%@", _voteRowsM.Num];
     
 }

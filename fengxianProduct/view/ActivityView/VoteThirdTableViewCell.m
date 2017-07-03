@@ -18,7 +18,7 @@
     self.voteProgressiew.transform = CGAffineTransformMakeScale(1.0f,2.0f);
     self.voteProgressiew.layer.cornerRadius = 1;
     self.voteProgressiew.clipsToBounds = YES;
-    
+    self.voteProgressWidth.constant = 0;
 }
 
 -(void)setVoteRowsM:(VoteRowsModel *)voteRowsM{
@@ -29,7 +29,7 @@
 -(void)layoutSubviews{
     [super layoutSubviews];
     [self.titleImageView  sd_setImageWithURL:[NSURL URLWithString:_voteRowsM.Image] placeholderImage:[UIImage imageNamed:@"news_placeholder_Icon_1" ]options:SDWebImageRefreshCached];
-    self.title.text = [NSString stringWithFormat:@"%@",_voteRowsM.Title];
+    self.title.text = [NSString stringWithFormat:@"%@",_voteRowsM.Introduction];
     self.voteNum.text = [NSString stringWithFormat:@"%@",self.voteNumber];
     float percent = [_voteRowsM.Num floatValue] / [self.voteNumber floatValue];
     self.percentLabel.text = [NSString stringWithFormat:@"%.0f%%",percent * 100];

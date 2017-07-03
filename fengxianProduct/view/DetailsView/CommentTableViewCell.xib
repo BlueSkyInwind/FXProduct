@@ -27,9 +27,9 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15502186509" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BjV-yy-72S">
-                        <rect key="frame" x="43" y="8" width="110" height="21"/>
+                        <rect key="frame" x="43" y="8" width="102" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="110" id="J71-OD-GWx"/>
+                            <constraint firstAttribute="width" constant="102" id="J71-OD-GWx"/>
                             <constraint firstAttribute="height" constant="21" id="crY-nL-89p"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -159,6 +159,13 @@
                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hot_comment_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="92r-co-K3G">
+                        <rect key="frame" x="150" y="11" width="32" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="LhM-9G-kad"/>
+                            <constraint firstAttribute="height" constant="15" id="fb5-GS-akE"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="bT8-aI-Xoa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-5" id="0Lb-HS-bAM"/>
@@ -170,7 +177,9 @@
                     <constraint firstAttribute="trailingMargin" secondItem="h1R-Ug-0a5" secondAttribute="trailing" id="RGy-49-Vr7"/>
                     <constraint firstItem="h1R-Ug-0a5" firstAttribute="top" secondItem="vlw-Fx-Ds2" secondAttribute="bottom" constant="5" id="Sdx-si-KKD"/>
                     <constraint firstItem="5yC-oJ-yIe" firstAttribute="top" secondItem="h1R-Ug-0a5" secondAttribute="bottom" constant="5" id="VAI-kz-hSx"/>
+                    <constraint firstItem="92r-co-K3G" firstAttribute="centerY" secondItem="BjV-yy-72S" secondAttribute="centerY" id="XSv-4A-wXs"/>
                     <constraint firstItem="IGO-xB-kY5" firstAttribute="leading" secondItem="BjV-yy-72S" secondAttribute="leading" id="fnY-tV-u0O"/>
+                    <constraint firstItem="92r-co-K3G" firstAttribute="leading" secondItem="BjV-yy-72S" secondAttribute="trailing" constant="5" id="gVq-CL-A8q"/>
                     <constraint firstItem="BjV-yy-72S" firstAttribute="leading" secondItem="qCB-NS-Wd7" secondAttribute="trailing" constant="5" id="hH4-ui-tPr"/>
                     <constraint firstItem="5yC-oJ-yIe" firstAttribute="leading" secondItem="h1R-Ug-0a5" secondAttribute="leading" id="hsa-sK-km8"/>
                     <constraint firstItem="vlw-Fx-Ds2" firstAttribute="top" secondItem="IGO-xB-kY5" secondAttribute="bottom" constant="2" id="jy2-hO-czl"/>
@@ -188,6 +197,7 @@
                 <outlet property="commentImageView" destination="zr4-HX-ecG" id="fiK-Zx-PYl"/>
                 <outlet property="commentNum" destination="ULp-2C-1LM" id="6zg-CQ-dht"/>
                 <outlet property="commentTime" destination="IGO-xB-kY5" id="Csa-sA-5hp"/>
+                <outlet property="hotCommentImageView" destination="92r-co-K3G" id="y3i-7S-dAV"/>
                 <outlet property="redactReply" destination="5yC-oJ-yIe" id="vOC-Gr-1HY"/>
                 <outlet property="redactReplyHeight" destination="XhJ-SJ-Fhp" id="lKp-db-Xoy"/>
                 <outlet property="secondComentView" destination="vlw-Fx-Ds2" id="rvc-ov-qCh"/>
@@ -203,6 +213,7 @@
     </objects>
     <resources>
         <image name="Dianzan_gray" width="17" height="17"/>
+        <image name="hot_comment_Icon" width="26" height="11"/>
         <image name="news_comment_Icon" width="16" height="16"/>
     </resources>
 </document>

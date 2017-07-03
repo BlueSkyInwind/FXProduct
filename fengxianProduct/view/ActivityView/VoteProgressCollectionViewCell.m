@@ -30,7 +30,7 @@
         
         VoteRowsModel * voteRowM = contentArr[i];
         NSString * title = [NSString stringWithFormat:@"%d、%@", i+1,voteRowM.Title];
-        float width = [Tool widthForText:title font:15];
+        float width = [Tool widthForText:title font:14]+3;
         voteProgressView.titleLabel.text = title;
         voteProgressView.titleWidth.constant = width;
         voteProgressView.progressView.progress = [voteRowM.Num floatValue] / [_voteDetailModel.VoteNum floatValue];

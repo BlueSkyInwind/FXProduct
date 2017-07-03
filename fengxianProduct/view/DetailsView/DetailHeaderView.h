@@ -13,5 +13,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *autherLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sourceLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *sourceLabelWidth;
+
+
+
 
 @end

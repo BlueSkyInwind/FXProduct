@@ -253,14 +253,22 @@
     MoreViewModel * moreVM = [[MoreViewModel alloc]init];
     [moreVM setBlockWithReturnBlock:^(id returnValue) {
             SignAndCollectMdoel * signModel  = returnValue;
-        if ([signModel.Send integerValue] == 0) {
-            if ([signModel.Send intValue] == 0) {
-                return;
-            }
+        if ([signModel.Send integerValue] != 0) {
+          
             self.moreNavView.emailBadgeNum.hidden = NO;
             self.moreNavView.emailBadgeNum.text = [NSString stringWithFormat:@"%@",signModel.Send];
+        }else{
+            self.moreNavView.emailBadgeNum.hidden = YES;
+
         }
-        [self.tableView reloadData];
+        if ([signModel.Sign intValue] == 0) {
+            self.moreNavView.signLabel.text = @"已签到";
+            
+        }else{
+            self.moreNavView.signLabel.text = @"签到";
+
+        }
+//        [self.tableView reloadData];
     } WithFaileBlock:^{
         
     }];

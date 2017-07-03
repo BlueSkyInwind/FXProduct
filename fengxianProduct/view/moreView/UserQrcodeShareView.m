@@ -25,6 +25,7 @@
     self.userAvatarImage.layer.cornerRadius = self.userAvatarImage.frame.size. height / 2;
     self.userAvatarImage.clipsToBounds = YES;
 
+    self.invationBtnRight.constant = 15;
     [self configureView];
 }
 -(void)configureView{

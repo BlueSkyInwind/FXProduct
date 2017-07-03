@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LuckyDrawViewController">
             <connections>
                 <outlet property="awardBackView" destination="VO5-gw-ZdO" id="iWH-Lk-v0I"/>
+                <outlet property="awardBackViewTop" destination="fad-1g-5b3" id="guH-zy-zmC"/>
                 <outlet property="beginAwardView" destination="8Xg-vy-jIG" id="8fa-zN-ZHj"/>
                 <outlet property="integralNum" destination="gIM-gY-RAe" id="5Ii-8h-xL9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -136,7 +137,7 @@
                 <constraint firstItem="Ki8-Hd-bA2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="wD6-Vp-LrW"/>
                 <constraint firstAttribute="trailing" secondItem="X7M-N7-45m" secondAttribute="trailing" id="y4l-YO-twX"/>
             </constraints>
-            <point key="canvasLocation" x="34.5" y="54.5"/>
+            <point key="canvasLocation" x="-29" y="34"/>
         </view>
     </objects>
     <resources>

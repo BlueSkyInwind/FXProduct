@@ -40,6 +40,9 @@
     UIBarButtonItem *barBtn = [[UIBarButtonItem alloc]initWithTitle:@"我的奖品" style:UIBarButtonItemStylePlain target:self action:@selector(myAwardList)];
     barBtn.tintColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = barBtn;
+    if (UI_IS_IPHONE5 || UI_IS_IPHONE4) {
+        self.awardBackViewTop.constant = 40;
+    }
     __weak typeof (self) weakSelf = self;
     [self obtainDataOfAward:^(BOOL isSuccess) {
         [weakSelf configureView];

@@ -72,7 +72,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每成功邀请一位好友即可获得300积分奖励" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIm-BT-wNT">
-                                    <rect key="frame" x="20" y="39" width="197" height="12"/>
+                                    <rect key="frame" x="15" y="39" width="197" height="12"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="12" id="e0e-LR-EPh"/>
                                         <constraint firstAttribute="width" constant="197" id="qCg-p4-ebS"/>
@@ -82,7 +82,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="邀请好友注册获取积分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLw-9J-5nc">
-                                    <rect key="frame" x="20" y="16" width="176" height="18"/>
+                                    <rect key="frame" x="15" y="16" width="176" height="18"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="176" id="BOY-7M-u12"/>
                                         <constraint firstAttribute="height" constant="18" id="jCi-CG-zoh"/>
@@ -112,9 +112,9 @@
                                 <constraint firstItem="CIm-BT-wNT" firstAttribute="centerY" secondItem="DNH-2L-fPM" secondAttribute="centerY" constant="10" id="AtF-Fa-hwM"/>
                                 <constraint firstItem="qLw-9J-5nc" firstAttribute="centerY" secondItem="DNH-2L-fPM" secondAttribute="centerY" constant="-10" id="H1B-Jh-cLX"/>
                                 <constraint firstAttribute="height" constant="70" id="N6I-DZ-Gjb"/>
-                                <constraint firstItem="qLw-9J-5nc" firstAttribute="leading" secondItem="DNH-2L-fPM" secondAttribute="leading" constant="20" id="aQJ-EK-ac5"/>
+                                <constraint firstItem="qLw-9J-5nc" firstAttribute="leading" secondItem="DNH-2L-fPM" secondAttribute="leading" constant="15" id="aQJ-EK-ac5"/>
                                 <constraint firstItem="MD2-p9-W0T" firstAttribute="centerY" secondItem="DNH-2L-fPM" secondAttribute="centerY" id="kzV-Vz-RGP"/>
-                                <constraint firstItem="CIm-BT-wNT" firstAttribute="leading" secondItem="DNH-2L-fPM" secondAttribute="leading" constant="20" id="zXs-x3-9C9"/>
+                                <constraint firstItem="CIm-BT-wNT" firstAttribute="leading" secondItem="DNH-2L-fPM" secondAttribute="leading" constant="15" id="zXs-x3-9C9"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="onm-2W-zMk">
@@ -205,6 +205,7 @@
                 <outlet property="closeBtn" destination="ZEz-PZ-l9g" id="hSG-AI-h4Q"/>
                 <outlet property="explainLabel" destination="CIm-BT-wNT" id="Af9-Dy-Hu2"/>
                 <outlet property="invationBtn" destination="MD2-p9-W0T" id="haJ-X3-nLN"/>
+                <outlet property="invationBtnRight" destination="8Bs-nQ-Y5R" id="aWM-99-uId"/>
                 <outlet property="invationCodeLabel" destination="Llg-0X-U7Y" id="PUq-UO-6PW"/>
                 <outlet property="qrCodeImage" destination="mQY-ww-5qG" id="q9V-Tc-Gxs"/>
                 <outlet property="userAvatarImage" destination="TYH-Ao-NOZ" id="o14-Fb-yJk"/>

@@ -51,18 +51,26 @@
                         <action selector="closeNoticeViewClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="kIB-0R-Cp1"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xl-3Z-mXv">
+                    <rect key="frame" x="0.0" y="0.0" width="340" height="35"/>
+                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.7335885067114094" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="igk-qQ-ptM" firstAttribute="leading" secondItem="uH1-io-f2t" secondAttribute="trailing" constant="2" id="2R7-C4-Qn0"/>
+                <constraint firstItem="igk-qQ-ptM" firstAttribute="leading" secondItem="5xl-3Z-mXv" secondAttribute="trailing" constant="8" id="88F-zM-xSN"/>
                 <constraint firstItem="qzW-Aj-yNk" firstAttribute="leading" secondItem="IW4-js-Vby" secondAttribute="trailing" constant="2" id="GOD-Ra-JRa"/>
                 <constraint firstItem="qzW-Aj-yNk" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="LJ7-4P-Yb7"/>
                 <constraint firstItem="IW4-js-Vby" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Nlk-LA-GiC"/>
                 <constraint firstItem="IW4-js-Vby" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="QKN-7N-fWO"/>
                 <constraint firstItem="IW4-js-Vby" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="ScX-HD-7cF"/>
                 <constraint firstAttribute="bottom" secondItem="IW4-js-Vby" secondAttribute="bottom" constant="5" id="TBW-Iq-46q"/>
+                <constraint firstAttribute="bottom" secondItem="5xl-3Z-mXv" secondAttribute="bottom" id="UkU-Fg-zFz"/>
                 <constraint firstItem="uH1-io-f2t" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="VaU-qc-zLj"/>
                 <constraint firstAttribute="bottom" secondItem="igk-qQ-ptM" secondAttribute="bottom" constant="5" id="Y81-sS-eRn"/>
+                <constraint firstItem="5xl-3Z-mXv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="bsV-x0-8R0"/>
+                <constraint firstItem="5xl-3Z-mXv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eKY-IJ-Mh9"/>
                 <constraint firstAttribute="trailing" secondItem="igk-qQ-ptM" secondAttribute="trailing" constant="2" id="eX5-dQ-voF"/>
                 <constraint firstItem="igk-qQ-ptM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="lOv-Na-vvs"/>
                 <constraint firstItem="uH1-io-f2t" firstAttribute="leading" secondItem="qzW-Aj-yNk" secondAttribute="trailing" constant="-1" id="n6w-Lc-2Rc"/>
@@ -71,6 +79,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="scrollLabel" destination="uH1-io-f2t" id="6d4-q5-OpG"/>
+                <outlet property="tapView" destination="5xl-3Z-mXv" id="Ym6-y0-JAt"/>
             </connections>
             <point key="canvasLocation" x="34.5" y="-262.5"/>
         </view>

@@ -15,5 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *integralNum;
 
 @property (weak, nonatomic) IBOutlet UIView *beginAwardView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *awardBackViewTop;
+
+
 
 @end

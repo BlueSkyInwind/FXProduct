@@ -248,8 +248,24 @@
     
     [[FXNetworkManager sharedNetWorkManager]POSTHideIndicatorWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
         ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
-        if ([returnMsg.returnCode intValue] == 1) {
+        self.returnBlock(returnMsg);
 
+    } failure:^(EnumServerStatus status, id object) {
+        NSError * error = object;
+        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+        [self faileBlock];
+    }];
+    
+}
+
+-(void)CloseUserNotice{
+    //http://infx2.echaokj.cn/ajax/Basic/NoticeClose.ashx?AccountId=20
+    NSString * baseUrl = [NSString stringWithFormat:@"%@Basic/NoticeClose.ashx?AccountId=%@",_main_url,[Utility sharedUtility].userInfo.ID];
+    
+    [[FXNetworkManager sharedNetWorkManager]POSTHideIndicatorWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+            
             self.returnBlock(returnMsg);
         }
     } failure:^(EnumServerStatus status, id object) {

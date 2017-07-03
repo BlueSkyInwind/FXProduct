@@ -260,6 +260,7 @@
         CGRect frame = CGRectMake(5, 5, CGRectGetWidth(self.imageDispalyView.frame) - 10, _k_w * 0.18);
         imageItem.isDelete = YES;
         imageItem.deleteImageIcon.hidden = NO;
+        [imageItem setFrame:frame];
 
         CGPoint point = imageItem.center;
         point.y = (frame.origin.y + frame.size.height) * i + (5 + frame.size.height / 2);
@@ -311,7 +312,7 @@
 
     [UIView animateWithDuration:0.2f animations:^{
 //        [self.addImageAndContentView setFrame:frame];
-        self.imageDisplayHeight.constant += _k_w * 0.18;
+        self.imageDisplayHeight.constant += _k_w * 0.18 +5;
         if (self.writeInfoViewHeight) {
             self.writeInfoViewHeight(self.imageDisplayHeight.constant - 60);
         }
@@ -320,6 +321,9 @@
         self.addImageAndContentView.center = point;
     }];
     //    self.addImageView.aIndex += 1;
+    if (imageArray.count >4) {
+        self.addImageAndContentView.hidden = YES;
+    }
 }
 
 

@@ -2910,7 +2910,7 @@
 					226BDF7D1EE6859D009D2A3F = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = WB5UAUH8M2;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -3576,9 +3576,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = fengxianProduct/fengxianProduct.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = WB5UAUH8M2;
-
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3601,8 +3600,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.echao.question299;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "646bad01-39dc-49d5-beb7-6015ca324ae9";
-				PROVISIONING_PROFILE_SPECIFIER = fengxian_ceshi_Pro;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -3613,9 +3612,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = fengxianProduct/fengxianProduct.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = WB5UAUH8M2;
-
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3638,8 +3636,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.echao.question299;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "646bad01-39dc-49d5-beb7-6015ca324ae9";
-				PROVISIONING_PROFILE_SPECIFIER = fengxian_ceshi_Pro;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

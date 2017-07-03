@@ -256,6 +256,8 @@
     if ([self.detailModel.Source isEqualToString:@"原创"]) {
         self.detailHeaderView.sourceLabel.textColor = [UIColor redColor];
     }
+    float width = [Tool widthForText:self.detailModel.Source font:14] + 8;
+    self.detailHeaderView.sourceLabelWidth.constant = width;
     self.detailHeaderView.sourceLabel.text = self.detailModel.Source;
     self.detailHeaderView.userInteractionEnabled = YES;
     [_backScrollView addSubview:self.detailHeaderView];

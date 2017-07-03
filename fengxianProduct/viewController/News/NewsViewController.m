@@ -20,6 +20,7 @@
     
     NSMutableArray * items;
     
+    NSString * noticeStr;
 }
 
 @property (nonatomic, strong) TGSementBarVC *segmentBarVC;
@@ -53,7 +54,6 @@
     [self getNewsWeather];
 
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(moreColumnClick) name:@"NewsMoreBtnClick" object:nil];
- 
     [self setTabBarBadgeValue];
 }
 -(void)setTabBarBadgeValue{
@@ -87,9 +87,12 @@
     __weak typeof (self) weakSelf = self;
     [self obtainNoticeInfo:^(BOOL isSuccess, NSString *resultStr) {
         weakSelf.noticeView = [[NSBundle mainBundle]loadNibNamed:@"NoticeView" owner:self options:nil].lastObject;
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(noticeViewTap)];
+        [weakSelf.noticeView.tapView addGestureRecognizer:tap];
         weakSelf.noticeView.scrollLabel.text = resultStr;
         weakSelf.noticeView.closeNoticeView = ^(UIButton *button) {
             [weakSelf.noticeView removeFromSuperview];
+            [weakSelf closeNoticeView];
         };
         [weakSelf.dateAndWeatherView addSubview:self.noticeView];
         [weakSelf.noticeView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -108,6 +111,13 @@
     [self.view bringSubviewToFront:self.dateAndWeatherView];
     
 }
+-(void)noticeViewTap{
+    [self presentAlertTitle:@"公告" content:noticeStr VC:self sureClick:^(NSString *resultStr) {
+        [self.noticeView removeFromSuperview];
+        [self closeNoticeView];
+    }];
+}
+
 -(void)getDataOfSegmentBarVC:(NSMutableArray *)array{
     
     items = [NSMutableArray array];
@@ -181,6 +191,7 @@
         ReturnMsgBaseClass * returnMsg = returnValue;
         if ([returnMsg.returnCode integerValue] == 1) {
             NSString * str = returnMsg.result[@"Title"];
+            noticeStr = str;
             finish(YES,str);
         }
     } WithFaileBlock:^{
@@ -189,6 +200,17 @@
     [newsVM obatainUserNotice];
 
 }
+-(void)closeNoticeView{
+    
+    NewsViewModel * newsVM = [[NewsViewModel alloc]init];
+    [newsVM setBlockWithReturnBlock:^(id returnValue) {
+    
+    } WithFaileBlock:^{
+        
+    }];
+    [newsVM CloseUserNotice];
+}
+
 
 #pragma mark - 点击事件
 -(void)moreColumnClick{
@@ -210,6 +232,22 @@
     [self.navigationController pushViewController:searchBarVC animated:YES];
     
 }
+
+
+-(void)presentAlertTitle:(NSString *)title content:(NSString *)content VC:(UIViewController *)vc sureClick:(void(^)(NSString * resultStr))sureClick{
+    
+    UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:title message:content preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction * sureAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        sureClick(@"确定");
+    }];
+    
+    [alertVC addAction:sureAction];
+    [vc presentViewController:alertVC animated:YES completion:nil];
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

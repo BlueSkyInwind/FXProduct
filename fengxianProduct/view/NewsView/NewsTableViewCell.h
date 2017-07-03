@@ -30,6 +30,7 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *visitorImageLeftCons;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLocationCons;
 
 
 @property (strong ,nonatomic)NewsListInfo * newsList;

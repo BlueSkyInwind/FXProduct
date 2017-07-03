@@ -160,7 +160,7 @@
     }else if (indexPath.section == 1){
         return (CGSize){_k_w,IntroductionHeight};
     }else if (indexPath.section == 2){
-        return (CGSize){_k_w/2 - 20,_k_w/2 - 20};
+        return (CGSize){_k_w/2 - 20,_k_w/2};
     }else if (indexPath.section == 3){
         return (CGSize){_k_w,150};
     }else{

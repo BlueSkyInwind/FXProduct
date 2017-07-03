@@ -57,7 +57,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="342" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHS-tG-vj9">
-                        <rect key="frame" x="251" y="34" width="24" height="21"/>
+                        <rect key="frame" x="257" y="34" width="24" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="8kK-nL-hc6"/>
                             <constraint firstAttribute="width" constant="24" id="owq-8P-alg"/>
@@ -67,14 +67,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poll_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="09z-8W-FT1">
-                        <rect key="frame" x="233" y="38" width="13" height="12"/>
+                        <rect key="frame" x="239" y="38" width="13" height="12"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="12" id="4lt-Mf-DWN"/>
                             <constraint firstAttribute="width" constant="13" id="Hqy-tc-X3j"/>
                         </constraints>
                     </imageView>
                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="din-IN-h7d">
-                        <rect key="frame" x="8" y="45" width="205" height="2"/>
+                        <rect key="frame" x="8" y="45" width="211" height="2"/>
                     </progressView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OHl-Qa-eXd">
                         <rect key="frame" x="0.0" y="59" width="320" height="1"/>
@@ -91,7 +91,7 @@
                     <constraint firstAttribute="bottom" secondItem="OHl-Qa-eXd" secondAttribute="bottom" id="8yh-eg-Esu"/>
                     <constraint firstItem="dcY-sP-EOG" firstAttribute="top" secondItem="mYi-52-yAK" secondAttribute="top" id="Dkd-1D-ZRa"/>
                     <constraint firstItem="IHS-tG-vj9" firstAttribute="centerY" secondItem="JbS-TR-4Kk" secondAttribute="centerY" id="Em7-Uj-bQt"/>
-                    <constraint firstItem="JbS-TR-4Kk" firstAttribute="leading" secondItem="IHS-tG-vj9" secondAttribute="trailing" constant="8" id="Inb-2c-wlO"/>
+                    <constraint firstItem="JbS-TR-4Kk" firstAttribute="leading" secondItem="IHS-tG-vj9" secondAttribute="trailing" constant="2" id="Inb-2c-wlO"/>
                     <constraint firstAttribute="trailing" secondItem="OHl-Qa-eXd" secondAttribute="trailing" id="YuV-af-VBo"/>
                     <constraint firstAttribute="trailingMargin" secondItem="dcY-sP-EOG" secondAttribute="trailing" id="c6g-yV-sLP"/>
                     <constraint firstItem="din-IN-h7d" firstAttribute="leading" secondItem="mYi-52-yAK" secondAttribute="trailing" constant="-55" id="daI-4h-rzP"/>
@@ -112,6 +112,7 @@
                 <outlet property="title" destination="Gmo-sd-ECA" id="osM-Ih-hRo"/>
                 <outlet property="titleImageView" destination="mYi-52-yAK" id="aXf-LP-FF7"/>
                 <outlet property="voteNum" destination="IHS-tG-vj9" id="QG4-Dh-DJ0"/>
+                <outlet property="voteProgressWidth" destination="8Rl-QI-1CJ" id="t82-UE-ftz"/>
                 <outlet property="voteProgressiew" destination="din-IN-h7d" id="6DL-Aw-CKs"/>
             </connections>
         </tableViewCell>

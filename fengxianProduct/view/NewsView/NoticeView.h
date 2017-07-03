@@ -13,6 +13,7 @@
 typedef void (^CloseNoticeView)(UIButton * button);
 @interface NoticeView : UIView
 @property (weak, nonatomic) IBOutlet MarqueeLabel *scrollLabel;
+@property (weak, nonatomic) IBOutlet UIView *tapView;
 
 @property (copy,nonatomic)CloseNoticeView closeNoticeView;
 @end
