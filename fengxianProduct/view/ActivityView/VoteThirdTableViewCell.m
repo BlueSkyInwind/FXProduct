@@ -18,7 +18,7 @@
     self.voteProgressiew.transform = CGAffineTransformMakeScale(1.0f,2.0f);
     self.voteProgressiew.layer.cornerRadius = 1;
     self.voteProgressiew.clipsToBounds = YES;
-    self.voteProgressWidth.constant = 0;
+    
 }
 
 -(void)setVoteRowsM:(VoteRowsModel *)voteRowsM{

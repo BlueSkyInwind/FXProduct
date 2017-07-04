@@ -51,9 +51,13 @@
     }else{
         self.titleLocation.textColor = [UIColor blackColor];
     }
-    float width = [Tool widthForText:self.newsList.Source font:10] +5 ;
+    float width = [Tool widthForText:self.newsList.Source font:10] +10 ;
     self.titleLocationCons.constant = width;
+    if (!self.newsList.Source || [self.newsList.Source isEqualToString:@""]) {
+        self.titleLocationCons.constant = 0;
+    }
     self.titleLocation.text = self.newsList.Source;
+  
     self.titleType.text = self.newsList.Column;
     self.visitorNum.text = [NSString stringWithFormat:@"%@",self.newsList.Num];
     

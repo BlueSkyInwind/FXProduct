@@ -67,7 +67,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     DetailCommentModel * detailCommentM = dataArr[indexPath.row];
-    float height = [Tool heightForText:detailCommentM.Conten width:_k_w - 40 font:15] + 10;
+    float height = [Tool heightForText:detailCommentM.Conten width:_k_w - 40 font:15] + 20;
 
     //小编回复
     commentCellHieight = 60 + height;

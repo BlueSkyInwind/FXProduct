@@ -22,6 +22,8 @@
     [Tool setCorner:self.contentTextView borderColor:kUIColorFromRGB(0x5e5e5e)];
     [Tool setCorner:self.submitBtn borderColor:UI_MAIN_COLOR];
     [Tool setCorner:self.titleTextField borderColor:kUIColorFromRGB(0x5e5e5e)];
+    
+    [self.titleTextField setValue:kUIColorFromRGB(0xe5e5e5) forKeyPath:@"_placeholderLabel.textColor"];
 
     self.seletTypeView.layer.cornerRadius = 3;
     self.seletTypeView.layer.masksToBounds = YES;
