@@ -64,7 +64,7 @@
     self.accountName.text = _detailCommentModel.Name;
     self.commentTime.text = _detailCommentModel.Time;
     self.accountLabel.text = _detailCommentModel.Conten;
-   self.accoutContentHeight.constant =  [Tool heightForText:_detailCommentModel.Conten width:_k_w - 40 font:14] + 10;
+   self.accoutContentHeight.constant =  [Tool heightForText:_detailCommentModel.Conten width:_k_w - 40 font:14] + 20;
     self.commentNum.text = _detailCommentModel.ThumbNum;
     self.spotNum.text = _detailCommentModel.CommentNum;
     
