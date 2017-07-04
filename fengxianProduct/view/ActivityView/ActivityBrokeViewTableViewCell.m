@@ -157,8 +157,10 @@
     imageUrl = @"";
     NSMutableArray * array = [[NSArray arrayWithContentsOfFile:saveIamgeUrlPath] mutableCopy];
     NSMutableArray * imageTextArray = [[NSArray arrayWithContentsOfFile:saveIamgeExplainPath] mutableCopy];
+    if (!imageTextArray) {
+        imageTextArray = [NSMutableArray arrayWithObjects:@" ",@" ",@" ",@" ",@" ", nil];
+    }
     if (array) {
-        
         if ([typeStr isEqualToString:@"2"]) {
             for (int i = 0; i < array.count; i++) {
                 NSString * str1 = array[i];

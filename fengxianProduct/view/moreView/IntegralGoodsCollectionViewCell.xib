@@ -29,19 +29,18 @@
                         <rect key="frame" x="6" y="86" width="74" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="5bx-Rp-Cal"/>
-                            <constraint firstAttribute="width" constant="74" id="SzA-ut-hI1"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHM-bK-OOk">
-                        <rect key="frame" x="83" y="86" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="剩余998" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHM-bK-OOk">
+                        <rect key="frame" x="75" y="86" width="50" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="42" id="4yQ-d4-RMT"/>
+                            <constraint firstAttribute="width" constant="50" id="4yQ-d4-RMT"/>
                             <constraint firstAttribute="height" constant="21" id="WKA-p4-uyr"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.36862745098039218" green="0.36862745098039218" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -70,6 +69,7 @@
                 <constraint firstAttribute="trailing" secondItem="34N-Ke-aGw" secondAttribute="trailing" constant="5" id="Imn-1L-Vfj"/>
                 <constraint firstItem="9kQ-v8-UOd" firstAttribute="top" secondItem="34N-Ke-aGw" secondAttribute="bottom" constant="1" id="SFJ-WU-3tO"/>
                 <constraint firstAttribute="trailing" secondItem="eHM-bK-OOk" secondAttribute="trailing" constant="5" id="VqG-b8-wMq"/>
+                <constraint firstItem="eHM-bK-OOk" firstAttribute="leading" secondItem="9kQ-v8-UOd" secondAttribute="trailing" constant="-5" id="ZDT-Q9-Kcw"/>
                 <constraint firstItem="Qjf-Ww-jg8" firstAttribute="leading" secondItem="7gc-Qk-qyf" secondAttribute="trailing" constant="3" id="g4M-ee-ffa"/>
                 <constraint firstItem="7gc-Qk-qyf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="hUK-2g-MyV"/>
                 <constraint firstItem="9kQ-v8-UOd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="huW-Rm-Y1Q"/>

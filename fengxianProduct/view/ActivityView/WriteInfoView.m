@@ -224,9 +224,9 @@
     [self initArray];
     
     NSInteger num = imageArray.count < 6 ? imageArray.count : 5;
-    self.imageDisplayHeight.constant = _k_w * 0.18 * (num + 1);
+    self.imageDisplayHeight.constant = (_k_w * 0.18 + 5) * (num +1);
     if (self.writeInfoViewHeight) {
-        self.writeInfoViewHeight(_k_w * 0.18 * num);
+        self.writeInfoViewHeight((_k_w * 0.18 + 5) * num);
     }
     
 //    if (self.Type) {
@@ -314,7 +314,7 @@
 
     [UIView animateWithDuration:0.2f animations:^{
 //        [self.addImageAndContentView setFrame:frame];
-        self.imageDisplayHeight.constant += _k_w * 0.18 +5;
+        self.imageDisplayHeight.constant += _k_w * 0.18 + 8;
         if (self.writeInfoViewHeight) {
             self.writeInfoViewHeight(self.imageDisplayHeight.constant - 60);
         }

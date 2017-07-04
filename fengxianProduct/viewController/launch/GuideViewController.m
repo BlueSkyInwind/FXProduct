@@ -123,6 +123,8 @@ NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
 
 +(BOOL)canShowNewFeature{
     
+    return YES;
+    
     //系统直接读取的版本号
     NSString *versionValueStringForSystemNow=[Tool version];
     

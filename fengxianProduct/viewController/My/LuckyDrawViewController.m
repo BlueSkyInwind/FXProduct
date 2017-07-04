@@ -41,7 +41,7 @@
     barBtn.tintColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = barBtn;
     if (UI_IS_IPHONE5 || UI_IS_IPHONE4) {
-        self.awardBackViewTop.constant = 40;
+        self.awardBackViewTop.constant = 60;
     }
     __weak typeof (self) weakSelf = self;
     [self obtainDataOfAward:^(BOOL isSuccess) {

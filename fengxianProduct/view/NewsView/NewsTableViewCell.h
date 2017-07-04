@@ -32,6 +32,10 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLocationCons;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLocationBottom;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLocationHeight;
+
 
 @property (strong ,nonatomic)NewsListInfo * newsList;
 

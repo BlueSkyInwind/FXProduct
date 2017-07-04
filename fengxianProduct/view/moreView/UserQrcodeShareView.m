@@ -27,8 +27,7 @@
 
     self.invationBtnRight.constant = 15;
     if (UI_IS_IPHONE5) {
-        self.invationBtnRight.constant = 8;
-
+        self.explainLabelWidth.constant = 170;
     }
     [self configureView];
 }

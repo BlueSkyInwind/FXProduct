@@ -34,6 +34,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *explainLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *invationBtnRight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *explainLabelWidth;
 
 @property (nonatomic,assign)id<UserQrcodeShareViewDelegate> delegate;
 

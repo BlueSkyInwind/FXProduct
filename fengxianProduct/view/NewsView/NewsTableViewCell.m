@@ -51,13 +51,22 @@
     }else{
         self.titleLocation.textColor = [UIColor blackColor];
     }
+    
+    //来源label的处理
     float width = [Tool widthForText:self.newsList.Source font:10] +10 ;
     self.titleLocationCons.constant = width;
+    if (width >150) {
+        float height = [Tool heightForText:self.newsList.Source width:100 font:10];
+        self.titleLocationCons.constant = 103;
+        self.titleLocationHeight.constant = height;
+    }else{
+        self.titleLocationHeight.constant = 18;
+    }
     if (!self.newsList.Source || [self.newsList.Source isEqualToString:@""]) {
         self.titleLocationCons.constant = 0;
     }
+
     self.titleLocation.text = self.newsList.Source;
-  
     self.titleType.text = self.newsList.Column;
     self.visitorNum.text = [NSString stringWithFormat:@"%@",self.newsList.Num];
     

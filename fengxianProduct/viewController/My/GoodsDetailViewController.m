@@ -181,6 +181,7 @@
     [moreVM setBlockWithReturnBlock:^(id returnValue) {
         ReturnMsgBaseClass * returnMsg  = returnValue;
         if ([returnMsg.returnCode intValue] == 1) {
+            [[MBPAlertView sharedMBPTextView] showTextOnly:self.view    message:[NSString stringWithFormat:@"%@，兑换成功",goodTypeModel.Title]];
             [self removeGoodsExchangeView];
         }else{
             [self removeGoodsExchangeView];
