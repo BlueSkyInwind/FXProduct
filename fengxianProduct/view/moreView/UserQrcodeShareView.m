@@ -26,6 +26,10 @@
     self.userAvatarImage.clipsToBounds = YES;
 
     self.invationBtnRight.constant = 15;
+    if (UI_IS_IPHONE5) {
+        self.invationBtnRight.constant = 8;
+
+    }
     [self configureView];
 }
 -(void)configureView{
