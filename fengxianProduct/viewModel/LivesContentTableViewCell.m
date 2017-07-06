@@ -19,7 +19,7 @@
     [super awakeFromNib];
     // Initialization code
     [Tool setCornerWithoutRadius:self.backView borderColor:kUIColorFromRGB(0xc0c0c0)];
-    self.updateListNumLabel.layer.cornerRadius = self.updateListNumLabel.frame.size.width;
+    self.updateListNumLabel.layer.cornerRadius = self.updateListNumLabel.frame.size.width/2;
     self.updateListNumLabel.clipsToBounds = YES;
     self.updateListNumLabel.hidden = YES;
     [self.moreBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];

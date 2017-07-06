@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -168,7 +168,6 @@
                         <constraint firstItem="0fL-el-heD" firstAttribute="centerY" secondItem="QlE-sS-xOk" secondAttribute="centerY" constant="-10" id="P58-0O-2Ta"/>
                         <constraint firstAttribute="bottom" secondItem="xJ0-Ba-skg" secondAttribute="bottom" constant="8" id="dlc-vi-oBF"/>
                         <constraint firstItem="0fL-el-heD" firstAttribute="top" secondItem="jlZ-ZC-oVH" secondAttribute="bottom" constant="-13" id="mGi-0w-v6H"/>
-                        <constraint firstAttribute="trailing" secondItem="0fL-el-heD" secondAttribute="trailing" constant="27" id="p8v-ld-DDl"/>
                         <constraint firstItem="jlZ-ZC-oVH" firstAttribute="leading" secondItem="0fL-el-heD" secondAttribute="trailing" constant="-12" id="qhL-XN-mdK"/>
                         <constraint firstItem="ijT-Ol-k61" firstAttribute="centerY" secondItem="QlE-sS-xOk" secondAttribute="centerY" constant="10" id="thP-11-XGC"/>
                         <constraint firstItem="0fL-el-heD" firstAttribute="centerX" secondItem="QlE-sS-xOk" secondAttribute="centerX" id="uvB-Qv-HAT"/>

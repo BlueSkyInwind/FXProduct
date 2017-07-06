@@ -108,9 +108,9 @@
         }
         
         if ([newsDetailStatusModel.Thumbs boolValue]) {
-            [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"Dianzan_blue"] forState:UIControlStateNormal];
+            [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"tab_dianzan_Icon_Blue"] forState:UIControlStateNormal];
         }else{
-            [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"Dianzan_gray"] forState:UIControlStateNormal];
+            [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"tab_dianzan_Icon_gray"] forState:UIControlStateNormal];
         }
     } WithFaileBlock:^{
         
@@ -128,7 +128,6 @@
                 shareImage = [image copy];
             });
         }
-        
     });
 }
 
@@ -157,7 +156,7 @@
                 int num = [self.detailButtomView.spotNum.text intValue];
                 self.detailButtomView.spotNum.text = [NSString stringWithFormat:@"%d",(num + 1)];
             }else if([str isEqualToString:@"取消点赞成功！"]){
-                [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"Dianzan_gray"] forState:UIControlStateNormal];
+                [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"tab_dianzan_Icon_gray"] forState:UIControlStateNormal];
                 int num = [self.detailButtomView.spotNum.text intValue];
                 self.detailButtomView.spotNum.text = [NSString stringWithFormat:@"%d",(num - 1)];
             }

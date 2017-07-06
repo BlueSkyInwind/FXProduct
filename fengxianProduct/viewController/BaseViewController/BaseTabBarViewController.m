@@ -46,7 +46,7 @@
 {
     
     NSArray *vcNameArr = @[@"NewsViewController",@"LivesViewController",@"ActivityViewController",@"MyViewController"];
-    NSArray *titleArr = @[@"新闻",@"生活",@"活动",@"更多"];
+    NSArray *titleArr = @[@"新闻",@"生活",@"活动",@"我的"];
     NSArray *imageArr = @[@"news_tabbar_Icon",@"lives_tabbar_Icon",@"activity_tabbar_Icon",@"my_tabbar_Icon"];
     NSArray *seleteimageArr = @[@"news_tabbar_Icon_selected",@"lives_tabbar_Icon_selected",@"activity_tabbar_Icon_selected",@"my_tabbar_Icon_selected"];
     

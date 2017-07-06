@@ -10,7 +10,9 @@
 #import "LaunchViewController.h"
 #import "LoginViewController.h"
 #import "GuideViewController.h"
-
+#import "NotificationModel.h"
+#import "CommentDetailViewController.h"
+#import "DetailViewController.h"
 //#import "InitialSetting.h"
 #import "MyMessageViewController.h"
 #import "JPUSHService.h"
@@ -24,7 +26,10 @@
 AppDelegate *app = nil;
 
 @interface AppDelegate ()<JPUSHRegisterDelegate>{
+
     id currentVC;
+    NSDictionary * notificationContentInfo;
+    
 }
 
 @end
@@ -36,6 +41,9 @@ AppDelegate *app = nil;
     
     // Override point for customization after application launch.
     app = self;
+    if (!notificationContentInfo) {
+        notificationContentInfo = launchOptions[UIApplicationLaunchOptionsLocalNotificationKey];
+    }
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -50,7 +58,8 @@ AppDelegate *app = nil;
     [self initJPush:launchOptions];
     
     [self performSelector:@selector(enter) withObject:self afterDelay:4];
-
+    
+    
     return YES;
 }
 
@@ -67,13 +76,10 @@ AppDelegate *app = nil;
         self.btb = [[BaseTabBarViewController alloc]init];
         self.window.rootViewController = self.btb;
     }
-    
-//    LoginViewController * loginVc = [[LoginViewController alloc]init];
-//    BaseNavigationViewController *nav = [[BaseNavigationViewController alloc]initWithRootViewController:loginVc];
-//    nav.transitioningDelegate = self;
-//    [self presentViewController:nav animated:YES completion:nil];
-
-//    self.window.rootViewController = nav;
+    //通知方法跳转；app在为启动时收到通知，点击启动app处理
+    if (notificationContentInfo) {
+        [self NotificationJump:notificationContentInfo];
+    }
 }
 -(void)initJPush:(NSDictionary *)launchOptions{
     
@@ -153,37 +159,62 @@ AppDelegate *app = nil;
 // iOS 10 Support
 - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
     // Required
-    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    notificationContentInfo = response.notification.request.content.userInfo;
+    [self NotificationJump:notificationContentInfo];
     if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-        [JPUSHService handleRemoteNotification:userInfo];
+        [JPUSHService handleRemoteNotification:notificationContentInfo];
     }
     completionHandler();  // 系统要求执行这个方法
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    
+    notificationContentInfo= userInfo;
     // Required, iOS 7 Support
     if (application.applicationState == UIApplicationStateActive ){
-        currentVC = [[ShareConfig share]topViewController];
-        if ([currentVC isKindOfClass:[BaseTabBarViewController class]]) {
-            BaseTabBarViewController * baseTabVC = currentVC;
-            BaseNavigationViewController * BaseNavigationVC = baseTabVC.selectedViewController;
-            MyMessageViewController * myMessageVC= [[MyMessageViewController alloc]init];
-            [BaseNavigationVC pushViewController:myMessageVC animated:YES];
-            NSLog(@"%@",baseTabVC.selectedViewController);
-        }
-        NSLog(@"%@",currentVC);
- 
+
     }else if(application.applicationState == UIApplicationStateBackground){
         
-        
+        [self NotificationJump:userInfo];
+
     }else if(application.applicationState == UIApplicationStateInactive){
-        
         
     }
     [JPUSHService handleRemoteNotification:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
 }
+-(void)NotificationJump:(NSDictionary *)contentInfo{
+    
+    NotificationModel * notificationM = [[NotificationModel alloc]initWithDictionary:contentInfo error:nil];
+    NotificationDetailModel * notificationDetailM =  [[NotificationDetailModel alloc]initWithDictionary:notificationM.extras error:nil];
+    currentVC = [[ShareConfig share]topViewController];
+    BaseNavigationViewController * BaseNavigationVC;
+    if ([currentVC isKindOfClass:[BaseTabBarViewController class]]) {
+        BaseTabBarViewController * baseTabVC = currentVC;
+        BaseNavigationVC = baseTabVC.selectedViewController;
+    }
+    if (notificationDetailM) {
+        //1:小编回复，跳转对应评论页面；2：礼品兑换通知系统通知跳转我的邮件页面；3新闻推送返回新闻ID用于跳转到对应新闻页面
+        if ([notificationDetailM.Type integerValue] == 1) {
+            
+            CommentDetailViewController * commentDetailVC = [[CommentDetailViewController alloc]init];
+            commentDetailVC.detailID = @([notificationDetailM.ComID integerValue]);
+            commentDetailVC.comID = notificationDetailM.NewID;
+            [BaseNavigationVC pushViewController:commentDetailVC animated:YES];
+            
+        }else if ([notificationDetailM.Type integerValue] == 2){
+            
+            MyMessageViewController * myMessageVC= [[MyMessageViewController alloc]init];
+            [BaseNavigationVC pushViewController:myMessageVC animated:YES];
+            
+        }else if ([notificationDetailM.Type integerValue] == 2){
+            DetailViewController *detailVC = [[DetailViewController alloc]init];
+            detailVC.detailID = @([notificationDetailM.NewID integerValue]);
+            detailVC.Species = @(1);
+            [BaseNavigationVC pushViewController:detailVC animated:YES];
+        }
+    }
+}
+
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     

@@ -222,6 +222,7 @@
 		845862621EE68A7100AF52B3 /* UIDevice+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 845862441EE68A7100AF52B3 /* UIDevice+YYAdd.m */; };
 		845862631EE68A7100AF52B3 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 845862461EE68A7100AF52B3 /* Utility.m */; };
 		845862641EE68A7100AF52B3 /* UserInfoObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 845862491EE68A7100AF52B3 /* UserInfoObj.m */; };
+		8460135A1F0E363E00C5762F /* NotificationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 846013591F0E363E00C5762F /* NotificationModel.m */; };
 		846053B11EEAA40E00E1002E /* UserQrcodeShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846053B01EEAA40E00E1002E /* UserQrcodeShareView.m */; };
 		846053B31EEAA41900E1002E /* UserQrcodeShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846053B21EEAA41900E1002E /* UserQrcodeShareView.xib */; };
 		8466A2BD1F038529007A7632 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AABEF01EE6B277001AA7C0 /* ActivityViewController.m */; };
@@ -830,6 +831,8 @@
 		845862481EE68A7100AF52B3 /* UserInfoObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoObj.h; sourceTree = "<group>"; };
 		845862491EE68A7100AF52B3 /* UserInfoObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoObj.m; sourceTree = "<group>"; };
 		845866051EE68B2400AF52B3 /* fxProduct.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fxProduct.pch; sourceTree = "<group>"; };
+		846013581F0E363E00C5762F /* NotificationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationModel.h; sourceTree = "<group>"; };
+		846013591F0E363E00C5762F /* NotificationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationModel.m; sourceTree = "<group>"; };
 		846053AF1EEAA40E00E1002E /* UserQrcodeShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserQrcodeShareView.h; sourceTree = "<group>"; };
 		846053B01EEAA40E00E1002E /* UserQrcodeShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserQrcodeShareView.m; sourceTree = "<group>"; };
 		846053B21EEAA41900E1002E /* UserQrcodeShareView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserQrcodeShareView.xib; sourceTree = "<group>"; };
@@ -2788,6 +2791,8 @@
 				22B53FBF1F08E715003A233B /* AwardResultModel.m */,
 				84C6D3791F09E38B00BBD376 /* MyAwardListModel.h */,
 				84C6D37A1F09E38B00BBD376 /* MyAwardListModel.m */,
+				846013581F0E363E00C5762F /* NotificationModel.h */,
+				846013591F0E363E00C5762F /* NotificationModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3087,7 +3092,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -3124,6 +3129,7 @@
 				84AABDD51EE69F76001AA7C0 /* HMScannerMaskView.m in Sources */,
 				84AABEBD1EE6A035001AA7C0 /* LOTAnimatableScaleValue.m in Sources */,
 				84AABED21EE6A035001AA7C0 /* LOTShapeTrimPath.m in Sources */,
+				8460135A1F0E363E00C5762F /* NotificationModel.m in Sources */,
 				84FBACBE1F04FC5C0016EFBC /* LuckyDrawViewController.m in Sources */,
 				84BDC85F1EF28587006F4DDE /* MyFeekbackTableViewCell.m in Sources */,
 				84BDC8581EF27967006F4DDE /* MyFeedbackViewController.m in Sources */,
@@ -3577,7 +3583,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = fengxianProduct/fengxianProduct.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = WB5UAUH8M2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3613,7 +3619,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = fengxianProduct/fengxianProduct.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = WB5UAUH8M2;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

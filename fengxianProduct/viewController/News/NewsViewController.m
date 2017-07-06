@@ -15,6 +15,7 @@
 #import "SearchBarViewController.h"
 #import "DateAndWeatherView.h"
 #import "NoticeView.h"
+#import "CommentDetailViewController.h"
 
 @interface NewsViewController (){
     
@@ -211,7 +212,6 @@
     [newsVM CloseUserNotice];
 }
 
-
 #pragma mark - 点击事件
 -(void)moreColumnClick{
     
@@ -225,6 +225,7 @@
         };
         [self.navigationController pushViewController:myColumnVC animated:YES];
     }
+    
 }
 -(void)GosearchViewContrller{
     //可以加动画
@@ -247,6 +248,22 @@
     [vc presentViewController:alertVC animated:YES completion:nil];
     
 }
+
+-(void)ceshi{
+    //     "ID" : 4080,
+//    "ComID" : 34817
+     id currentVC = [[ShareConfig share]topViewController];
+    BaseNavigationViewController * BaseNavigationVC;
+    if ([currentVC isKindOfClass:[BaseTabBarViewController class]]) {
+        BaseTabBarViewController * baseTabVC = currentVC;
+        BaseNavigationVC = baseTabVC.selectedViewController;
+        CommentDetailViewController * commentDetailVC = [[CommentDetailViewController alloc]init];
+        commentDetailVC.detailID = @(4080);
+        commentDetailVC.comID = @"34817";
+        [BaseNavigationVC pushViewController:commentDetailVC animated:YES];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
