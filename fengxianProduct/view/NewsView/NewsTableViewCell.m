@@ -86,8 +86,6 @@
     }else if ([self.newsList.Species integerValue] == 3){
         self.vdieoBtn.hidden = NO;
     }
-    
-    
 }
 
 -(void)configureViewTitleImage:(NSString *)imageName titleLabel:(NSString *)title titleLocation:(NSString *)Location titleType:(NSString *)type visitorNum:(NSString *)visitor commentNum:(NSString *)comment imageType:(NSInteger)imageType{

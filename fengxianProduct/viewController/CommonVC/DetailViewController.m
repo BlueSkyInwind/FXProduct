@@ -77,6 +77,7 @@
     [self commentUnreadStatus];
 }
 -(void)commentUnreadStatus{
+
     NSMutableDictionary * dic = [[Tool getContentWithKey:FX_CommentTimeInfo] mutableCopy];
     if (dic) {
         NSString * str = [dic objectForKey:[NSString stringWithFormat:@"%@",self.detailID]];
@@ -85,6 +86,9 @@
         }else{
             self.commonBottomView.CommentViewIcon.hidden = NO;
         }
+    }
+    if (self.detailModel.rows.count == 0 || !self.detailModel.rows) {
+        self.commonBottomView.CommentViewIcon.hidden = YES;
     }
 }
 -(void)dealloc{
@@ -130,8 +134,6 @@
         }
     });
 }
-
-
 -(void)obtainDetail:(void(^)(BOOL isSuccess))finish{
     
     NewsViewModel * newViewM = [[NewsViewModel alloc]init];
@@ -173,6 +175,7 @@
     if ([[ShareConfig share] isPresentLoginVC:self]) {
         if (self.detailModel.rows.count == 0 || !self.detailModel.rows) {
             [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"该新闻尚无评论"];
+            self.commonBottomView.CommentViewIcon.hidden = YES;
             return;
         }
         CommentDetailViewController * commentDetailVC = [[CommentDetailViewController alloc]init];
@@ -243,6 +246,7 @@
     self.commonBottomView = [[NSBundle mainBundle]loadNibNamed:@"CommonBottomView" owner:self options:nil].lastObject;
     self.commonBottomView.frame = CGRectMake(0, _k_h - 40, _k_w, 40);
     self.commonBottomView.delegate = self;
+    
     [self.view addSubview:self.commonBottomView];
     
     [self commentUnreadStatus];
@@ -269,10 +273,10 @@
 //    config.userContentController = [[WKUserContentController alloc] init];
     //    _contentWebView.navigationDelegate = self;
     //    _contentWebView.UIDelegate = self;
+    
     if ([self.Species integerValue] == 3) {
         //添加视频播放发的视图
         [self initVedioPalyView];
-        
         _contentWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 365, _k_w, _k_h)];
     }else{
         _contentWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 154, _k_w, _k_h)];
@@ -378,13 +382,18 @@
                                           title:title
                                            type:SSDKContentTypeAuto];
         [shareParams SSDKEnableUseClientShare];
-        [ShareSDK showShareActionSheet:nil
+      SSUIShareActionSheetController * sheet  =  [ShareSDK showShareActionSheet:nil
                                  items:nil
                            shareParams:shareParams
                    onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
                        switch (state) {
-                           case SSDKResponseStateSuccess:
-                               [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"分享成功"];
+                           case SSDKResponseStateSuccess:{
+                               if (platformType == SSDKPlatformTypeCopy) {
+                                   [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"复制成功"];
+                               }else{
+                                   [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"分享成功"];
+                               }
+                           }
                                break;
                                
                            case SSDKResponseStateFail:
@@ -393,6 +402,9 @@
                                break;
                        }
                    }];
+//        [sheet.directSharePlatforms removeObject:@(SSDKPlatformTypeCopy)];
+        [sheet.directSharePlatforms addObject:@(SSDKPlatformTypeCopy)];
+ 
     }
 }
 

@@ -368,13 +368,19 @@
                                           title:title
                                            type:SSDKContentTypeAuto];
         [shareParams SSDKEnableUseClientShare];
-        [ShareSDK showShareActionSheet:nil
+      SSUIShareActionSheetController * sheet =  [ShareSDK showShareActionSheet:nil
                                  items:nil
                            shareParams:shareParams
                    onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
                        switch (state) {
                            case SSDKResponseStateSuccess:
-                               [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"分享成功"];
+                           {
+                               if (platformType == SSDKPlatformTypeCopy) {
+                                   [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"复制成功"];
+                               }else{
+                                   [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"分享成功"];
+                               }
+                           }
                                break;
                                
                            case SSDKResponseStateFail:
@@ -383,6 +389,8 @@
                                break;
                        }
                    }];
+        [sheet.directSharePlatforms addObject:@(SSDKPlatformTypeCopy)];
+
     }
 }
 
