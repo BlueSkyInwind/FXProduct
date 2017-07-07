@@ -18,6 +18,9 @@ static BOOL isProduction = YES;
 @property (nonatomic,strong)BaseTabBarViewController *btb;
 
 @property (nonatomic,strong)NSMutableArray * guideImageArr;
+
+@property (nonatomic,strong)NSDictionary * notificationContentInfo;
+
 extern AppDelegate *app;
 
 @end

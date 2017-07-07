@@ -28,7 +28,6 @@ AppDelegate *app = nil;
 @interface AppDelegate ()<JPUSHRegisterDelegate>{
 
     id currentVC;
-    NSDictionary * notificationContentInfo;
     
 }
 
@@ -41,8 +40,8 @@ AppDelegate *app = nil;
     
     // Override point for customization after application launch.
     app = self;
-    if (!notificationContentInfo) {
-        notificationContentInfo = launchOptions[UIApplicationLaunchOptionsLocalNotificationKey];
+    if (_notificationContentInfo) {
+        _notificationContentInfo = [launchOptions objectForKey: UIApplicationLaunchOptionsRemoteNotificationKey];
     }
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -58,7 +57,6 @@ AppDelegate *app = nil;
     [self initJPush:launchOptions];
     
     [self performSelector:@selector(enter) withObject:self afterDelay:4];
-    
     
     return YES;
 }
@@ -76,11 +74,8 @@ AppDelegate *app = nil;
         self.btb = [[BaseTabBarViewController alloc]init];
         self.window.rootViewController = self.btb;
     }
-    //通知方法跳转；app在为启动时收到通知，点击启动app处理
-    if (notificationContentInfo) {
-        [self NotificationJump:notificationContentInfo];
-    }
 }
+
 -(void)initJPush:(NSDictionary *)launchOptions{
     
     JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
@@ -128,28 +123,30 @@ AppDelegate *app = nil;
 }
 - (void)networkDidReceiveMessage:(NSNotification *)notification {
     
-    NSDictionary * userInfo = [notification userInfo];
-    NSString *content = [userInfo valueForKey:@"content"];
-    NSDictionary *extras = [userInfo valueForKey:@"extras"];
-    NSString *customizeField1 = [extras valueForKey:@"customizeField1"]; //服务端传递的Extras附加字段，key是自己定义的
+//    NSDictionary * userInfo = [notification userInfo];
+//    NSString *content = [userInfo valueForKey:@"content"];
+//    NSDictionary *extras = [userInfo valueForKey:@"extras"];
+//    NSString *customizeField1 = [extras valueForKey:@"customizeField1"]; //服务端传递的Extras附加字段，key是自己定义的
     
 }
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
     
     [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeNone categories:nil];
     [JPUSHService registerDeviceToken:deviceToken];
-    
 }
+
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     //Optional
     NSLog(@"did Fail To Register For Remote Notifications With Error: %@", error);
 }
-#pragma mark- JPUSHRegisterDelegate
 
+#pragma mark- JPUSHRegisterDelegate
 // iOS 10 Support
 - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
     // Required
     NSDictionary * userInfo = notification.request.content.userInfo;
+    _notificationContentInfo = notification.request.content.userInfo;
+//    [self NotificationJump:notificationContentInfo];
     if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         [JPUSHService handleRemoteNotification:userInfo];
     }
@@ -159,18 +156,20 @@ AppDelegate *app = nil;
 // iOS 10 Support
 - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
     // Required
-    notificationContentInfo = response.notification.request.content.userInfo;
-    [self NotificationJump:notificationContentInfo];
+    _notificationContentInfo = response.notification.request.content.userInfo;
+    [self NotificationJump:_notificationContentInfo];
     if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-        [JPUSHService handleRemoteNotification:notificationContentInfo];
+        [JPUSHService handleRemoteNotification:_notificationContentInfo];
     }
     completionHandler();  // 系统要求执行这个方法
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    notificationContentInfo= userInfo;
+    _notificationContentInfo= userInfo;
     // Required, iOS 7 Support
     if (application.applicationState == UIApplicationStateActive ){
+        
+//        [self NotificationJump:userInfo];
 
     }else if(application.applicationState == UIApplicationStateBackground){
         
@@ -178,20 +177,29 @@ AppDelegate *app = nil;
 
     }else if(application.applicationState == UIApplicationStateInactive){
         
+        [self NotificationJump:userInfo];
+
     }
     [JPUSHService handleRemoteNotification:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
 }
 -(void)NotificationJump:(NSDictionary *)contentInfo{
     
-    NotificationModel * notificationM = [[NotificationModel alloc]initWithDictionary:contentInfo error:nil];
-    NotificationDetailModel * notificationDetailM =  [[NotificationDetailModel alloc]initWithDictionary:notificationM.extras error:nil];
+    //  {"extras":{"Type":2},"alert":"【礼品兑换通知】更多积分兑换商品，敬请期待！！"}}
+//    NotificationModel * notificationM = [[NotificationModel alloc]initWithDictionary:contentInfo error:nil];
+    NotificationDetailModel * notificationDetailM =  [[NotificationDetailModel alloc]initWithDictionary:contentInfo error:nil];
     currentVC = [[ShareConfig share]topViewController];
     BaseNavigationViewController * BaseNavigationVC;
     if ([currentVC isKindOfClass:[BaseTabBarViewController class]]) {
         BaseTabBarViewController * baseTabVC = currentVC;
         BaseNavigationVC = baseTabVC.selectedViewController;
     }
+    
+//    if ([type2 intValue] == 2){
+//        MyMessageViewController * myMessageVC= [[MyMessageViewController alloc]init];
+//        [BaseNavigationVC pushViewController:myMessageVC animated:YES];
+//    }
+
     if (notificationDetailM) {
         //1:小编回复，跳转对应评论页面；2：礼品兑换通知系统通知跳转我的邮件页面；3新闻推送返回新闻ID用于跳转到对应新闻页面
         if ([notificationDetailM.Type integerValue] == 1) {
@@ -206,20 +214,22 @@ AppDelegate *app = nil;
             MyMessageViewController * myMessageVC= [[MyMessageViewController alloc]init];
             [BaseNavigationVC pushViewController:myMessageVC animated:YES];
             
-        }else if ([notificationDetailM.Type integerValue] == 2){
+        }else if ([notificationDetailM.Type integerValue] == 3){
+            
             DetailViewController *detailVC = [[DetailViewController alloc]init];
             detailVC.detailID = @([notificationDetailM.NewID integerValue]);
             detailVC.Species = @(1);
             [BaseNavigationVC pushViewController:detailVC animated:YES];
+            
         }
     }
 }
-
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     
     // Required,For systems with less than or equal to iOS6
     [JPUSHService handleRemoteNotification:userInfo];
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -227,17 +237,14 @@ AppDelegate *app = nil;
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
 }
 
-
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
-
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
 }
-
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.

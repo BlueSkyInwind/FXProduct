@@ -16,6 +16,9 @@
 #import "DateAndWeatherView.h"
 #import "NoticeView.h"
 #import "CommentDetailViewController.h"
+#import "NotificationModel.h"
+#import "MyMessageViewController.h"
+#import "DetailViewController.h"
 
 @interface NewsViewController (){
     
@@ -56,7 +59,48 @@
 
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(moreColumnClick) name:@"NewsMoreBtnClick" object:nil];
     [self setTabBarBadgeValue];
+    
+    //通知方法跳转；app在为启动时收到通知，点击启动app处理
+    if (app.notificationContentInfo) {
+        [self NotificationJump:app.notificationContentInfo];
+    }
 }
+-(void)NotificationJump:(NSDictionary *)contentInfo{
+    
+    ////  {"extras":{"Type":2},"alert":"【礼品兑换通知】更多积分兑换商品，敬请期待！！"}}
+    NSDictionary * dic = contentInfo[@"aps"];
+    NSString * type = dic[@"alert"];
+    
+//    NotificationModel * notificationM = [[NotificationModel alloc]initWithDictionary:contentInfo error:nil];
+    NotificationDetailModel * notificationDetailM =  [[NotificationDetailModel alloc]initWithDictionary:contentInfo error:nil];
+
+//    if ([notificationDetailM.alert integerValue] == 2){
+//        MyMessageViewController * myMessageVC= [[MyMessageViewController alloc]init];
+//        [self.navigationController pushViewController:myMessageVC animated:YES];
+//    }
+        if (notificationDetailM) {
+            //1:小编回复，跳转对应评论页面；2：礼品兑换通知系统通知跳转我的邮件页面；3新闻推送返回新闻ID用于跳转到对应新闻页面
+            if ([notificationDetailM.Type integerValue] == 1) {
+    
+                CommentDetailViewController * commentDetailVC = [[CommentDetailViewController alloc]init];
+                commentDetailVC.detailID = @([notificationDetailM.ComID integerValue]);
+                commentDetailVC.comID = notificationDetailM.NewID;
+                [self.navigationController pushViewController:commentDetailVC animated:YES];
+    
+            }else if ([type integerValue] == 2){
+    
+                MyMessageViewController * myMessageVC= [[MyMessageViewController alloc]init];
+                [self.navigationController pushViewController:myMessageVC animated:YES];
+    
+            }else if ([notificationDetailM.Type integerValue] == 3){
+                DetailViewController *detailVC = [[DetailViewController alloc]init];
+                detailVC.detailID = @([notificationDetailM.NewID integerValue]);
+                detailVC.Species = @(1);
+                [self.navigationController pushViewController:detailVC animated:YES];
+            }
+        }
+}
+
 -(void)setTabBarBadgeValue{
     
     UITabBarItem * item=[self.tabBarController.tabBar.items objectAtIndex:0];
