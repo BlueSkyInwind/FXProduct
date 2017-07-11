@@ -91,6 +91,8 @@ UIKIT_EXTERN NSString * const FX_CommentTimeInfo;
 //用户栏目信息
 UIKIT_EXTERN NSString * const FX_ColumnInfo;
 UIKIT_EXTERN NSString * const FX_LivesColumnInfo;
+UIKIT_EXTERN NSString * const FX_LiveCellHeight;
+
 UIKIT_EXTERN NSString * const FX_ActivtyColumnInfo;
 
 //用户搜索历史

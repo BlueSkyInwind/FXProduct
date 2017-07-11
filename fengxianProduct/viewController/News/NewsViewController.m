@@ -186,7 +186,8 @@
     }
     for (int  i = 0; i < items.count - 1; i++) {
         SubViewController * subVc = [[SubViewController alloc] init];
-        subVc.columnID = i + 1;
+        ColumnInfoModel * infoModel = array[i+1];
+        subVc.columnID = [infoModel.ColumnID integerValue];
         [childVCs addObject:subVc];
     }
     [self.segmentBarVC setupWithItems:items childVCs:childVCs];

@@ -98,11 +98,21 @@
 -(void)setColumnInfoM:(ColumnInfoModel *)columnInfoM{
     _columnInfoM= nil;
     _columnInfoM = columnInfoM;
-    self.titleLabel.text = columnInfoM.Title;
+    [self layoutIfNeeded];
+}
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    self.titleLabel.text = _columnInfoM.Title;
+    
     if (self.livebadgeModel && [self.livebadgeModel.Count intValue] != 0) {
         self.updateListNumLabel.hidden = NO;
         self.updateListNumLabel.text = [NSString stringWithFormat:@"%@",self.livebadgeModel.Count];
     }
+    if (self.dataArr) {
+        [self.contentTableView reloadData];
+        return;
+    }
+//    
     //缓存数据
     if ([_columnInfoM.ColumnID intValue] == 4) {
         self.dataArr =  [[Utility sharedUtility].liveListModel.rows mutableCopy];
@@ -113,8 +123,11 @@
     }else if([_columnInfoM.ColumnID intValue] == 7){
         self.dataArr =  [[Utility sharedUtility].travelListModel.rows mutableCopy];
     }
-    [self requestNewsListInfo];
+    [self.contentTableView reloadData];
+
+//    [self requestNewsListInfo];
 }
+
 #pragma mrak - 数据请求
 -(void)requestNewsListInfo{
     if (self.dataArr) {
@@ -154,6 +167,7 @@
     NSParameterAssert(_columnInfoM);
     [newsVM fatchNewsInfoID:[NSString stringWithFormat:@"%@",_columnInfoM.ColumnID] pageSize:1 numberOfPage:3];
 }
+
 -(NSUInteger)obtainCellHeight:(NSArray *)arr{
     NSInteger cellHeight= 40;
     for (NewsListInfo * newsList in arr) {
@@ -163,8 +177,12 @@
             cellHeight += 90;
         }
     }
+    
+    NSMutableArray * array = [[Tool getContentWithKey:FX_LiveCellHeight] mutableCopy];
+    [array replaceObjectAtIndex:(self.rowIndex - 1) withObject:@(cellHeight + 10)];
+    [Tool saveUserDefaul:array Key:FX_LiveCellHeight];
     if (self.livesContentTableViewHeight) {
-        self.livesContentTableViewHeight(cellHeight);
+        self.livesContentTableViewHeight(cellHeight,self.rowIndex);
     }
     return cellHeight;
 }

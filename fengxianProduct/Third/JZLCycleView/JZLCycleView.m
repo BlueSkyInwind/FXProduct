@@ -89,16 +89,16 @@
         make.bottom.equalTo(self.mas_bottom).with.offset(0);
         make.left.equalTo(self.mas_left).with.offset(0);
         make.right.equalTo(self.mas_right).with.offset(0);
-        make.height.equalTo(@(self.frame.size.height / 4));
+        make.height.equalTo(@(self.frame.size.height / 5));
     }];
     
     self.headlineImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"headLine_Icon"]];
     [grayView addSubview:self.headlineImageView];
     [self.headlineImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(grayView.mas_centerY);
-        make.left.equalTo(grayView.mas_left).with.offset(15);
-        make.width.equalTo(@(self.frame.size.height/4));
-        make.height.equalTo(@(self.frame.size.height/8));
+        make.left.equalTo(grayView.mas_left).with.offset(10);
+        make.width.equalTo(@(self.frame.size.height/5));
+        make.height.equalTo(@(self.frame.size.height/10));
     }];
     
     self.pageControl = [[UIPageControl alloc] init];

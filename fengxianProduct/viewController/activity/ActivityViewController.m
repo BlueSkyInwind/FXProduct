@@ -68,6 +68,8 @@
     tableViewHeight = 160;
     if (UI_IS_IPHONE6) {
         tableViewHeight = 200;
+    }else if (UI_IS_IPHONE6P){
+        tableViewHeight = 210;
     }
     [self configureView];
     [self setupMJRefreshTableView];
@@ -101,10 +103,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
         case 0:{
-            if (UI_IS_IPHONE6) {
-                return 200;
-            }
-            return 160;
+                return tableViewHeight;
         }
             break;
         case 1:{
@@ -236,7 +235,6 @@
         }
 
         __weak typeof (self) wealSelf = self;
-        
         [columnInfoArr replaceObjectAtIndex:0 withObject:tempArr];
         
         [Utility sharedUtility].voteListModel = newsListM;
@@ -288,7 +286,6 @@
         __weak typeof (self) wealSelf = self;
         NewsListInfo * newsList = tempArr.firstObject;
         [columnInfoArr replaceObjectAtIndex:2 withObject:tempArr];
-        
         [Utility sharedUtility].welfareListModel = newsListM;
         NSIndexPath * indexPath = [NSIndexPath indexPathForRow:3 inSection:1];
         [wealSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];

@@ -129,7 +129,7 @@
         
     } WithFaileBlock:^{
         
-    }];
+    }]; 
     [newsVM fatchNewsInfoID:[NSString stringWithFormat:@"%ld",(long)self.columnID] pageSize:pages numberOfPage:10];
 }
 

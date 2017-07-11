@@ -68,7 +68,7 @@
 {
  
     NSArray *imageArr = @[self.userQrcodeShareView.qrCodeImage.image];
-    NSString * str = [NSString stringWithFormat:@"安装注册输入邀请码：%@",self.userQrcodeShareView.invationCodeLabel.text];
+    NSString * str = [NSString stringWithFormat:@"安装注册输入%@",self.userQrcodeShareView.invationCodeLabel.text];
     if (imageArr) {
         NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
         [shareParams SSDKSetupShareParamsByText:str

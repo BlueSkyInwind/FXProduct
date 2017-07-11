@@ -17,6 +17,13 @@
     [Tool setCorner:self.browseNumView borderColor:kUIColorFromRGB(0xe5e5e5) cornerRadius:1];
     [Tool setCorner:self.spotNumView borderColor:kUIColorFromRGB(0xe5e5e5) cornerRadius:1];
 
+    if (UI_IS_IPHONE6P) {
+        self.browseNumViewCentercons.constant = -100;
+        self.spotNumViewCenterCons.constant = 100;
+        self.browseNumViewWidth.constant  = 180;
+        self.spotNumViewWidth.constant  = 180;
+    }
+    
     UITapGestureRecognizer * spotTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(spotViewCilck)];
     [self.spotNumView addGestureRecognizer:spotTap];
     

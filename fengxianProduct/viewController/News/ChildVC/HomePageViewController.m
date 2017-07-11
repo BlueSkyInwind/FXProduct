@@ -45,6 +45,8 @@
     tableViewHeight = 160;
     if (UI_IS_IPHONE6) {
         tableViewHeight = 200;
+    }else if (UI_IS_IPHONE6P){
+        tableViewHeight = 210;
     }
     [self configureView];
     [self setupMJRefreshTableView];

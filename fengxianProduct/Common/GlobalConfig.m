@@ -47,6 +47,7 @@ NSString * const FX_CommentTimeInfo    =   @"commentTimeInfo";
 NSString * const FX_ColumnInfo    =   @"ColumnInfo";
 NSString * const FX_LivesColumnInfo    =   @"livesColumnInfo";
 NSString * const FX_ActivtyColumnInfo    =   @"activtyColumnInfo";
+NSString * const FX_LiveCellHeight    =   @"LiveCellHeight ";
 NSString * const FX_SearchHistory    =   @"SearchHistory";
 
 NSString * const FX_UploadImageArr    =   @"UploadImageArr";

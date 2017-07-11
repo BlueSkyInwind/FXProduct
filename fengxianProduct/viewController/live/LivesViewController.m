@@ -26,11 +26,18 @@
     NSMutableArray * dataArr;
     NSMutableArray * bannerArr;
     NSMutableArray * badgeArr;
+    NSMutableArray * columnInfoArr;
 
     NewsListModel * newsListModel;
     
     NSInteger  tableViewHeight;
     LiveMessageModel * liveMessageModel;
+    
+    NSInteger liveCellheight;
+    NSInteger cultureCellheight;
+    NSInteger shootCellheight;
+    NSInteger travelCellheight;
+
 }
 @property (nonatomic,strong)UITableView * tableView;
 @property (nonatomic,strong)JZLCycleView * cycleView;
@@ -44,11 +51,23 @@
     self.view.backgroundColor = [UIColor whiteColor];
     dataArr = [NSMutableArray array];
     bannerArr = [NSMutableArray array];
+    columnInfoArr = [NSMutableArray arrayWithObjects:@[],@[],@[],@[], nil];
+
     [self.tabBarController.tabBar.items objectAtIndex:1].badgeValue =nil;
     tableViewHeight = 160;
     if (UI_IS_IPHONE6) {
         tableViewHeight = 200;
+    }else if (UI_IS_IPHONE6P){
+        tableViewHeight = 210;
     }
+    //设置默认的cell高度
+    liveCellheight = 320;
+    cultureCellheight = 320;
+    shootCellheight = 320;
+    travelCellheight = 320;
+
+    NSMutableArray *array = [NSMutableArray arrayWithObjects:@(320),@(320),@(320),@(320), nil];
+    [Tool saveUserDefaul:array Key:FX_LiveCellHeight];
     
     [self getColumnData];
     
@@ -79,7 +98,6 @@
     }];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"AddColumnTableViewCell" bundle:nil] forCellReuseIdentifier:@"AddColumnTableViewCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"LivesContentTableViewCell" bundle:nil] forCellReuseIdentifier:@"LivesContentTableViewCell"];
 
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -91,8 +109,14 @@
         case 1:{
             if (indexPath.row == 0 ) {
                 return 90;
-            }else{
-                return 320;
+            }else if(indexPath.row == 1){
+                return liveCellheight;
+            }else if (indexPath.row == 2){
+                return cultureCellheight;
+            }else if (indexPath.row == 3){
+                return shootCellheight;
+            }else if(indexPath.row == 4){
+                return travelCellheight;
             }
         }
             break;
@@ -126,6 +150,7 @@
         [cell addSubview:_cycleView];
         return cell;
     }
+    
     if (indexPath.row == 0) {
         AddColumnTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"AddColumnTableViewCell" forIndexPath:indexPath];
         cell.delegate = self;
@@ -133,7 +158,16 @@
         return cell;
     }else{
         
-        LivesContentTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"LivesContentTableViewCell" forIndexPath:indexPath];
+        NSString * cellStr = [NSString stringWithFormat:@"LivesContentTableViewCell%ld%ld",(long)indexPath.row,(long)indexPath.section];
+        [self.tableView registerNib:[UINib nibWithNibName:@"LivesContentTableViewCell" bundle:nil] forCellReuseIdentifier:cellStr];
+        LivesContentTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellStr forIndexPath:indexPath];
+        if (cell == nil) {
+            cell = [[LivesContentTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellStr];
+        }
+        cell.rowIndex = indexPath.row;
+        if (columnInfoArr.count != 0) {
+            cell.dataArr = columnInfoArr[indexPath.row - 1];
+        }
         if (badgeArr && badgeArr.count != 0) {
             cell.livebadgeModel = badgeArr[indexPath.row - 1];
         }
@@ -147,10 +181,8 @@
             liveMoreVC.columnInfoModel = columnInfoM;
             [self.navigationController pushViewController:liveMoreVC animated:YES];
         };
-        cell.livesContentTableViewHeight  = ^(NSInteger height) {
-            [weakSelf.tableView setRowHeight:height];
-        };
-        return cell;
+
+         return cell;
     }
     return nil;
 }
@@ -158,8 +190,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    
-    
+
 }
 #pragma mark - 录播图点击
 //代理跳转
@@ -186,7 +217,7 @@
         
         BannerListModel * bannerList  = returnValue;
         bannerArr = [bannerList.rows mutableCopy];
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
         [self.tableView.mj_header endRefreshing];
     } WithFaileBlock:^{
         
@@ -207,6 +238,119 @@
     }];
     [liveViewModel fatchLivesColumnBadgeValue];
 }
+
+-(void)requestLiveListInfo{
+
+    NewsViewModel * newsVM = [[NewsViewModel alloc]init];
+    [newsVM setBlockWithReturnBlock:^(id returnValue) {
+        
+        //缓存数据
+        NewsListModel * newsListM = returnValue;
+        NSMutableArray * tempArr = [newsListM.rows mutableCopy];
+        if (!tempArr || tempArr.count == 0 ) {
+            liveCellheight = 40;
+        }else{
+            liveCellheight = [self obtainCellHeight:tempArr];
+        }
+        
+        __weak typeof (self) wealSelf = self;
+        [columnInfoArr replaceObjectAtIndex:0 withObject:tempArr];
+        [Utility sharedUtility].liveListModel = newsListM;
+        NSIndexPath * indexPath = [NSIndexPath indexPathForRow:1 inSection:1];
+        [wealSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    } WithFaileBlock:^{
+        
+    }];
+    ColumnInfoModel *columnInfoM = dataArr[0];
+    [newsVM fatchNewsInfoID:[NSString stringWithFormat:@"%@",columnInfoM.ColumnID] pageSize:1 numberOfPage:3];
+}
+-(void)requestCultureListInfo{
+    
+    NewsViewModel * newsVM = [[NewsViewModel alloc]init];
+    [newsVM setBlockWithReturnBlock:^(id returnValue) {
+        
+        //缓存数据
+        NewsListModel * newsListM = returnValue;
+        NSMutableArray * tempArr = [newsListM.rows mutableCopy];
+        if (!tempArr || tempArr.count == 0 ) {
+            cultureCellheight = 40;
+        }else{
+            cultureCellheight = [self obtainCellHeight:tempArr];
+        }
+        __weak typeof (self) wealSelf = self;
+        [columnInfoArr replaceObjectAtIndex:1 withObject:tempArr];
+        [Utility sharedUtility].cultureListModel = newsListM;
+        NSIndexPath * indexPath = [NSIndexPath indexPathForRow:2 inSection:1];
+        [wealSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    } WithFaileBlock:^{
+        
+    }];
+    ColumnInfoModel *columnInfoM = dataArr[1];
+    [newsVM fatchNewsInfoID:[NSString stringWithFormat:@"%@",columnInfoM.ColumnID] pageSize:1 numberOfPage:3];
+}
+-(void)requestShootListInfo{
+    
+    NewsViewModel * newsVM = [[NewsViewModel alloc]init];
+    [newsVM setBlockWithReturnBlock:^(id returnValue) {
+        
+        //缓存数据
+        NewsListModel * newsListM = returnValue;
+        NSMutableArray * tempArr = [newsListM.rows mutableCopy];
+        if (!tempArr || tempArr.count == 0 ) {
+            shootCellheight = 40;
+        }else{
+            shootCellheight = [self obtainCellHeight:tempArr];
+        }
+        __weak typeof (self) wealSelf = self;
+        [columnInfoArr replaceObjectAtIndex:2 withObject:tempArr];
+        [Utility sharedUtility].shootListModel = newsListM;
+        NSIndexPath * indexPath = [NSIndexPath indexPathForRow:3 inSection:1];
+        [wealSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    } WithFaileBlock:^{
+        
+    }];
+    ColumnInfoModel *columnInfoM = dataArr[2];
+    [newsVM fatchNewsInfoID:[NSString stringWithFormat:@"%@",columnInfoM.ColumnID] pageSize:1 numberOfPage:3];
+}
+-(void)requestTravelListInfo{
+    
+    NewsViewModel * newsVM = [[NewsViewModel alloc]init];
+    [newsVM setBlockWithReturnBlock:^(id returnValue) {
+        
+        //缓存数据
+        NewsListModel * newsListM = returnValue;
+        NSMutableArray * tempArr = [newsListM.rows mutableCopy];
+        if (!tempArr || tempArr.count == 0 ) {
+            travelCellheight = 40;
+        }else{
+            travelCellheight = [self obtainCellHeight:tempArr];
+        }
+        
+        __weak typeof (self) wealSelf = self;
+        [columnInfoArr replaceObjectAtIndex:3 withObject:tempArr];
+        [Utility sharedUtility].travelListModel = newsListM;
+        NSIndexPath * indexPath = [NSIndexPath indexPathForRow:4 inSection:1];
+        [wealSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    } WithFaileBlock:^{
+        
+    }];
+    ColumnInfoModel *columnInfoM = dataArr[3];
+    [newsVM fatchNewsInfoID:[NSString stringWithFormat:@"%@",columnInfoM.ColumnID] pageSize:1 numberOfPage:3];
+}
+
+-(NSUInteger)obtainCellHeight:(NSArray *)arr{
+    NSInteger cellHeight= 40;
+    for (NewsListInfo * newsList in arr) {
+        if ([newsList.Seat intValue] == 1 || [newsList.Seat intValue] == 4) {
+            cellHeight += 140;
+        }else{
+            cellHeight += 90;
+        }
+    }
+    
+    return cellHeight + 10;
+}
+
 -(void)columnViewOneTap{
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:1];
@@ -262,10 +406,13 @@
         [self.tableView.mj_header endRefreshing];
     });
     [self requestBannerInfo];
+    [self requestLiveListInfo];
+    [self requestCultureListInfo];
+    [self requestShootListInfo];
+    [self requestTravelListInfo];
     [self obtainColumnBadgeValue:^(BOOL isSuccess) {
         
     }];
-
 }
 
 - (void)didReceiveMemoryWarning {
