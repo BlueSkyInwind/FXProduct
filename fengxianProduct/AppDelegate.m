@@ -56,7 +56,7 @@ AppDelegate *app = nil;
     //推送
     [self initJPush:launchOptions];
     
-    [self performSelector:@selector(enter) withObject:self afterDelay:4];
+    [self performSelector:@selector(enter) withObject:self afterDelay:5];
     
     return YES;
 }
@@ -66,7 +66,13 @@ AppDelegate *app = nil;
     BOOL isFirst = [GuideViewController canShowNewFeature];
     
     if (isFirst && self.guideImageArr) {
-        self.window.rootViewController = [GuideViewController newGuideVCWithModels:[_guideImageArr copy] enterBlock:^{
+        NSMutableArray * guideArr = [[Tool getContentWithKey:FX_GuideImageArr] mutableCopy];
+        if (!guideArr) {
+            self.btb = [[BaseTabBarViewController alloc]init];
+            self.window.rootViewController = self.btb;
+            return;
+        }
+        self.window.rootViewController = [GuideViewController newGuideVCWithModels:[guideArr copy] enterBlock:^{
             self.btb = [[BaseTabBarViewController alloc]init];
             self.window.rootViewController = self.btb;
         }];

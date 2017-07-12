@@ -9,6 +9,7 @@
 #import "LaunchViewController.h"
 #import <WebKit/WebKit.h>
 #import "NewsViewModel.h"
+#import "GuideModel.h"
 
 @interface LaunchViewController (){
     
@@ -66,6 +67,29 @@
 }
 -(void)obtainGuideImage{
     NewsViewModel * newsViewM = [[NewsViewModel alloc]init];
+    [newsViewM setBlockWithReturnBlock:^(id returnValue) {
+        NSMutableArray * guideArr = [[Tool getContentWithKey:FX_GuideImageArr] mutableCopy];
+        if (guideArr) {
+            [guideArr removeAllObjects];
+        }else{
+            guideArr = [NSMutableArray array];
+        }
+    
+        for (int i = 0; i <  app.guideImageArr.count; i++) {
+            
+            [[SDWebImageManager sharedManager] loadImageWithURL:[NSURL URLWithString:app.guideImageArr[i]] options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+                
+            } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+                NSLog(@"%ld",cacheType);
+                if (cacheType == 0) {
+                    [guideArr addObject:data];
+                    [Tool saveUserDefaul:guideArr Key:FX_GuideImageArr];
+                }
+            }];
+        }
+    } WithFaileBlock:^{
+        
+    }];
     [newsViewM obtainGuideImage];
 }
 

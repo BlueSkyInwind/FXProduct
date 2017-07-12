@@ -100,6 +100,7 @@ UIKIT_EXTERN NSString * const FX_SearchHistory;
 //上传图片数组
 UIKIT_EXTERN NSString * const FX_UploadImageArr;
 
+UIKIT_EXTERN NSString * const FX_GuideImageArr;
 
 
 

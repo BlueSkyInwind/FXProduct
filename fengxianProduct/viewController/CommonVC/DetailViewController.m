@@ -20,6 +20,8 @@
 #import "CommentInputView.h"
 #import "PopCommentInput.h"
 #import "NewsDetailStatusModel.h"
+
+
 @interface DetailViewController ()<WKScriptMessageHandler,WKNavigationDelegate,WKUIDelegate,UIWebViewDelegate,CommonBottomViewDelegate,DetailButtomViewDelegate,UITextViewDelegate>{
     NSMutableArray * commenArray;
     
@@ -33,6 +35,8 @@
 
 @property (nonatomic,strong)DetailHeaderView * detailHeaderView;
 @property (nonatomic,strong)UIWebView * contentWebView;
+//@property (nonatomic,strong)WKWebView * contentWebView;
+
 @property (nonatomic,strong)UIScrollView * backScrollView;
 @property (nonatomic,strong)DetailModel * detailModel;
 @property (nonatomic,strong)UIView * vedioPlayerView;
@@ -269,29 +273,41 @@
 //    config.preferences = [[WKPreferences alloc] init];
 //    config.preferences.javaScriptEnabled = true;
 //    config.preferences.javaScriptCanOpenWindowsAutomatically = true;
-//    config.ignoresViewportScaleLimits = YES;
 //    config.userContentController = [[WKUserContentController alloc] init];
-    //    _contentWebView.navigationDelegate = self;
-    //    _contentWebView.UIDelegate = self;
     
     if ([self.Species integerValue] == 3) {
         //添加视频播放发的视图
         [self initVedioPalyView];
         _contentWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 365, _k_w, _k_h)];
+//        _contentWebView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 365, _k_w, _k_h) configuration:config];
+        
     }else{
+        
         _contentWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 154, _k_w, _k_h)];
+//        _contentWebView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 154, _k_w, _k_h) configuration:config];
+        
     }
+    
     _contentWebView.scrollView.scrollEnabled =  NO;
     [_contentWebView.scrollView setZoomScale:2.0 animated:YES];
     _contentWebView.delegate = self;
     [_backScrollView addSubview:_contentWebView];
     [_contentWebView loadHTMLString:self.detailModel.Information baseURL:nil];
-        
+    
+//    [_backScrollView addSubview:_contentWebView];
+//    [_contentWebView loadHTMLString:self.detailModel.Information baseURL:nil];
+//     _contentWebView.scrollView.scrollEnabled =  NO;
+//    _contentWebView.navigationDelegate = self;
+//    _contentWebView.UIDelegate = self;
+//    _contentWebView.scrollView.bouncesZoom = NO;
+//    _contentWebView.scrollView.contentSize = self.view.bounds.size;
+    
     DetailCommentModel * detailCommentM = self.detailModel.rows.firstObject;
     //小编回复
     if (detailCommentM.Reply) {
         commentViewHieight  += 60;
     }
+    
     //二级评论
     DetailCommentModel * detailCommentM2 = [[DetailCommentModel alloc]initWithDictionary:detailCommentM.lower error:nil];
     if ([detailCommentM2.success integerValue] == 1) {
@@ -308,8 +324,8 @@
     self.detailButtomView.browerNum.text = [NSString stringWithFormat:@"%@",self.detailModel.Num];
     self.detailButtomView.spotNum.text = [NSString stringWithFormat:@"%@",self.detailModel.ThNum];
     [self.backScrollView addSubview:self.detailButtomView];
-
 }
+
 -(void)initVedioPalyView{
     
 //    _vedioPlayerView = [[UIView alloc]initWithFrame:CGRectMake(0, 165, _k_w, 200)];
@@ -351,15 +367,49 @@
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
     
-    [webView evaluateJavaScript:@"document.body.offsetHeight" completionHandler:^(id _Nullable result, NSError * _Nullable error) {
-        //获取页面高度，并重置webview的frame
-        CGFloat documentHeight = [result doubleValue];
-        CGRect frame = webView.frame;
-        frame.size.height = documentHeight;
-        webView.frame = frame;
-
-       self.backScrollView.contentSize = CGSizeMake(_k_w, 90 + frame.size.height);
-    }];
+    [webView evaluateJavaScript:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '200%'" completionHandler:nil];
+    NSLog(@"%f",webView.scrollView.contentSize.height);
+    NSLog(@"%f",webView.scrollView.contentSize.height);
+    CGFloat documentHeight = webView.scrollView.contentSize.height;
+    CGRect frame = webView.frame;
+    frame.size.height = documentHeight;
+    webView.frame = frame;
+    if ([self.Species integerValue] == 3) {
+        //这里之所以减去 _k_h * 0.2 ，是因为 计算出的高度有一截空白；
+        NSInteger redundantHeight =  _k_h * 0.2;
+        if (UI_IS_IPHONE6P) {
+            redundantHeight = _k_h *  0.3;
+        }
+        self.detailButtomView.frame = CGRectMake(0, _contentWebView.frame.size.height + 364 , _k_w, commentViewHieight);
+        self.backScrollView.contentSize = CGSizeMake(_k_w, 390 + documentHeight + 30 + commentViewHieight );
+    }else{
+        self.detailButtomView.frame = CGRectMake(0, _contentWebView.frame.size.height + 154, _k_w, commentViewHieight);
+        self.backScrollView.contentSize = CGSizeMake(_k_w, 190 + documentHeight + 30 + commentViewHieight);
+    }
+    
+    [self.view layoutSubviews];
+    
+//    [webView evaluateJavaScript:@"document.body.offsetHeight" completionHandler:^(id _Nullable result, NSError * _Nullable error) {
+//        //获取页面高度，并重置webview的frame
+//        CGFloat documentHeight = [result doubleValue];
+//        CGRect frame = webView.frame;
+//        frame.size.height = documentHeight;
+//        webView.frame = frame;
+//        if ([self.Species integerValue] == 3) {
+//            //这里之所以减去 _k_h * 0.2 ，是因为 计算出的高度有一截空白；
+//            NSInteger redundantHeight =  _k_h * 0.2;
+//            if (UI_IS_IPHONE6P) {
+//                redundantHeight = _k_h *  0.3;
+//            }
+//            self.detailButtomView.frame = CGRectMake(0, _contentWebView.frame.size.height + 364 , _k_w, commentViewHieight);
+//            self.backScrollView.contentSize = CGSizeMake(_k_w, 390 + documentHeight + 30 + commentViewHieight );
+//        }else{
+//            self.detailButtomView.frame = CGRectMake(0, _contentWebView.frame.size.height + 154, _k_w, commentViewHieight);
+//            self.backScrollView.contentSize = CGSizeMake(_k_w, 190 + documentHeight + 30 + commentViewHieight);
+//        }
+//        
+//        [self.view layoutSubviews];
+//    }];
 }
 
 // 类似 UIWebView的 -webView: shouldStartLoadWithRequest: navigationType:

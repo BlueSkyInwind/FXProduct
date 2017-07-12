@@ -304,12 +304,12 @@
             for (GuideImageModel * guideImageModel in guide.rows) {
                     [app.guideImageArr addObject:guideImageModel.Image];
             }
+            self.returnBlock(returnMsg);
         }
-//        self.returnBlock(returnMsg);
     } failure:^(EnumServerStatus status, id object) {
 //        NSError * error = object;
 //        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
-//        [self faileBlock];
+        [self faileBlock];
     }];
 }
 
