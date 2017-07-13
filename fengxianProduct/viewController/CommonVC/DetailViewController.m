@@ -345,24 +345,34 @@
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
-    CGFloat documentHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue];
-    CGRect frame = webView.frame;
-    frame.size.height = documentHeight + 10;
-    webView.frame = frame;
-    if ([self.Species integerValue] == 3) {
-        //这里之所以减去 _k_h * 0.2 ，是因为 计算出的高度有一截空白；
-        NSInteger redundantHeight =  _k_h * 0.2;
-        if (UI_IS_IPHONE6P) {
-            redundantHeight = _k_h *  0.3;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //document.body.offsetHeight
+        //document.getElementByClassName('HomeStyle').offsetHeight
+        //document.getElementByClassName('HomeStyle').getBoundingClientRect().offsetHeight
+        //document.getElementsByTagName('div')[0].offsetHeight
+        CGFloat documentHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('div')[0].offsetHeight"] floatValue];
+//        CGFloat webViewHeight = [[webView stringByEvaluatingJavaScriptFromString: @"document.body.scrollHeight"] floatValue];
+//        CGFloat webViewHeight1 = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.clientHeight"] floatValue];
+//        CGFloat webViewHeight2=[webView.scrollView contentSize].height;
+        
+        CGRect frame = webView.frame;
+        frame.size.height = documentHeight + 10;
+        webView.frame = frame;
+        if ([self.Species integerValue] == 3) {
+            //这里之所以减去 _k_h * 0.2 ，是因为 计算出的高度有一截空白；
+            NSInteger redundantHeight =  _k_h * 0.2;
+            if (UI_IS_IPHONE6P) {
+                redundantHeight = _k_h *  0.3;
+            }
+            self.detailButtomView.frame = CGRectMake(0, _contentWebView.frame.size.height + 364 , _k_w, commentViewHieight);
+            self.backScrollView.contentSize = CGSizeMake(_k_w, 390 + documentHeight + 30 + commentViewHieight );
+        }else{
+            self.detailButtomView.frame = CGRectMake(0, _contentWebView.frame.size.height + 154, _k_w, commentViewHieight);
+            self.backScrollView.contentSize = CGSizeMake(_k_w, 190 + documentHeight + 30 + commentViewHieight);
         }
-        self.detailButtomView.frame = CGRectMake(0, _contentWebView.frame.size.height + 364 , _k_w, commentViewHieight);
-        self.backScrollView.contentSize = CGSizeMake(_k_w, 390 + documentHeight + 30 + commentViewHieight );
-    }else{
-        self.detailButtomView.frame = CGRectMake(0, _contentWebView.frame.size.height + 154, _k_w, commentViewHieight);
-        self.backScrollView.contentSize = CGSizeMake(_k_w, 190 + documentHeight + 30 + commentViewHieight);
-    }
-
-    [self.view layoutSubviews];
+        [self.view layoutSubviews];
+    });
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{

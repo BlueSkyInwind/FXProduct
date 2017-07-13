@@ -115,8 +115,8 @@
     if ( [[Utility sharedUtility].userInfo.ColumnAct intValue] != 0){
         item2.badgeValue= [Utility sharedUtility].userInfo.ColumnAct;
     }
-
 }
+
 -(void)configureView{
     
     self.dateAndWeatherView = [[NSBundle mainBundle]loadNibNamed:@"DateAndWeatherView" owner:self options:nil].lastObject;
@@ -154,8 +154,8 @@
     [self.view addSubview:self.segmentBarVC.view];
     [self getDataOfSegmentBarVC:[[Utility sharedUtility].columnModel.rows mutableCopy]];
     [self.view bringSubviewToFront:self.dateAndWeatherView];
-    
 }
+
 -(void)noticeViewTap{
     [self presentAlertTitle:@"公告" content:noticeStr VC:self sureClick:^(NSString *resultStr) {
         [self.noticeView removeFromSuperview];
@@ -215,7 +215,6 @@
         ;
     }];
 }
-
 
 -(void)getNewsWeather{
     NewsViewModel * newsVM = [[NewsViewModel alloc]init];

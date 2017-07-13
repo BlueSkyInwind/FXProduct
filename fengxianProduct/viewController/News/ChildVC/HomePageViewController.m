@@ -82,7 +82,6 @@
     }
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
     if (section == 0) {
         return 1;
     }else{
@@ -163,8 +162,6 @@
         detailVC.Species =  bannerInfo.Type;
         [self.navigationController pushViewController:detailVC animated:YES];
     }
-
-    
 }
 #pragma mark - 数据请求
 
