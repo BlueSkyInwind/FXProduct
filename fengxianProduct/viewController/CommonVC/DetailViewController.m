@@ -74,7 +74,7 @@
 }
 -(void)viewWillDisappear:(BOOL)animated{
 //    self.player
-    
+    [self.player stop];
 }
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -95,6 +95,7 @@
         self.commonBottomView.CommentViewIcon.hidden = YES;
     }
 }
+
 -(void)dealloc{
     [self.player removeFromSuperview];
     self.player = nil;
