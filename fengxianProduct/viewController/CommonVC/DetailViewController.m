@@ -276,7 +276,7 @@
 //    config.preferences.javaScriptCanOpenWindowsAutomatically = true;
 //    config.userContentController = [[WKUserContentController alloc] init];
     
-    if ([self.Species integerValue] == 3) {
+    if ([self.Species integerValue] == 3 || [self.BannerVedio boolValue] == YES  || [self.BannerVedio isEqualToString:@"true"]) {
         //添加视频播放发的视图
         [self initVedioPalyView];
         _contentWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 365, _k_w, _k_h)];
@@ -342,7 +342,6 @@
     self.player.mode = SBLayerVideoGravityResize;
     //添加播放器到视图
     [_backScrollView addSubview:self.player];
-    
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
@@ -360,7 +359,7 @@
         CGRect frame = webView.frame;
         frame.size.height = documentHeight + 10;
         webView.frame = frame;
-        if ([self.Species integerValue] == 3) {
+        if ([self.Species integerValue] == 3 || [self.BannerVedio boolValue] == YES  || [self.BannerVedio isEqualToString:@"true"]) {
             //这里之所以减去 _k_h * 0.2 ，是因为 计算出的高度有一截空白；
             NSInteger redundantHeight =  _k_h * 0.2;
             if (UI_IS_IPHONE6P) {

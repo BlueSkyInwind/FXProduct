@@ -160,6 +160,7 @@
         DetailViewController *detailVC = [[DetailViewController alloc]init];
         detailVC.detailID = bannerInfo.NewID;
         detailVC.Species =  bannerInfo.Type;
+        detailVC.BannerVedio = bannerInfo.HasVideo;
         [self.navigationController pushViewController:detailVC animated:YES];
     }
 }

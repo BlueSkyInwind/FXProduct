@@ -18,6 +18,8 @@
 @property(nonatomic,strong)NSString * Title;
 @property(nonatomic,strong)NSNumber * Type;
 @property(nonatomic,strong)NSString * Image;
+@property(nonatomic,strong)NSString * HasVideo;
+
 @end
 
 @interface BannerListModel : JSONModel
