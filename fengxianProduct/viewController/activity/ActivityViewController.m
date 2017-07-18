@@ -169,6 +169,13 @@
         if (!cell) {
             cell = [[ActivityContentTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellStr];
         }
+        if (indexPath.row == 1) {
+            cell.titleImageView.image = [UIImage imageNamed:@"Activity_vote_Icon"];
+        }else if (indexPath.row == 2){
+            cell.titleImageView.image = [UIImage imageNamed:@"Activity_answer_Icon"];
+        }else if (indexPath.row == 3){
+            cell.titleImageView.image = [UIImage imageNamed:@"Activity_welfare_Icon"];
+        }
         cell.currentVC = self;
         if (columnInfoArr.count != 0) {
             cell.dataArr = columnInfoArr[indexPath.row - 1];
