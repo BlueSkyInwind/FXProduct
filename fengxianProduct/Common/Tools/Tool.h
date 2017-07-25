@@ -93,5 +93,12 @@
  *  当前程序的版本号
  */
 +(NSString *)version;
+/**
+ 浏览评论数量
+ 
+ @param number 个数
+ @return 返回值
+ */
++(NSString *)DealWithResult:(NSNumber *)number;
 
 @end

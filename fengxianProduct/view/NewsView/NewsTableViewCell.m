@@ -68,8 +68,9 @@
 
     self.titleLocation.text = self.newsList.Source;
     self.titleType.text = self.newsList.Column;
-    self.visitorNum.text = [NSString stringWithFormat:@"%@",self.newsList.Num];
-    
+//    self.visitorNum.text = [NSString stringWithFormat:@"%@",self.newsList.Num];
+    self.visitorNum.text = [Tool DealWithResult:self.newsList.Num];
+
     if (!self.newsList.PLNum) {
         self.commentNum.hidden = YES;
         self.commentImage.hidden = YES;
@@ -80,7 +81,8 @@
         self.visitorImageLeftCons.constant = 0;
     }
     
-    self.commentNum.text = [NSString stringWithFormat:@"%@",self.newsList.PLNum];
+//    self.commentNum.text = [NSString stringWithFormat:@"%@",self.newsList.PLNum];
+    self.commentNum.text =[Tool DealWithResult:self.newsList.PLNum];
     if ([self.newsList.Species integerValue] == 2) {
         self.atlasLabel.hidden = NO;
     }else if ([self.newsList.Species integerValue] == 3){

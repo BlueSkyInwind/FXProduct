@@ -27,8 +27,13 @@
     self.titleLabel.text = self.newsList.Title;
     self.locationLabel.text = self.newsList.Source;
     self.titleType.text = self.newsList.Column;
-    self.visitorNum.text = [NSString stringWithFormat:@"%@",self.newsList.Num];
-    self.commentNumLabel.text = [NSString stringWithFormat:@"%@",self.newsList.PLNum];
+//    self.visitorNum.text = [NSString stringWithFormat:@"%@",self.newsList.Num];
+//    //[Tool DealWithResult:self.newsList.Num]
+//    self.commentNumLabel.text = [NSString stringWithFormat:@"%@",self.newsList.PLNum];
+    self.visitorNum.text = [Tool DealWithResult:self.newsList.Num];
+    self.commentNumLabel.text = [Tool DealWithResult:self.newsList.PLNum];
+
+
 }
 
 

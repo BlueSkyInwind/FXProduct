@@ -32,7 +32,6 @@
     self.commentNum.text = [NSString stringWithFormat:@"%@",self.newsList.PLNum];
 }
 
-
 -(void)configureViewTitleImageOne:(NSString *)imageName1  ImageTwo:(NSString *)imageName2 titleLabel:(NSString *)title titleLocation:(NSString *)Location titleType:(NSString *)type visitorNum:(NSString *)visitor commentNum:(NSString *)comment imageType:(NSInteger)imageType{
     
     [self.imageView1 sd_setImageWithURL:[NSURL URLWithString:imageName1] placeholderImage:[UIImage imageNamed:@"user_Icon" ]options:SDWebImageRefreshCached];

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="246"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="246"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="245.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qCB-NS-Wd7">
@@ -47,20 +47,20 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bT8-aI-Xoa">
-                        <rect key="frame" x="227" y="3" width="85" height="29"/>
+                        <rect key="frame" x="212" y="3" width="100" height="29"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74R-oL-Obj">
-                                <rect key="frame" x="68" y="7" width="17" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90w+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74R-oL-Obj">
+                                <rect key="frame" x="72" y="7" width="28" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="Gxm-55-YLl"/>
-                                    <constraint firstAttribute="width" constant="17" id="uAb-F8-8dV"/>
+                                    <constraint firstAttribute="width" constant="28" id="uAb-F8-8dV"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.36862745098039218" green="0.36862745098039218" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news_comment_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="zr4-HX-ecG">
-                                <rect key="frame" x="42" y="3.5" width="25" height="22"/>
+                                <rect key="frame" x="47" y="3.5" width="25" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="99C-6J-xec"/>
                                     <constraint firstAttribute="height" constant="22" id="ZUc-wg-HsI"/>
@@ -73,27 +73,27 @@
                                     <constraint firstAttribute="height" constant="22" id="YJ7-Dv-6K9"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULp-2C-1LM">
-                                <rect key="frame" x="26" y="8" width="19" height="12"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90w+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULp-2C-1LM">
+                                <rect key="frame" x="26" y="8" width="28" height="12"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="19" id="aIF-5b-EiY"/>
+                                    <constraint firstAttribute="width" constant="28" id="aIF-5b-EiY"/>
                                     <constraint firstAttribute="height" constant="12" id="v9d-4X-Zfe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.36862745098039218" green="0.36862745098039218" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="74R-oL-Obj" firstAttribute="leading" secondItem="zr4-HX-ecG" secondAttribute="trailing" constant="1" id="7tB-8a-OCL"/>
+                            <constraint firstItem="74R-oL-Obj" firstAttribute="leading" secondItem="zr4-HX-ecG" secondAttribute="trailing" id="7tB-8a-OCL"/>
                             <constraint firstItem="ULp-2C-1LM" firstAttribute="centerY" secondItem="bT8-aI-Xoa" secondAttribute="centerY" id="8uz-Hy-hzP"/>
                             <constraint firstItem="Z3U-TD-aSd" firstAttribute="leading" secondItem="bT8-aI-Xoa" secondAttribute="leading" constant="1" id="HO4-Gb-R2J"/>
                             <constraint firstItem="ULp-2C-1LM" firstAttribute="leading" secondItem="Z3U-TD-aSd" secondAttribute="trailing" id="NSH-go-CIO"/>
                             <constraint firstAttribute="height" constant="29" id="OJP-gw-1JC"/>
                             <constraint firstItem="74R-oL-Obj" firstAttribute="centerY" secondItem="bT8-aI-Xoa" secondAttribute="centerY" id="TCi-Bl-3UO"/>
                             <constraint firstAttribute="trailing" secondItem="74R-oL-Obj" secondAttribute="trailing" id="WBc-8F-P8m"/>
-                            <constraint firstAttribute="width" constant="85" id="bn9-aM-ls3"/>
+                            <constraint firstAttribute="width" constant="100" id="bn9-aM-ls3"/>
                             <constraint firstItem="zr4-HX-ecG" firstAttribute="centerY" secondItem="bT8-aI-Xoa" secondAttribute="centerY" id="oA8-WN-evB"/>
                             <constraint firstItem="Z3U-TD-aSd" firstAttribute="centerY" secondItem="bT8-aI-Xoa" secondAttribute="centerY" id="v2l-iJ-XPa"/>
                         </constraints>

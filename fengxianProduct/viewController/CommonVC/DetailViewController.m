@@ -322,8 +322,10 @@
     self.detailButtomView.detailCommentModel =  self.detailModel.rows.firstObject;
     self.detailButtomView.detailID = self.detailID;
     self.detailButtomView.delegate = self;
-    self.detailButtomView.browerNum.text = [NSString stringWithFormat:@"%@",self.detailModel.Num];
-    self.detailButtomView.spotNum.text = [NSString stringWithFormat:@"%@",self.detailModel.ThNum];
+//    self.detailButtomView.browerNum.text = [NSString stringWithFormat:@"%@",self.detailModel.Num];
+//    self.detailButtomView.spotNum.text = [NSString stringWithFormat:@"%@",self.detailModel.ThNum];
+    self.detailButtomView.browerNum.text = [Tool DealWithResult:self.detailModel.Num];
+    self.detailButtomView.spotNum.text = [Tool DealWithResult:self.detailModel.ThNum];
     [self.backScrollView addSubview:self.detailButtomView];
 }
 
