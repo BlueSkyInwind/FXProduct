@@ -63,7 +63,7 @@
     if ([newsList.Seat intValue] == 1) {
         return 140;
     }else if ([newsList.Seat intValue] == 4){
-        return 140;
+        return 145;
     }
     return 90;
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gfk-Re-rnz" customClass="FLAnimatedImageView">
@@ -45,9 +45,8 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="民生" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaH-uF-8lo">
-                        <rect key="frame" x="180" y="67" width="50" height="18"/>
+                        <rect key="frame" x="180" y="67" width="58" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="5nC-8F-BlL"/>
                             <constraint firstAttribute="height" constant="18" id="tsr-SW-m0Y"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -127,6 +126,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="iuR-g6-9xT" secondAttribute="trailing" constant="3" id="CIy-Na-Pfu"/>
+                    <constraint firstItem="oYJ-CI-ncj" firstAttribute="leading" secondItem="GaH-uF-8lo" secondAttribute="trailing" id="IIZ-w6-up3"/>
                     <constraint firstItem="vPi-0H-QyB" firstAttribute="top" secondItem="Gfk-Re-rnz" secondAttribute="bottom" constant="-18" id="LQE-gW-KaS"/>
                     <constraint firstItem="v5l-Es-A63" firstAttribute="centerX" secondItem="Gfk-Re-rnz" secondAttribute="centerX" id="Zmx-7k-pAi"/>
                     <constraint firstItem="GaH-uF-8lo" firstAttribute="bottom" secondItem="hpM-n2-Wqp" secondAttribute="bottom" id="bCs-7b-pB1"/>
