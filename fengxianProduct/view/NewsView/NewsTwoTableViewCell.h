@@ -20,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleType;
 @property (weak, nonatomic) IBOutlet UILabel *visitorNum;
 @property (weak, nonatomic) IBOutlet UILabel *commentNum;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *visitorBackViewWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *visitorLabelWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *commentLabelWidth;
 
 
 @property (strong ,nonatomic)NewsListInfo * newsList;

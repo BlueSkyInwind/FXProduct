@@ -36,8 +36,12 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLocationHeight;
 
-
 @property (strong ,nonatomic)NewsListInfo * newsList;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *visitorBackViewWidth;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *visitorLabelWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *pluLabelWidth;
 
 
 /**

@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="246"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="245.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="246"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qCB-NS-Wd7">
@@ -194,7 +194,9 @@
                 <outlet property="accountName" destination="BjV-yy-72S" id="Wqg-zA-zF1"/>
                 <outlet property="accoutContentHeight" destination="Jwg-ZT-CdZ" id="Wt1-R9-eaa"/>
                 <outlet property="accoutImage" destination="qCB-NS-Wd7" id="IyI-xs-cSl"/>
+                <outlet property="commentBackViewWidth" destination="bn9-aM-ls3" id="EBM-0J-McL"/>
                 <outlet property="commentImageView" destination="zr4-HX-ecG" id="fiK-Zx-PYl"/>
+                <outlet property="commentLabelWidth" destination="uAb-F8-8dV" id="yJ3-Px-moJ"/>
                 <outlet property="commentNum" destination="ULp-2C-1LM" id="6zg-CQ-dht"/>
                 <outlet property="commentTime" destination="IGO-xB-kY5" id="Csa-sA-5hp"/>
                 <outlet property="hotCommentImageView" destination="92r-co-K3G" id="y3i-7S-dAV"/>
@@ -206,6 +208,7 @@
                 <outlet property="secondName" destination="Y0L-Ps-ODf" id="DG3-ll-l3X"/>
                 <outlet property="secondTime" destination="hga-le-ute" id="jeA-0v-zsf"/>
                 <outlet property="spotImageView" destination="Z3U-TD-aSd" id="yf2-Y6-FhU"/>
+                <outlet property="spotLabelWidth" destination="aIF-5b-EiY" id="0jM-P3-UWA"/>
                 <outlet property="spotNum" destination="74R-oL-Obj" id="ATt-W8-ddc"/>
             </connections>
             <point key="canvasLocation" x="126" y="129"/>

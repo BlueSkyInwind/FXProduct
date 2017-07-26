@@ -158,6 +158,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="commentLabelWidth" destination="pUg-il-kDh" id="uNV-Qt-B5w"/>
                 <outlet property="commentNumLabel" destination="JF8-M4-veJ" id="NWm-Sx-X1y"/>
                 <outlet property="imageView1" destination="vdi-GW-dHc" id="ZUQ-RA-Cbv"/>
                 <outlet property="imageView2" destination="0HQ-UB-swA" id="HSF-AH-SRi"/>
@@ -165,6 +166,8 @@
                 <outlet property="locationLabel" destination="SfA-ph-j6q" id="wfp-KD-U3F"/>
                 <outlet property="titleLabel" destination="SdJ-1s-UZh" id="PsO-mt-bTf"/>
                 <outlet property="titleType" destination="pK1-7T-ENb" id="z2Q-7b-ZCU"/>
+                <outlet property="visitorBackViewWidth" destination="ve0-Gj-BP8" id="w1O-9s-NC9"/>
+                <outlet property="visitorLabelWith" destination="iCb-Ew-Qau" id="zsO-nn-sij"/>
                 <outlet property="visitorNum" destination="2Bn-og-jjP" id="mUl-wU-xrP"/>
             </connections>
             <point key="canvasLocation" x="34" y="67"/>

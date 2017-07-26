@@ -66,8 +66,14 @@
     self.accountLabel.text = _detailCommentModel.Conten;
    self.accoutContentHeight.constant =  [Tool heightForText:_detailCommentModel.Conten width:_k_w - 40 font:14] + 20;
     
-    self.commentNum.text = _detailCommentModel.ThumbNum;
-    self.spotNum.text = _detailCommentModel.CommentNum;
+//    self.commentNum.text = _detailCommentModel.ThumbNum;
+//    self.spotNum.text = _detailCommentModel.CommentNum;
+    
+    self.spotNum.text = [Tool DealWithResult:@([_detailCommentModel.CommentNum intValue])];
+    self.commentNum.text = [Tool DealWithResult:@([_detailCommentModel.ThumbNum intValue])];
+    self.commentLabelWidth.constant = [Tool widthForText:self.spotNum.text font:10] + 5;
+    self.spotLabelWidth.constant = [Tool widthForText:self.commentNum.text font:10] + 5;
+    self.commentBackViewWidth.constant = 50 + self.self.commentLabelWidth.constant + self.spotLabelWidth.constant;
     
     if (_detailCommentModel.Reply != nil || [_detailCommentModel.Reply  isEqualToString:@""]) {
         self.redactReply.hidden = NO;

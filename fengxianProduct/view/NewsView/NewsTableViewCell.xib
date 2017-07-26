@@ -148,6 +148,7 @@
                 <outlet property="atlasLabel" destination="vPi-0H-QyB" id="PtJ-16-4EF"/>
                 <outlet property="commentImage" destination="k9j-nr-HAY" id="vuO-uj-Nn6"/>
                 <outlet property="commentNum" destination="bPR-a3-Psz" id="Pdu-4J-akZ"/>
+                <outlet property="pluLabelWidth" destination="diY-F3-OcW" id="13D-ti-AQG"/>
                 <outlet property="titleImage" destination="Gfk-Re-rnz" id="tVM-U5-bZT"/>
                 <outlet property="titleLabel" destination="iuR-g6-9xT" id="KUd-Qe-wUa"/>
                 <outlet property="titleLocation" destination="hpM-n2-Wqp" id="R3H-Lg-dbL"/>
@@ -156,8 +157,10 @@
                 <outlet property="titleLocationHeight" destination="Ask-9B-EI3" id="cPZ-G8-UHI"/>
                 <outlet property="titleType" destination="GaH-uF-8lo" id="rWy-4n-Q8Q"/>
                 <outlet property="vdieoBtn" destination="v5l-Es-A63" id="bZj-hV-5g2"/>
+                <outlet property="visitorBackViewWidth" destination="jn8-cq-K9i" id="N63-Kb-bd0"/>
                 <outlet property="visitorImage" destination="oQl-c2-Uhk" id="w5x-9L-UwW"/>
                 <outlet property="visitorImageLeftCons" destination="tNS-02-cbY" id="wFQ-hw-IbL"/>
+                <outlet property="visitorLabelWidth" destination="F6O-Gr-RJ0" id="hKv-Tp-VZk"/>
                 <outlet property="visitorNum" destination="FSb-ct-A4u" id="Hrz-R3-ljx"/>
             </connections>
             <point key="canvasLocation" x="64" y="62"/>
