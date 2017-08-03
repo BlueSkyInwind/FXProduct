@@ -136,8 +136,9 @@
     if (indexPath.section == 0) {
         MyIntegralHeaderCollectionViewCell *cell1 = [_integalCollectionView dequeueReusableCellWithReuseIdentifier:@"MyIntegralHeaderCollectionViewCell" forIndexPath:indexPath];
         cell1.delegate = self;
-                cell1.integralNumLabel.text = [NSString stringWithFormat:@"%@",self.integralM.Integral];
+        cell1.integralNumLabel.text = [NSString stringWithFormat:@"%@",self.integralM.Integral];
         return cell1;
+        
     }else if (indexPath.section == 1){
         IntegralAwardCollectionViewCell *cell2 = [_integalCollectionView dequeueReusableCellWithReuseIdentifier:@"IntegralAwardCollectionViewCell" forIndexPath:indexPath];
         return cell2;
