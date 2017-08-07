@@ -60,7 +60,6 @@
         }];
         [self obtainSignStatus];
     }
-    
     [self.moreHeaderView configureViewImage:[Utility sharedUtility].userInfo.Images AccountID:[Utility sharedUtility].userInfo.Code userNickName:[Utility sharedUtility].userInfo.Name];
 }
 -(void)viewWillDisappear:(BOOL)animated{

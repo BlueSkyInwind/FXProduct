@@ -58,6 +58,9 @@
     self.goodDetailHeaderView = [[NSBundle mainBundle]loadNibNamed:@"GoodDetailHeaderView" owner:self options:nil].lastObject;
     [self.goodDetailHeaderView.GoodsImageView sd_setImageWithURL:[NSURL URLWithString:goodDetailModel.Images.firstObject[@"Image"]] placeholderImage:[UIImage imageNamed:@"news_placeholder_Icon_1" ] options:SDWebImageRefreshCached];
     
+    float autoheight = [Tool heightForText:goodDetailModel.Title width:_k_w - 80 font:16] + 5;
+    self.goodDetailHeaderView.GoodsTitleHeight.constant = autoheight;
+    float titleHeight = autoheight > 21 ? (autoheight - 21) : 0;
     self.goodDetailHeaderView.GoodsTitle.text = goodDetailModel.Title;
     self.goodDetailHeaderView.GoodsIntegral.text = goodDetailModel.Integral;
     self.goodDetailHeaderView.GoodsNum.text = goodDetailModel.Num;
@@ -74,10 +77,10 @@
         make.left.equalTo(self.backScrollView.mas_left);
         make.right.equalTo(self.backScrollView.mas_right);
         make.width.equalTo(self.view.mas_width);
-        make.height.equalTo(@(height));
+        make.height.equalTo(@(height + titleHeight));
     }];
     
-    float contentHeight = [Tool heightForText:goodDetailModel.Information width:_k_w - 30 font:14] + 55;
+    float contentHeight = [Tool heightForText:goodDetailModel.Information width:_k_w - 30 font:14] + 70;
 
     self.goodsContentView = [[NSBundle mainBundle]loadNibNamed:@"GoodsContentView" owner:self options:nil].lastObject;
     self.goodsContentView.contentTitle.text = @"商品详情";

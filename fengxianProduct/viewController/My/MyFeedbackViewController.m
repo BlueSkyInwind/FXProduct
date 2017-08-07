@@ -55,8 +55,7 @@
     if (dataArr.count != 0) {
         UserCommentModel * userCommentM = dataArr[indexPath.row];
         cellHeight =  [Tool heightForText:userCommentM.Text width:_k_w - 10 font:15] + 40;
-    }
-    return cellHeight;
+    }     return cellHeight;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     

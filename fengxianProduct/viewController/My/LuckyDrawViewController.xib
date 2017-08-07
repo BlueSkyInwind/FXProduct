@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,6 +16,9 @@
                 <outlet property="awardBackViewTop" destination="fad-1g-5b3" id="guH-zy-zmC"/>
                 <outlet property="beginAwardView" destination="8Xg-vy-jIG" id="8fa-zN-ZHj"/>
                 <outlet property="integralNum" destination="gIM-gY-RAe" id="5Ii-8h-xL9"/>
+                <outlet property="intgeralRuleHeight" destination="J6a-B1-xNv" id="buC-Gp-hp6"/>
+                <outlet property="intgeralRuleLabel" destination="7R6-Wh-CVW" id="cli-M0-XVm"/>
+                <outlet property="intgeralRuleViewBottom" destination="7Tc-R0-9fw" id="zyy-4T-zMe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -87,9 +90,9 @@
                             <rect key="frame" x="0.0" y="0.0" width="220" height="45"/>
                         </imageView>
                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0积分/次" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIM-gY-RAe">
-                            <rect key="frame" x="85.5" y="22" width="50" height="21"/>
+                            <rect key="frame" x="70.5" y="22" width="80" height="21"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="50" id="vn7-d9-oAT"/>
+                                <constraint firstAttribute="width" constant="80" id="vn7-d9-oAT"/>
                                 <constraint firstAttribute="height" constant="21" id="wVD-AX-5rl"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>

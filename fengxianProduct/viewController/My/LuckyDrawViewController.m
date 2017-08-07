@@ -68,12 +68,20 @@
 
 -(void)configureView{
     
+    if (UI_IS_IPHONE5) {
+        self.intgeralRuleViewBottom.constant = 5;
+    }
+    
+    self.integralNum.text = [NSString stringWithFormat:@"%@积分/次",awardModel.LuckyIntegral];
+    self.intgeralRuleLabel.text =  awardModel.Text;
+    float contentHeight = [Tool heightForText:awardModel.Text width:_k_w - 100 font:13] + 20;
+    self.intgeralRuleHeight.constant = contentHeight;
+    
     float borderX = 8;
     float borderY = 8;
     float width = (self.awardBackView.frame.size.width - 32) / 3;
     float height = (self.awardBackView.frame.size.height - 32) / 3;
 
-    
     for (int i = 0; i < awardModel.rows.count; i ++) {
         
         AwardGoodsModel * awardGoodsM = awardModel.rows[i];

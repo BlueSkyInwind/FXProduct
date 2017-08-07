@@ -42,11 +42,14 @@
     didAddSperateVerticalLine = NO;
     [self addBackItem];
     [self configureView];
-    
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    __weak typeof (self) weakSelf = self;
+    [self obtainIntegral:^(integralModel *integralModel) {
+        [weakSelf.integalCollectionView reloadData];
+    }];
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -55,6 +58,17 @@
 -(void)viewDidDisappear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     
+}
+-(void)obtainIntegral:(void(^)(integralModel * integralModel))finish
+{
+    IntegralViewModel * integralM = [[IntegralViewModel alloc]init];
+    [integralM setBlockWithReturnBlock:^(id returnValue) {
+        self.integralM = returnValue;
+        finish(self.integralM);
+    } WithFaileBlock:^{
+        
+    }];
+    [integralM fatchAccountIntegral];
 }
 -(void)configureView{
     
@@ -139,7 +153,7 @@
         cell1.integralNumLabel.text = [NSString stringWithFormat:@"%@",self.integralM.Integral];
         return cell1;
         
-    }else if (indexPath.section == 1){
+    }else if (indexPath.section == 1){ 
         IntegralAwardCollectionViewCell *cell2 = [_integalCollectionView dequeueReusableCellWithReuseIdentifier:@"IntegralAwardCollectionViewCell" forIndexPath:indexPath];
         return cell2;
 

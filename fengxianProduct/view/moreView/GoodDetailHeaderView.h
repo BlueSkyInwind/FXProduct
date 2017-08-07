@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *GoodsTitle;
 @property (weak, nonatomic) IBOutlet UILabel *GoodsNum;
 @property (weak, nonatomic) IBOutlet UILabel *GoodsIntegral;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *GoodsTitleHeight;
 
 @end
