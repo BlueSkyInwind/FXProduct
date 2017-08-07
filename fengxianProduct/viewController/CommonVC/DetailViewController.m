@@ -447,6 +447,9 @@
                                             url:[NSURL URLWithString:urlStr]
                                           title:title
                                            type:SSDKContentTypeAuto];
+        
+        [shareParams SSDKSetupSinaWeiboShareParamsByText:[NSString stringWithFormat:@"%@,链接:%@",title,urlStr] title:@"IN奉贤" image:shareImage url:[NSURL URLWithString:urlStr] latitude:0 longitude:0 objectID:nil type:SSDKContentTypeAuto];
+        
         [shareParams SSDKEnableUseClientShare];
       SSUIShareActionSheetController * sheet  =  [ShareSDK showShareActionSheet:nil
                                  items:nil
@@ -470,7 +473,6 @@
                    }];
 //        [sheet.directSharePlatforms removeObject:@(SSDKPlatformTypeCopy)];
         [sheet.directSharePlatforms addObject:@(SSDKPlatformTypeCopy)];
- 
     }
 }
 

@@ -362,11 +362,12 @@
     NSArray *imageArr = @[shareImage];
     if (imageArr) {
         NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
-        [shareParams SSDKSetupShareParamsByText:@""
+        [shareParams SSDKSetupShareParamsByText:[NSString stringWithFormat:@"%@,链接:%@",title,urlStr]
                                          images:imageArr
                                             url:[NSURL URLWithString:urlStr]
-                                          title:title
+                                          title:@"IN奉贤"
                                            type:SSDKContentTypeAuto];
+        [shareParams SSDKSetupSinaWeiboShareParamsByText:[NSString stringWithFormat:@"%@,链接:%@",title,urlStr] title:@"IN奉贤" image:shareImage url:[NSURL URLWithString:urlStr] latitude:0 longitude:0 objectID:nil type:SSDKContentTypeAuto];
         [shareParams SSDKEnableUseClientShare];
       SSUIShareActionSheetController * sheet =  [ShareSDK showShareActionSheet:nil
                                  items:nil
