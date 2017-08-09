@@ -162,7 +162,6 @@
             return firstCell;
         }
         
-        
         NSString * cellStr = [NSString stringWithFormat:@"ActivityContentTableViewCell%ld%ld",(long)indexPath.row,(long)indexPath.section];
         [self.tableView registerNib:[UINib nibWithNibName:@"ActivityContentTableViewCell" bundle:nil] forCellReuseIdentifier:cellStr];
         ActivityContentTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellStr forIndexPath:indexPath];

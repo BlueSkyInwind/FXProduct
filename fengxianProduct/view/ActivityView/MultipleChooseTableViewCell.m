@@ -21,7 +21,6 @@
     NSString * str = _answerRowsModel.Review;
     contentArr = [[str componentsSeparatedByString:@":"] mutableCopy];
     [self addChooseView];
-
 }
 -(void)addChooseView{
     
@@ -45,7 +44,6 @@
         }
         [self.contentView addSubview:chooseView];
         [contentheightArr addObject:@(height)];
-
     }
 }
 

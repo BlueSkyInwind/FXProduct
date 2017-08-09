@@ -28,7 +28,6 @@
     if (self.contentResultStr) {
         self.contentResultStr(textView.text, self.number);
     }
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

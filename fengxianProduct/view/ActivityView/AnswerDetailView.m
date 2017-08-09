@@ -65,6 +65,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"MultipleChooseTableViewCell" bundle:nil] forCellReuseIdentifier:@"MultipleChooseTableViewCell"];
 
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.section == 0) {
@@ -72,7 +73,18 @@
     }else if (indexPath.section == 1){
         return IntroductionHeight;
     }else if (indexPath.section == 2){
-        return 150;
+        float height = 150;
+        AnswerRowsModel * model = dataArr[indexPath.row];
+        if ([model.States intValue] == 2 || [model.States intValue] == 3) {
+            NSString * str = model.Review;
+            NSArray * contentArr = [[str componentsSeparatedByString:@":"] mutableCopy];
+            height = 0;
+            for (NSString * str in contentArr) {
+                float numHeight = [Tool heightForText:str width:_k_w - 50 font:14] + 5;
+                height  = 150;
+            }
+        }
+        return height;
     }else{
         return 90;
     }
