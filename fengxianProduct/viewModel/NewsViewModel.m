@@ -291,6 +291,7 @@
         [self faileBlock];
     }];
 }
+
 -(void)obtainGuideImage{
     //http://infx2.echaokj.cn/ajax/AppBanner/AppBannerImgList.ashx
     NSString * baseUrl = [NSString stringWithFormat:@"%@AppBanner/AppBannerImgList.ashx",_main_url];
@@ -311,6 +312,20 @@
         [self faileBlock];
     }];
 }
+
+-(void)userShareSuccess:(NSString *)cateid type:(NSString *)type{
+       //http://infx2.echaokj.cn/ajax/My/ShareSign.ashx?AccountId=6&category=1&cateid=1
+       NSString * baseUrl = [NSString stringWithFormat:@"%@My/ShareSign.ashx?AccountId=%@&category=%@&cateid=%@",_main_url,[Utility sharedUtility].userInfo.ID,type,cateid];
+    [[FXNetworkManager sharedNetWorkManager]POSTHideIndicatorWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+    
+        }
+    } failure:^(EnumServerStatus status, id object) {
+
+    }];
+}
+
 
 
 

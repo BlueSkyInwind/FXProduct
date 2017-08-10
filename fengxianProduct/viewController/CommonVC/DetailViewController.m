@@ -461,6 +461,7 @@
                                    [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"复制成功"];
                                }else{
                                    [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"分享成功"];
+                                   [self shareSuccessUpload];
                                }
                            }
                                break;
@@ -475,6 +476,17 @@
         [sheet.directSharePlatforms addObject:@(SSDKPlatformTypeCopy)];
     }
 }
+
+-(void)shareSuccessUpload
+{
+    NewsViewModel * model = [[NewsViewModel alloc]init];
+    [model userShareSuccess:[NSString stringWithFormat:@"%@",self.detailID] type:@"8"];
+    
+}
+
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -110,6 +110,14 @@
  获取引导图 
  */
 -(void)obtainGuideImage;
+/**
+ 分享成功请求
+
+ @param cateid 详情页id
+ @param type 类型
+ */
+-(void)userShareSuccess:(NSString *)cateid type:(NSString *)type;
+
 
 
 @end
