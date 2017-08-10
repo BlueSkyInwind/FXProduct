@@ -20,7 +20,7 @@
 }
 @property (nonatomic,strong)UITableView * tableView;
 @property (nonatomic,strong)NSMutableArray * resultArr;
-@property (nonatomic,strong)NSMutableArray * multipleArr;
+//@property (nonatomic,strong)NSMutableArray * multipleArr;
 
 
 @end
@@ -43,11 +43,9 @@
     _resultArr = [NSMutableArray array];
     for (int i = 0; i < self.answerDetailModel.rows.count; i ++) {
         [_resultArr addObject:str];
-        
     }
-    _multipleArr = [NSMutableArray array];
+//    _multipleArr = [NSMutableArray array];
     [self.tableView reloadData];
-    
 }
 
 -(void)configureView{
@@ -79,12 +77,12 @@
             NSString * str = model.Review;
             NSArray * contentArr = [[str componentsSeparatedByString:@":"] mutableCopy];
             height = 0;
-            for (NSString * str in contentArr) {
-                float numHeight = [Tool heightForText:str width:_k_w - 50 font:14] + 5;
-                height  = 150;
+            for (NSString * str1 in contentArr) {
+                float numHeight = [Tool heightForText:str1 width:_k_w - 50 font:14] + 10;
+                height  = height + numHeight;
             }
         }
-        return height;
+        return height + 30;
     }else{
         return 90;
     }
@@ -158,13 +156,20 @@
             cell.answerRowsModel = answerRowsM;
             __weak typeof (self) weakSelf = self;
             cell.multipleChoose = ^(NSString *resultSTr, BOOL isDelete, NSInteger num) {
-                if (isDelete) {
-                    [weakSelf.multipleArr removeObject:resultSTr];
+                NSMutableArray * multipleArr;
+                id item = weakSelf.resultArr[num - 1];
+                if ([item isKindOfClass:[NSMutableArray class]]) {
+                    multipleArr = [item mutableCopy];
                 }else{
-                    [weakSelf.multipleArr addObject:resultSTr];
+                    multipleArr = [NSMutableArray array];
                 }
-                [weakSelf.resultArr replaceObjectAtIndex:num - 1 withObject:weakSelf.multipleArr ];
                 
+                if (isDelete) {
+                    [multipleArr removeObject:resultSTr];
+                }else{
+                    [multipleArr addObject:resultSTr];
+                }
+                [weakSelf.resultArr replaceObjectAtIndex:num - 1 withObject:multipleArr ];
             };
             return cell;
         }
@@ -175,7 +180,7 @@
         }
         cell.selectionStyle= UITableViewCellSelectionStyleNone;
         UIButton * applyButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [applyButton setTitle:@"投 票" forState:UIControlStateNormal];
+        [applyButton setTitle:@"提 交" forState:UIControlStateNormal];
         [applyButton setTintColor:[UIColor whiteColor]];
         [applyButton setBackgroundColor:UI_MAIN_COLOR];
         applyButton.layer.cornerRadius = 8;
@@ -237,6 +242,7 @@
            conStr = [conStr stringByAppendingFormat:@",%@",string];
         }
     }
+    NSLog(@"%@",conStr);
     [activityVM frequestAddAnswerDEtailInfoID:self.answerID answerCon:conStr];
 }
 

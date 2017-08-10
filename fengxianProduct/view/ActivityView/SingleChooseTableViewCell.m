@@ -13,7 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    
+    _isFirst = YES;
 }
 -(void)setAnswerRowsModel:(AnswerRowsModel *)answerRowsModel{
     _answerRowsModel = answerRowsModel;
@@ -26,7 +26,9 @@
 }
 
 -(void)addChooseView{
-    
+    if (!_isFirst) {
+        return;
+    }
     for (int i = 0; i < contentArr.count; i ++ ) {
         NSString * str = contentArr[i];
         float height = [Tool heightForText:str width:_k_w - 50 font:14] + 5;
@@ -47,8 +49,8 @@
         }
         [self.contentView addSubview:chooseView];
         [contentheightArr addObject:@(height)];
-
     }
+    _isFirst = NO;
 }
 -(void)RestoreTheViewInitial{
     for (UIView * view in self.contentView.subviews) {

@@ -7,7 +7,7 @@
 //
 
 #import "ClearCacheTool.h"
-
+#import "DataWriteAndRead.h"
 @implementation ClearCacheTool
 
 
@@ -69,6 +69,11 @@
 
 #pragma mark - 清除path文件夹下缓存大小
 + (BOOL)clearCacheWithFilePath:(NSString *)path{
+    
+    [DataWriteAndRead removeDataWithKey:FX_SearchHistory];
+    [[SDImageCache sharedImageCache] clearMemory];
+    [Tool saveUserDefaul:nil Key:FX_GuideImageArr];
+    [app.guideImageArr removeAllObjects];
     
     //拿到path路径的下一级目录的子文件夹
     NSArray *subPathArr = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];

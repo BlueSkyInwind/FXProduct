@@ -28,8 +28,8 @@
             self.returnBlock(liveMessageModel);
         }
     } failure:^(EnumServerStatus status, id object) {
-        NSError * error = object;
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+//        NSError * error = object;
+//        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
         [self faileBlock];
     }];
 }
