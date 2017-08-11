@@ -227,7 +227,7 @@
 -(void)footerRereshing
 {
     if ([newsListModel.Next intValue] == 1) {
-        [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"以显示全部内容"];
+        [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"已显示全部内容"];
         [self.tableView.mj_footer endRefreshing];
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
