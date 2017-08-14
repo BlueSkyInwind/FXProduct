@@ -70,7 +70,6 @@
     [Tool saveUserDefaul:array Key:FX_LiveCellHeight];
     
     [self getColumnData];
-    
     [self configureView];
     [self setupMJRefreshTableView];
 }
@@ -252,7 +251,6 @@
         }else{
             liveCellheight = [self obtainCellHeight:tempArr];
         }
-        
         __weak typeof (self) wealSelf = self;
         [columnInfoArr replaceObjectAtIndex:0 withObject:tempArr];
         [Utility sharedUtility].liveListModel = newsListM;
@@ -261,6 +259,7 @@
     } WithFaileBlock:^{
         
     }];
+    
     ColumnInfoModel *columnInfoM = dataArr[0];
     [newsVM fatchNewsInfoID:[NSString stringWithFormat:@"%@",columnInfoM.ColumnID] pageSize:1 numberOfPage:3];
 }
@@ -405,6 +404,9 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView.mj_header endRefreshing];
     });
+    if ( [Utility sharedUtility].networkState == NO) {
+        return;
+    }
     [self requestBannerInfo];
     [self requestLiveListInfo];
     [self requestCultureListInfo];
