@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:123.strings">
+   </FileRef>
+   <FileRef
       location = "group:fengxianProduct.xcodeproj">
    </FileRef>
    <FileRef
