@@ -55,6 +55,10 @@
 #import "CameraHelper.h"
 #import "JPUSHService.h"
 #import "AppDelegate.h"
+
+#import <Parse/Parse.h>
+#import "ParseLiveQuery-Swift.h"
+
 #endif
 
 #endif

@@ -151,7 +151,6 @@
 		22EAA9261F03F2E900544717 /* VoteFirstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EAA9241F03F2E900544717 /* VoteFirstTableViewCell.m */; };
 		22EAA9271F03F2E900544717 /* VoteFirstTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22EAA9251F03F2E900544717 /* VoteFirstTableViewCell.xib */; };
 		504A8DF353C2A20D8FC06A21 /* Pods_fengxianProduct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23ECD749F784B81055FF8EC8 /* Pods_fengxianProduct.framework */; };
-		8404EAC01F5EB64B001B3713 /* check.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8404EABF1F5EB64B001B3713 /* check.plist */; };
 		840D00011EF7DB0200709337 /* PhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D00001EF7DB0200709337 /* PhotoModel.m */; };
 		840DFFEF1EF79AF600709337 /* DetailButtomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840DFFEE1EF79AF600709337 /* DetailButtomView.m */; };
 		840DFFF11EF7A0DF00709337 /* DetailButtomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840DFFF01EF7A0DF00709337 /* DetailButtomView.xib */; };
@@ -705,7 +704,6 @@
 		22EAA9251F03F2E900544717 /* VoteFirstTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoteFirstTableViewCell.xib; sourceTree = "<group>"; };
 		23ECD749F784B81055FF8EC8 /* Pods_fengxianProduct.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fengxianProduct.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B86EC1B2254EC782DD0D6E /* Pods-fengxianProduct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fengxianProduct.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fengxianProduct/Pods-fengxianProduct.debug.xcconfig"; sourceTree = "<group>"; };
-		8404EABF1F5EB64B001B3713 /* check.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = check.plist; sourceTree = "<group>"; };
 		840D00001EF7DB0200709337 /* PhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoModel.m; sourceTree = "<group>"; };
 		840DFFED1EF79AF600709337 /* DetailButtomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailButtomView.h; sourceTree = "<group>"; };
 		840DFFEE1EF79AF600709337 /* DetailButtomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailButtomView.m; sourceTree = "<group>"; };
@@ -1429,7 +1427,6 @@
 		226BDF751EE6859D009D2A3F = {
 			isa = PBXGroup;
 			children = (
-				8404EABF1F5EB64B001B3713 /* check.plist */,
 				226BDF801EE6859D009D2A3F /* fengxianProduct */,
 				226BDF9A1EE6859D009D2A3F /* fengxianProductTests */,
 				226BDFA51EE6859D009D2A3F /* fengxianProductUITests */,
@@ -2918,7 +2915,7 @@
 					226BDF7D1EE6859D009D2A3F = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = WB5UAUH8M2;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -2962,7 +2959,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8404EAC01F5EB64B001B3713 /* check.plist in Resources */,
 				22B53FBA1F080FB6003A233B /* AwardView.xib in Resources */,
 				22648A861F02BD30002BD716 /* GoodsExchangeView.xib in Resources */,
 				8476494E1EF0E309004BEF4E /* LivesContentTableViewCell.xib in Resources */,
@@ -3075,9 +3071,48 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-fengxianProduct/Pods-fengxianProduct-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift/BoltsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/HHAlertView/HHAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/OpenUDID/OpenUDID.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/ParseLiveQuery/ParseLiveQuery.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HHAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenUDID.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseLiveQuery.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3090,13 +3125,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-fengxianProduct-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FF4A5374C63BE83E8DD1C24D /* [CP] Copy Pods Resources */ = {
@@ -3105,9 +3143,15 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-fengxianProduct/Pods-fengxianProduct-resources.sh",
+				"${PODS_ROOT}/ShareSDK3/ShareSDK/Support/Required/ShareSDK.bundle",
+				"${PODS_ROOT}/ShareSDK3/ShareSDK/Support/PlatformSDK/QQSDK/TencentOpenApi_IOS_Bundle.bundle",
+				"${PODS_ROOT}/ShareSDK3/ShareSDK/Support/PlatformSDK/SinaWeiboSDK/WeiboSDK.bundle",
+				"${PODS_ROOT}/ShareSDK3/ShareSDK/Support/Optional/ShareSDKUI.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3586,8 +3630,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = fengxianProduct/fengxianProduct.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = WB5UAUH8M2;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3610,8 +3654,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.echao.infx299;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5e020702-6370-40dd-9e3c-94a0831670c4";
-				PROVISIONING_PROFILE_SPECIFIER = fengxian_Pro;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -3622,8 +3666,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = fengxianProduct/fengxianProduct.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = WB5UAUH8M2;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3646,8 +3690,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.echao.infx299;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5e020702-6370-40dd-9e3c-94a0831670c4";
-				PROVISIONING_PROFILE_SPECIFIER = fengxian_Pro;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

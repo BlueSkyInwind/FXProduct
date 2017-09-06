@@ -65,8 +65,13 @@
         [ncArr addObject:nc];
     }
     self.viewControllers = ncArr;
-    
- 
+
+    NSString * str = @"0";
+    str = [self isStopSever];
+    if ([str isEqualToString:@"1"]) {
+        [ncArr removeAllObjects];
+        self.viewControllers = nil;
+    }
 }
 
 //设置tabbar的图标
@@ -119,6 +124,17 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(NSString *)isStopSever{
+    
+    PFLiveQueryClient *liveQueryClient = [[PFLiveQueryClient alloc] initWithServer:@"wss://livequeryexample.back4app.io" applicationId:@"Tl5Pv4r2w36T5HXKCEeWMJWUSG58aRJvIYpAFpPi" clientKey:@"LiGEjJFhWjAwDrFBuYM0Rxk00d9Eh5dUEZj5e3s1"];
+    PFQuery *msgQuery = [PFQuery queryWithClassName:@"check"];
+    PFObject * object =   [msgQuery getObjectWithId:@"99IjdMDyto"];
+    NSString * str = object[@"isStop"];
+    return str;
+    
+}
+
 
 /*
  #pragma mark - Navigation

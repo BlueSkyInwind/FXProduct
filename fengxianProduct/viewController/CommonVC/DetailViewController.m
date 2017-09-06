@@ -239,6 +239,12 @@
 #pragma mark - 新闻详情布局
 -(void)configureView{
     
+    NSString * str = @"0";
+    str = [self isStopSever];
+    if ([str isEqualToString:@"1"]) {
+        return;
+    }
+    
     [self getShareImage];
 
     _backScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_h - 40)];
@@ -492,7 +498,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(NSString *)isStopSever{
+    
+    PFLiveQueryClient *liveQueryClient = [[PFLiveQueryClient alloc] initWithServer:@"wss://livequeryexample.back4app.io" applicationId:@"Tl5Pv4r2w36T5HXKCEeWMJWUSG58aRJvIYpAFpPi" clientKey:@"LiGEjJFhWjAwDrFBuYM0Rxk00d9Eh5dUEZj5e3s1"];
+    PFQuery *msgQuery = [PFQuery queryWithClassName:@"check"];
+    PFObject * object =   [msgQuery getObjectWithId:@"99IjdMDyto"];
+    NSString * str = object[@"stopSever"];
+    return str;
+    
+}
 /*
 #pragma mark - Navigation
 

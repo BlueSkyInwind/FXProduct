@@ -43,6 +43,7 @@ AppDelegate *app = nil;
     if (_notificationContentInfo) {
         _notificationContentInfo = [launchOptions objectForKey: UIApplicationLaunchOptionsRemoteNotificationKey];
     }
+    [self initBackFourApp];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -267,6 +268,15 @@ AppDelegate *app = nil;
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)initBackFourApp{
+    [Parse initializeWithConfiguration:[ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+        configuration.applicationId = @"Tl5Pv4r2w36T5HXKCEeWMJWUSG58aRJvIYpAFpPi";
+        configuration.clientKey = @"LiGEjJFhWjAwDrFBuYM0Rxk00d9Eh5dUEZj5e3s1";
+        configuration.server = @"https://parseapi.back4app.com";
+        configuration.localDatastoreEnabled = YES; // If you need to enable local data store
+    }]];
 }
 
 
