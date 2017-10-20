@@ -198,6 +198,7 @@
 		8440D6D91EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440D6D71EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.m */; };
 		8440D6DA1EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8440D6D81EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.xib */; };
 		8440D6DD1EEFD8FA00C59B2C /* ColumnViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440D6DC1EEFD8FA00C59B2C /* ColumnViewModel.m */; };
+		844B970B1F99FE6C00B45E74 /* UIImage+extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B970A1F99FE6C00B45E74 /* UIImage+extention.m */; };
 		8458624A1EE68A7100AF52B3 /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458620C1EE68A7100AF52B3 /* NSData+AES.m */; };
 		8458624B1EE68A7100AF52B3 /* NSString+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458620E1EE68A7100AF52B3 /* NSString+AES.m */; };
 		8458624C1EE68A7100AF52B3 /* AddressClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 845862111EE68A7100AF52B3 /* AddressClass.m */; };
@@ -779,6 +780,8 @@
 		8440D6D81EEFD4D200C59B2C /* ColumnHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColumnHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
 		8440D6DB1EEFD8FA00C59B2C /* ColumnViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnViewModel.h; sourceTree = "<group>"; };
 		8440D6DC1EEFD8FA00C59B2C /* ColumnViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnViewModel.m; sourceTree = "<group>"; };
+		844B97091F99FE6C00B45E74 /* UIImage+extention.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+extention.h"; sourceTree = "<group>"; };
+		844B970A1F99FE6C00B45E74 /* UIImage+extention.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+extention.m"; sourceTree = "<group>"; };
 		8458620B1EE68A7100AF52B3 /* NSData+AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES.h"; sourceTree = "<group>"; };
 		8458620C1EE68A7100AF52B3 /* NSData+AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES.m"; sourceTree = "<group>"; };
 		8458620D1EE68A7100AF52B3 /* NSString+AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AES.h"; sourceTree = "<group>"; };
@@ -1944,6 +1947,8 @@
 				845862471EE68A7100AF52B3 /* YYCategoriesMacro.h */,
 				22B905161EEC282000ED8B71 /* ClearCacheTool.h */,
 				22B905171EEC282000ED8B71 /* ClearCacheTool.m */,
+				844B97091F99FE6C00B45E74 /* UIImage+extention.h */,
+				844B970A1F99FE6C00B45E74 /* UIImage+extention.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -3340,6 +3345,7 @@
 				847745081EE7B0AC00043F25 /* loginViewMdoel.m in Sources */,
 				84AABDD21EE69F76001AA7C0 /* HMScanner.m in Sources */,
 				22B905581EECF86600ED8B71 /* NewsTableViewCell.m in Sources */,
+				844B970B1F99FE6C00B45E74 /* UIImage+extention.m in Sources */,
 				84AABDCF1EE69F76001AA7C0 /* UIViewController+LewPopupViewController.m in Sources */,
 				22B9053D1EEC4B5400ED8B71 /* TGSementBarVC.m in Sources */,
 				84C32E5A1EFD124000373BC5 /* AddImageAndContentView.m in Sources */,

@@ -60,9 +60,12 @@
         commentInputViewHeight = 150;
     }
     self.view.backgroundColor = [UIColor whiteColor];
-    self.automaticallyAdjustsScrollViewInsets = false;
+    if (@available(iOS 11.0, *)) {
+        _backScrollView.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
+    }else{
+        self.automaticallyAdjustsScrollViewInsets=false;
+    }
     [self addBackItem];
-    
     commenArray = [NSMutableArray array];
     __weak typeof (self) weakSelf = self;
     [self obtainDetail:^(BOOL isSuccess) {
@@ -263,7 +266,7 @@
     [self commentUnreadStatus];
 
     self.detailHeaderView = [[NSBundle mainBundle]loadNibNamed:@"DetailHeaderView" owner:self options:nil].lastObject;
-    self.detailHeaderView.frame = CGRectMake(0, 64, _k_w, 90);
+    self.detailHeaderView.frame = CGRectMake(0, 0, _k_w, 90);
     self.detailHeaderView.titleLabel.text = self.detailModel.Title;
     self.detailHeaderView.timeLabel.text = self.detailModel.Time;
     self.detailHeaderView.autherLabel.text = self.detailModel.Auther;

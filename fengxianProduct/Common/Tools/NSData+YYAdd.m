@@ -339,8 +339,7 @@ YYSYNTH_DUMMY_CLASS(NSData_YYAdd)
 }
 
 + (NSData *)dataWithHexString:(NSString *)hexStr {
-    hexStr = [hexStr stringByReplacingOccurrencesOfString:@" " withString:@""];
-    hexStr = [hexStr lowercaseString];
+     hexStr = [hexStr lowercaseString];
     NSUInteger len = hexStr.length;
     if (!len) return nil;
     unichar *buf = malloc(sizeof(unichar) * len);

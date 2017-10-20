@@ -286,6 +286,8 @@
     return UIStatusBarAnimationSlide;
 }
 
+
+
 /*
 #pragma mark - Navigation
 
