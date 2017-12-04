@@ -34,13 +34,7 @@
 
 #pragma  mrak - 点击事件
 - (IBAction)loginBtnClick:(id)sender {
-    
-    NSString * str = @"0";
-    str = [self isStopSever];
-    if ([str isEqualToString:@"1"]) {
-        return;
-    }
-    
+        
     if(self.password.text.length < 6){
         [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"请保持密码长度在6~16位"];
         return;

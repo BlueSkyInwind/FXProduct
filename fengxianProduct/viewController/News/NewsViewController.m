@@ -64,13 +64,7 @@
     if (app.notificationContentInfo) {
         [self NotificationJump:app.notificationContentInfo];
     }
-    
-    NSString * str = @"0";
-    str = [self isStopSever];
-    if ([str isEqualToString:@"1"]) {
-        self.tabBarController.viewControllers = nil;
-    }
-    
+        
 }
 -(void)NotificationJump:(NSDictionary *)contentInfo{
     
@@ -320,6 +314,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 -(NSString *)isStopSever{
     
     PFLiveQueryClient *liveQueryClient = [[PFLiveQueryClient alloc] initWithServer:@"wss://livequeryexample.back4app.io" applicationId:@"Tl5Pv4r2w36T5HXKCEeWMJWUSG58aRJvIYpAFpPi" clientKey:@"LiGEjJFhWjAwDrFBuYM0Rxk00d9Eh5dUEZj5e3s1"];

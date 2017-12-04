@@ -71,13 +71,7 @@
     [integralM fatchAccountIntegral];
 }
 -(void)configureView{
-    
-    NSString * str = @"0";
-    str = [self isStopSever];
-    if ([str isEqualToString:@"1"]) {
-        return;
-    }
-    
+        
     UICollectionViewFlowLayout  * columnCustomLayout = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
 
     _integalCollectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:columnCustomLayout];

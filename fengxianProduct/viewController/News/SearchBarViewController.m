@@ -139,7 +139,6 @@
 }
 
 -(void)clearSearchHistory{
-    
     [historyArray removeAllObjects];
     tableViewHeight = 0;
     [_tableView reloadData];

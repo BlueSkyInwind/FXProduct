@@ -242,12 +242,6 @@
 #pragma mark - 新闻详情布局
 -(void)configureView{
     
-    NSString * str = @"0";
-    str = [self isStopSever];
-    if ([str isEqualToString:@"1"]) {
-        return;
-    }
-    
     [self getShareImage];
 
     _backScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, _k_w, _k_h - 40)];
