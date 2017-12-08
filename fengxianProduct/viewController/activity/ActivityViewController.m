@@ -96,9 +96,16 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    if (@available(iOS 11.0, *)) {
+        _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        _tableView.contentInset = UIEdgeInsetsMake(BarHeightNew, 0, 0, 0);
+    }else if (@available(iOS 9.0, *)){
+        self.automaticallyAdjustsScrollViewInsets = true;
+    }else{
+        self.automaticallyAdjustsScrollViewInsets = false;
+    }
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ActivityBrokeViewTableViewCell" bundle:nil] forCellReuseIdentifier:@"ActivityBrokeViewTableViewCell"];
-
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
@@ -242,7 +249,6 @@
 
         __weak typeof (self) wealSelf = self;
         [columnInfoArr replaceObjectAtIndex:0 withObject:tempArr];
-        
         [Utility sharedUtility].voteListModel = newsListM;
         NSIndexPath * indexPath = [NSIndexPath indexPathForRow:1 inSection:1];
         [wealSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];

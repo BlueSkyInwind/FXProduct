@@ -39,8 +39,8 @@ target 'fengxianProduct' do
     # 腾讯QQ(可选)
     pod 'ShareSDK3/ShareSDKPlatforms/QQ'
     
-    pod 'Parse'
-    pod 'ParseLiveQuery'
+    # pod 'Parse'
+    # pod 'ParseLiveQuery'
     
     
     

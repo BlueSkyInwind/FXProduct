@@ -331,7 +331,8 @@
             [self loadImageWithUrl:photoDetailM.Image imageView:imageView completed:^(UIImage *image) {
                 if (i == 0) {
                     shareImage = [image copy];
-                }                 imageView.image = image;
+                }
+                imageView.image = image;
                 imageView.frame =  CGRectMake(0, 0, _k_w, _k_w * image.size.height / image.size.width);
                 imageView.userInteractionEnabled = YES;
                 imageView.center = CGPointMake(_k_w / 2  + (_k_w) * i, (_k_h - 64) / 2);

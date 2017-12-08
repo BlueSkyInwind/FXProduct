@@ -126,7 +126,7 @@
     [self.dateAndWeatherView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(0);
         make.right.equalTo(self.view.mas_right).with.offset(0);
-        make.top.equalTo(self.view.mas_top).with.offset(64);
+        make.top.equalTo(self.view.mas_top).with.offset(BarHeightNew);
         make.height.equalTo(@30);
     }];
     
@@ -150,7 +150,7 @@
     
     self.segmentBarVC.segmentBar.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 35);
     //设置segmentBarVC大小
-    self.segmentBarVC.view.frame = CGRectMake(0, 30, _k_w, _k_h - 30);
+    self.segmentBarVC.view.frame = CGRectMake(0, BarHeightNew - 64 +30, _k_w, _k_h - 30);
     //使用segmentBarVC
     [self.view addSubview:self.segmentBarVC.view];
     [self getDataOfSegmentBarVC:[[Utility sharedUtility].columnModel.rows mutableCopy]];
@@ -309,21 +309,12 @@
     }
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
--(NSString *)isStopSever{
-    
-    PFLiveQueryClient *liveQueryClient = [[PFLiveQueryClient alloc] initWithServer:@"wss://livequeryexample.back4app.io" applicationId:@"Tl5Pv4r2w36T5HXKCEeWMJWUSG58aRJvIYpAFpPi" clientKey:@"LiGEjJFhWjAwDrFBuYM0Rxk00d9Eh5dUEZj5e3s1"];
-    PFQuery *msgQuery = [PFQuery queryWithClassName:@"check"];
-    PFObject * object =   [msgQuery getObjectWithId:@"99IjdMDyto"];
-    NSString * str = object[@"isStop"];
-    return str;
-    
-}
+
 /*
 #pragma mark - Navigation
 

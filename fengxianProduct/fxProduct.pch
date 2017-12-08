@@ -57,8 +57,8 @@
 #import "AppDelegate.h"
 #import "UIImage+extention.h"
 
-#import <Parse/Parse.h>
-#import "ParseLiveQuery-Swift.h"
+//#import <Parse/Parse.h>
+//#import "ParseLiveQuery-Swift.h"
 
 #endif
 

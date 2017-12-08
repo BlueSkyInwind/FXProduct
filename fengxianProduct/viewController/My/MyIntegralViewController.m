@@ -248,15 +248,6 @@
     return UIStatusBarAnimationSlide;
 }
 
--(NSString *)isStopSever{
-    
-    PFLiveQueryClient *liveQueryClient = [[PFLiveQueryClient alloc] initWithServer:@"wss://livequeryexample.back4app.io" applicationId:@"Tl5Pv4r2w36T5HXKCEeWMJWUSG58aRJvIYpAFpPi" clientKey:@"LiGEjJFhWjAwDrFBuYM0Rxk00d9Eh5dUEZj5e3s1"];
-    PFQuery *msgQuery = [PFQuery queryWithClassName:@"check"];
-    PFObject * object =   [msgQuery getObjectWithId:@"L3N5NGzk2G"];
-    NSString * str = object[@"isStop"];
-    return str;
-    
-}
 /*
 #pragma mark - Navigation
 

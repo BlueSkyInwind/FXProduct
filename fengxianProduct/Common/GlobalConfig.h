@@ -52,6 +52,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #define UI_MAIN_COLOR [UIColor colorWithRed:1/255.0 green:122/255.0 blue:179/255.0 alpha:1]
 
+#define BarHeightNew [[UIApplication sharedApplication] statusBarFrame].size.height + self.navigationController.navigationBar.frame.size.height
+
 
 #define KCharacterNumber @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@."
 
