@@ -351,8 +351,7 @@
                                     completedLoad(image);
                                 });
                         }];
-    
-    
+
 }
 //分享函数
 -(void)shareContent:(NSString*)urlStr Title:(NSString *)title
