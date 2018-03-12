@@ -5,7 +5,7 @@
 
 
 NSString * const _main_url  =   @"http://infx2.echaokj.cn/ajax/";
-NSString * const _AppDownload_url  =   @"http://infx.fengxiannet.com/infengxian/b.htm";
+NSString * const _AppDownload_url  =   @"http://infx.fengxiannet.com/infengxian/b.html";
 
 
 
@@ -47,9 +47,10 @@ NSString * const FX_CommentTimeInfo    =   @"commentTimeInfo";
 NSString * const FX_ColumnInfo    =   @"ColumnInfo";
 NSString * const FX_LivesColumnInfo    =   @"livesColumnInfo";
 NSString * const FX_ActivtyColumnInfo    =   @"activtyColumnInfo";
+NSString * const FX_LiveCellHeight    =   @"LiveCellHeight ";
 NSString * const FX_SearchHistory    =   @"SearchHistory";
-
 NSString * const FX_UploadImageArr    =   @"UploadImageArr";
+NSString * const FX_GuideImageArr    =   @"GuideImageArr";
 
 
 

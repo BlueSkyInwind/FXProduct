@@ -88,9 +88,9 @@
         }
         
         if ([newsDetailStatusModel.Thumbs boolValue]) {
-            [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"Dianzan_blue"] forState:UIControlStateNormal];
+            [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"tab_dianzan_Icon_Blue"] forState:UIControlStateNormal];
         }else{
-            [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"Dianzan_gray"] forState:UIControlStateNormal];
+            [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"tab_dianzan_Icon_gray"] forState:UIControlStateNormal];
         }
     } WithFaileBlock:^{
         
@@ -264,7 +264,7 @@
             if ([str isEqualToString:@"点赞成功！"] ) {
                 [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"Dianzan_blue"] forState:UIControlStateNormal];
             }else if([str isEqualToString:@"取消点赞成功！"]){
-                [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"Dianzan_gray"] forState:UIControlStateNormal];
+                [self.commonBottomView.spotBtn setBackgroundImage:[UIImage imageNamed:@"tab_dianzan_Icon_gray"] forState:UIControlStateNormal];
             }
         }
     } WithFaileBlock:^{
@@ -331,7 +331,8 @@
             [self loadImageWithUrl:photoDetailM.Image imageView:imageView completed:^(UIImage *image) {
                 if (i == 0) {
                     shareImage = [image copy];
-                }                 imageView.image = image;
+                }
+                imageView.image = image;
                 imageView.frame =  CGRectMake(0, 0, _k_w, _k_w * image.size.height / image.size.width);
                 imageView.userInteractionEnabled = YES;
                 imageView.center = CGPointMake(_k_w / 2  + (_k_w) * i, (_k_h - 64) / 2);
@@ -350,8 +351,7 @@
                                     completedLoad(image);
                                 });
                         }];
-    
-    
+
 }
 //分享函数
 -(void)shareContent:(NSString*)urlStr Title:(NSString *)title
@@ -362,19 +362,27 @@
     NSArray *imageArr = @[shareImage];
     if (imageArr) {
         NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
-        [shareParams SSDKSetupShareParamsByText:@""
+        [shareParams SSDKSetupShareParamsByText:[NSString stringWithFormat:@"%@,链接:%@",title,urlStr]
                                          images:imageArr
                                             url:[NSURL URLWithString:urlStr]
-                                          title:title
+                                          title:@"IN奉贤"
                                            type:SSDKContentTypeAuto];
+        [shareParams SSDKSetupSinaWeiboShareParamsByText:[NSString stringWithFormat:@"%@,链接:%@",title,urlStr] title:@"IN奉贤" image:shareImage url:[NSURL URLWithString:urlStr] latitude:0 longitude:0 objectID:nil type:SSDKContentTypeAuto];
         [shareParams SSDKEnableUseClientShare];
-        [ShareSDK showShareActionSheet:nil
+      SSUIShareActionSheetController * sheet =  [ShareSDK showShareActionSheet:nil
                                  items:nil
                            shareParams:shareParams
                    onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
                        switch (state) {
                            case SSDKResponseStateSuccess:
-                               [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"分享成功"];
+                           {
+                               if (platformType == SSDKPlatformTypeCopy) {
+                                   [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"复制成功"];
+                               }else{
+                                   [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"分享成功"];
+                                   [self shareSuccessUpload];
+                               }
+                           }
                                break;
                                
                            case SSDKResponseStateFail:
@@ -383,9 +391,17 @@
                                break;
                        }
                    }];
+        [sheet.directSharePlatforms addObject:@(SSDKPlatformTypeCopy)];
+
     }
 }
 
+-(void)shareSuccessUpload
+{
+    NewsViewModel * model = [[NewsViewModel alloc]init];
+    [model userShareSuccess:[NSString stringWithFormat:@"%@",self.detailID] type:@"8"];
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

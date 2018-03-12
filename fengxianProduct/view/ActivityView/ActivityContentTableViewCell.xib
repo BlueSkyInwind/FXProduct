@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,14 +25,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="310" height="40"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KYK-q9-k6x">
-                                        <rect key="frame" x="3" y="15" width="15" height="15"/>
+                                        <rect key="frame" x="5" y="12.5" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="We7-B3-fYK"/>
                                             <constraint firstAttribute="width" constant="15" id="gY8-IL-LV9"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9c3-5Y-xht">
-                                        <rect key="frame" x="18" y="11.5" width="50" height="18"/>
+                                        <rect key="frame" x="23" y="11.5" width="50" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="279-PF-a6I"/>
                                             <constraint firstAttribute="width" constant="50" id="tIr-nM-T6v"/>
@@ -43,7 +42,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaW-U2-JNt">
-                                        <rect key="frame" x="76" y="11" width="18" height="18"/>
+                                        <rect key="frame" x="81" y="11" width="18" height="18"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="18" id="DcL-eg-dGF"/>
@@ -84,15 +83,15 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="9c3-5Y-xht" firstAttribute="leading" secondItem="KYK-q9-k6x" secondAttribute="trailing" id="31O-Cq-W3Z"/>
+                                    <constraint firstItem="9c3-5Y-xht" firstAttribute="leading" secondItem="KYK-q9-k6x" secondAttribute="trailing" constant="3" id="31O-Cq-W3Z"/>
                                     <constraint firstItem="yMV-Vg-zIE" firstAttribute="centerY" secondItem="3my-q2-gWF" secondAttribute="centerY" id="37a-pt-q9r"/>
                                     <constraint firstAttribute="trailing" secondItem="FUY-yN-Dii" secondAttribute="trailing" constant="5" id="B9S-dp-2nm"/>
                                     <constraint firstItem="PWP-jy-yK6" firstAttribute="centerY" secondItem="3my-q2-gWF" secondAttribute="centerY" id="Bzv-sk-6bu"/>
                                     <constraint firstAttribute="trailing" secondItem="yMV-Vg-zIE" secondAttribute="trailing" constant="5" id="Kgn-hC-Qy4"/>
-                                    <constraint firstItem="KYK-q9-k6x" firstAttribute="leading" secondItem="3my-q2-gWF" secondAttribute="leading" constant="3" id="abd-Gm-IOa"/>
+                                    <constraint firstItem="KYK-q9-k6x" firstAttribute="leading" secondItem="3my-q2-gWF" secondAttribute="leading" constant="5" id="abd-Gm-IOa"/>
                                     <constraint firstItem="FUY-yN-Dii" firstAttribute="leading" secondItem="3my-q2-gWF" secondAttribute="leading" constant="5" id="kdQ-LA-S1q"/>
                                     <constraint firstAttribute="bottom" secondItem="FUY-yN-Dii" secondAttribute="bottom" id="mKQ-mn-AwI"/>
-                                    <constraint firstItem="KYK-q9-k6x" firstAttribute="centerY" secondItem="3my-q2-gWF" secondAttribute="centerY" constant="2.5" id="qF7-U5-Xlt"/>
+                                    <constraint firstItem="KYK-q9-k6x" firstAttribute="centerY" secondItem="3my-q2-gWF" secondAttribute="centerY" id="qF7-U5-Xlt"/>
                                     <constraint firstItem="9c3-5Y-xht" firstAttribute="centerY" secondItem="3my-q2-gWF" secondAttribute="centerY" id="txc-09-ghg"/>
                                     <constraint firstAttribute="height" constant="40" id="u71-yi-FrI"/>
                                     <constraint firstItem="yMV-Vg-zIE" firstAttribute="leading" secondItem="PWP-jy-yK6" secondAttribute="trailing" constant="2" id="xPe-v2-P4a"/>
@@ -118,13 +117,13 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="LJf-7y-jnr" secondAttribute="trailing" constant="-3" id="8ot-Xi-rkX"/>
-                    <constraint firstItem="LJf-7y-jnr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-5" id="cPe-SI-Fxn"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="LJf-7y-jnr" secondAttribute="bottom" constant="-5" id="gO1-IB-8A1"/>
-                    <constraint firstItem="LJf-7y-jnr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-3" id="qUr-jj-Xb4"/>
+                    <constraint firstItem="LJf-7y-jnr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="9b4-Hg-Obr"/>
+                    <constraint firstItem="LJf-7y-jnr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="O0U-GQ-8gG"/>
+                    <constraint firstAttribute="bottom" secondItem="LJf-7y-jnr" secondAttribute="bottom" constant="3" id="kBV-kD-5Wx"/>
+                    <constraint firstAttribute="trailing" secondItem="LJf-7y-jnr" secondAttribute="trailing" constant="5" id="nAX-B0-BhX"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="backView" destination="LJf-7y-jnr" id="QIg-Xm-uFv"/>
                 <outlet property="contentTableView" destination="4aw-UJ-QPi" id="mjW-FA-45Q"/>
@@ -134,7 +133,7 @@
                 <outlet property="titleLabel" destination="9c3-5Y-xht" id="nj9-I3-RW2"/>
                 <outlet property="updateListNumLabel" destination="uaW-U2-JNt" id="bkj-iM-iK9"/>
             </connections>
-            <point key="canvasLocation" x="35" y="137"/>
+            <point key="canvasLocation" x="-8" y="125"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -62,7 +62,6 @@
     return cycleView;
 }
 
-
 //设置collectionView
 - (void)setupCollcetionView {
     //collcetionView
@@ -89,16 +88,16 @@
         make.bottom.equalTo(self.mas_bottom).with.offset(0);
         make.left.equalTo(self.mas_left).with.offset(0);
         make.right.equalTo(self.mas_right).with.offset(0);
-        make.height.equalTo(@(self.frame.size.height / 4));
+        make.height.equalTo(@(self.frame.size.height / 5));
     }];
     
     self.headlineImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"headLine_Icon"]];
     [grayView addSubview:self.headlineImageView];
     [self.headlineImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(grayView.mas_centerY);
-        make.left.equalTo(grayView.mas_left).with.offset(15);
-        make.width.equalTo(@(self.frame.size.height/4));
-        make.height.equalTo(@(self.frame.size.height/8));
+        make.left.equalTo(grayView.mas_left).with.offset(10);
+        make.width.equalTo(@(self.frame.size.height/5));
+        make.height.equalTo(@(self.frame.size.height/10));
     }];
     
     self.pageControl = [[UIPageControl alloc] init];
@@ -142,7 +141,6 @@
     }else {
        return self.imageArray.count * 3;
     }
-    
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -172,13 +170,11 @@
         if (self.clickItemBlock) {
             self.clickItemBlock(indexPath.item%self.imageArray.count);
         }
-        
         //代理
         if ([self.delegate respondsToSelector:@selector(selectItemAtIndex:)]) {
             [self.delegate selectItemAtIndex:(indexPath.item % self.imageArray.count)];
         }
     }
-    
 }
 
 //设置页码
@@ -206,6 +202,7 @@
         return;
     }else {
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.index - 1 inSection:0];
+//        NSLog(@"%ld,%ld",indexPath.row,self.index);
         [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:0 animated:YES];
         
         if (indexPath.row == self.imageArray.count * 2) {
@@ -214,7 +211,7 @@
                 [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:0 animated:NO];
             });
         }
-        NSInteger num = self.index % self.imageArray.count ;
+        NSInteger num = (self.index - 1) % self.imageArray.count ;
         self.pageControl.currentPage = num;
         [self setTitle:num];
     }
@@ -234,6 +231,7 @@
         }
     }
 }
+
 //停止滚动时打开定时器
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     [self addTimer];
@@ -241,8 +239,6 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     self.index = (NSInteger)(scrollView.contentOffset.x / scrollView.bounds.size.width);
 }
-
-
 
 - (void)setImageArray:(NSMutableArray *)imageArray {
     [_imageArray removeAllObjects];

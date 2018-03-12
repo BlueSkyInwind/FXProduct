@@ -13,6 +13,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    _isFirst = YES;
+
 }
 -(void)setAnswerRowsModel:(AnswerRowsModel *)answerRowsModel{
     _answerRowsModel = answerRowsModel;
@@ -21,9 +23,11 @@
     NSString * str = _answerRowsModel.Review;
     contentArr = [[str componentsSeparatedByString:@":"] mutableCopy];
     [self addChooseView];
-
 }
 -(void)addChooseView{
+    if (!_isFirst) {
+        return;
+    }
     
     for (int i = 0; i < contentArr.count; i ++ ) {
         NSString * str = contentArr[i];
@@ -45,8 +49,8 @@
         }
         [self.contentView addSubview:chooseView];
         [contentheightArr addObject:@(height)];
-
     }
+    _isFirst = NO;
 }
 
 -(void)chooseButtonClick:(UIButton *)button isSelected:(BOOL)isSelected{

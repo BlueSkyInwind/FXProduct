@@ -27,6 +27,11 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *commentNumLabel;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *visitorBackViewWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *visitorLabelWith;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *commentLabelWidth;
+
+
 
 @property (strong ,nonatomic)NewsListInfo * newsList;
 

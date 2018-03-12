@@ -11,6 +11,7 @@
 @interface DetailViewController : BaseViewController
 
 @property (nonatomic,strong)NSNumber * Species;
+@property (nonatomic,strong)NSString * BannerVedio;
 @property (nonatomic,strong)NSNumber * detailID;
 
 @end

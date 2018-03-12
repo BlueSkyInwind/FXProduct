@@ -176,7 +176,6 @@
         [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"两次输入密码不一致！"];
         return NO;
     }
-
     return YES;
 }
 

@@ -22,6 +22,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *browerNum;
 
 @property (weak, nonatomic) IBOutlet UILabel *spotNum;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *browseNumViewCentercons;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *spotNumViewCenterCons;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *browseNumViewWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *spotNumViewWidth;
 
 @property (nonatomic,strong)NSNumber * detailID;
 @property (nonatomic,strong) DetailCommentModel * detailCommentModel;

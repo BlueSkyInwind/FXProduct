@@ -42,11 +42,14 @@
     didAddSperateVerticalLine = NO;
     [self addBackItem];
     [self configureView];
-    
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    __weak typeof (self) weakSelf = self;
+    [self obtainIntegral:^(integralModel *integralModel) {
+        [weakSelf.integalCollectionView reloadData];
+    }];
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -56,8 +59,19 @@
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     
 }
+-(void)obtainIntegral:(void(^)(integralModel * integralModel))finish
+{
+    IntegralViewModel * integralM = [[IntegralViewModel alloc]init];
+    [integralM setBlockWithReturnBlock:^(id returnValue) {
+        self.integralM = returnValue;
+        finish(self.integralM);
+    } WithFaileBlock:^{
+        
+    }];
+    [integralM fatchAccountIntegral];
+}
 -(void)configureView{
-    
+        
     UICollectionViewFlowLayout  * columnCustomLayout = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
 
     _integalCollectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:columnCustomLayout];
@@ -136,9 +150,10 @@
     if (indexPath.section == 0) {
         MyIntegralHeaderCollectionViewCell *cell1 = [_integalCollectionView dequeueReusableCellWithReuseIdentifier:@"MyIntegralHeaderCollectionViewCell" forIndexPath:indexPath];
         cell1.delegate = self;
-                cell1.integralNumLabel.text = [NSString stringWithFormat:@"%@",self.integralM.Integral];
+        cell1.integralNumLabel.text = [NSString stringWithFormat:@"%@",self.integralM.Integral];
         return cell1;
-    }else if (indexPath.section == 1){
+        
+    }else if (indexPath.section == 1){ 
         IntegralAwardCollectionViewCell *cell2 = [_integalCollectionView dequeueReusableCellWithReuseIdentifier:@"IntegralAwardCollectionViewCell" forIndexPath:indexPath];
         return cell2;
 
@@ -232,6 +247,7 @@
 - (UIStatusBarAnimation)preferredStatusBarUpdateAnimation{
     return UIStatusBarAnimationSlide;
 }
+
 /*
 #pragma mark - Navigation
 

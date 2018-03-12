@@ -33,7 +33,7 @@
         self.returnBlock(returnMsg);
     } failure:^(EnumServerStatus status, id object) {
         
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:object];
+//        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:object];
         [self faileBlock];
         
     }];

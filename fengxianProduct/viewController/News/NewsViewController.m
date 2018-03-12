@@ -15,6 +15,10 @@
 #import "SearchBarViewController.h"
 #import "DateAndWeatherView.h"
 #import "NoticeView.h"
+#import "CommentDetailViewController.h"
+#import "NotificationModel.h"
+#import "MyMessageViewController.h"
+#import "DetailViewController.h"
 
 @interface NewsViewController (){
     
@@ -52,10 +56,52 @@
     self.navigationItem.rightBarButtonItem = barBtn;
     [self configureView];
     [self getNewsWeather];
-
+    
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(moreColumnClick) name:@"NewsMoreBtnClick" object:nil];
     [self setTabBarBadgeValue];
+    
+    //通知方法跳转；app在为启动时收到通知，点击启动app处理
+    if (app.notificationContentInfo) {
+        [self NotificationJump:app.notificationContentInfo];
+    }
+        
 }
+-(void)NotificationJump:(NSDictionary *)contentInfo{
+    
+    ////  {"extras":{"Type":2},"alert":"【礼品兑换通知】更多积分兑换商品，敬请期待！！"}}
+    NSDictionary * dic = contentInfo[@"aps"];
+    NSString * type = dic[@"alert"];
+    
+//    NotificationModel * notificationM = [[NotificationModel alloc]initWithDictionary:contentInfo error:nil];
+    NotificationDetailModel * notificationDetailM =  [[NotificationDetailModel alloc]initWithDictionary:contentInfo error:nil];
+
+//    if ([notificationDetailM.alert integerValue] == 2){
+//        MyMessageViewController * myMessageVC= [[MyMessageViewController alloc]init];
+//        [self.navigationController pushViewController:myMessageVC animated:YES];
+//    }
+        if (notificationDetailM) {
+            //1:小编回复，跳转对应评论页面；2：礼品兑换通知系统通知跳转我的邮件页面；3新闻推送返回新闻ID用于跳转到对应新闻页面
+            if ([notificationDetailM.Type integerValue] == 1) {
+    
+                CommentDetailViewController * commentDetailVC = [[CommentDetailViewController alloc]init];
+                commentDetailVC.detailID = @([notificationDetailM.ComID integerValue]);
+                commentDetailVC.comID = notificationDetailM.NewID;
+                [self.navigationController pushViewController:commentDetailVC animated:YES];
+    
+            }else if ([type integerValue] == 2){
+    
+                MyMessageViewController * myMessageVC= [[MyMessageViewController alloc]init];
+                [self.navigationController pushViewController:myMessageVC animated:YES];
+    
+            }else if ([notificationDetailM.Type integerValue] == 3){
+                DetailViewController *detailVC = [[DetailViewController alloc]init];
+                detailVC.detailID = @([notificationDetailM.NewID integerValue]);
+                detailVC.Species = @(1);
+                [self.navigationController pushViewController:detailVC animated:YES];
+            }
+        }
+}
+
 -(void)setTabBarBadgeValue{
     
     UITabBarItem * item=[self.tabBarController.tabBar.items objectAtIndex:0];
@@ -70,8 +116,8 @@
     if ( [[Utility sharedUtility].userInfo.ColumnAct intValue] != 0){
         item2.badgeValue= [Utility sharedUtility].userInfo.ColumnAct;
     }
-
 }
+
 -(void)configureView{
     
     self.dateAndWeatherView = [[NSBundle mainBundle]loadNibNamed:@"DateAndWeatherView" owner:self options:nil].lastObject;
@@ -80,7 +126,7 @@
     [self.dateAndWeatherView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(0);
         make.right.equalTo(self.view.mas_right).with.offset(0);
-        make.top.equalTo(self.view.mas_top).with.offset(64);
+        make.top.equalTo(self.view.mas_top).with.offset(BarHeightNew);
         make.height.equalTo(@30);
     }];
     
@@ -104,13 +150,13 @@
     
     self.segmentBarVC.segmentBar.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 35);
     //设置segmentBarVC大小
-    self.segmentBarVC.view.frame = CGRectMake(0, 30, _k_w, _k_h - 30);
+    self.segmentBarVC.view.frame = CGRectMake(0, BarHeightNew - 64 +30, _k_w, _k_h - 30);
     //使用segmentBarVC
     [self.view addSubview:self.segmentBarVC.view];
     [self getDataOfSegmentBarVC:[[Utility sharedUtility].columnModel.rows mutableCopy]];
     [self.view bringSubviewToFront:self.dateAndWeatherView];
-    
 }
+
 -(void)noticeViewTap{
     [self presentAlertTitle:@"公告" content:noticeStr VC:self sureClick:^(NSString *resultStr) {
         [self.noticeView removeFromSuperview];
@@ -141,7 +187,8 @@
     }
     for (int  i = 0; i < items.count - 1; i++) {
         SubViewController * subVc = [[SubViewController alloc] init];
-        subVc.columnID = i + 1;
+        ColumnInfoModel * infoModel = array[i+1];
+        subVc.columnID = [infoModel.ColumnID integerValue];
         [childVCs addObject:subVc];
     }
     [self.segmentBarVC setupWithItems:items childVCs:childVCs];
@@ -169,7 +216,6 @@
         ;
     }];
 }
-
 
 -(void)getNewsWeather{
     NewsViewModel * newsVM = [[NewsViewModel alloc]init];
@@ -211,7 +257,6 @@
     [newsVM CloseUserNotice];
 }
 
-
 #pragma mark - 点击事件
 -(void)moreColumnClick{
     
@@ -225,6 +270,7 @@
         };
         [self.navigationController pushViewController:myColumnVC animated:YES];
     }
+    
 }
 -(void)GosearchViewContrller{
     //可以加动画
@@ -248,10 +294,26 @@
     
 }
 
+-(void)ceshi{
+    //     "ID" : 4080,
+//    "ComID" : 34817
+     id currentVC = [[ShareConfig share]topViewController];
+    BaseNavigationViewController * BaseNavigationVC;
+    if ([currentVC isKindOfClass:[BaseTabBarViewController class]]) {
+        BaseTabBarViewController * baseTabVC = currentVC;
+        BaseNavigationVC = baseTabVC.selectedViewController;
+        CommentDetailViewController * commentDetailVC = [[CommentDetailViewController alloc]init];
+        commentDetailVC.detailID = @(4080);
+        commentDetailVC.comID = @"34817";
+        [BaseNavigationVC pushViewController:commentDetailVC animated:YES];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation

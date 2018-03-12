@@ -45,6 +45,8 @@
     tableViewHeight = 160;
     if (UI_IS_IPHONE6) {
         tableViewHeight = 200;
+    }else if (UI_IS_IPHONE6P){
+        tableViewHeight = 210;
     }
     [self configureView];
     [self setupMJRefreshTableView];
@@ -80,7 +82,6 @@
     }
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
     if (section == 0) {
         return 1;
     }else{
@@ -159,10 +160,9 @@
         DetailViewController *detailVC = [[DetailViewController alloc]init];
         detailVC.detailID = bannerInfo.NewID;
         detailVC.Species =  bannerInfo.Type;
+        detailVC.BannerVedio = bannerInfo.HasVideo;
         [self.navigationController pushViewController:detailVC animated:YES];
     }
-
-    
 }
 #pragma mark - 数据请求
 
@@ -227,7 +227,7 @@
 -(void)footerRereshing
 {
     if ([newsListModel.Next intValue] == 1) {
-        [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"以显示全部内容"];
+        [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"已显示全部内容"];
         [self.tableView.mj_footer endRefreshing];
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

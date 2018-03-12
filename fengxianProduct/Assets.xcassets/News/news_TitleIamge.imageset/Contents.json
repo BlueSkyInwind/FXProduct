@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icon@x_03.png",
+      "filename" : "icon@1x.png",
       "scale" : "1x"
     },
     {
@@ -12,7 +12,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "icon@3x.png",
+      "filename" : "icon@x_03.png",
       "scale" : "3x"
     }
   ],

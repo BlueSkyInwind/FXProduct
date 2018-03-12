@@ -68,6 +68,8 @@
     tableViewHeight = 160;
     if (UI_IS_IPHONE6) {
         tableViewHeight = 200;
+    }else if (UI_IS_IPHONE6P){
+        tableViewHeight = 210;
     }
     [self configureView];
     [self setupMJRefreshTableView];
@@ -94,17 +96,21 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    if (@available(iOS 11.0, *)) {
+        _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        _tableView.contentInset = UIEdgeInsetsMake(BarHeightNew, 0, 0, 0);
+    }else if (@available(iOS 9.0, *)){
+        self.automaticallyAdjustsScrollViewInsets = true;
+    }else{
+        self.automaticallyAdjustsScrollViewInsets = false;
+    }
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ActivityBrokeViewTableViewCell" bundle:nil] forCellReuseIdentifier:@"ActivityBrokeViewTableViewCell"];
-
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
         case 0:{
-            if (UI_IS_IPHONE6) {
-                return 200;
-            }
-            return 160;
+                return tableViewHeight;
         }
             break;
         case 1:{
@@ -163,12 +169,18 @@
             return firstCell;
         }
         
-        
         NSString * cellStr = [NSString stringWithFormat:@"ActivityContentTableViewCell%ld%ld",(long)indexPath.row,(long)indexPath.section];
         [self.tableView registerNib:[UINib nibWithNibName:@"ActivityContentTableViewCell" bundle:nil] forCellReuseIdentifier:cellStr];
         ActivityContentTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellStr forIndexPath:indexPath];
         if (!cell) {
             cell = [[ActivityContentTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellStr];
+        }
+        if (indexPath.row == 1) {
+            cell.titleImageView.image = [UIImage imageNamed:@"Activity_vote_Icon"];
+        }else if (indexPath.row == 2){
+            cell.titleImageView.image = [UIImage imageNamed:@"Activity_answer_Icon"];
+        }else if (indexPath.row == 3){
+            cell.titleImageView.image = [UIImage imageNamed:@"Activity_welfare_Icon"];
         }
         cell.currentVC = self;
         if (columnInfoArr.count != 0) {
@@ -236,9 +248,7 @@
         }
 
         __weak typeof (self) wealSelf = self;
-        
         [columnInfoArr replaceObjectAtIndex:0 withObject:tempArr];
-        
         [Utility sharedUtility].voteListModel = newsListM;
         NSIndexPath * indexPath = [NSIndexPath indexPathForRow:1 inSection:1];
         [wealSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -288,7 +298,6 @@
         __weak typeof (self) wealSelf = self;
         NewsListInfo * newsList = tempArr.firstObject;
         [columnInfoArr replaceObjectAtIndex:2 withObject:tempArr];
-        
         [Utility sharedUtility].welfareListModel = newsListM;
         NSIndexPath * indexPath = [NSIndexPath indexPathForRow:3 inSection:1];
         [wealSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -312,6 +321,9 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView.mj_header endRefreshing];
     });
+    if ( [Utility sharedUtility].networkState == NO) {
+        return;
+    }
     [self requestBannerInfo];
     [self requestVoteListInfo:@(9)];
     [self requestAnswerListInfo:@(10)];

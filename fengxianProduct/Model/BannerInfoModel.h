@@ -14,10 +14,12 @@
 @end
 @interface BannerInfoModel : JSONModel
 
-@property (nonatomic,strong)NSNumber * NewID;
-@property(nonatomic,strong)NSString * Title;
-@property(nonatomic,strong)NSNumber * Type;
-@property(nonatomic,strong)NSString * Image;
+@property (nonatomic,strong)NSNumber<Optional> * NewID;
+@property(nonatomic,strong)NSString<Optional> * Title;
+@property(nonatomic,strong)NSNumber<Optional> * Type;
+@property(nonatomic,strong)NSString<Optional> * Image;
+@property(nonatomic,strong)NSString<Optional> * HasVideo;
+
 @end
 
 @interface BannerListModel : JSONModel

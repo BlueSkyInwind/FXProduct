@@ -40,7 +40,6 @@
 @property (nonatomic,strong) UISearchController * searchController;
 @property (nonatomic,strong) ClearSearchHistoryView * ClearSearchHV;
 
-
 @end
 
 @implementation SearchBarViewController
@@ -48,6 +47,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"搜索";
     [self addBackItem];
     pages = 1;
     isDisplayHistory = YES;
@@ -90,6 +90,7 @@
     _tableView.dataSource = self;
     _tableView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.tableView];
+
 //    _tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"NewsTableViewCell" bundle:nil] forCellReuseIdentifier:@"NewsTableViewCell"];
@@ -106,7 +107,7 @@
     
     //设置UISearchController的显示属性，以下3个属性默认为YES
     //搜索时，背景变暗色
-    _searchController.dimsBackgroundDuringPresentation = NO;
+    _searchController.dimsBackgroundDuringPresentation = YES;
     //搜索时，背景变模糊
 //    _searchController.obscuresBackgroundDuringPresentation = NO;
     //隐藏导航栏
@@ -123,12 +124,21 @@
     [cancleBtn setTitle:@"取消" forState:UIControlStateNormal];
     [cancleBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     // 添加 searchbar 到 headerview
-    self.navigationItem.titleView = _searchController.searchBar;
+    if (@available(iOS 11.0, *)) {
+        _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        _tableView.contentInset = UIEdgeInsetsMake(120, 0, 0, 0);
+        UIView *searchBarTextField = [_searchController.searchBar.subviews.firstObject subviews][1];
+        [searchBarTextField subviews].firstObject.backgroundColor = UI_MAIN_COLOR;
+//        [_searchController.searchBar setSearchFieldBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(_k_w * searchBarWidth,26)] forState:UIControlStateNormal];
+        self.navigationItem.searchController = _searchController;
+        self.navigationItem.hidesSearchBarWhenScrolling = false;
+    }else{
+        self.navigationItem.titleView = _searchController.searchBar;
+    }
     [self.view addSubview:_tableView];
-    
 }
+
 -(void)clearSearchHistory{
-    
     [historyArray removeAllObjects];
     tableViewHeight = 0;
     [_tableView reloadData];
@@ -269,7 +279,7 @@
     [newsVM setBlockWithReturnBlock:^(id returnValue) {
         newsListModel = returnValue;
         if ([newsListModel.Next integerValue] == 1) {
-            [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"以显示全部内容"];
+            [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"已显示全部内容"];
         }
         isDisplayHistory = NO;
         if (pages == 1) {
@@ -321,7 +331,7 @@
 -(void)footerRereshing
 {
     if ([newsListModel.Next intValue] == 1) {
-        [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"以显示全部内容"];
+        [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"已显示全部内容"];
         [self.tableView.mj_footer endRefreshing];
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -374,7 +384,7 @@
 
 
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning { 
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

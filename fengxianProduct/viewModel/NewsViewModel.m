@@ -27,8 +27,8 @@
         }
 //        self.returnBlock(returnMsg);
     } failure:^(EnumServerStatus status, id object) {
-        NSError * error = object;
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+//        NSError * error = object;
+//        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
 //        [self faileBlock];
     }];
 }
@@ -46,8 +46,8 @@
             self.returnBlock(newsListModel);
         }
     } failure:^(EnumServerStatus status, id object) {
-        NSError * error = object;
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+//        NSError * error = object;
+//        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
         [self faileBlock];
     }];
 }
@@ -65,8 +65,8 @@
             self.returnBlock(newsDetailStatusModel);
         }
     } failure:^(EnumServerStatus status, id object) {
-        NSError * error = object;
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+//        NSError * error = object;
+//        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
         [self faileBlock];
     }];
     
@@ -86,9 +86,8 @@
         self.returnBlock(returnMsg);
 
     } failure:^(EnumServerStatus status, id object) {
-        NSError * error = object;
-
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+//        NSError * error = object;
+//        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
         [self faileBlock];
     }];
 }
@@ -107,8 +106,8 @@
             self.returnBlock(newsListModel);
         }
     } failure:^(EnumServerStatus status, id object) {
-        NSError * error = object;
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+//        NSError * error = object;
+//        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
         [self faileBlock];
     }];
 }
@@ -125,8 +124,8 @@
         
     } failure:^(EnumServerStatus status, id object) {
         
-        NSError * error = object;
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+//        NSError * error = object;
+//        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
         [self faileBlock];
     }];
 }
@@ -144,8 +143,8 @@
             self.returnBlock(detailModel);
         }
     } failure:^(EnumServerStatus status, id object) {
-        NSError * error = object;
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+//        NSError * error = object;
+//        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
         [self faileBlock];
     }];
 }
@@ -162,8 +161,8 @@
             self.returnBlock(photoModel);
         }
     } failure:^(EnumServerStatus status, id object) {
-        NSError * error = object;
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+//        NSError * error = object;
+//        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
         [self faileBlock];
     }];
 }
@@ -181,8 +180,8 @@
             self.returnBlock(returnMsg);
         }
     } failure:^(EnumServerStatus status, id object) {
-        NSError * error = object;
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+//        NSError * error = object;
+//        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
         [self faileBlock];
     }];
 }
@@ -200,8 +199,8 @@
             self.returnBlock(returnMsg);
         }
     } failure:^(EnumServerStatus status, id object) {
-        NSError * error = object;
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+//        NSError * error = object;
+//        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
         [self faileBlock];
     }];
 }
@@ -216,8 +215,8 @@
             self.returnBlock(returnMsg);
         }
     } failure:^(EnumServerStatus status, id object) {
-        NSError * error = object;
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+//        NSError * error = object;
+//        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
         [self faileBlock];
     }];
 }
@@ -235,8 +234,8 @@
             self.returnBlock(commentModel);
         }
     } failure:^(EnumServerStatus status, id object) {
-        NSError * error = object;
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+//        NSError * error = object;
+//        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
         [self faileBlock];
     }];
     
@@ -251,8 +250,8 @@
         self.returnBlock(returnMsg);
 
     } failure:^(EnumServerStatus status, id object) {
-        NSError * error = object;
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+//        NSError * error = object;
+//        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
         [self faileBlock];
     }];
     
@@ -269,8 +268,8 @@
             self.returnBlock(returnMsg);
         }
     } failure:^(EnumServerStatus status, id object) {
-        NSError * error = object;
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+//        NSError * error = object;
+//        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
         [self faileBlock];
     }];
     
@@ -287,11 +286,12 @@
             
         }
     } failure:^(EnumServerStatus status, id object) {
-        NSError * error = object;
-        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
+//        NSError * error = object;
+//        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
         [self faileBlock];
     }];
 }
+
 -(void)obtainGuideImage{
     //http://infx2.echaokj.cn/ajax/AppBanner/AppBannerImgList.ashx
     NSString * baseUrl = [NSString stringWithFormat:@"%@AppBanner/AppBannerImgList.ashx",_main_url];
@@ -304,14 +304,28 @@
             for (GuideImageModel * guideImageModel in guide.rows) {
                     [app.guideImageArr addObject:guideImageModel.Image];
             }
+            self.returnBlock(returnMsg);
         }
-//        self.returnBlock(returnMsg);
     } failure:^(EnumServerStatus status, id object) {
 //        NSError * error = object;
 //        [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:error.description];
-//        [self faileBlock];
+        [self faileBlock];
     }];
 }
+
+-(void)userShareSuccess:(NSString *)cateid type:(NSString *)type{
+       //http://infx2.echaokj.cn/ajax/My/ShareSign.ashx?AccountId=6&category=1&cateid=1
+       NSString * baseUrl = [NSString stringWithFormat:@"%@My/ShareSign.ashx?AccountId=%@&category=%@&cateid=%@",_main_url,[Utility sharedUtility].userInfo.ID,type,cateid];
+    [[FXNetworkManager sharedNetWorkManager]POSTHideIndicatorWithURL:baseUrl parameters:nil finished:^(EnumServerStatus status, id object) {
+        ReturnMsgBaseClass * returnMsg = [[ReturnMsgBaseClass alloc]initWithDictionary:object error:nil];
+        if ([returnMsg.returnCode intValue] == 1) {
+    
+        }
+    } failure:^(EnumServerStatus status, id object) {
+
+    }];
+}
+
 
 
 

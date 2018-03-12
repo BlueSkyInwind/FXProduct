@@ -23,4 +23,6 @@ typedef void (^MultipleChoose)(NSString * resultSTr,BOOL isDelete,NSInteger num)
 @property (assign,nonatomic)NSInteger number;
 @property (copy,nonatomic)MultipleChoose multipleChoose;
 
+@property (assign,nonatomic)BOOL isFirst;
+
 @end

@@ -52,6 +52,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #define UI_MAIN_COLOR [UIColor colorWithRed:1/255.0 green:122/255.0 blue:179/255.0 alpha:1]
 
+#define BarHeightNew [[UIApplication sharedApplication] statusBarFrame].size.height + self.navigationController.navigationBar.frame.size.height
+
 
 #define KCharacterNumber @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@."
 
@@ -91,6 +93,8 @@ UIKIT_EXTERN NSString * const FX_CommentTimeInfo;
 //用户栏目信息
 UIKIT_EXTERN NSString * const FX_ColumnInfo;
 UIKIT_EXTERN NSString * const FX_LivesColumnInfo;
+UIKIT_EXTERN NSString * const FX_LiveCellHeight;
+
 UIKIT_EXTERN NSString * const FX_ActivtyColumnInfo;
 
 //用户搜索历史
@@ -98,6 +102,7 @@ UIKIT_EXTERN NSString * const FX_SearchHistory;
 //上传图片数组
 UIKIT_EXTERN NSString * const FX_UploadImageArr;
 
+UIKIT_EXTERN NSString * const FX_GuideImageArr;
 
 
 

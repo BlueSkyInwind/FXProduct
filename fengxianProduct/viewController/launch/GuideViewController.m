@@ -63,7 +63,8 @@ NSString *const NewFeatureVersionKey = @"NewFeatureVersionKey";
     NSMutableArray *tmpArr = [NSMutableArray array];
     for (int i = 0; i < _imageArr.count; i++) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * _k_w, 0, _k_w, _k_h)];
-        [imageView sd_setImageWithURL:[_imageArr objectAtIndex:i]];
+//        [imageView sd_setImageWithURL:[_imageArr objectAtIndex:i]];
+        [imageView setImage:[UIImage imageWithData:[_imageArr objectAtIndex:i]]];
         [tmpArr addObject:imageView];
     
         [self.scrollView addSubview:imageView];

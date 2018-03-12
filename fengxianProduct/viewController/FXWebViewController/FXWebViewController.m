@@ -76,7 +76,6 @@
     }
 }
 
-
 -(void)createProUI
 {
     CGFloat progressBarHeight = 0.7f;

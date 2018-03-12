@@ -437,4 +437,32 @@
     
     return versionValueStringForSystemNow;
 }
++(NSString *)DealWithResult:(NSNumber *)number{
+    NSInteger num = [number integerValue];
+    NSString *resultStr;
+    if (num < 10000) {
+        resultStr  = [NSString stringWithFormat:@"%@",number];
+    }else if (9999< num && num<100000){
+        resultStr  = @"1w+";
+    }else if (99999< num && num<100000){
+        resultStr  = @"10w+";
+    }else if (199999< num && num<300000){
+        resultStr  = @"20w+";
+    }else if (299999< num && num<400000){
+        resultStr  = @"30w+";
+    }else if (399999< num && num<500000){
+        resultStr  = @"40w+";
+    }else if (499999< num && num<600000){
+        resultStr  = @"50w+";
+    }else if (599999< num && num<700000){
+        resultStr  = @"60w+";
+    }else if (699999< num && num<800000){
+        resultStr  = @"70w+";
+    }else if (799999< num && num<900000){
+        resultStr  = @"80w+";
+    }else if (899999< num && num<1000000){
+        resultStr  = @"90w+";
+    }
+    return resultStr;
+}
 @end

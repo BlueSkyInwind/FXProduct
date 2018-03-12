@@ -72,7 +72,7 @@
             [_waitView removeFromSuperview];
             [AFNetworkActivityIndicatorManager sharedManager].enabled = NO;
             failure(Enum_FAIL,error);
-            [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"服务器请求失败,请重试!"];
+            [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"连接失败，请确认网络是否畅通!"];
             DLog(@"error---%@",error.description);
         }];
     }
@@ -115,7 +115,7 @@
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 
             failure(Enum_FAIL,error);
-            [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"服务器请求失败,请重试!"];
+            [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"连接失败，请确认网络是否畅通!"];
             DLog(@"error---%@",error.description);
         }];
     }
@@ -143,7 +143,7 @@
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             failure(Enum_FAIL,error);
-            [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"服务器请求失败,请重试!"];
+            [[MBPAlertView sharedMBPTextView] showTextOnly:[UIApplication sharedApplication].keyWindow message:@"连接失败，请确认网络是否畅通!"];
             DLog(@"error---%@",error.description);
         }];
 }

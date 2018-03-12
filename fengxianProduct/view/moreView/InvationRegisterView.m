@@ -68,7 +68,7 @@
 {
  
     NSArray *imageArr = @[self.userQrcodeShareView.qrCodeImage.image];
-    NSString * str = [NSString stringWithFormat:@"安装注册输入邀请码：%@",self.userQrcodeShareView.invationCodeLabel.text];
+    NSString * str = [NSString stringWithFormat:@"安装注册输入%@",self.userQrcodeShareView.invationCodeLabel.text];
     if (imageArr) {
         NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
         [shareParams SSDKSetupShareParamsByText:str
@@ -76,14 +76,22 @@
                                             url:[NSURL URLWithString:urlStr]
                                           title:title
                                            type:SSDKContentTypeAuto];
+        [shareParams SSDKSetupSinaWeiboShareParamsByText:[NSString stringWithFormat:@"%@,链接:%@",str,urlStr] title:@"IN奉贤" image:self.userQrcodeShareView.qrCodeImage.image url:[NSURL URLWithString:urlStr] latitude:0 longitude:0 objectID:nil type:SSDKContentTypeAuto];
+        
+        
         [shareParams SSDKEnableUseClientShare];
-        [ShareSDK showShareActionSheet:nil
+     SSUIShareActionSheetController * sheet  =   [ShareSDK showShareActionSheet:nil
                                  items:nil
                            shareParams:shareParams
                    onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
                        switch (state) {
-                           case SSDKResponseStateSuccess:
-                               [[MBPAlertView sharedMBPTextView] showTextOnly:self.superVC.view message:@"分享成功"];
+                           case SSDKResponseStateSuccess:{
+                               if (platformType == SSDKPlatformTypeCopy) {
+                                   [[MBPAlertView sharedMBPTextView] showTextOnly:self message:@"复制成功"];
+                               }else{
+                                   [[MBPAlertView sharedMBPTextView] showTextOnly:self message:@"分享成功"];
+                               }
+                           }
                                break;
                                
                            case SSDKResponseStateFail:
@@ -92,6 +100,7 @@
                                break;
                        }
                    }];
+        [sheet.directSharePlatforms addObject:@(SSDKPlatformTypeCopy)];
     }
 }
 

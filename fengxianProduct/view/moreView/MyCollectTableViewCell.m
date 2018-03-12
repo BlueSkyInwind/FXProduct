@@ -96,14 +96,14 @@
     
     if ([_newsListInfo.Seat intValue] == 1) {
         NewsMultipleTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"NewsMultipleTableViewCell" forIndexPath:indexPath];
-        cell.backgroundColor = kUIColorFromRGB(0xe5e5e5);
+        cell.backgroundColor = kUIColorFromRGB(0xF5F5F5);
         cell.newsList = _newsListInfo;
         return cell;
         
     }else if ([_newsListInfo.Seat intValue] == 4){
         
         NewsTwoTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"NewsTwoTableViewCell" forIndexPath:indexPath];
-        cell.backgroundColor = kUIColorFromRGB(0xe5e5e5);
+        cell.backgroundColor = kUIColorFromRGB(0xF5F5F5);
         cell.newsList = _newsListInfo;
         return cell;
         
@@ -113,7 +113,7 @@
     if (!cell) {
         cell = [[NewsTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"NewsTableViewCell"];
     }
-    cell.backgroundColor = kUIColorFromRGB(0xe5e5e5);
+    cell.backgroundColor = kUIColorFromRGB(0xF5F5F5);
     cell.newsList = _newsListInfo;
     return cell;
 }

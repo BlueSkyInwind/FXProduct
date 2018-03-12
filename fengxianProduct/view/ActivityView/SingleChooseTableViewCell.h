@@ -23,5 +23,6 @@ typedef void (^SingleChoose)(NSString * resultSTr,BOOL isDelete,NSInteger num);
 @property (assign,nonatomic)NSInteger number;
 @property (copy,nonatomic)SingleChoose singleChoose;
 
+@property (assign,nonatomic)BOOL isFirst;
 
 @end

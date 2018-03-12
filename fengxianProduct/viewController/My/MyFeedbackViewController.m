@@ -55,8 +55,7 @@
     if (dataArr.count != 0) {
         UserCommentModel * userCommentM = dataArr[indexPath.row];
         cellHeight =  [Tool heightForText:userCommentM.Text width:_k_w - 10 font:15] + 40;
-    }
-    return cellHeight;
+    }     return cellHeight;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
@@ -129,7 +128,7 @@
 -(void)footerRereshing
 {
     if ([userCommentListModel.Next intValue] == 1) {
-        [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"以显示全部内容"];
+        [[MBPAlertView sharedMBPTextView] showTextOnly:self.view message:@"已显示全部内容"];
         [self.tableView.mj_footer endRefreshing];
     }
     

@@ -17,6 +17,9 @@
 @property (weak, nonatomic) IBOutlet UIView *beginAwardView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *awardBackViewTop;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *intgeralRuleHeight;
 
+@property (weak, nonatomic) IBOutlet UILabel *intgeralRuleLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *intgeralRuleViewBottom;
 
 @end

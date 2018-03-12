@@ -68,13 +68,21 @@
 
 -(void)configureView{
     
+    if (UI_IS_IPHONE5) {
+        self.intgeralRuleViewBottom.constant = 5;
+    }
+    
+    self.integralNum.text = [NSString stringWithFormat:@"%@积分/次",awardModel.LuckyIntegral];
+    self.intgeralRuleLabel.text =  awardModel.Text;
+    float contentHeight = [Tool heightForText:awardModel.Text width:_k_w - 100 font:13] + 20;
+    self.intgeralRuleHeight.constant = contentHeight;
+    
     float borderX = 8;
     float borderY = 8;
     float width = (self.awardBackView.frame.size.width - 32) / 3;
     float height = (self.awardBackView.frame.size.height - 32) / 3;
 
-    
-    for (int i = 0; i < 9; i ++) {
+    for (int i = 0; i < awardModel.rows.count; i ++) {
         
         AwardGoodsModel * awardGoodsM = awardModel.rows[i];
         float col = i / 3;
@@ -90,6 +98,7 @@
         [self.awardBackView addSubview:awardView];
     }
 }
+
 #pragma mark 设置动画
 
 -(void)initAwardViewStatus{
@@ -144,7 +153,6 @@
         [awardTimer invalidate];
         awardTimer = nil;
         [self initAwardViewStatus];
-
         if ([returnMsg.returnCode intValue] == 1) {
             awardResultModel = [[AwardResultModel alloc]initWithDictionary:(NSDictionary *)returnMsg.result error:nil];
             [self showAwardResultViewTitleLabel:awardResultModel.Title isSuccess:YES contentStr:awardResultModel.Address];
@@ -157,11 +165,9 @@
         [awardTimer invalidate];
         awardTimer = nil;
         [self initAwardViewStatus];
-
     }];
     [integralViewM requestAwardGoodsResult];
 }
-
 
 #pragma mark -
 -(void)showAwardResultViewTitleLabel:(NSString *)title isSuccess:(BOOL)isSuccess contentStr:(NSString *)contentStr{
@@ -189,12 +195,12 @@
     };
     [self.view addSubview:_awardResultReminderView];
 }
+
 -(void)removeAwardResultReminderView{
     [maskView removeFromSuperview];
     [_awardResultReminderView removeFromSuperview];
     maskView = nil;
     _awardResultReminderView = nil;
-    
 }
 
 
