@@ -48,9 +48,15 @@
 //        make.center.equalTo(self);
         make.left.equalTo(self.mas_left).with.offset(15);
         make.right.equalTo(self.mas_right).with.offset(-15);
-        make.top.equalTo(self.mas_top).with.offset(30);
-        make.bottom.equalTo(self.mas_bottom).with.offset(-30);
+        CGFloat con = 30;
+        if (UI_IS_IPHONEX) {
+            con = 60;
+        }
+        make.top.equalTo(self.mas_top).with.offset(con);
+        make.bottom.equalTo(self.mas_bottom).with.offset(-con);
     }];
+    
+
     
 }
 -(void)closeViewClick{

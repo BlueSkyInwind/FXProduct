@@ -10,6 +10,7 @@
 #import <WebKit/WebKit.h>
 #import "NewsViewModel.h"
 #import "GuideModel.h"
+#import "FLAnimatedImageView.h"
 
 @interface LaunchViewController (){
     
@@ -39,21 +40,26 @@
     frame.size.height = launchSize.height / 2;
     NSData *gif = [NSData dataWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"launch_Image3" ofType:@"gif"]];
     // view生成
-    if ([UIDevice  systemVersion] > 9.0) {
-        
-        webViewOne = [[WKWebView alloc] initWithFrame:frame];
-        webViewOne.userInteractionEnabled = NO;//用户不可交互
-        [webViewOne loadData:gif MIMEType:@"image/gif"  characterEncodingName:nil baseURL:nil];
-        [self.view addSubview:webViewOne];
-    }else{
-        
-        webViewTwo = [[UIWebView alloc] initWithFrame:frame];
-        webViewTwo.scalesPageToFit = YES;
-        webViewTwo.userInteractionEnabled = NO;//用户不可交互
-        [webViewTwo loadData:gif MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
-        [self.view addSubview:webViewTwo];
-        
-    }
+    
+    FLAnimatedImageView * imageView = [[FLAnimatedImageView alloc]initWithFrame:frame];
+    imageView.animatedImage = [FLAnimatedImage animatedImageWithGIFData:gif];
+    [self.view addSubview:imageView];
+    
+    
+//    if ([UIDevice  systemVersion] > 9.0) {
+//
+//        webViewOne = [[WKWebView alloc] initWithFrame:frame];
+//        webViewOne.userInteractionEnabled = NO;//用户不可交互
+//        [webViewOne loadData:gif MIMEType:@"image/gif"  characterEncodingName:nil baseURL:nil];
+//        [self.view addSubview:webViewOne];
+//    }else{
+//        webViewTwo = [[UIWebView alloc] initWithFrame:frame];
+//        webViewTwo.scalesPageToFit = YES;
+//        webViewTwo.userInteractionEnabled = NO;//用户不可交互
+//        [webViewTwo loadData:gif MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
+//        [self.view addSubview:webViewTwo];
+//
+//    }
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];

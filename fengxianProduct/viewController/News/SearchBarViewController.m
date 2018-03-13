@@ -114,7 +114,7 @@
     _searchController.hidesNavigationBarDuringPresentation = NO;
     
     _searchController.searchBar.frame = CGRectMake(0 , 0 , _k_w * searchBarWidth, 44.0);
-    _searchController.searchBar.barTintColor = UI_MAIN_COLOR;
+    _searchController.searchBar.barTintColor = [UIColor whiteColor];
     _searchController.searchBar.placeholder = @"请输入搜索内容";
     _searchController.searchBar.showsCancelButton = YES;
     _searchController.searchBar.delegate = self;
@@ -126,7 +126,7 @@
     // 添加 searchbar 到 headerview
     if (@available(iOS 11.0, *)) {
         _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        _tableView.contentInset = UIEdgeInsetsMake(120, 0, 0, 0);
+        _tableView.contentInset = UIEdgeInsetsMake(132, 0, 0, 0);
         UIView *searchBarTextField = [_searchController.searchBar.subviews.firstObject subviews][1];
         [searchBarTextField subviews].firstObject.backgroundColor = UI_MAIN_COLOR;
 //        [_searchController.searchBar setSearchFieldBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(_k_w * searchBarWidth,26)] forState:UIControlStateNormal];

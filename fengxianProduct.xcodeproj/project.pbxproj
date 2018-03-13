@@ -1631,7 +1631,6 @@
 				840DFFF71EF7CFBC00709337 /* PhotoViewController.h */,
 				840DFFF81EF7CFBC00709337 /* PhotoViewController.m */,
 				229520E21EF8395F00FA2351 /* CommentDetailViewController.h */,
-				229520E31EF8395F00FA2351 /* CommentDetailViewController.m */,
 			);
 			path = CommonVC;
 			sourceTree = "<group>";
@@ -1816,6 +1815,7 @@
 			children = (
 				22B9054D1EEC51CA00ED8B71 /* CommonVC */,
 				84AABED51EE6AF41001AA7C0 /* BaseViewController */,
+				229520E31EF8395F00FA2351 /* CommentDetailViewController.m */,
 				2261431E1EE8331800193487 /* FXWebViewController */,
 				2261430C1EE6E2B800193487 /* launch */,
 				84AABEF71EE6B415001AA7C0 /* Register */,
@@ -2920,7 +2920,7 @@
 					226BDF7D1EE6859D009D2A3F = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = WB5UAUH8M2;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -3146,7 +3146,10 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TencentOpenApi_IOS_Bundle.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDKUI.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3626,9 +3629,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = fengxianProduct/fengxianProduct.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = WB5UAUH8M2;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3651,8 +3654,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.echao.infx299;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7c2c78ae-60f4-4e95-9c17-3adf2b520361";
-				PROVISIONING_PROFILE_SPECIFIER = fengxian_pro_ceshi;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -3663,9 +3666,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = fengxianProduct/fengxianProduct.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = WB5UAUH8M2;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3688,8 +3691,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.echao.infx299;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7c2c78ae-60f4-4e95-9c17-3adf2b520361";
-				PROVISIONING_PROFILE_SPECIFIER = fengxian_pro_ceshi;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

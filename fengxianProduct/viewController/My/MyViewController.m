@@ -99,6 +99,10 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    if (@available(iOS 11.0, *)) {
+        _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        _tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    }
     
     [self.tableView registerNib:[UINib nibWithNibName:@"MoreTableViewCell" bundle:nil] forCellReuseIdentifier:@"MoreTableViewCell"];
 
@@ -245,8 +249,8 @@
 -(void)SignInViewCilck{
     
     
-
 }
+
 -(void)obtainSignStatus{
     
     MoreViewModel * moreVM = [[MoreViewModel alloc]init];

@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIView *sysTemView;
 @property (weak, nonatomic) IBOutlet UIView *commentView;
 @property (weak, nonatomic) IBOutlet UIView *headerBackView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerTopContraint;
 
 
 @end

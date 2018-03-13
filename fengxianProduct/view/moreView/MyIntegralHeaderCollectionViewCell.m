@@ -13,15 +13,35 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-     [Tool setCorner:self.integralDetailView borderColor:[UIColor whiteColor] cornerRadius:1];
-     [Tool setCorner:self.integralConvertView borderColor:[UIColor whiteColor] cornerRadius:1];
+    [Tool setCorner:self.integralDetailView borderColor:[UIColor whiteColor] cornerRadius:1];
+    [Tool setCorner:self.integralConvertView borderColor:[UIColor whiteColor] cornerRadius:1];
     
     UITapGestureRecognizer * detailTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(integralDetailTap)];
     [self.integralDetailView addGestureRecognizer:detailTap];
     
     UITapGestureRecognizer * convertTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(convertDetailTap)];
     [self.integralConvertView addGestureRecognizer:convertTap];
-
+    
+    if (UI_IS_IPHONEX) {
+        [self.backButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self).with.offset(35);
+            make.left.equalTo(self).with.offset(15);
+            make.width.equalTo(@18);
+            make.height.equalTo(@18);
+        }];
+        
+        [self.integralBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self).with.offset(35);
+            make.right.equalTo(self).with.offset(-15);
+            make.width.equalTo(@62);
+            make.height.equalTo(@21);
+        }];
+        
+        [self.titileLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self).with.offset(35);
+        }];
+    }
+    
 }
 
 -(void)integralDetailTap{

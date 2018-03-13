@@ -43,7 +43,6 @@ AppDelegate *app = nil;
     if (_notificationContentInfo) {
         _notificationContentInfo = [launchOptions objectForKey: UIApplicationLaunchOptionsRemoteNotificationKey];
     }
-//    [self initBackFourApp];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];

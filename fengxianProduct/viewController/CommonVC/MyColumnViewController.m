@@ -68,7 +68,11 @@
     [self.columnCollectionHeader mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(0);
         make.right.equalTo(self.view.mas_right).with.offset(0);
-        make.top.equalTo(self.view.mas_top).with.offset(64);
+        if (UI_IS_IPHONEX) {
+            make.top.equalTo(self.view.mas_top).with.offset(88);
+        }else{
+            make.top.equalTo(self.view.mas_top).with.offset(64);
+        }
         make.height.equalTo(@35);
     }];
     

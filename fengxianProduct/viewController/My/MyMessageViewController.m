@@ -111,11 +111,17 @@
 
 -(void)configureView{
     
+    CGFloat vcTop = 114;
+    if (UI_IS_IPHONEX) {
+        vcTop = 138;
+        self.headerTopContraint.constant = 88;
+    }
+    
     self.sysTemView.hidden = NO;
     self.commentView.hidden = YES;
     
-    self.systemMessageVC.view.frame = CGRectMake(0, 114, _k_w, _k_h - 104);
-    self.commentMessageVC.view.frame = CGRectMake(0, 114, _k_w, _k_h - 104);
+    self.systemMessageVC.view.frame = CGRectMake(0, vcTop, _k_w, _k_h - 104);
+    self.commentMessageVC.view.frame = CGRectMake(0, vcTop, _k_w, _k_h - 104);
     [self.view addSubview:_commentMessageVC.view];
     [self.view addSubview:_systemMessageVC.view];
     self.commentMessageVC.view.hidden = YES;

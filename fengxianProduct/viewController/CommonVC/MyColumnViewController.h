@@ -17,3 +17,5 @@ typedef void (^ColumnResult)(NSMutableArray * resultArr);
 @property (copy,nonatomic)ColumnResult columnResult;
 
 @end
+
+

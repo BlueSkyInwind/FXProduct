@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -191,12 +191,14 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="6tB-kH-WoM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="50M-hz-dGM"/>
+                <constraint firstAttribute="trailing" secondItem="mQY-ww-5qG" secondAttribute="trailing" constant="32" id="9iP-yb-0lf"/>
                 <constraint firstAttribute="trailing" secondItem="6tB-kH-WoM" secondAttribute="trailing" id="G58-wx-dcy"/>
                 <constraint firstAttribute="trailing" secondItem="VwB-9S-vc8" secondAttribute="trailing" id="JZf-ms-Pzb"/>
                 <constraint firstItem="mQY-ww-5qG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="XYt-ft-IQi"/>
                 <constraint firstItem="6tB-kH-WoM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bVM-ML-eEM"/>
                 <constraint firstAttribute="bottom" secondItem="VwB-9S-vc8" secondAttribute="bottom" id="iEO-ur-7Ij"/>
                 <constraint firstItem="VwB-9S-vc8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pM4-uC-Rjf"/>
+                <constraint firstItem="mQY-ww-5qG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="uFx-mP-PRv"/>
                 <constraint firstItem="mQY-ww-5qG" firstAttribute="top" secondItem="6tB-kH-WoM" secondAttribute="bottom" constant="23" id="vGd-wq-KSR"/>
                 <constraint firstItem="mQY-ww-5qG" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-23" id="wGP-m7-syF"/>
             </constraints>

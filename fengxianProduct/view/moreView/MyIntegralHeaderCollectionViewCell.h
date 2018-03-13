@@ -19,6 +19,7 @@
 @end
 
 @interface MyIntegralHeaderCollectionViewCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UILabel *titileLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *integralNumLabel;
 

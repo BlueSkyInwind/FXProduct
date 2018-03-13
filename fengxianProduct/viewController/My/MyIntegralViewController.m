@@ -73,7 +73,6 @@
 -(void)configureView{
         
     UICollectionViewFlowLayout  * columnCustomLayout = [[UICollectionViewFlowLayout alloc] init]; // 自定义的布局对象
-
     _integalCollectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:columnCustomLayout];
     _integalCollectionView.backgroundColor = [UIColor whiteColor];
     _integalCollectionView.dataSource = self;
@@ -82,6 +81,10 @@
     [self.integalCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    if (UI_IS_IPHONEX && @available(iOS 11.0, *)) {
+        _integalCollectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        _integalCollectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    }
     
     [_integalCollectionView registerNib:[UINib nibWithNibName:@"IntegralGoodsCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"IntegralGoodsCollectionViewCell"];
     [_integalCollectionView registerNib:[UINib nibWithNibName:@"MyIntegralHeaderCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"MyIntegralHeaderCollectionViewCell"];
@@ -119,7 +122,6 @@
 }
 -(void)integralConvertDetailClick{
     
-
     IntegralExchangeListViewController * goodsExchangeVC = [[IntegralExchangeListViewController alloc]init];
     [self.navigationController pushViewController:goodsExchangeVC animated:YES];
     
