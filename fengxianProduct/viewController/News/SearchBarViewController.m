@@ -119,7 +119,7 @@
     _searchController.searchBar.showsCancelButton = YES;
     _searchController.searchBar.delegate = self;
     UIButton *cancleBtn = [_searchController.searchBar valueForKey:@"cancelButton"];
-    
+
     //修改标题和标题颜色
     [cancleBtn setTitle:@"取消" forState:UIControlStateNormal];
     [cancleBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -128,14 +128,16 @@
         _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         _tableView.contentInset = UIEdgeInsetsMake(132, 0, 0, 0);
         UIView *searchBarTextField = [_searchController.searchBar.subviews.firstObject subviews][1];
-        [searchBarTextField subviews].firstObject.backgroundColor = UI_MAIN_COLOR;
-//        [_searchController.searchBar setSearchFieldBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor] size:CGSizeMake(_k_w * searchBarWidth,26)] forState:UIControlStateNormal];
+        [searchBarTextField subviews].firstObject.backgroundColor = [UIColor whiteColor];
+        searchBarTextField.layer.cornerRadius = 5;
+        searchBarTextField.clipsToBounds = true;
         self.navigationItem.searchController = _searchController;
         self.navigationItem.hidesSearchBarWhenScrolling = false;
     }else{
         self.navigationItem.titleView = _searchController.searchBar;
     }
     [self.view addSubview:_tableView];
+    
 }
 
 -(void)clearSearchHistory{

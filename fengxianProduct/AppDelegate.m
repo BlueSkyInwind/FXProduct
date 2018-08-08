@@ -191,7 +191,7 @@ AppDelegate *app = nil;
 }
 -(void)NotificationJump:(NSDictionary *)contentInfo{
     
-    //  {"extras":{"Type":2},"alert":"【礼品兑换通知】更多积分兑换商品，敬请期待！！"}}
+//  {"extras":{"Type":2},"alert":"【礼品兑换通知】更多积分兑换商品，敬请期待！！"}}
 //    NotificationModel * notificationM = [[NotificationModel alloc]initWithDictionary:contentInfo error:nil];
     NotificationDetailModel * notificationDetailM =  [[NotificationDetailModel alloc]initWithDictionary:contentInfo error:nil];
     currentVC = [[ShareConfig share]topViewController];

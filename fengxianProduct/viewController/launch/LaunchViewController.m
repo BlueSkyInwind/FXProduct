@@ -19,6 +19,7 @@
     UIWebView * webViewTwo;
 
 }
+@property (nonatomic,strong)FLAnimatedImageView * animatedImageView;
 
 @end
 
@@ -41,10 +42,13 @@
     NSData *gif = [NSData dataWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"launch_Image3" ofType:@"gif"]];
     // view生成
     
-    FLAnimatedImageView * imageView = [[FLAnimatedImageView alloc]initWithFrame:frame];
-    imageView.animatedImage = [FLAnimatedImage animatedImageWithGIFData:gif];
-    [self.view addSubview:imageView];
-    
+    __weak typeof (self) weakSelf = self;
+    self.animatedImageView = [[FLAnimatedImageView alloc]initWithFrame:frame];
+    self.animatedImageView.animatedImage = [FLAnimatedImage animatedImageWithGIFData:gif];
+    [self.view addSubview:self.animatedImageView];
+    self.animatedImageView.loopCompletionBlock = ^(NSUInteger loopCountRemaining) {
+        [weakSelf.animatedImageView stopAnimating];
+    };
     
 //    if ([UIDevice  systemVersion] > 9.0) {
 //
@@ -58,8 +62,8 @@
 //        webViewTwo.userInteractionEnabled = NO;//用户不可交互
 //        [webViewTwo loadData:gif MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
 //        [self.view addSubview:webViewTwo];
-//
 //    }
+    
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];

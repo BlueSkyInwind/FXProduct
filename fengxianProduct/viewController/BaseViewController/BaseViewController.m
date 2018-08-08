@@ -38,7 +38,6 @@
     UIBarButtonItem *barBtn = [[UIBarButtonItem alloc]initWithTitle:title style:UIBarButtonItemStylePlain target:self action:@selector(singin)];
     barBtn.tintColor = [UIColor whiteColor];
     self.navigationItem.leftBarButtonItem = barBtn;
-    
 }
 - (void)singin
 {
